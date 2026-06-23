@@ -1,0 +1,38 @@
+Python’s Specialized Counting Dictionary
+Counting occurrences of items—such as words in a text, elements in a dataset, or inventory items—is a
+very common programming task. While Python dictionaries can certainly handle these jobs, there's an
+even better tool in Python’s standard library designed exactly for this purpose: collections.Counter.
+What exactly is a Counter?
+Formally, it's a specialized dictionary that maps unique elements to integer counts, which makes it
+Python’s built-in implementation of what's called a multiset (also known as a bag). Unlike regular sets,
+which only store distinct elements once, a multiset allows elements to appear multiple times and keeps
+track of how many times each appears.
+Creating Counters
+To use Counter, you first import it from the built-in collections module:
+from collections import Counter
+You can create a Counter in several intuitive ways:
+# From a string: counts each character
+c1 = Counter("banana")
+# Output: Counter({'a': 3, 'n': 2, 'b': 1})
+# From a list of items
+c2 = Counter(['red', 'blue', 'red', 'green', 'blue', 'red'])
+# Output: Counter({'red': 3, 'blue': 2, 'green': 1})
+# Directly using keyword arguments
+c3 = Counter(apples=5, oranges=2)
+# Output: Counter({'apples': 5, 'oranges': 2})
+Accessing Counts
+Accessing counts with a Counter is easy and intuitive. Importantly, missing keys default gracefully to
+zero:
+c = Counter("apple")
+print(c['p']) # Outputs: 2
+print(c['z']) # Outputs: 0 (no KeyError!)
+Updating Counts
+Counters make incrementing counts straightforward, even for new elements:
+c = Counter()
+c['red'] += 1 # Adds 'red' with count 1
+c.update(['red', 'blue', 'red']) # Adds counts from iterable
+# Result: Counter({'red': 3, 'blue': 1})
+You can subtract counts similarly:
+c.subtract(['red', 'green'])
+# Result: Counter({'red': 2, 'blue': 1, 'green': -1})
+135

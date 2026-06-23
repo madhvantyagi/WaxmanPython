@@ -1,0 +1,32 @@
+The `zip` function then combines the elements of these tuples based on their index. It takes all the first
+elements of these tuples and groups them together, and does the same with the second elements. So, you
+get two groups: one for numbers `(1, 2, 3)` and one for letters `('a', 'b', 'c')`.
+3.The output of `zip` is a zip object that yields tuples. The first tuple contains all the first elements of the
+original tuples (`(1, 2, 3)`), and the second tuple contains all the second elements (`('a', 'b', 'c')`).
+These tuples are then unpacked into two variables, `numbers` and `letters`.
+4. Printing the Results:
+`print(numbers)` outputs `(1, 2, 3)` which are the grouped first elements of each tuple in `pairs`.
+`print(letters)` outputs `('a', 'b', 'c')` which are the grouped second elements of each tuple in `pairs`.
+This technique is often used for transposing data structures or for parallel iteration in Python.
+Using `zip` in a Loop
+You can use `zip` in a for loop to iterate over multiple lists in parallel:
+for number, letter in zip([1, 2, 3], ['a', 'b', 'c']):
+print(number, letter)
+This would output:
+1 a
+2 b
+3 c
+Creating Dictionaries
+You can also use `zip` to create dictionaries when you have two lists: one for keys and one for values:
+keys = ['a', 'b', 'c']
+values = [1, 2, 3]
+dictionary = dict(zip(keys, values))
+print(dictionary) # Output: {'a': 1, 'b': 2, 'c': 3}
+So, zip can be used for a variety of purposes, including transposing matrices, iterating in parallel, and
+creating dictionaries, among others.
+Transposing matrices
+How?
+The `zip(*B)` expression in Python is used for unpacking and transposing the elements of an iterable `B`.
+The transpose of a matrix is obtained by swapping the rows and columns. For the matrix `B` you
+provided, the transpose would be achieved by turning the rows of `B` into columns.
+128

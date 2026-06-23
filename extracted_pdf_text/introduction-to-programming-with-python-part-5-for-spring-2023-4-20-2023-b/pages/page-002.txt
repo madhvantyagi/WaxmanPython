@@ -1,0 +1,28 @@
+Sets
+Like a list, a set is a “container” that gives us a place to store a collection of elements.
+Unlike a list, a set can contain only one copy of any element.
+set
+We can use Python’s built-in container to check for duplicates.
+We can create a set S with the following syntax:
+s=set([iterable])
+S=set() creates an initially empty set.
+If IT is some iterable (like a set) the s=set(IT) creates a set that is initialized with the elements of IT (for
+example a list)
+The set provides the following operations (among others):
+add(elem)
+Add element elem to the set.
+remove(elem)
+Remove element elem from the set. Raises KeyError if elem is not contained in the set.
+discard(elem)
+Remove element elem from the set if it is present.
+pop()
+Remove and return an arbitrary element from the set. Raises KeyError if the set is empty.
+clear()
+Remove all elements from the set.
+len(s)
+Return the cardinality (number of elements) of set s.
+x in s
+Test x for membership in s.
+x not in s
+Test x for non-membership in s.
+111

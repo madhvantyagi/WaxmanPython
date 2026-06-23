@@ -1,0 +1,25 @@
+//overloaded [] lets us write
+//SA x(10,20); x[15]= 100;
+int& operator[](int i){
+if(i<low || i>high)
+{cout<< "index "<<i<<" out of range"<<endl;
+exit(1);}
+return p[i-low];
+}
+// overloaded assignment lets us assign
+// one SA to another
+SA & operator=(const SA & s){
+if(this==&s)return *this;
+delete [] p;
+int size=s.high-s.low+1;
+p=new int[size];
+for(int i=0; i<size; i++)
+p[i]=s.p[i];
+low=s.low;
+high=s.high; return
+*this;
+}
+// overloads << so we can directly print SAs friend
+ostream& operator<<(ostream& os, SA s);
+};
+16

@@ -1,0 +1,34 @@
+Definition: A sort is stable if it guarantees not to change the relative order of elements that compare equal
+— this is helpful for sorting in multiple passes (for example, sort by department, then by salary grade).
+Insertion Sort
+def insertion_sort(arr):
+# Traverse through 1 to len(arr)
+for i in range(1, len(arr)):
+key = arr[i]
+# Move elements of arr[0..i-1], that are greater than key,
+# to one position ahead of their current position
+j = i - 1
+while j >= 0 and key < arr[j]:
+arr[j + 1] = arr[j]
+j -= 1
+arr[j + 1] = key
+return arr
+arr = [12, 11, 13, 5, 6]
+insertion_sort(arr)
+print("Sorted array is:", arr)
+Question: Is insertion sort stable? How do you know?
+Characteristics of Insertion Sort:
+Best Case Scenario: The best case occurs when the array is already sorted. Here, the algorithm only
+makes a single comparison per element, leading to a runtime complexity of O(n).
+Worst Case Scenario: The worst case occurs when the array is sorted in reverse order. Every element has
+to be compared with all the other elements already sorted (to its left), leading to a runtime complexity of
+O(n^2).
+Stability: Insertion Sort is stable; it does not change the relative order of elements with equal keys.
+In-Place: It is an in-place sorting algorithm, as it only requires a constant amount O(1) of additional
+memory space.
+On line: can process its input piece-by-piece in a serial fashion, i.e., it can sort a list as it receives it,
+without needing the entire list beforehand..
+Insertion Sort's simplicity and the fact that it is in-place and stable make it useful for small datasets and as
+part of more complex algorithms like Timsort.
+Is insertion sort more efficient that selection sort? Why/how?
+146

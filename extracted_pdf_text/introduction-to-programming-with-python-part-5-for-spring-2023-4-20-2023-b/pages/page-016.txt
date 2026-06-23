@@ -1,0 +1,36 @@
+The preceding code shows another use of unpacking: allowing functions to return multiple values in a way
+that is convenient to the caller.
+As another example, the os.path.split() function builds a tuple (path, last_part) from a filesystem
+path:
+The `os.path.split()` function in Python is used to split a filesystem path into a tuple consisting of two
+parts:
+1. Everything except the last component of the path
+2. The last component of the path
+This can be useful for extracting the file name from a full file path, or for separating a directory path from
+a filename.
+The `os.path.split()` function is helpful for manipulating and extracting specific parts of filesystem paths,
+making it easier to work with files and directories in Python programs.
+>>> import os
+_,
+>>> filename = os.path.split('/home/luciano/.ssh/id_rsa.pub') #note the “_” at the beginning.
+>>> filename # matches the last part
+'id_rsa.pub'
+Another way of using just some of the items when unpacking is to use the * syntax, as we’ll see right
+away.
+Using * to Grab Excess Items
+Defining function parameters with *args to grab arbitrary excess arguments is a classic Python feature.
+We worked on the following example where we passed in an arbitrary number of arguments:
+Problem: Write a function "addem" that returns the sum of an arbitrary number of numbers.
+so addem(1,2) ==>3 and addem(1,2,3)==> 6.
+In Python 3, this idea was extended to apply to parallel assignment as well:
+>>> a, b, *rest = range(5)
+>>> a, b, rest
+(0, 1, [2, 3, 4])
+>>> a, b, *rest = range(3)
+>>> a, b, rest
+(0, 1, [2])
+>>> a, b, *rest = range(2)
+>>> a, b, rest
+(0, 1, [])
+Note that the excess items get put into a list.
+124

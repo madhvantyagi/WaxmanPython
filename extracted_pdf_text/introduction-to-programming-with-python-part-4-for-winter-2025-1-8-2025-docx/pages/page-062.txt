@@ -1,0 +1,7 @@
+Problem:
+Modify the program above so that we print the list as well as the maximum integer in the list. Do this
+two ways.
+Problem:
+Modify the program above so that it also prints the position in the list where the maximum element was
+found.
+134

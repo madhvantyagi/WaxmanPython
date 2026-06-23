@@ -1,0 +1,12 @@
+New topic
+Modules and Functions
+We have already seen that Python provides built-in function that we can use:
+These functions are available directly from the interactive shell. But …. say we want to get the square
+root of a number. It would seem reasonable that Python would provide a function to do that as well.
+But when I try to use what I think should work, I get this:
+But the following will work.
+Why?
+“math” is a module (= a file) containing a number of mathematical functions.
+The “import” statement instructs Python to “load” the module and make these functions available for
+use.
+73

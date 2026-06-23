@@ -1,0 +1,9 @@
+{
+  "source_pdf": "Classes PDF/introduction-to-programming-with-chart.pdf",
+  "output_dir": "extracted_pdf_text/introduction-to-programming-with-chart",
+  "combined_text_file": "extracted_pdf_text/introduction-to-programming-with-chart/combined.txt",
+  "page_count": 34,
+  "character_count": 43914,
+  "word_count": 7383,
+  "pages_with_no_text": []
+}

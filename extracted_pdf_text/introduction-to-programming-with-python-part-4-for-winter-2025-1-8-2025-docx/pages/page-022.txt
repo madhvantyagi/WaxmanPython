@@ -1,0 +1,36 @@
+Why those rules?
+Say we define a function with a non-default parameter following a default parameter. This could lead to
+ambiguity in function calls.
+# This function has invalid Python syntax
+def my_func(a=10, b):
+print(f"a: {a}, b: {b}")
+In this hypothetical situation, when calling my_func with a single argument, it would be unclear whether
+the provided argument should be assigned to a or b:
+my_func(5)
+• Should 5 be assigned to a, making use of the default value for b (which doesn't exist)?
+• Or should 5 be assigned to b, using the default value for a?
+This ambiguity arises because there's no clear rule to determine how to map the provided arguments to
+parameters when the parameters are not consistently defined (i.e., a mix of default and non-default
+parameters without clear ordering).
+To avoid such ambiguities, Python enforces the rule that once you start defining function parameters with
+default values, all following parameters must either have default values as well or be part of the variable
+arguments (*args or **kwargs). This rule ensures that there is always a clear and unambiguous mapping
+from provided arguments to the function's parameters, preserving the clarity and predictability of function
+calls.
+Default parameter values are evaluated once when the function is first defined, not each time the
+function is called. This often leads to surprising behavior if mutable objects are used as a default since
+they will retain the change and the original default won’t be the “default” anymore:
+def f(x, items=[]):
+items.append(x)
+return items
+f(1) # returns [1]
+f(2) # returns [1, 2]
+f(3) # returns [1, 2, 3]
+Notice how the default argument retains the modifications made from previous invocations and doesn’t
+reinitialize to the empty list. To prevent this, it is better to use None and add a check as follows:
+def func(x, items=None):
+if items is None:
+items = []
+items.append(x)
+return items
+94

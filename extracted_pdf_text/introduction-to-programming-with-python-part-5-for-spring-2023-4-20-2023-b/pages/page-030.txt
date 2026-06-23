@@ -1,0 +1,26 @@
+The for loop iterates line-by-line over the file until no more data is available.
+If you want to read the file in its entirety as a string, use the read() method like this:
+with open('data.txt') as file:
+data = file.read()
+If you want to read a large file in chunks, give a size hint to the read() method as
+follows:
+with open('data.txt') as file:
+while (chunk := file.read(10000)):
+print(chunk, end='')
+The := operator (the walrus operator – we saw this earlier) assigns to a variable and returns its value so
+that it can be tested by the while loop to break out. When the end of a file is reached, read() returns an
+empty string. We have this in C++ e.g. while(cin>>a) {…}
+An alternate way to write the above function is using break:
+with open('data.txt') as file:
+while True:
+chunk = file.read(10000)
+if not chunk:
+break
+print(chunk, end='')
+Reading data typed interactively in the console.
+To do that, use the input() function.
+For example:
+name = input('Enter your name : ')
+print('Hello', name)
+The input() function returns all of the typed text up to the terminating newline, which is not included.
+125

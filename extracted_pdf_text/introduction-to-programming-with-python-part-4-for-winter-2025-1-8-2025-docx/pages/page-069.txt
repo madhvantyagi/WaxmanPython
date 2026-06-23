@@ -1,0 +1,16 @@
+What can we do with a slice of a list?
+1. As we saw above, we can create a new list form a slice.
+2. We can assign to a slice and thereby replace one sub-list by another.
+Notice that this is a generalization of accessing and replacing one list element as in a[1]=12 which just
+replaced a single list element.
+When we use a slice we can indicate a stride.
+Huh?
+The stride is the length of the “step” that you take going from one element to the next when creating the
+slice.
+In the following example 2 is the stride.
+We can assign a list to a slice with a stride, but the list on the right hand side of the assignment must
+be the same size as the list produced by the slice. In the following example, both are of size 4.
+Note: The right hand side of a slice assignment can be any iterable (a string for example) and can be of
+any length. But if the slice has a stride, the list on the right hand side of the assignment must be the
+same size as the list produced by the slice..
+141

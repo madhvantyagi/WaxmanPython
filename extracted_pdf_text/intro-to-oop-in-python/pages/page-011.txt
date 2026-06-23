@@ -1,0 +1,37 @@
+variables if needed. However, it's important to note that static methods are not inherently tied
+to class variables and can be used independently.
+Let's add a static method to the `Rat` class:
+class Rat:
+@staticmethod
+def info():
+return "This is a class for representing rational numbers."
+You can call this method without creating an instance of `Rat`:
+print(Rat.info()) # "This is a class for representing rational numbers."
+To summarize, instance variables are for data unique to each instance, class variables are
+shared across all instances, and static methods provide functionality related to the class but are
+independent of class or instance variables.
+Deleters
+Deleter Method: This method is called when the attribute is deleted. It allows for cleanup actions or
+other processing.
+We saw thie above:
+@age.deleter
+def age(self):
+del self._age
+To define actions that happen upon deletion of a property, you use the deleter. This is a method with the
+same name as the property, decorated with `@property_name.deleter`.
+class MyClass:
+def __init__(self, value):
+self._my_property = value
+@property
+def my_property(self):
+return self._my_property
+@my_property.setter
+def my_property(self, value):
+if value < 0:
+raise ValueError("Value cannot be negative")
+self._my_property = value
+@my_property.deleter
+def my_property(self):
+print("Property is being deleted")
+del self._my_property
+11

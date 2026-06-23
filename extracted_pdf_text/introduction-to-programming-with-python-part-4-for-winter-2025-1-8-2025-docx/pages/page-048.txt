@@ -1,0 +1,33 @@
+Lists, Strings, Tuples, and Other Sequences
+The following 2 pages are for reference.
+Sequences represent ordered sets of objects indexed by nonnegative integers and include
+strings, (including Unicode strings) lists, and tuples. Strings are sequences of characters, and lists and
+tuples are sequences of arbitrary Python objects. Strings and tuples are immutable; lists allow
+insertion, deletion, and substitution of elements. All sequences support iteration.
+Don’t worry! All the strange terms above will be explained below.
+Operations and Methods Applicable to All Sequences
+Item Description
+s[i] Returns element of a sequence
+s[i:j] Returns a slice
+s[i:j:stride] Returns an extended slice
+len(s) Number of elements in s
+min(s) Minimum value in s
+max(s) Maximum value in s
+Operations Applicable to Mutable Sequences
+Item Description
+s[i] = v Item assignment
+s[i:j] = t Slice assignment
+s[i:j:stride] = t Extended slice assignment
+del s[i] Item deletion
+del s[i:j] Slice deletion
+del s[i:j:stride] Extended slice deletion
+Lists are sequences of arbitrary objects.
+You create a list as follows:
+names = [ “Dave”, “Mark”, “Ann”, “Phil” ]
+Lists are indexed by integers, starting with zero. Use the indexing operator to access and modify
+individual items of the list:
+a = names[2] # Returns the third item of the list, “Ann”
+names[0] = “Jeff” # Changes the first item to “Jeff”
+To append new items to the end of a list, use the append() method:
+names.append(“Kate”)
+120

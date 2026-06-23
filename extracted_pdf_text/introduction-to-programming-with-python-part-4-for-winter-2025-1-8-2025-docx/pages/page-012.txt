@@ -1,0 +1,34 @@
+Variable scoping in Python
+The term scoping refers to the visibility of variables (and all names) from within the program. If I set a
+variable’s value within a function, have I affected it outside of the function as well? What if I set a
+variable’s value inside a for loop?
+Python has four levels of scoping:
+• Local (i.e. the function that you are in)
+• Enclosing function
+• Global
+• Built-ins
+These are known by the abbreviation LEGB.
+If you’re in a function, then all four are searched, in order. If you’re outside of a function, then only the
+final two (globals and built-ins) are searched. Once the identifier is found, Python stops searching.
+That’s an important consideration to keep in mind. If you haven’t defined a function, you’re operating at
+the global level. Indentation might be pervasive in Python, but it doesn’t affect variable scoping at all.
+Unless you are in a function
+Python has very few reserved words; many of the most common types and functions we run are neither
+globals nor reserved keywords. Python searches the builtins namespace after the global one, before giving
+up on you and raising an exception.
+What if you define a global name that’s identical to one in built-ins?
+Then you have effectively shadowed (i.e. hidden) the “higher” value.
+sum = 0
+for i in range(5):
+sum += i
+print(sum)
+print(sum([10, 20, 30])) # sum is a built-in that accepts any appropriate iterable
+TypeError: 'int' object is not callable
+Why do we get this weird error?
+Because in addition to the sum function defined in built-ins, we have now defined a global variable named
+sum. And because globals come before built-ins in Python’s search path, Python discovers that sum is an
+integer and refuses to invoke it.
+It’s a bit frustrating that the language doesn’t bother to check or warn you about redefining names in built-
+ins. However, there are tools (e.g., pylint) that will tell you if you’ve accidentally (or not) created a
+clashing name.
+84

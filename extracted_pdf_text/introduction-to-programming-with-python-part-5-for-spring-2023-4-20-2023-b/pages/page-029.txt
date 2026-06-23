@@ -1,0 +1,35 @@
+Files: Input and Output
+Basic file operations
+output = open('C:\spam', 'w') Create output file ('w'means write)
+input = open('data', 'r') Create input file ('r'means read)
+input = open('data') Same as prior line ('r'is the default)
+aString = input.read() Read entire file into a single string
+aString = input.read(N) Read up to next Ncharacters (or bytes) into a string
+aString = input.readline() Read next line (including \nnewline) into a string
+aList = input.readlines() Read entire file into list of line strings (with \n)
+output.write(aString) Write a string of characters (or bytes) into file
+output.writelines(aList) Write all line strings in a list into file
+print(value, …file=’filename’) Write to file “filename” instead of to the screen
+output.close() Manual close (done for you when file is collected)
+output.flush() Flush output buffer to disk without closing any File.
+seek(N) Change file position to offset Nfor next operation
+for line in open('data'):use line File iterators read line by line
+open('f.txt', encoding='latin-1') Python 3.0 Unicode text files (strstrings)
+open('f.bin', 'rb') Python 3.0 binary bytes files (bytesstrings)
+Reading from files.
+Reading a file line by line using a “context manager” - with more examples later.
+with open('data.txt') as file:
+for line in file:
+print(line, end='') # end='' omits the extra newline
+• The open() function returns a new file object.
+• The with statement that precedes it declares a block of statements (or context) where the file is
+going to be used.
+Once control leaves this block, the file is automatically closed. If you don’t use the with statement, the
+code would need to look like this:
+file = open('data.txt')
+for line in file:
+print(line, end='') # end='' omits the extra newline
+file.close()
+It’s easy to forget the extra step of calling close() so it’s better to use the with statement and have the file
+closed for you.
+125

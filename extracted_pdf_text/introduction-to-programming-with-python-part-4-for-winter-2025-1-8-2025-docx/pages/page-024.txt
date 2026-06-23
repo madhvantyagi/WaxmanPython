@@ -1,0 +1,25 @@
+Here’s an example:
+def func(w, x, y, z):
+statements
+func('hello', 3, z=[1, 2], y=22) # note z before y, but that’s OK
+func(3, 22, w='hello', z=[1, 2]) # TypeError. Multiple values for w
+We can force the use of keyword arguments
+It is possible to force the use of keyword arguments. This is done by listing parameters after a *
+argument or just by including a single * in the definition.
+Consider the following examples:
+def read_data(filename, *, debug=False):
+...
+def product(first, *values, scale=1):
+result = first * scale
+for val in values:
+result = result * val
+return result
+In this example, the debug argument to read_data() can only be specified by keyword. This restriction
+often improves code readability:
+data = read_data('Data.csv', True) # NO. TypeError
+data = read_data('Data.csv', debug=True) # Yes.
+The product() function takes any number of positional arguments and an optional keyword-only argument.
+For example:
+result = product(2,3,4) # Result = 24
+result = product(2,3,4, scale=10) # Result = 240
+96

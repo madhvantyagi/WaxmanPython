@@ -1,0 +1,8 @@
+Problem:
+Now, here is a definition: A saddle point in a 2 dimensional square table is an entry in the table whose
+value is the minimum in its row and maximum in its column. In the table below, 0 is a saddle point.
+Write a function to find a saddle point in a 2 dimensional table in any two dimensional square of
+integers, if one exists. If a saddle point was found return a triple (value, x pos, y pos). If a saddle point
+was not found return “not found”
+11
+10

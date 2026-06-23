@@ -1,0 +1,7 @@
+# Using the decorated function
+print("Calling decorated function:")
+original_function(5, 10)
+# Using the undecorated function via an attribute of the decorated function
+print("\nCalling undecorated function:")
+original_function.original(5, 10)
+11

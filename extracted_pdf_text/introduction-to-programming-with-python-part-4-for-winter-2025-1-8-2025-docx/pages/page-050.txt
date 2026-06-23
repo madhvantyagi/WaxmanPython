@@ -1,0 +1,13 @@
+We will start with
+Lists
+A list in Python is a mutable sequence of any time of Python object.
+What does this mean??
+Example:
+x=[1,23,”hello” , [3.4]]
+x is the name of the list. It has 4 elements:
+• the integer 1
+• the integer 23
+• the string “hello”
+• the list [2,3]
+It looks something like this in memory.
+122

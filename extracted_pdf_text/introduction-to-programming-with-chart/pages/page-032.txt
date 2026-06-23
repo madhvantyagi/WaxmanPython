@@ -1,0 +1,32 @@
+#now plot the results
+import matplotlib.pyplot as plt
+def plot_bar_graph(data_dict):
+# Extracting keys and values from the dictionary
+keys = data_dict.keys()
+values = data_dict.values()
+# Creating the bar graph
+plt.figure(figsize=(8, 4))
+plt.bar(keys, values)
+# Adding labels and title (optional)
+plt.xlabel('Grade intervals')
+plt.ylabel('Number of grades')
+plt.title('Midterm grade distribution')
+# Displaying the bar graph
+plt.show()
+plot_bar_graph(interval_counts)
+Pyplot is a Matplotlib module that provides a MATLAB-like interface.
+The line `plt.figure(figsize=(8, 4))` is a command from Matplotlib, a popular data visualization library in
+Python, and it's used to create a new figure with a specific size.
+Here's a breakdown of what this command does:
+plt.figure(): This function is used to create a new figure. A figure in Matplotlib is like a canvas on which
+you can draw plots and other visual elements. When you create a figure, you are essentially initializing a
+new area for plotting.
+figsize=(8, 4): This parameter specifies the size of the figure in inches. The `figsize` argument is a tuple,
+where the first element is the width and the second is the height of the figure. In this case, `figsize=(8, 4)`
+means the figure is 8 inches wide and 4 inches tall.
+The size is in inches, which can be a bit unintuitive if you're used to working in pixels or other units.
+However, inches are a standard in the publishing world, which is why Matplotlib uses them.
+The size in inches is converted to pixels using the figure's DPI (dots per inch) setting, which can be
+adjusted but defaults to 100 in most Matplotlib backends. So, in this case, the actual size of the figure
+would be 800x400 pixels at the default DPI.
+160

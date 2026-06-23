@@ -1,0 +1,29 @@
+As an example, consider the sort() method of a list:
+>>> items = [10, 3, 2, 9, 5]
+>>> items.sort() # Observe: no return value
+>>> items
+[2, 3, 5, 9, 10]
+>>>
+The sort() method performs an in-place sort of list items. It returns no result. The lack of a
+result is a strong indicator of a side effect—in this case, the elements of the list got
+rearranged.
+Argument unpacking when passing arguments.
+Sometimes you already have data in a sequence or a mapping that you’d like to pass to a
+function. To do this, you can use * and ** in function invocations.
+For example:
+def func(x, y, z):
+...
+s = (1, 2, 3)
+# Pass a sequence as arguments
+result = func(*s)
+# Pass a mapping as keyword arguments
+d = { 'x':1, 'y':2, 'z':3 }
+result = func(**d)
+You may be taking data from multiple sources or even supplying some of the arguments
+explicitly, and it will all work as long as the function gets all of its required arguments,
+there is no duplication, and everything in its calling signature aligns properly. You can
+even use * and ** more than once in the same function call. If you’re missing an argument
+or specify duplicate values for an argument, you’ll get an error. Python will never let you
+call a function with arguments that don’t satisfy its signature.
+We will return to this topic in greater detail later on.
+102

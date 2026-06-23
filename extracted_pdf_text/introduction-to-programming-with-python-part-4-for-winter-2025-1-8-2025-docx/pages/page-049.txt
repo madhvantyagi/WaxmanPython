@@ -1,0 +1,34 @@
+To insert an item in the list, use the insert() method:
+names.insert(2, “Sydney”)
+You can extract or reassign a portion of a list by using the slicing operator:
+b = names[0:2] # Returns [ “Jeff”, “Mark” ]
+c = names[2:] # Returns [ “Sydney”, “Ann”, “Phil”, “Kate” ]
+names[1] = ‘Jeff’ # Replace the 2nd item in names with ‘Jeff’
+names[0:2] = [‘Dave’,’Mark’,’Jeff’] # Replace the first two items of
+# the list with the list on the right.
+Use the plus (+) operator to concatenate lists:
+a = [1,2,3] + [4,5] # Result is [1,2,3,4,5]
+Lists can contain any kind of Python object, including other lists, as in the following example:
+a = [1,”Dave”,3.14, [“Mark”, 7, 9, [100,101]], 10]
+Nested lists are accessed as follows:
+a[1] # Returns “Dave”
+a[3][2] # Returns 9
+a[3][3][1] # Returns 101
+List Methods
+Method Description
+list(s) Converts s to a list.
+s.append(x) Appends a new element, x, to the end of s.
+s.extend(t) Appends a new list, t, to the end of s.
+s.count(x) Counts occurrences of x in s.
+s.index(x [,start [,stop]]) Returns the smallest i where s[i]==x.
+start and stop optionally specify the starting and ending index for the
+search.
+s.insert(i,x) Inserts x at index i.
+s.pop([i]) Returns the element i and removes it from the list. If i is omitted, the last
+element is returned.
+s.remove(x) Searches for x and removes it from s.
+s.reverse() Reverses items of s in place.
+s.sort([keyf [, reverse]]]) Sorts items of s in place.
+Keyf is a key function. Reverse
+is a flag that sorts the list in reverse order.
+121

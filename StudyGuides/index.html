@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python Exam Study Guides</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172026;
+      --muted: #58636d;
+      --line: #d7dde3;
+      --panel: #f5f7f9;
+      --accent: #0f766e;
+      --accent-dark: #115e59;
+      --warn: #8a4b00;
+      --warn-bg: #fff7e6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #ffffff;
+      line-height: 1.5;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      background: #eef6f5;
+    }
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    header .wrap {
+      padding: 34px 0 28px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      max-width: 840px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    main {
+      padding: 28px 0 48px;
+    }
+    h2 {
+      margin: 28px 0 12px;
+      font-size: 1.45rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .guide {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+    }
+    .guide h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+    .guide p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    a {
+      color: var(--accent-dark);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 0;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: var(--panel);
+      color: #33414c;
+      font-size: 0.86rem;
+      border: 1px solid var(--line);
+    }
+    .plan {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .day {
+      border-left: 4px solid var(--accent);
+      background: var(--panel);
+      padding: 12px 14px;
+      border-radius: 6px;
+      min-height: 112px;
+    }
+    .day strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+    .day p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+    .notice {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border: 1px solid #f0cf8a;
+      border-radius: 8px;
+      color: var(--warn);
+      background: var(--warn-bg);
+    }
+    code {
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.92em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Python Exam Study Guides</h1>
+      <p class="subtitle">One HTML guide per class PDF, built from extracted PDF text. Use these for output prediction, behind-the-scenes Python mechanics, memory/reference behavior, and professor-style trick questions.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h2>Guide Files</h2>
+    <section class="grid" aria-label="Study guide links">
+      <article class="guide">
+        <h3><a href="tricky-python-final-exam-drill.html">Tricky Python Final Exam Drill Sheet</a></h3>
+        <p>Combined edge-case question sheet from all six guides plus the final-review video transcript. Focuses on exact output, exact errors, memory/reference behavior, mutation, iterators, generators, decorators, dictionaries, and OOP traps.</p>
+        <div class="stats"><span class="pill">Combined sheet</span><span class="pill">136 drill blocks</span><span class="pill">Use first for exam practice</span></div>
+      </article>
+
+      <article class="guide">
+        <h3><a href="python-final-last-hour-review.html">Python Final Last-Hour Review</a></h3>
+        <p>Compact memory sheet for the final pass: methods, mutation rules, references, comprehensions, iterators, generators, decorators, files, CSV, matrices, and common traps.</p>
+        <div class="stats"><span class="pill">Last-hour sheet</span><span class="pill">7 sections</span><span class="pill">Use right before exam</span></div>
+      </article>
+
+      <article class="guide">
+        <h3><a href="introduction-to-programming-with-python-part-4-for-winter-2025-1-8-2025-docx.html">Part 4: Runtime, Lists, Mutation, Sorting</a></h3>
+        <p>The largest guide. Focuses on execution tracing, references, mutability, 2D lists, copying, sorting, bytecode/runtime notes, and print-output traps.</p>
+        <div class="stats"><span class="pill">93 PDF pages</span><span class="pill">20,383 extracted words</span><span class="pill">Highest priority</span></div>
+      </article>
+
+      <article class="guide">
+        <h3><a href="introduction-to-programming-with-python-part-5-for-spring-2023-4-20-2023-b.html">Part 5: Functions, References, Call Behavior</a></h3>
+        <p>Function calls, name binding, mutation versus rebinding, stack frames, object identity, and tricky output prediction from reference behavior.</p>
+        <div class="stats"><span class="pill">38 PDF pages</span><span class="pill">7,070 extracted words</span></div>
+      </article>
+
+      <article class="guide">
+        <h3><a href="introduction-to-programming-with-chart.html">Charts, Dictionaries, Files, Grouping</a></h3>
+        <p>Dictionaries, views, <code>Counter</code>, <code>defaultdict</code>, CSV-style grouping, pickle, inverted indexes, and chart-building logic.</p>
+        <div class="stats"><span class="pill">34 PDF pages</span><span class="pill">7,383 extracted words</span></div>
+      </article>
+
+      <article class="guide">
+        <h3><a href="introduction-to-programming-decorators-docx.html">Decorators and Closures</a></h3>
+        <p>Functions as objects, closures, wrapper functions, decorator call order, metadata traps, recursion with decorators, and timing wrappers.</p>
+        <div class="stats"><span class="pill">21 PDF pages</span><span class="pill">3,479 extracted words</span></div>
+      </article>
+
+      <article class="guide">
+        <h3><a href="intro-to-oop-in-python.html">Object-Oriented Programming</a></h3>
+        <p>Classes, instances, attributes, methods, constructor behavior, <code>self</code>, identity, aliasing, and object-state output questions.</p>
+        <div class="stats"><span class="pill">18 PDF pages</span><span class="pill">4,204 extracted words</span></div>
+      </article>
+
+      <article class="guide">
+        <h3><a href="introduction-to-programming-generators.html">Generators and Iterators</a></h3>
+        <p>Iterator protocol, generator state, <code>yield</code>, lazy execution, <code>StopIteration</code>, <code>send</code>, and one-pass traversal traps.</p>
+        <div class="stats"><span class="pill">14 PDF pages</span><span class="pill">3,228 extracted words</span></div>
+      </article>
+    </section>
+
+    <h2>10-Day Study Order</h2>
+    <section class="plan" aria-label="Ten day study plan">
+      <div class="day"><strong>Days 1-2</strong><p>Part 4. Trace every list, aliasing, copy, sort, and output question by hand.</p></div>
+      <div class="day"><strong>Days 3-4</strong><p>Part 5. Drill function frames, rebinding, mutation, identity, and call-stack questions.</p></div>
+      <div class="day"><strong>Day 5</strong><p>Dictionaries/charts. Practice dict mutation, views, grouping, and output order assumptions.</p></div>
+      <div class="day"><strong>Day 6</strong><p>Decorators. Memorize decoration-time versus call-time behavior and wrapper flow.</p></div>
+      <div class="day"><strong>Day 7</strong><p>Generators. Practice next/yield/StopIteration state tracing until it feels mechanical.</p></div>
+      <div class="day"><strong>Day 8</strong><p>OOP. Trace <code>self</code>, instance attributes, class attributes, and shared references.</p></div>
+      <div class="day"><strong>Day 9</strong><p>Mixed mock. Combine Part 4, Part 5, decorators, generators, and OOP in one timed set.</p></div>
+      <div class="day"><strong>Day 10</strong><p>Review only missed traps. Redo wrong output questions without looking at answers first.</p></div>
+    </section>
+
+    <div class="notice">
+      Best use: do not read answers first. For every code block, write the exact output, then explain which names point to which objects after each line.
+    </div>
+  </main>
+</body>
+</html>

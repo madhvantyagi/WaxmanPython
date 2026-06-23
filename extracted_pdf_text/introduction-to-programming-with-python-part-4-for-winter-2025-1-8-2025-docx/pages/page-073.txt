@@ -1,0 +1,16 @@
+Question: Can you detect two inefficiencies in the implantation above?
+Answer:
+The following is a more efficient implementation of the same algorithm.
+def select_sort(x):
+for i in range(len(x)-1):
+m=x[i]
+pos=i
+for j in range(i,len(x)):
+if x[j]<m:
+m=x[j]
+pos=j
+x[i],x[pos]=x[pos],x[i]
+Questions:
+Why is it more efficient?
+Why does the outer for loop have range(len(x)-1) but the inner loop has range(i,len(x))?
+145

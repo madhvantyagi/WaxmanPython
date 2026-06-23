@@ -1,0 +1,31 @@
+Data hiding
+Data hiding in C++ is achieved by bundling the data and the methods that operate on the data
+within a class and restricting access to them by using access specifiers. Private members of a
+class are hidden from outside the class.
+Python does not have explicit private members like C++. However, by convention, a member
+prefixed with an underscore is treated as non-public.
+class MyClass:
+def __init__(self):
+self._hidden_data = 0
+def set_data(self, value):
+self._hidden_data = value
+def get_data(self):
+return self._hidden_data
+This convention serves as a hint to other programmers that a variable or method starting with
+an underscore is intended for internal use within the class or module, and it should not be
+accessed directly from outside.
+Here's how this works in practice:
+1. Convention Over Enforcement: Python's philosophy emphasizes the importance of
+readable and understandable code over strict access control. By convention, a single
+underscore (_) indicates that a member is intended for internal use. This is a
+"gentleman's agreement" among Python developers to avoid accessing these members
+directly from outside the class.
+2. Name Mangling for Stronger Encapsulation: For a stronger approach, Python uses
+name mangling for any member with double underscores at the beginning (but not at
+the end). This changes the way the member name is stored internally. For example,
+__myVar in a class MyClass is mangled to _MyClass__myVar, making it harder (but
+not impossible) to access from outside the class.
+3. No Absolute Privacy: Unlike languages like Java or C++, Python does not enforce
+strict access control. Even with name mangling, it's still possible to access and modify
+these members from outside the class. Python's philosophy is based on the idea of "we
+6

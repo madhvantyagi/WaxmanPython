@@ -1,0 +1,33 @@
+# Create a deep copy of the original dictionary
+copy_dict = copy.deepcopy(original_dict)
+# Modify the copy to demonstrate that it is independent of the original
+copy_dict['b']['d']['f']['g'] = 5
+# Print the original and copied dictionaries
+print(original_dict)
+print(copy_dict)
+The result is:
+{'a': 1, 'b': {'c': 2, 'd': {'e': 3, 'f': {'g': 4}}}}
+{'a': 1, 'b': {'c': 2, 'd': {'e': 3, 'f': {'g': 5}}}}
+So, the original dictionary has 'g': 4 but the copy has 'g': 5.
+Dictionaries and **kwargs in Python functions
+Recall that **kwargs is a syntax used in Python to pass a dictionary of keyword arguments to a function.
+The syntax **kwargs in a function parameter list allows the function to accept an arbitrary number of
+keyword arguments as a dictionary.
+For example:
+def my_func(**kwargs):
+for key, value in kwargs.items():
+print(f"{key}: {value}")
+Now, you can call this function with any number of keyword arguments:
+my_func(apple=3, banana=5, orange=2)
+and the output will be:
+apple: 3
+banana: 5
+orange: 2
+In this example, the **kwargs syntax allows the function to accept any number of keyword arguments
+and store them in a dictionary named kwargs. Inside the function, we can access the keyword arguments
+as key-value pairs in the kwargs dictionary.
+So, the relation between **kwargs and dictionaries is that **kwargs allows you to pass a dictionary of
+keyword arguments to a function, and the function can then access the keyword arguments as a dictionary.
+This can be a convenient way to pass a variable number of arguments to a function, especially when you
+don't know in advance how many arguments will be passed.
+145

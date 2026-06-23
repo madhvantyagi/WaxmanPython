@@ -1,0 +1,19 @@
+Dictionary membership is tested with the in operator:
+if 'IBM' in prices:
+p = prices['IBM']
+else:
+p = 0.0
+This particular sequence of steps can also be performed more compactly using the get() method:
+p = prices.get('IBM', 0.0) # prices['IBM'] if it exists, else 0.0 # or any other default
+Use the del statement to remove an element of a dictionary:
+del prices['GOOG']
+Although strings are the most common type of key, you can use many other Python objects,
+including numbers and tuples.
+For example, tuples are often used to construct composite or multipart keys:
+prices = { }
+prices[('IBM', '2015-02-03')] = 91.23
+prices['IBM', '2015-02-04'] = 91.42 # Parens omitted
+Any kind of object can be placed into a dictionary, including other dictionaries.
+However, mutable data structures such as lists, sets, and dictionaries cannot be used as
+keys.
+132

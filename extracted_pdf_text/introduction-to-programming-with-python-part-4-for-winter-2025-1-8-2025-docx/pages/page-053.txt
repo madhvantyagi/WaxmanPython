@@ -1,0 +1,6 @@
+How can we add elements to an existing list?
+Answer:
+There are a number of different ways. We start with two functions:
+• append – add “something” to the end of a list
+• extend – add all the elements of some sequence at the end of a list
+125

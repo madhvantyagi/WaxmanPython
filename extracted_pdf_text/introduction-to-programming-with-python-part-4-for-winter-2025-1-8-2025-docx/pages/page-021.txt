@@ -1,0 +1,35 @@
+A deeper dive into Python functions
+1. Argument evaluation
+2. Default arguments
+3. Variadic arguments
+4. Keyword arguments
+5. Variadic Keyword Arguments
+6. Functions Accepting All Inputs
+7. Positional-Only Arguments
+8. Names, Documentation Strings, and Type Hints
+9. Function Application and Parameter Passing
+10. Return Values
+1.Arguments are fully evaluated left-to-right before executing the function body.
+def add(x, y):
+return x + y
+For example, add(1+1, 2+2) is first reduced to add(2, 4) before calling the function. This is known as
+applicative evaluation order. The order and number of arguments must match the parameters given in the
+function definition. If a mismatch exists, a TypeError exception is raised. The structure of calling a
+function (such as the number of required arguments) is known as the function’s call signature.
+Try this:
+def add(x, y):
+return x + y
+a=1
+print(add(a,a+1))
+2.Python allows for default arguments
+You can attach default values to function parameters by assigning values in the function definition. For
+example:
+def split(line, delimiter=','):
+statements
+example: We have already encountered this in the print function
+Important rules
+1. When a function defines a parameter with a default value, that parameter and all the parameters
+that follow it are optional.
+2. It is not possible to specify a parameter with no default value after any parameter with a default
+value.
+93

@@ -1,0 +1,23 @@
+Problem:
+Read the file into one string and print the string.
+Answer:
+f=open('bears.txt')
+z=f.read()
+print(z)
+produces: What happened to the blank lines?
+Problem:
+Read the file into a string s, separate the words in to a list (use ‘ ‘ to indicate the separator between
+words. Print out the list.
+Answer:
+f=open('bears.txt')
+z=f.read()
+z=z.split(' ')
+print(z)
+produces:
+Note the ‘\n’ , the newline character. This causes a like break.
+but …
+f=open('bears.txt')
+z=f.read()
+z=z.splitlines()
+print(z)
+127

@@ -1,0 +1,18 @@
+In this example, `my_function` is decorated with `decorator1`, `decorator2`, and `decorator3`.
+Here’s how the decorators are applied:
+1. Innermost Decorator: `decorator1` is applied first because it is the closest to the function.
+2. Middle Decorator: `decorator2` is applied next, wrapping the result of `decorator1`.
+3. Outermost Decorator: `decorator3` is applied last, wrapping the result of `decorator2`.
+When `my_function()` is called, the execution flow is as follows:
+1. `decorator3`'s `wrapper` function is executed first.
+2. Inside `decorator3`'s `wrapper`, `decorator2`'s `wrapper` is executed.
+3. Inside `decorator2`'s `wrapper`, `decorator1`'s `wrapper` is executed.
+4. Finally, `decorator1`'s `wrapper` calls the original `my_function`.
+So, the output will be:
+Decorator 3
+Decorator 2
+Decorator 1
+Hello, World!
+This shows that decorators are applied from the innermost to the outermost, but they are
+executed from the outermost to the innermost when the decorated function is called.
+9

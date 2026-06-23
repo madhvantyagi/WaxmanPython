@@ -1,0 +1,37 @@
+Another use of * is a using zip(*B) to create a transpose of a matrix or any iterable B
+First let’s look at zip.
+The `zip` function in Python takes two or more sequences (like lists or tuples) and "zips" them together
+into a single iterable of tuples, where each tuple contains the elements from the input iterables that are in
+the same positions.
+Basic Usage
+If you provide two lists of equal length to `zip`, it pairs up the elements at each position:
+a = [1, 2, 3]
+b = ['a', 'b', 'c']
+zipped = zip(a, b)
+print(list(zipped)) # Output: [(1, 'a'), (2, 'b'), (3, 'c')]
+Handling Different Lengths
+If the input iterables are not of the same length, `zip` stops creating tuples when the shortest input iterable
+is exhausted:
+a = [1, 2, 3, 4]
+b = ['a', 'b']
+zipped = zip(a, b)
+print(list(zipped)) # Output: [(1, 'a'), (2, 'b')]
+Unzipping
+You can also use `zip` to "unzip" a list of tuples into separate lists:
+pairs = [(1, 'a'), (2, 'b'), (3, 'c')]
+numbers, letters = zip(*pairs)
+print(numbers) # Output: (1, 2, 3)
+print(letters) # Output: ('a', 'b', 'c')
+In the above example, the `*` operator is used to unpack the list of tuples, and `zip` then groups all the first
+elements together, all the second elements together, etc.
+Here's a breakdown of how it works:
+1. Initialization of the `pairs` List
+pairs = [(1, 'a'), (2, 'b'), (3, 'c')]
+This line creates a list of tuples, where each tuple contains a number and a corresponding letter.
+2. Using `zip(*pairs)`:
+numbers, letters = zip(*pairs)
+```
+`*pairs` is the unpacking operator, which unpacks the list `pairs` into its individual elements (tuples). So,
+after unpacking, it's as if you're passing each tuple as a separate argument to the `zip` function: `zip((1,
+'a'), (2, 'b'), (3, 'c'))`.
+127

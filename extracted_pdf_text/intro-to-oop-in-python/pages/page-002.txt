@@ -1,0 +1,34 @@
+// Other overloaded operators...
+};
+}
+// Overloaded I/O operators
+friend ostream& operator<<(ostream& os, const Rat& r);
+friend istream& operator>>(istream& is, Rat& r);
+};
+// Implement the I/O operators if needed
+ostream& operator<<(ostream& os, const Rat& r) {
+os << r.n << "/" << r.d;
+return os;
+}
+istream& operator>>(istream& is, Rat& r) {
+is >> r.n >> r.d;
+return is;
+}
+int main() {
+// Test the Rat class
+Rat r1(3, 4), r2(2, 5);
+Rat sum = r1 + r2;
+Rat diff = r1 - r2;
+Rat prod = r1 * r2;
+Rat quot = r1 / r2;
+cout << "Sum: " << sum << endl;
+cout << "Difference: " << diff << endl;
+cout << "Product: " << prod << endl;
+cout << "Quotient: " << quot << endl;
+return 0;
+}
+Notice:
+Data hiding and encapsulation
+Public and private members
+Multiple constructors and operator overloading
+2

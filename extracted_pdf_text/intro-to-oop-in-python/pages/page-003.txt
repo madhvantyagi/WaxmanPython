@@ -1,0 +1,39 @@
+Here is the python version:
+To create an equivalent Python class for the C++ Rat class, we need to translate the functionality into
+Python's class structure. This involves using Python's special methods for operator overloading
+and handling the initialization and representation of the class.
+class Rat:
+def __init__(self, n=0, d=1):
+self.n = n
+self.d = d
+# Accessor and mutator methods
+@property
+def n(self):
+return self._n
+@n.setter
+def n(self, value):
+self._n = value
+@property
+def d(self):
+return self._d
+@d.setter
+def d(self, value):
+if value == 0:
+raise ValueError("Denominator cannot be zero")
+self._d = value
+# Arithmetic operators
+def __add__(self, other):
+if isinstance(other, Rat):
+return Rat(self.n * other.d + self.d * other.n, self.d * other.d)
+elif isinstance(other, int):
+return self + Rat(other)
+def __radd__(self, other):
+return self + other
+def __sub__(self, other):
+if isinstance(other, Rat):
+return Rat(self.n * other.d - self.d * other.n, self.d * other.d)
+elif isinstance(other, int):
+return self - Rat(other)
+def __rsub__(self, other):
+return -self + other
+3

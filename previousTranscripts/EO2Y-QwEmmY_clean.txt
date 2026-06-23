@@ -1,0 +1,967 @@
+recording in progress so here is where we were right we were talking about P DRS
+we saw a number of solutions this I think is Page what in the notes page 62
+let's try the next one over here right we have a three-digit integer and there's
+no zero in units position so I I can have one two three but I can have 023 right
+and I mean I can have one two Z one two three but no one 120 when to return the
+digits in reverse order so I want just return the digits I don't want to create
+any new numbers I just want if you if you input one two three you're going to
+input you're going to Output three and then a two and then a one okay one next
+to the other okay nothing fancy you're going to take the integer you going take
+a three-digit integer take it apart and print the digits one next to the other
+and only using the things that we have so one way to do it for those of you use
+strings just to use strings and then simply read it out backwards but we can't
+do that yet once we took strings you can do that obviously but we want to just
+play with what we have Okay so let's try that uh Nicholas you want to maybe
+explain how you approach the problem don't show us the code but right now just
+some people might be you know hanging on on algorithm how did you approach this
+thing yeah so I used uh integer Division and modular arithmetic to extract
+individual ual numbers and then to reverse the order of them uh you just
+multiply them by different powers of 10 and add them together to rearrange them
+okay that's good however that's not what the problem was the problem was just to
+print them out right in other words you see what every what he said was you're
+going to use the division and the mod you could use division to division by what
+uh nichas divide by what uh it's integer division by uh different powers of 10
+right each time you're going to divide by 10 and then you're going to shrink and
+divide by 10 and then shrink what's left and the digits come out then what we
+want to do is we want to print them right so the we want to print the digits as
+they come out so if you have for example one two three if you read 123 the first
+digit to come out is going to be a three then print it and then the next digit
+come out is too so we don't want to create the new number we just want to print
+the digits uh from uh that came out we want to print them as they come out okay
+the what you mention is the very next problem going to work on okay so everybody
+that's how you could approach this all right Nicholas let's see let's see what
+you got uh it's says host disabled participant screen sharing oh I'm sorry right
+thank you I didn't disable it I just forgot to enable it here we go uh so you
+just do uh module arithmetic to get the last you mod by 10 to get the last digit
+and then you just integer divide by 10 to remove it and you just keep uh doing
+that for each number so if you enter something like one two three prints Out 3
+two one okay let's read let's read the specification go go bring up the the
+class notes okay for example read the for example part if you enter the integer
+1 two 3 then the program should output the digits 321 uh one next to another
+okay uh so then you could just store these in variables like first second third
+me you have to go in the other order second because first is the last St yes
+thank way okay very good I don't leave the screen up so what he did in terms of
+extracting the numbers is so classic way right in other words you have a number
+to take the number and to pick out the digits you do a you do a mod uh you do
+integer divide which picks out the very last digit and then you shrink the
+number so if I have 123 you pick out a three and then uh and then you left and
+when you when you shrink it you're going to get a 12 when you pick out
+successfully pick out the next digit you're going to get the two and then
+finally you're going to get the one could you have had only one print statement
+over here instead of uh I mean you have one print statement but instead of using
+instead of having first second and third uh you could print it with uh I think
+if you print it with no separator then it should print on one line how that and
+could you do it with with one statement with no separator or you still need to
+get the digits out one after the other I think you might still need to get it
+one after another right right all right so hold that thought we we'll see this
+later on very good okay thank you any questions about this I it's just missing
+the part that it says not divisible by 10 I used a loop no no no no Loop we
+didn't do loops yet it's a good point but we didn't do loops any any anybody do
+it significantly different who did it with the loop who was it who who just said
+they uh me Matthew Matthew okay we'll see that in a moment I mean a couple of
+moments okay let's go the next problem so what we did over here was we just
+printed the values out but let's say what we want to do now is we want to um do
+the same as before in input a three-digit number but return we want to return We
+want to make a new integer so in other words um that's we just saw a moment ago
+right but we want to do it I mean I think just you just did that right but we
+want to we want to I input uh 123 I want to print out I want to create
+internally and get the print I want to get the number 300 21 okay so what we did
+we just printed out 321 now we want to actually create the integer 321 so it's a
+three-digit integer you know that but we want to create it again uh no you can't
+use anything we didn't so we didn't use so obviously the way to do this sort of
+to Loop but we can't do that yet so let's see uh how you do that okay just using
+what we have who has uh anybody have a question here um ana you have a question
+or you just no I think for the last problem I actually did this by accident what
+you moved no I didn't move I like got the integer itself itself okay good very
+good right because right I'm moving very slowly because about two-thirds of the
+class or little bit less than that has no background yet right we'll see that in
+one moment so then you show us uh right away but me everybody work we would to
+create the number 321 if we put in 123 okay go to it Rohan a question or comment
+or oh no I just for got to lower my hand okay here we yeah um so this was my
+Approach um so you can see my screen right yes so these are the first three
+digits that you extract and then instead of printing them I concatenated them by
+converting so if we go through it with a number let's say 389 um our first digit
+is going to be three our second would be eight and our third would be nine we're
+going to move the nine to the front by multiplying it by 100 then we're going to
+move uh the eight the eight stays in the middle place and then the last digit
+becomes the unit and then you just print that digit that number get it all right
+run it let's see put 123 very good okay anybody have other way to look at it
+there any questions about this uh I did string concatenation uh okay show us no
+but the pro okay show us This Is My Method so I first extracted the first second
+and third digits and then uh I concatenated each by converting to a string and
+then I made all of it an integer so if I input one two three it gives me 3 two
+one okay keep it on the keep it on the screen okay first of all uh does this uh
+let's go through the whole thing what is this reversed uh equals uh reversed
+number equals minus one what's that for oh that's just like as a sentinel values
+like so I could like uh refer to it outside of the if so I could just print it
+you give me an example what did you do that for so somebody so like um if I
+don't have it here it's an air condition basically right so some put in 3,242
+what happen oh it still works so then what is the put reever put reverse number
+equals minus one okay so what is that show us an example where that be triggered
+so uh if I have like 23 it'll stay as negative one because because it's like uh
+it shows that uh that um the number wasn't able to get reversed because just one
+sense because it's not in the it's not because it's not in the range right right
+okay very good so keep it on keep it on now um we saw two different ways of
+looking at this essentially so the first one we saw was we pulled out the digits
+one by one we did the multiplication we multiplied by 100 we added them up right
+printed out the value and what he's doing over here is he's taking the and he's
+getting digits right he's get the first digit the second and the third and um
+and then he's he's he make he's converting them into Strings he's concatenating
+the strings and then he he makes the whole thing go into so gets gets a three
+and and a two and then a one and then he concatenates them these first first
+makes them to string concatenates them cors into int which do you think is more
+efficient the thing we saw earlier on solution or this this is also very nice
+it's a good idea he uses the facilities of python but which would run faster the
+first one the first one right because a lot of function calls over here right
+these are operators taking an integer converting it and convert converting and
+then there's concatenation operator and then there's another there's another
+conversion operator make it into a an integer right so and so you wouldn't even
+notice the difference in because the machines are so fast today but if you had
+this thing going in a loop it would make a big difference I run a million times
+and I time the first and I time this one this one goes slower yeah all right
+very nice thank you any questions oh that would be a good point right so should
+we' have done that right good all right that's a good point right because it
+says that's one of the one of the specifications excellent you got to do what
+the contract says all right so let's go back over here and we're going to share
+all right what's next there's no next so we go to the next that was part two I
+think right let's go to part three and ah so now we have repetition and Loops
+right now we can start using Y loops and for Loops but what was the big picture
+the big picture of course is that in every programming language including python
+uh you can you can change the order of the the the normal base uh set of
+operations is you do have a statement followed by another stat so you have a
+straight line program so the question was that's not always appropriate how do
+you you change how do you how do you change what happens next so we saw earlier
+one way to do this is with the various why with the various if statements right
+so in other words we we we have a Boolean expression and depending on the
+outcome of the Boolean expression we either do this thing or we do that thing
+right we had three forms of that and we sort of a sort of clever one where we
+use a Boolean to uh choose between um elements in a tuple or in a list um but
+there's another way to do this and uh that's with repetition and Loops it's the
+same basic concept I want to not do the straight line um uh program I want to be
+able to do that and then and then change what I do next right change what I do
+next so I can do that with repetitions also it's sort of that basic idea of of
+control of of what do I do what is what does a program do next so everybody
+knows what these things are we have y loops and we have four Loops right um and
+that's what you'd expect right so here's what the Y Loop looks like so we want
+to write a program that prints the numbers 1 to 10 and we want this to be the
+output so here's what we do with the Y Loop we initialize um I to one we have
+the word while we have a Boolean the same pattern as the other things we saw in
+a colon when you press the uh enter um it'll automatically indent and we're
+going to print I and then we're going to increment and that is the Y Loop syntax
+is as you would expect while buing expression no parentheses and a colon one or
+more statements for the block the semantics is as we we did this this called
+iteration um let's see what's this one over here so write a program it prints
+the numbers one through n one per line I think we just did that right so uh
+let's stop this we want to program get a positive integer and then print the
+numbers and down to one do this in 50 seconds okay the top on page 57 please I
+think we have three people did it already Okay everybody else 50 seconds can you
+do this at the command line or do you need to write a program often I think it's
+better to write a small program if you have input okay I share my screen now
+Professor go for it okay here is my solution okay talk us through it uh so first
+I get the input number if it's uh less than zero I print invalid negative
+integer because it's not valid so if it's greater than zero so I will print from
+num and then uh I decrease it by one so when num is greater than zero which is
+the last number is one uh I print and let's so so there it went so what did you
+input you input a 10 and you went from 10 down to one okay any any questions
+about this very good thank you let's go to the next one um let's do this we have
+to do this really quickly though okay so we're going to write a program you can
+use what you just have now you get an n greater than or equal to two and print
+the even numbers in the range from one to n one per line like we just saw okay
+screen hi professor I was trying out the Turner operator it didn't work for some
+reason just a here so if I enter 14 I will get everything from 14 all the way up
+to two uh this works by I enter a number I have a while loop that goes uh until
+num is greater than zero uh I have an if condition so the condition checks if
+it's an even number if it is even then we print the number and then we in
+decrement the counter um Professor I cannot hear you if you're talking yeah is
+there any way of improving the speed of this of making it um more efficient uh
+would a Turner operator be more efficient necessarily necessarily but if I if I
+uh let's say put the number one million how many times will you go through the
+loop a million times right but is there any way of making me go through just
+500,000 times uh by putting this in the while no no oh no that wouldn't work any
+idea I have an idea uh M go should half times n okay who we talking to Quan uh
+yes show your show your screen yes sir that was fine very nice except we want to
+make it go faster thank you so mine only goes through the loop uh uh n / by two
+[Music] times okay explain how it works sure so uh let's say put in a 10 yeah I
+ask for a number and then if it's greater greater or equal to two uh first it's
+going to print one and then it's going to go to a loop half the why is it going
+to print one uh because the the the exercise said from one to end right but then
+only once uh it only wants the even numbers but the range is one to nend but
+it's just printing the even numbers oh okay so I don't need to print one okay
+just keep this keep this on and go back to my thing over there right so now go
+back to my my thing my the class notes go back to the class notes right so this
+is typical namely that the user writes something to you that's not so coherent
+right this is I mean uh he was able he interpret this in some way that isn't you
+know that he didn't know what I meant right write a program they ask you for
+positive integer um it has to be greater than or equal to two right so you're
+not going to print a one but then I say from one to n so that sort of throws a
+monkey wrench into the into the works here so it's see that clear but what we
+really want over here so you have to you have to clarify with the user right
+what do you what it really mean over here so I want all the um I want to I want
+just the even numbers now do I want them going up or going down uh going up
+right right because it says get one to n so we're going to be going up all right
+so let's see how you do this so I give you a 10 right yeah so I first start with
+two okay so I print I print two over here and then I I I you're using you're
+using a um a for Loop a for Loop right okay and then I increase it by two making
+it just like going through the loop only half the amount of times it and then
+this last one is just in case if the number is odd so I just I just uh print the
+uh print the last one so if the number is odd let's say the number is 11 so what
+happens number 11 okay yeah uh it'll only go up to 10 because show us in the
+program why because uh so X right so X so yeah if X is bigger than y uh y
+meaning that the why is this like it's going to go up by two so if X is bigger
+than that it's just going to print it one last time is there any way of doing it
+without this check at the bottom how many times you going to do this check just
+once right yes okay any questions right so the else when what's going to trigger
+the else in this program if the inut is uh lesser than two okay very good any
+questions about this anybody do substantially diff different than this right so
+the idea is you you do it half the time by incrementing the appropriate amount
+of times right okay good question yes this is yes sir I had a question so um
+this will I understand this will go half the time through the loop but is going
+through the loop better or uh add adding like it's done over here better adding
+what like over here there was an addition inside the loop so I was thinking is
+printing without adding better or going would you do if you want to if you
+started with some number and you want to go to the next even number so how would
+you do without incrementing by two I see okay okay I see enough thank you all
+right good all right let's go back to take the screen back somehow there it goes
+take the screen back okay let's see this um let's do this this if you took Dr
+Reba's class you might have going to program like this use the ask you passive
+integer and then print a triangle like that okay I cleared the uh hands up so
+when you as soon as you finish put your hand up please all right Matthew let's
+see what you got all right I have this here enter an integer between 1 and 10 I
+do a range check with an if statement and in that if statement um I print like
+so I use a for loop we're doing for Loops right yeah and I use the range
+function very good take to account the fact that you can multiply strings by
+integers and they got the picture everybody yeah everybody did it the same way
+right okay very good let's try the next one thank you try the next one the next
+one to say go down what's the next one say yeah and go down so try that same
+basic idea except the other way go for it R okay screen so I did this I used the
+for Loop right and it decrements by one but okay show us that it works all right
+so it's working right uh the only thing is um we didn't look at the range
+function in detail where we can besides putting a single number in it we just
+can we can add various arguments right so can you do without let's say for you
+can can use rows directly or I in rows let's say rows is far let's put in rows
+instead of you know just rows without all that other stuff right for I for I in
+range rows I in range rows okay now just using that how would you do the
+printing um so so start one right so you want to go down so I I would do it from
+from the inputed value so the first one be 5 4 3 2 one right yeah and then I
+would decrease it every time so I know it decrements so you want you want to
+multiply the Star by rows by the range of rows by five but you want it to change
+each time right so what are the Val what's the value of I going to be here it's
+going to go one two three four right mhm by I wanted to decrease what do I start
+out as I will start out as five no if I in range row goes 0 1 two 3 4 right so
+let's say you multiply by row minus I would that work [Music] range RS your
+range function has an has an extra closing parenthesis also you're we want to do
+it rows let's let's say you're reading in rows so you don't need if rows is less
+than or equal to five all that's fine okay so it works right does that go all
+the way down that works okay we'll see what what um what you did what L luuka
+did was he he used knowledge of how the um how the range function Works which
+we'll see later on right and that that would be fine but we don't have that yet
+all you know with with range function is that you put in a value and it's going
+to count row amount of time and in fact we can use the the the I right we can
+use the value as it as it goes through this iterable but um that's it right so
+it started at zero so by subtracting each time we got the the appropriate thing
+all right head I was thinking about just decrementing like somehow putting a i
+minus minus right so that's essentially right but that's essentially what's
+going on we'll see that's an idea right that is true we'll see what we'll get
+later on but that's essentially what's going on here by printing the uh you know
+using using the value of of row is minus I that essentially decrements it
+because I goes up each time so you're decrementing by Zero by one by two by
+three is doing counting for you in the background okay let's see what's next now
+before we do that give me give me a second here can everyone just turn on the
+cameras for a moment just turn on the cameras look like half the people aren't
+here so it looks everybody is here in fact so why is nobody participating this
+is really very very straightforward stuff keep the cameras on for a second right
+yeah so people are here so what's what are you doing I can't believe that you
+know that given you guys made it to this class uh at least the stuff we're doing
+now is like 111 material at this point right it's going to get more interesting
+but people please participate don't do other stuff you hear anyway right so um
+schank again can you um aim at your face so we can see you smile there we go
+more better better let's see a big smile and then wave all right okay all right
+um what time is it let's take a break for 10 minutes come back in 10 minutes
+okay all right let's see what we got to do now can everybody see my screen here
+okay let's do this this is actually a little B more interesting than you would
+imagine we want to write a program that asks the user for positive integer n and
+calculate and print the sum of the integer it's very simple but I want to point
+out something over here that probably some of you will do so let's do this
+quickly we want to really do these things screen well um uh I think uh program
+should be this uh so I just have uh enter positive integer and then I just check
+if it's invalid or not and then I just set a initial value for the sum as with
+zero and then I just keep on adding the n and then I decrease it um until it's
+finally like zero and then I just print the sum so if I was to run this it
+should be like right 15 everybody see this make sense right just add them add up
+the digits from one to n the numbers from 1 to 10 the integers from 1 to n and
+then that works any questions leave it on for a second any questions about this
+anybody do it differently I just use the for Loop for the same all show us the
+for Loop all right let me stop Shar um here it is so I have the number and the
+sum initialized to zero for I in range num some uh plus equal to I did I + one
+because uh the range goes from zero to num minus one but I want to go from one
+to that's why I did I one okay let's put in a five five there we go okay let's
+go back to the program stay over here for a second okay look let's watch this so
+every this is a good idea um um right so and that works that's that's very works
+fine uh go back to the um this one no let let's um all right so the the issue
+let's see if this thing works um we saw that um let's let's do this go stay in
+the program right and it'll say print just right where you are now say say print
+open print and then say sum 1 two 3 4 5 no no that's not what I want uh print
+sum of the function sum sum all right 1 2 3 4 five Okay now what's the point
+here I'll do it run it let's see what happens okay um now uh everybody looking
+right does everybody see what's happening now at the at the right over here at
+the uh you know um at the shell type type of sum 1 2 3 4 5 the function right
+okay okay so you have an error over here so can can you read the error message
+um it says Trace spe most recent call last file iell number0 line L in module
+sum 134 five type error in object is not callable okay so all right so so using
+the there was a function that we saw called the sum function and somehow that
+doesn't work can someone else who did not use this variable sum can somebody
+show us this thank you that was very good oh I think uh I can fix my program by
+doing another rename this okay re rename it and see what okay five okay course
+some reason it's not work the sum function is not working for there somebody
+else somebody else uh thank you okay so who who did not use the variable Sun
+Rohan do you use the variable sum no I use total okay let's see so run your five
+where's where's the Run happening the there it goes I see okay now modify the
+original program and then do the same thing say print outside of the loop right
+and then say print the sum of 1 2 3 4 5 okay and then run it iterables I see I
+see okay right right I'm sorry right so um uh who's who who's sing this thing R
+do you know how to make a list go yeah go into the sum function right so put in
+put in a list try that see what happens right so now it works right now it works
+so what's what's going on over here it it if if we would have beforehand if we
+would have um with yaser's program we got a different error message right this
+message said it takes an iterable that was something I can get the next that can
+go through like a list which that is a list that's a list of the values one to
+five but um what happened over here so let me just leave this on for a second so
+we can come back to it let me just take over for the screen okay I'm GNA stop
+sharing you'll show me your screen in a second I want to go back over here so me
+share all right so the basic idea is like this um remember we saw this is not
+C++ and it's not and it's not uh it's not Java so um if I say in c+s if I have a
+variable sum that's adding integers I would say something like integer sum I
+would initialize the zero and then I would add it in was so on these programs
+and finally um um I would then print sum and I get the sum of values because
+what happens is as we saw before sum is the name of a location right so this
+location over here might be called sum um however that's not what's going on in
+Python when I say sum is equal to zero so there is we saw there's a there's a
+stack and the stack is basically a stack of pointers and this is pointing to the
+integer object that we start zero and then it goes 1 2 3 4 5 now once I do that
+um if I if I had not called it sum then because of the way that the python
+environment uh uh is is built sum starts out as a built-in function sum is
+pointing to the function called sum and it adds up stuff in iterable put the
+numbers in a list it's going to add up the values in the list over there right
+but once I so this this is what happens when I fire up python but but then if I
+were to say sum is equal to zero if I were to say sum is equal to zero what
+happens here is it breaks this initial connection of sum to the sum function
+that comes in the as part of the environment and now there's a function there's
+a there's an integer called sum and so it's no longer pointing to this that um
+no longer pointing to the original um the original function but now sum is now
+pointing to this integer object and it breaks the connection to the function
+right so the function no longer works so therefore don't do that right other
+words since everything is pointers function names are Pointers F pointers
+functions or anything that's a builtin is really the name as a pointer to that
+object if I have it point to something else it's not going to it it it doesn't
+care what I point to so for example example I could say sum is equal to hello
+right and so whatever it was originally pointing to some is point to high if it
+was even if it was originally pointing to the built-in Su function it's going to
+break that connection and then just point to the string object right so that was
+the problem with with uh with um when when y yeah I got it thank you I just want
+to make sure everybody understand what's going on here right so that's why what
+happened was what did it say can you read to us the the error message Yer what
+did it say sure um so uh first it said int object is not callable so my Su
+variable stored an integer right so when I tried to call sum or whatever it
+tried to use that as a function because of the bracket understand what y just
+said right initially sum was a callable call means something that acts like a
+function that I can call it right and if I don't use sum as something else as
+soon as I fire up The Interpreter some will be pointing to the built-in Su
+function but it doesn't care since it's pointers I can reassign the pointers and
+so when he said sum is equal to zero it broke the pointer to the built-in and
+then so then sum is now an integer and an integer is an integer it's not a
+quable it's not a function it's not a function name very good so you have to be
+careful not to use the names of things that are built into all right that's what
+I wanted to show this example was straightforward right but that was the only
+little hook that I wanted to point that out all right let's see what's next uh
+if I want to do the product say same thing it's trivial um Yer you want to bring
+up I saw you had a product was one over there bring up your program sure so I
+was trying to do the product so I would initialize the product to one and then
+uh try to multiply it out like before I did not test this though so let me try
+to see if it works I'm getting the product to be 24 I'm not sure if that is
+correct but uh this is how I would is that correct let's say he puts it in four
+so um what's GNA happen how much is the product oh yeah it is correct yeah 24 so
+the product is working let's show the program so See's starting at one you still
+use you I see so I overr the I fixed the sum with a su W whatever and the sum is
+working now the product uh uh for the product function the product is one so I'm
+doing for I in range uh in the number all the way up to that what's the Valu so
+let's say you put it put in a four what's the value of I first right so I would
+be zero however if I multiply it with zero I would get a zero it wouldn't work
+so I have to do right I plus one so it's going to be a one right and right so
+the product of one two three four is 24 okay everybody got that right so it's
+the same as the print okay let's go on try the next one the sum of the OD
+integers let's try that we're using a for Loop and then we'll see in a little
+while that we can make this even more concise by using the various arguments
+that we pass to the range object but meanwhile we can use only what we can use
+so let's try this one but very very fast just modify the programs that we have
+so far okay you tongue let's see your screen CL this a little bit louder can you
+expect a little bit louder yes so um I just added in if statement to check if
+the number is odd or not if it's odd I'm going to add it to sum okay um right
+could we so um could we uh make this a little bit faster we saw this issue
+before you're counting if num is a million right you're going to do this how
+many numbers will you generate basically a Million numbers yes we don't want to
+generate million numers we generate less numbers is it possible to do this with
+less numbers um not sure okay this works right see this works right because um
+she's she's generating a value and then testing if the value is uh is odd then
+it'll be added into some it has the same issue just before though if you do this
+and if you want to then use the built-in Su function uh to actually you know use
+that uh to add up values in a list or something it won't be able to because it
+break the connection but this will work all right thank you very much you okay
+uh yeah right all right somebody who did it a little bit differently I did it
+differently I used step though like skipping by step no steps no steps didn't
+okay anybody without the steps I did it without the steps you'll show it later
+with the steps right that's because that's the obvious way to do it but we
+didn't we didn't get there yet yeah all right very good so explain what you did
+all right I did um just some math to make it work this is just the odd numbers
+part so we have o which is the uh resulting sum we have this number x + 1 divide
+is equal to 2 I have this on the right um this on the left just to explain it
+when X is equal to 3 this number is going to resolve the two um when X is equal
+to four it's also going to resolve to two so this would be for X is equal to 3
+we're going to have one and three and we want to sum those numbers and four we
+want the same two numbers two numbers one and three five we have one three and
+five we want to sum together so this just gives us the correct number of numbers
+that we need and then we uh unpack the number into the number we want so with
+this is would be range um when X is equal to when we want to do X is equal to
+print um we want to get odd numbers summing is four which would be 1+ three so
+we have J is equal to 1 and then J is equal to 3 so that's 0 * 2 + 1 then 0 *
+then 1 * two plus one is three so we're just doing we're just calculating the
+odd numbers through math very good everybody sees this all right now let's say
+you weren't using a for Loop then you would just simply you know do what we did
+before you have the while you have have you have the um you have a um you could
+could you didn't do the while yet I see okay very good but we did the while loop
+right right so if you have a y Loop you just simply increment by two each time
+you start at one increment by two and you don't need the range and we'll see you
+pay anything for the range we'll see the range in a little while okay very good
+any any um any questions um Professor I had a question y um so over here uh for
+I in range I'm doing half the amount of looping but in every Loop I'm doing and
+and like I * 2 + 1 right so yeah is the I + 2 one that's is that better than
+doing one Loop I'm trying to think double the loops or half the loops plus the
+same amount of that doing the arithmetic each time right that's a good question
+right so um I I it's I would assume it's I wouldn't use the I would use a
+different construction here I would just use you use the Y Loop and make sure
+you just do it half the time and make sure I just add up the odd numbers I add
+two and then I cut down all the arithmetic right I see that makes sense thank
+you that's the fastest way but all these things work it's a good idea all these
+things work you know but you since python is inherently not so fast fast enough
+for most of the stuff that we you know that but um you really try to increase
+the increase the efficiency all right let's try this one over here right we want
+to um you're going to request and validate a password from the user and for this
+for this problem the definition of a valid password it's going to be two
+integers both of the digits are even right and you're going to give the user
+three chances to enter correct password okay so um 22 would be okay 23 would not
+be okay one would not be okay because it has to be two digits right and if they
+manage to do it within three it's okay but but if they if they use the three up
+and they didn't get it right then you exit the program and it's and it's done
+Okay again if you can make it a little bit larger that would be very helpful hey
+can you hear me y I don't know how to make it larger honestly uh try we saw it
+was window try try either edit or window no no in this you're using what using I
+no no no you you're running on a Mac or on a Windows Windows so go back to go go
+back into right go try see what happens when you go either to window try going
+to window you see right on top right before it says help on the top over there
+no no no you go to window go to window no not help window see does it that least
+you try that try pressing control and zooming the mouse wheel you can increase
+the font size oh that's good keep going good good good keep going keep going no
+no just if you have a mouse wheel just try doing that with the mouse wheel
+that's a good idea no it don't work all right all right if you go to options you
+can increase the font size here press configure figure idle yeah then yeah not
+know that very good apply good excellent okay drag it so we can see the whole
+thing yeah good all right so how does this thing work chances is three okay good
+you start with chances equals three and then assuming it's not zero you ask for
+a valid password Here do all the checks is if it's these two checks are just if
+it's a two-digit integer then if is the one's place an even and then you grab
+the 10's place and you check if that's an even and then if all these are met
+then you got the you got the correct uh password and the reason I have this
+chances is uh at at the very end in chances equals zero um um I have it where
+it's too many valid attempts but if you leave this alone if you don't have this
+it's just going to automatically keep asking even if you have a valid input okay
+so let's let's see what happens very good so R run this thing and put in a put
+in a okay keep going put a 20 okay 45 now put in a 503 okay good two try again
+excellent now go back to the program and and walk us through it again and show
+us what so when you put in a 22 what happened over here it failed the ones place
+check and then it go to my L statement 22 22 should be good right oh think said
+23 right so 22 so 22 it passed all these all these checks and then it prints
+correct and then it changes chances to negative one so it can break out the wild
+Loop but not trigger this final if statement which is like yeah too many invalid
+attempts very good very good and let's say when you put in 23 what happens it
+fails the ones place check goes to else prints out our prints out invalid
+password and subtracts the total amount of chances we have we reach zero uh it
+breaks out here and then it triggers the last if statement which basically is
+supposed to lock you out all right good nice anybody do it a little bit
+differently um Professor I have a question about this code leave it on y that's
+a question um how does uh it no exit the while loop when you enter a correct
+password I had to use a break statement there is no break uh that's why I have
+this chances equals negative 1 it just changes it to negative 1 whatever it was
+it's just now negative 1 and it's oh okay yeah you force the condition yeah
+force it here if you set it equal to three would that still work it will work
+but it's going to keep asking you for another valid input so like has just be I
+see yeah so I just don't want that to happen Okay anything else okay anybody do
+it differently in a very substantial way good thank you all right let's try the
+next one okay so this is similar we did before uh before we entered we asked for
+a three-digit integer and we wanted to print the digits from right to left not
+to create the value just to print the digits now what we want to do is it's not
+going to be a three-digit integer you don't know how big the integer is going to
+be so I give you a three-digit integer a seven digigit integer and so on and
+you're going to print the digits from right to left so if I put if I give you
+123 you're going to print a 321 if I give you 54321 right that integer you're
+going to give me um three if I give you 1 two 3 4 five you're going to give me
+54 32 1 okay so it's a generalization what we did before and now since you have
+a loop but I want you to use the Y Loop right we're talk about the Y Loop here
+um try to do it that way and basically approach is the same as before right
+we're going to peel off a digit and shrink the value right so we have a one
+after the other we're going to you appeel the digital if you do the the integer
+division then you shrink the number you're looking at by using the mod right I
+mean you get the mod gives you the rightmost digit and then you shrink it using
+the um the answer to division go to it Rohan question or you're finished I'm
+finished okay right let's give ready a little bit more time okay Rohan let's see
+the screen all right hey what's the what's the basic principle cool okay so
+first um it checks if the rightmost digit is a zero if it's not a zero then we
+continue but if right most digit is a zero it errors so it prints that it right
+most digit cannot be zero then uh if it sees that the right most digit isn't
+zero it'll continue so it'll do this while loop while n is greater than zero
+it'll print the last digit and it make sure that the the end isn't the new line
+character and then it removes that right most digit so if I were to input one
+two three it'll give me 32 one hold it on hold it on there everybody everybody
+understand this is there is there anybody that doesn't understand this 100%
+don't don't be shy how this thing works what's going on over here um I'm
+confused a little bit in terms of the general principle and so on in the to find
+the last digit uh to find Z about that okay anybody any other questions about
+what ran did over here this is this is good this is the way to do this and no
+questions so let me go over the general principle I'm going to ask you to putan
+after I finish uh your voice broke off I didn't get that so I'm gonna ask you to
+show the screen in in a moment I just want to explain what's going on behind the
+scenes okay okay so let me but I need the screen back very good okay so if I
+have let's say I have the number 123 right so if I write down me get this a
+larger if I have the number 123 so the question is why is why does this mean 123
+things right so this this brings us back to like the first grade or the so on
+and so forth will we learn that in um we deal our number system is a positional
+number system right positional number system what does that mean position so
+that this number two is not really two this doesn't mean like two two bananas
+right because of the position in the in the string this is in the this is in the
+units position but two is in the 10 position and one is in the hundred's
+position so this one is over here on the left hand side that means 100 but if I
+had 200 one this one does not the same as that one this means one of the units
+right and the reason is because the position and I'm just saying the things that
+are obvious but that's going to explain how this program works if I write the
+number 123 what this really means this is the this is we saw the units position
+units position means means 10 to the zero anything to the zero is is is one
+right and this is in the 10's position which is 10 1 and this thing is 10^ 2 so
+123 is really 1 * 10^ 2 + 2 * 10 1 + uh 3times 10 the 0 right does that make
+sense so now if I divide this thing if I if I let's say divide it by 10 right if
+I divide this thing by 10 so basically there's a Distributive I'm multiplying by
+1 10th so it divides this by 10 and this by 10 and this by 10 right so
+essentially what's going to happen over this 3 to the 10 to the 0o is going to
+become if I if I divide by 10 that's going to be this is going to be three * 10
+to the what 10 the minus one and this is going to be this I'm sorry it's going
+to be 2 * 10 to the 0 and this thing is going to be 2 * 10 1 right if I just
+divide the original Thing by by 10 so this is going to be the remainder right
+this is going to be the remainder and this is going to be 1 time uh 10 to the
+one is is uh is in in the 10's position that's going to give me 12 so the
+dividing by 10 which is using this divide right because we're going to truncate
+the rest of it that gives me 12 what's left over and then the remainder which I
+would get by taking the original number which is 1 2 3 mods 10 this is what the
+remainder would be mod 10 does that make sense and then when I do it again so
+every time I do it it's going to pull out the rightmost digit when I do a mod
+that's going to give me the rightmost digit because that's the remainder when I
+divide it by 10 and what's left over is going to be the whole number that's left
+over so so I'm going to get three is going to be what comes out first with the
+mod it's going to shring it to a 12 if I do it again two is going to come out
+and it's going to shring it to a one when I do it again one is going to come out
+so I'm going to so I'm going to get the three and the two and the one the digits
+from the right hand s that's that's the basic Insight in terms of this um in
+terms of this thing over here so now uh so Rohan just show us I'm going to stop
+the share r r show us your screen again so that's exactly what he did over here
+right so as long as num is greater than zero so let's say num is 123 right so so
+he's going to take num 123 and get the mod out so the mod is G the rightmost
+digit as we saw because it's modding divide by 10 and take the last 10 take the
+remainder that comes out which is going to be the three he then shrinks it by
+dividing by 10 which takes every one of those exponents and subtracts one from
+the exponents he's going to end up with 12 now 12 is greater than zero he does
+it again he pulls out the rightmost digit which is the remainder of dividing by
+10 so he's going to get the two he's going to print it and you know he he's not
+going to go to the next line and then again he's going to shr it becomes a one
+one is in fact greater than zero so it takes the remainder remainder is going to
+be one but when he divides it again he's going to get a zero comes back over
+here num is not greater than zero uh so then he's going to come out and um and
+print and the program does that make sense now look does that make sense you ask
+the question does that make sense yeah I got a little bit yeah everybody a
+little bit why a little bit oh I get it better you get it better okay anybody
+else have a problem with this so that's a trick the trick is you do the mod
+which takes out the digit on the right and then by sh you shrink it by doing the
+integer divide so mod 10 number mod 10 will get that the right the the one digit
+yeah but why is that why is that because I divide by 10 so so U what what I let
+if I div 123 by 10 how many times It Go in it goes in 12 which gives me 120 and
+and the left and the rightmost digit was the three is what the remainder is
+going to be because how many times does 10 go into 123 it goes in 12 times but
+the remainder is going to be three then if I shrink it and I get a 12 and I
+divide that by 10 well how many times 10 going to 12 it's going to go once but
+the remain is going to be a two right so every time I shrink it I do a mod the
+remainder is going to give me the digits as I go from right to left that's
+that's the basic idea here okay got it okay thank you all right let's try the
+next thing and then we will take a break so what's the next question the next
+question is we want to construct the number now right in other words not just
+print out if I write if I input 123 what the program just did now was it um it
+uh it printed the uh the the 321 but what I want to do in this problem is I want
+to create the number with the digits backwards I going to create the number 321
+so I input 123 and I want to use the same idea of pulling out the digit but now
+I want to create the the the number backwards 3201 okay how do you do this we
+saw this earlier I think Anika showed us or something you want to multiply the
+successive values by powers of 10 okay so let's try that and then and we'll see
+what that looks like Professor can I ask a question before we begin yeah yeah U
+my question is I thought about this when I was doing the other problem but I um
+is there a way to know how many digits are there in an integer in one go or
+should I just good question good question hold that I either need that or I need
+a data structure to hold an arbitrary number of digits that I can do stack like
+a stack something like that how to do that in Python oh we'll see but right now
+well the simplest way is to is to make them to a string and then take the length
+of the string that' be really you know but we don't have strings yet I'm kind of
+what I'm kind of stuck I'll just wait for an answer okay so so so just try try
+try remember we saw what's think about it then we'll show the program in a
+moment right everybody should work on this but basically take out the digits and
+multiply by 10 so so the powers of 10 and what that does as as the numbers come
+out so the first time it comes out is going to be let's say 10 to the zero and
+the next time it's going to be if you multiply Again by 10 it's going to move
+over to the 10's position and if you multiply Again by 10 it's going to move
+over to the hundred's position you move again by 10 it moves to the thousand's
+position the first digit every time you go through is going to be moving to the
+left oh I was trying to build it from the other way around that's why I no thank
+you you want to do what we did here right because you want to backwards right
+okay got it thank you professor e does does every understand um what y's
+question right every understand what the answer I gave or should I go over it in
+more detail no everyone's happy all right then can you please go over that in
+detail okay let me just do that all right let's say I start with the number 123
+right so remember the idea the idea is is to use can you can hear me everybody
+hear me yes yeah so I'm going to be pulling the numbers out from the right to
+the left right so the first thing I do is pull out the three how do I do that
+with the mod we going to mod to get the rightmost digit I'm going to shrink so
+if I take the three so I now have a three and then I I get rid of it by
+shrinking and so now I'm working with a two so let's call this thing I don't
+know uh s for some right so I have a here's here's a variable s and now s has a
+three as an integer right now every time I come I'm going to do this with a loop
+so when I come through every time with a loop what I'm going to do is I'm going
+to multiply the the value that I have in s by 10 right so if I do that I'm going
+to get instead of s being three I'm going to multiply by 10 and S is going to be
+30 right the number in s which is where I'm going to construct the value and
+then I'm going to add in the value of the next digit how do I get that next
+digit right because I simply do a mod of a mod of 10 right that take out the two
+so I add that in and I'm going to get three I'm going to get 32 I'm going to
+then shrink it again right by doing the integer divide and I end up with a one
+I'm going to come back over here to S every time I come through my Loop I'm
+going to multiply by 10 so I'm get 320 and then add in the digit that I have and
+that's going to give me 321 so I'm going to have a loop and in the loop right
+how does this work there's going to be a loop over here and E what I'm going to
+do is start out by P have some variable s take the right Mo it takes the
+rightmost digits with a mod shrink it with the integer divide so I'm going to
+take out the first digit put it in s and then and then get rid of it so I'm I'm
+left with the 12 how do I get rid of it by doing that I have 12 so I started
+with a three and the the number n that I'm working with is now 12 multiply
+what's an S by 10 and what why am I multiplying by 10 because by mul every time
+I multiply 10 it moves everything over one to the left right if I have let's say
+some value some number I multiply 10 everything get shifts to to the left and I
+add a zero at the at the right hand side now I have the number 12 take out the
+two and add it in so that's three that's 32 then shrink it again so I'm left
+with the one come back to S multiply that by 10 that moves Everything To the
+Left To Me a zero add the digit over here 321 and that's how that works you just
+put it into a loop and we saw this earlier that's the basic algorithm does it
+make sense to everybody why this works why this works because 123 as we saw
+before 123 is really 1 * 10^ 2ar + 2 * 2 * 10 1 + 3 * 10 the 0 right and every
+right every time when I take the mod the mod is going to pull off the rightmost
+digit and then when I do the inch divide I'm going to be left with this and
+every time I go through every time I do the mod I'm going to get the digit
+currently on the right then when I do the in to divide I'm going to chop that
+off and get what's to the whole thing to the left That's the basis of this of
+this program it I think you're muted yeah we can can you hear can you talk
+Matthew hello can you hear me now we can hear you oh sorry about that okay so
+we're doing construction of a number right X is the input that we take in um so
+we're first going to check that the first of X is the rightmost digit is not
+zero just to validate our input um then I initialize n to zero n is going to be
+our newly constructed number so we're going to modify X in the loop so we're
+going to do a y Loop while X is greater than zero and we're going to modify X
+until X um until we take all the digits from X N is going to we're going to
+first increase um what's in N so far by multiplying it by 10 which is going to
+make the rightmost digit of n zero then we're going to add to n right now what's
+what's in n n is zero first n is zero so this is going to do nothing when n is
+equal to zero that's fine for now n is going to then uh we're going to add to n
+to the right we're going to add to n a the rightmost digit of X so let's see if
+I get a let's say we're doing 1 two 3 4 5 6 7 8 and we're just going to have it
+print there we're going to take the rightmost Dig of X which would be the8 um
+we're going to add that to n so n is now equal to 8 then we're going to divide X
+integer divide X by 10 um so after this y Loop n is going to be equal to 8 um
+and X is going to equal to 1 2 3 4 5 6 7 stop here stop here does everybody
+understand this any question at all about this that's what I just showed you on
+you know um two minutes ago right in other words he pulled out the rightmost
+digit by using the mod so that's now stored in n and n is where he's going to
+construct the new digit the new the new value by multiplying that by 10 right
+which essentially moves Everything To the Left Right the multiply 10 puts a puts
+a zero in the rightmost position and then he's going to mod again to take the
+current rightmost value and add it in so that puts that in as the last as the
+rightmost digit of the number being constructed so he comes back in here and in
+in in N he's got the eight and now he comes down keep going right all right so
+then we're going to X is greater than zero X is currently this number so we're
+going to execute the uh everything in the Y loop again n * 10 so we're going to
+multiply 8 by 10 and is plus equal to the first digit of X which is X Mod 7 that
+would mod 10 this would give us a seven so 80 plus 7 is 87 then we're going to
+divide integer divide X by 10 which is going to remove the last digit of X um
+then we're going to X is greater than zero so we're going to do the same
+operation again multiply it by zero we're going to take the this digit x uh this
+last digit of we're going to add six and then we're going to divide by 10 and
+then X is greater than zero we're going to multi 870 right and then when you add
+the six became 876 and and so on and so forth very good is this clear everybody
+sees how this works very very good okay let us take five minutes and then come
+back and we will continue on I we do have to talk about an exam we need a
+midterm so remind me when we come back from the break number one to turn the mic
+back on the recording back on and then to we'll talk about um we'll talk about a
+uh an exam okay very you go so um the last day so uh the last day of Cl the last
+day is on 23rd right so next week after that I think the 20th is's no class so
+it makes sense to have an exam the beginning of next week right let's say Monday
+of next week is that okay for everybody guys keep keep your keep your screen
+onen open for for till we finish with this make sure everybody can hear the
+conversation so let's let's assume that the midterm is going to be on on the
+13th which is next Monday subject to change the change will be if um if we don't
+cover enough material right in other words I want to cover at least like go
+through half the stuff and to get some interesting things like we want to get
+into at least to be able to deal with something with lists and so on uh so if we
+can't do it by next Monday uh we'll do it on on the 14th um but whatever we do
+if it's if it's going to be on the 13th it's going to be everything up to
+including the Friday which is the 10th if it's going to be on the 14th it'll be
+up to an including what we do the day before right because everything is just
+squished into three and a half weeks does that sound okay does the 13 sound okay
+for most people here yeah is that good right so start studying right now
+assuming the exams tomorrow and okay if uh there how many people here I'm not
+sure but not everybody so if you have friends that are in the class but aren't
+here just let them know what the decision is I'll send out an email where will
+the exam be the exam will be on in Queen's College on the campus and as soon as
+they tell me the room that we have available I will let you know the room okay
+and you know the deal right you know no electronics no earphones no no smart
+glasses no watches none of that kind of stuff regular normal in C you won't be
+able to use machines to the exam everything will be on paper okay and then we'll
+have the TA there we'll be grading the papers the half is the TA this Quest okay
+any questions um Professor when can you confirm the date by I have Tois Friday
+we will confirm the date far I get by Friday it's either the Sunday it's either
+the Monday or the Tuesday okay from then we'll have a week but the following
+Monday as I point it out is so we have no classes so so that's going to be 20th
+and then we have the 21st and 22nd and 23rd ra is the final so makes sense to
+have it in the beginning of next week okay yeah all right good so let's uh let's
+get back to work close the cameras and see where we are share okay R the code
+let's look at this let's Prime numers again we still working with the Y Loops oh
+thank you thank recording recording in progress all right so we're gonna do
+everybody knows what a prime is Right an integer greater than one is a prime if
+it's only positive dividers um are one in itself so five is a prime because it
+doesn't divide by anything less than itself except one but six is not a prime
+because it divides beside by six it divides by two and divides by three so no
+primes no no no even numbers other than two are prime numbers right everything
+every all the other ones have to be that's the odd okay do that with a Y Loop
+screen uh can you see me screen yeah so uh the first thing the code do is check
+if the number is greater than one let if it's one or less than one is not a
+prime number then we start checking by uh for divisibility uh starting from Two
+and here we have the Y um here I'm checking the half the number because there's
+because you don't have to check the visibility for the whole number if you don't
+find the visibility by have the number uh it's not uh going to be prime so here
+I'm just doing the module and if equal to zero that means the number is um
+divisible by that number therefore it's not a prime number and he just you just
+keep increasing the right so the algorithm is um you want to know if x is a
+prime number so you just see if anything before it divides it right so if if on
+if he's on line um in line six if x is divisible by some I then it's not a prime
+number he breaks out of the loop which we didn't see it right but everybody
+knows what a break does he breaks out of the loop but if it's not divisible by
+particular I he changes I and it keeps going up okay so let's try it let's try
+put in a two and see what happens so two is a prime number number why does that
+work why does that work so so div by two here going to be two mod two so two is
+by two yeah which is zero uh oh uh work yeah your lesson yep so we to the is two
+less than what is two ID two yes here's less than two have the number which is
+one so so it's true right yes so what does it do uh because the Y is uh false we
+jump into the this L statement false or we can just get rid of this and just uh
+print here oops as if the condition is false and the number is prime right so so
+then the else belongs to the top one uh it's just uh I told you to the if else
+but uh the ID move the else outside but I think it can still run without the the
+else let's try two yep here two let's try four right so why is four that's why
+the else yeah because four is divisible by two so that's why it's not prime but
+still PR this message here right so when when is the when is the the print going
+to happen uh it should be when this condition what was it when will it printed
+it's a prime number if what you go through the loop if the loop here is false
+right you never find anything that it's going to be a prime right but if you
+break you're going to break out of the loop so oh yeah so what is going to print
+now I should just only do not prime number everything understand what's going on
+here this is clear to everybody Professor I have a question about the
+indentation of the ls should the else be indented until the level of the if why
+did it work with the indentation of good question right so let's take a look at
+it Ste problem with indentation so when will the else be triggered if what if
+the if is false right yes all right so what so that's going to be a it's going
+to be so if the if is false we break here right but you haven't even tried the
+if is false um but you haven't even gone through um you haven't gone through the
+through the the yet you haven't changed the ey right have you changed I how's
+that going to work I think if the if is false give me an example when that if is
+going to be false here four right because four mod I is divisible by two is
+divisible by two so then it's true so it's not a prime when it's let's see what
+happens when it's five so when when X is five then um here five is gonna say
+false right yes here be false it go if you have the if and if you have the print
+uh indented there it's going to say it is a prime AR it was it's going to go to
+the else and say it's a prime shouldn't it if if the if that belongs the way you
+had it earlier if you had it by the by the F right okay so as soon as the if is
+false then on line nine there's another statement which breaks the if else
+parody so else should be like on line nine and line nine should be like on nine
+what happens if he prints puts in a five right will it print prime or not like
+this no why not because of the invitation here um can you move the I plus equal
+one one second one second so let's um what happens with the int so if uh if if I
+is five what happens exactly if I is five uh so here five is less than I mean
+two two is less than half the number which is the two so we move here to I just
+want to point out one thing over here we keep this is fine um these these
+problems are really they they're pretty not pretty they're they're actually very
+very um very straightforward and they're Elementary problems so imagine you're
+going to an interview and you're standing there with you know in front of a
+whiteboard and they talk you through it like we're trying to do right now you
+want to be able to do this you know without a hitch you're not going to be able
+to run the code and they'll ask you these they'll ask you write the code right
+now to figure out numers Prime that you should be able to do in your sleep
+pretty much right if you get you're over here and then you write a program going
+to ask you to walk through you know the various possibilities and you won't be
+able to run it okay so you really need to be able to um you know to be able to
+explain what's going on so will this run everybody take a look at this will this
+run for all values even you know primes and non primes just everybody should
+look at this I don't think so because I think the else right now goes to the X
+greater than so which value should he try which will break it give me a number
+to break it what would you like oh no I don't think I can break it one break
+seven it's not now why is seven printing out that it's a prime let's start line
+you read you put a seven right so I is seven what is um I mean x x is s right I
+is 2 right what is 7 ided two is it to divide what's 7 / two here yeah so what
+is that 7 ID two three three and and I is two so is two less than three yes so
+we here so so if seven is divided divided by so s divided by we said I is two
+what's going to happen is that true or false that gonna give that get a z is
+that give you a zero or not it's not right 7 / two is not equal to zero right so
+what's going to happen you you're going to you're going to do what increment
+here I you can increment I and then what happens I three here which is less than
+three again we move here so 7 m three is not so we increment by four four is not
+less than equal to three so we uh so we get into here you exit the loop right
+yeah but if you exit the loop this so right so then the if where what does else
+belong to here so I think a negative number would break this well let's see but
+this broke it anyway didn't it say that it said that seven is a prime no it is a
+prime oh I'm sorry sorry try eight right this would work because the else checks
+the number is greater than one that's why it always it runs good yeah here okay
+now negative numbers you have to try because he's starting out with X greater
+than one so that's yeah because one is not prime but yeah but also negative
+numbers we don't look at negative numbers so is this going to work now uh yes
+everybody agree Professor I understand how it works but I just don't understand
+where that else goes because that can't put where that else okay where does the
+else go because if it's inside the loop then it's UNR code because of the break
+but it's outside the loop I cannot understand is it while else well look at look
+at the code look at the look at the lines the else belongs to the what the while
+is at the index of the while yeah we have a while L statement seems to be
+interest thank you so what's what's what's the uh what's the um what could that
+possibly mean while with an what does that mean I think it means if the loop
+breaks because if we interpret as finishing then it doesn't do that I think it
+when it breaks so if if you if you go all when will the loop break if the
+Boolean is not is false right but you want to keep dividing by I until that's
+false right so you're going to go up to halfway and um and if you if you do that
+so if that's the case then it's go to the ELA it's going to say it's a prime
+right but that doesn't seem to be what's happening so I think not when the loop
+ends when the loop breaks with the break statement not a uh but if the loop
+breaks with a Brak statement doesn't take you out of the while completely right
+and then if it takes out then you're going to print Prime so in other words
+somehow the else if it's else Associated to the while it's still break does not
+take you to the else I think break takes me to the else because if it's not
+break Should Skip over the else if the else is part of the while then it just
+skip over right but then if you if this is um you can keep going and checking
+and checking and checking and when it that's not true true you're can to have a
+case where the I is uh becomes becomes greater than than in words you checked
+all the way up to halfway and you didn't find the problem if you didn't find the
+problem you know if you didn't find that it was dividing it then then it turns
+out it's not a prime but if you break out of the whole thing what's going to
+happen it's will it go to the bottom else when does it go to the bottom else
+okay so it seems like it goes to the bottom else when the when when will it go
+the bottom else belongs to to the if on line three right so breaking out
+shouldn't take you there right because the only way you're going to get to the
+bottom else on line 12 is at the top the one one line three is false so that one
+doesn't have anything to do with the loop but when I suggested the negative
+number it did not print this go to the lse right so what happens if run with the
+negative number see what happens okay it's not a prime number so I think the
+else is somehow connected to the not prime number right because that on line
+three X is not greater than than uh than one so it goes down to 13 right now can
+two El's be connected to the same if no no so it looks like the else should be
+connected to the Y you can't have two eles with the same with the same same if
+yeah so if the line 12 else is with line three if line 10 else must be with the
+wild prop right so how does is that the case let's see go somebody bring up a
+help for the Y Loop go go to the Y Loop and see what's the structure of a y Loop
+is there an else clause in a y Loop in Python that's the question I I Googled it
+it says yes right right have you see that so this is a strange kind of
+construction here but for this thing to make any sense in other words if it if
+it's it it is making sense right in terms of the uh the The Interpreter didn't
+complain and if you look at the lines it shows you that the else is connected to
+the W so when is when is it g to when is it going to trigger the else connected
+to the while when does that get triggered uh coo said when it terminates
+normally when it terminates normally yeah so at the end of the loop so if you
+break out is the is the else connected to the while going to be going to be
+triggered no it's not triggered because it's part of the while and it's only
+it's only when the top of the while is false right so in the top of the wall is
+going to get false is if you go all the way through and then it's going to tell
+you it's a prime number right what happens if you break out um I tried to test
+that but it no where will the break take you outside the else right it goes to
+the bottom else at line 12 have you see that right because does that make sense
+if you break out if you do with a break then you come out of the whole you come
+out of the whole thing and what has it I'm sorry it doesn't go to the line 12
+what happens when you when you break so if if the else on lineing tan is
+connected to the while then you shouldn't be triggering that else you should be
+going out of the of the whole of the whole program right you should be going out
+past line 13 because line 13 belongs to the if uh on line something okay so when
+when is that going to be triggered if you do a we break a break right so when
+does the break in happen if you PR out a prime right so put in a seven let's see
+what happens right put in a four see what happens let you get to the botom in
+either case right uh go in line go in line um go in line 13 how the question is
+when is aint not a prime number it can do that in one of two times right it's
+going to do it either on line seven or on line 13 okay when when do you think
+it's going to go to line 13 and when it's going to go to line seven it's going
+go into 13 when it's less than one or it's negative or one so if it's negative
+we go into 13 that's number X uh if it's one we go into 13 and we get to uh
+seven when it's uh greater than one you want know when it says not oh seven oops
+four for example so we are here so if you put in a four which is not a prime it
+went to line yeah because four is greater than uh one right and then we check
+for the divisibility and into here and then we break and that's why we see in
+the line 15 right at the end if you put when is it going to get now to say not a
+Prime on 13 so that's when it's less than one when it's one or right because of
+what the f statement here right right because that else is associated with the
+outside if okay very good any questions here all right so in terms of the in ter
+give me one second let me get out of here um all right talking again just in
+terms of uh the exam not everybody's here but I will send out an email so
+tentatively it's from a week from yesterday it's it's going to be on Monday it
+we'll have all the material that we cover until Friday up to an including Friday
+if we don't get enough uh material till Friday it'll be on Tuesday and it'll be
+up to including all the material that we did on Monday as well uh sir y I was
+speaking to some people and we're all saying that we better do it on Tuesday I
+don't think so work and obligations over which people that are here are not here
+um well I'm saying the in the Discord chat also for me personally so who who
+who's speaking here Luca yeah yeah so let me tell you why I think it's not a
+good idea because if I do it on if we do it on Monday then you have the whole
+week to study the whole weekend to study we do it on Tuesday we finish at 1:00
+there are people I know that are working I see there are people here that not in
+class because there there's like think 40 people 43 people register for the
+class only like 30 something there are 30 right now that means there are 15
+there are there are 13 people who aren't showing up which means that they're
+only going to see the material after they listen to the recording the recording
+could end up not getting put up until the evening they have to go over all that
+material in the evening and the exam is the next day and it will have the
+material for Monday so that's why I think that it's not a great idea I mean we
+might end up having to do it right but I think ideally you really want to have
+the weekend to study right I know I just work this weekend all every weekend
+forever basically that's why say it again I work every weekend basically ah some
+people also do that too that's why I was saying that yeah but the alternative as
+I said uh but then you can still study in the evenings right but if you have to
+make up a whole day um you know from Monday that's not good either let's let's
+put it off we'll talk about it again tomorrow all right thanks Professor email
+with the with the you know with the Alternatives and we'll talk about it on
+tomorrow okay but I mean my experience has been generally that having it at the
+beginning of the week where you don't have a to digest a whole class this is not
+really a class it's like a it's like digesting a week's worth of material and
+then being tested on it the next day so what you're saying makes more sense if
+was a normal semester but but I'll leave it up to I mean I don't care I I I just
+want to try to help you that you know you don't get too much pressure here okay
+let's call it a day any other comments any so think about it I mean you have any
+you have any uh you have any work that you there's no way of like getting more
+time on the weekend to study Luca uh well on the weekends I usually work all day
+Saturday all day Sunday and Friday and Thursday but it's okay wow figure it out
+thank you all right so we we'll talk about it to go to the discount on the
+Discord try to work it out and then we'll talk about it tomorrow we'll just take
+a vote tomorrow okay yeah can someone please post a link to Discord in the chat
+you want to go to the chat I don't have uh increment no stuff here in the chat
+really oh I I was talking to one student what I ask one of the students could
+post a link to Discord in the chat what's your uh what's your Discord Naji um I
+think that's my I think it's NJ NJ yeah is that is that the discount everyone's
+going to are you sure that's your username NJ let me check name username um uh
+yeah believe that's my name all right I'mma DM you all right thank you all right
+guys see you tomorrow take care

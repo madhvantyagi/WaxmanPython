@@ -1,0 +1,26 @@
+Here are some of the dictionary methods:
+S= dict() also s={}
+Create a new dictionary.
+len(d)
+Return the number of items in the dictionary d.
+d[key]
+Return the item of d with key key. Raises a KeyError if key is not in the map.
+d[key] = value
+Set d[key] to value.
+del d[key]
+Remove d[key] from d. Raises a KeyError if key is not in the map.
+key in d
+Return True if d has a key key, else False.
+key not in d
+Equivalent to not key in d.
+clear()
+Remove all items from the dictionary.
+copy()
+Return a shallow copy of the dictionary.
+Create a new dictionary with keys from seq and values set to value.
+items()
+Return a new view of the dictionary’s items ((key, value) pairs).
+keys()
+Return a new view of the dictionary’s keys.
+pop(key[, default])
+130

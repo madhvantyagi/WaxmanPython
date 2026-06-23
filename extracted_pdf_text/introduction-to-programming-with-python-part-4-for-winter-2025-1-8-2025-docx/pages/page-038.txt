@@ -1,0 +1,37 @@
+An example – remember the pythonic swap”
+def swap(a, b):
+a, b = b, a # tuple packing
+return a, b
+Here's a breakdown of how this is implemented at the bytecode level:
+1. Tuple Packing: First, the values of `b` and `a` are placed onto the stack, and then Python creates a tuple
+from these values. This is the packing step, where `b, a` becomes `(b, a)`.
+2. Tuple Unpacking: Python then unpacks this tuple directly into the variables `a` and `b`. The first
+element of the tuple (originally `b`) is assigned to `a`, and the second element (originally `a`) is assigned
+to `b`.
+To actually see what is going on we can disassemble this function, and see the bytecode
+instructions that Python uses to perform the swap:
+First:
+import dis
+dis.dis(swap)
+The disassembled bytecode might look something like this (exact output could vary slightly depending on
+the Python version):
+4 0 LOAD_FAST 1 (b)
+2 LOAD_FAST 0 (a)
+4 ROT_TWO
+6 STORE_FAST 0 (a)
+8 STORE_FAST 1 (b)
+5 10 LOAD_FAST 0 (a)
+12 LOAD_FAST 1 (b)
+14 BUILD_TUPLE 2
+16 RETURN_VALUE
+Here's what happens in these instructions:
+- `LOAD_FAST` instructions push the values of `b` and then `a` onto the stack.
+- `ROT_TWO` swaps the top two elements of the stack. After this instruction, the top of the stack has the
+original value of `a`, and the second element from the top has the original value of `b`.
+- `STORE_FAST` instructions then pop these values off the stack and store them back in the local
+variables `a` and `b`, effectively swapping their values.
+In detail:
+Line 4
+`0 LOAD_FAST 1 (b)`: This instruction loads the value of the local variable `b` (at index 1 in the local
+variables array) onto the top of the Python Virtual Machine (PVM) stack.
+110

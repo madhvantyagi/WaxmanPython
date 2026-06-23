@@ -1,0 +1,773 @@
+okay see you got okay anybody have any questions uh what we did the last time
+any going what's the last thing that we talked about screen formatting screen
+formatting thank you place we're still in part two I believe uh page 22 on part
+two PDF thanks no no on three want part three in the middle of this we looked at
+the the format okay very good so um reminder to record I'm sorry you thank you
+um recording in progress so we looked at this yesterday right we talked about
+the number of different formatting methods the first one was the format function
+itself and uh what that took was it took a value and it took a specifier and It
+produced a string the second one was the F string which is the one most widely
+using actually doing real formatting you know for the real stuff and um we went
+through some examples of that that's very powerful and what really happens
+though as we saw is um is this Dunder method this they call Magic methods get
+called so um if I want to format a string so what will happen is this will be
+the string and if I specify that I want the repper it's going to give me the
+repper otherwise it'll like the FL into the string and then it's going to apply
+the format uh uh magic method this is the this is the method that belongs to the
+string class itself on the particular um on the particular part of X that it's
+formatting a particular value has been formatted and it formats that according
+to the specifier right so for example I think we spoke about this have if you
+have a long F string say have big one somehow you know there's a bunch of things
+to be formatted then what happens is it gets the whole string gets read in and
+um all at once and then there's one pass that's made and every time it finds a
+value that has to be formatted it takes that value in the appropriate place and
+uses the specifier and it formats the whatever object it is in that large F
+string according to the specifier and each one of these get these fragments the
+fragments end up to be to be strings and then um then then python The
+Interpreter is going to concatenate all those strings to give you the F string
+that you want is that makes sense in other words the specifier works on a
+particular whatever the x is the specifier works for that X gives you a string
+back and then all those partial strings get tocate all right um and then there's
+also this format method here um and um what what happen this thing basically
+calls all of them really basically call the the uh theed Dunder method of the
+string class itself so you could do it like this also so this is the value I
+want printed and um this is the format code and this is the value and so it's
+going to format uh it's going to format whatever it is according to the vales if
+x is one this this value here it's going to use this to format that it's going
+to return a string but as I said what's mostly used is the um is the F string
+today this a good it's I don't know you can click on this probably right so it's
+a very good explanation of the difference between the string and the reper
+functions in Piper um okay let's work on the fing C if I skip stuff you know we
+have too much time we should go through it right make sure this unod if you
+don't have time also to finish the problems that we're working on in class uh
+and at this point you should have no problems because they're very small
+problems but you should do them when you get home you should do after the class
+and you should work on them all let's try this over here right this I we do this
+enter the num of hours you worked um you know and the and the rate so I want
+what I want to do is we did this earlier right but what I want to do is I want
+to I want to um I want it formatted nicely so you didn't work you know two five8
+five 52 we actually you earned this there's a dollar amount and the dollar sign
+is directly connected to the amount that you work and so on over here right so
+let's do that in three minutes because you have what we did yesterday just put
+the appropriate formatting in place okay so everybody work on please okay talk
+it through uh so it's the same as before just using the F string uh putting in
+the brackets whatever the variable ended up being and then colon.  2f to specify
+two floating points after the decimal and when you run 45.6 at 56.7 it formats
+two decimal points uh for the dollars and there's no Gap in between the dollar
+sign and the number why is there no Gap because using the F string it
+immediately replaces what's in the brackets with whatever it evaluates to right
+so where's the dollar sign that you show over there right here right right okay
+do it do 10 you work 10 hours for $5 an hour we take an advantage of you here uh
+$10 $5 an hour back in the 1940s so there were the two zeros okay I just want to
+point out one thing over here um there's something called EV Val which we did
+not cover what is eval uh it takes the input and it uh casts it into whatever
+type it does you could just replace this with uh a float or int or whatever and
+it would work all the same but how does it know what the type is Uh I that I
+don't know I just know that from um previous usage okay good right so we're
+gonna we'll work this later on EV Val is is very python is is is a very as you
+can begin to tell I hope it's a very flexible language so you're what you're
+allowed to do you could even take a string you can read in a string at runtime
+and uh and you can evaluate it as if it's part of a program it's really very
+powerful thing so that's what does what Nicholas did over here is he used it
+instead of the particular type specifier so it it examines it and sort of
+figures out from the this you know grammar of it that it's you probably want it
+to be a um an integer or a float and it does the appropriate thing but it's
+really much more powerful than that and we'll see all right very good thank you
+U Olivia did you do something fundamentally different or you did the same thing
+uh very similar but a little bit simpler enough let's see and what about Quang
+same thing pretty much a little bit different show us your screen your screen
+sure sec okay uh yeah but there if you look at the dollar sign in the 45 there's
+a space between them you don't want that space yeah I didn't fix that my bad all
+right what's your program look like uh over here right so see if you look down
+there right so the idea is from now on it's a good idea to use the F string
+right the F string is is really very powerful you should get used to it because
+that that's the way people use it today it's you use the form function you need
+we'll see we'll see later on with the format function when we're going to be
+using file input output we're going to have to construct strings ourselves to to
+write out to a file but if you have things you know if you want to do something
+like this and print out a line the F string is the way to go here right and
+otherwise with the Val sign um you know you would have uh you would have make
+sure that you know the the rate is going to be the appropriate type and
+concatenate it right you want it to be you know you don't have to do the work
+yourself so you want to use an fstream all right good um let's see let's let's
+go on let try some more examples Les what is next can you see my screen yes
+automatically supposed to share but it doesn't let back over here and okay all
+right so let's try this one it's called changing coins uh it's a very simple
+problem is when they first start you out on the you know if they want to start
+the the beginnings of interview that they put this up for you so we want to
+write a program called change in coins well your input is is some amount of
+money $376 to and your output is going to be the minimum number of coins
+required in other words um you got you TR whatever the money they tell you you
+can leave them that money in coins but what you want to do is you want to
+minimize the number of coins right so that uh given what the coins that you can
+use are half dollars quarters dimes nickel and pennies but clearly what you want
+to do is if you're going to minimize the number of coins you want to First
+figure out the maximum number of half dollars and then whatever is left you want
+to use the maximum of quarters and then dimes equals of pennies right so your
+program is going to list how many of each coin needed to be provided and each
+dot when you print it out every denomination in other words you know half
+dollars quarters and so on everyone got its own line starting with half do okay
+so this is not hard but it's a little bit more challenging than what we did
+until now okay so you're given amount of money $736 and then you want to do this
+okay go to it can ask a question who is it yeah this is yes sir um sir my
+question is uh in Python does the uh integer division work the same way or it
+will it always give me a float inte remember we talk about yesterday two integer
+divisions right so yes sir with a single slash you get floating Point number
+back and I does everybody have an algorithm everybody knows how to do this do
+some want to explain how you might approach this what what's the way to do this
+not show code right now which is we're gonna hello we're GNA um take the user
+input and then for each of the largest coins the smallest coins we're going to
+subtract out until we uh can't subtract out anymore of that denomination and
+then we're going to count those um and at the end of it we're going to display
+was the total number of coins and then the number of each type of coin but how
+do I find for example you give me like a certain number right you're a certain
+money how do you find out how many half dollars uh we have to start with looking
+for the half dollars so that' be half dollar is5 so we subtract out 0.  five
+from the input until the input is less than 0.5 you just going to do repeated
+subtraction uh well we could do integer division ah so what would you divide by
+very good what would you divide by um 0.5 uh let's say I told you I want a
+dollars I have a dollar I want you to make that into coins you would divide by
+0.5 or are we given a sum in pennies or a sum in dollars no you have to tell me
+I I tell you here's a dollar give me change in coins so you take the dollar
+right divide the Dollar by 0.5 that gives us two for two half dollars m is there
+an integer division that would give you the two also could you divide the dollar
+let's say it's in pennies it's in pennies he's making a very good point over
+here right because the the the coins are pennies right 50 pennies 25 pennies and
+we're talking about dollars and Ines so let's I I make everything into dollars
+so then what would you do I'm sorry everything into pennies then how would you
+tell me how many how many 50 cent pieces I need I me you're right just say it
+just say it you divide by 50 that's right right and that tells you how many and
+then you have stuff stuff that's left right how would you get what's left if I
+do the into divide I know how much how many 50 cents I need and then how do I
+get what's left remain remainder that'd be the percent operator you mean the mod
+mod yeah that's okay that's basically again you keep going down the list very
+good okay so if you're struggling with the algorithm do something like you know
+what uh you just proposed very it yes we can see your screen okay um so this is
+what I have I just have the money input um the half dollars quarters dime nickel
+pennies uh the money's divided up into the month and then it's every time you do
+it you're saving the same amount of money using the mod which is the remainder
+and then you print out with the form minuted string uh press the start so I'm
+going to enter I don't know [Music] $486 let give me9 half dollar one quarter
+one dime and then one penny 65 that hits it too uh the float problem I was
+running into f there's something about like the float Precision that means
+sometimes you get um four pennies instead of a nickel when you put in a0 um you
+said what um 0 five 05 uh 6.55 came up with it on your output when I did it I
+entered something like uh 65 and it did that but it didn't do it on your machine
+65 cents only wouldn't a solution to this problem be using integers and
+representing uh pennies instead of dollars as floats that's what I did too I
+took user input and then rounded it into I multiplied it by 100 and I rounded it
+and used the that as a pennies hey Matthew let's see your screen did you did in
+terms of pennies Matthew who did in terms of pennies all right very you go all
+right let just look at the program first before you show us the output so this
+is this by the way what Matthew did over his fairly common uh in when you're
+working with numbers with money uh you know Banking and so on and the reason is
+as we saw before in the previous example is that it seems to it should be I mean
+theoretically conceptually that if you're dealing with money and you have you
+know 53 cents so when you have 0 53 that sounds to the world that it's a
+floating Point number but as we all know that if you do with floating Point
+numbers you don't get Precision necessarily depends on the system and so on but
+you can lose Precision so what the standardly done is you do integer arithmetic
+and you change everything into pennies so on his first line he readon the value
+some amount of money and he gets it he multiplies by 100 and then he rounds it
+so he gives you the amount of pennies and then when you do the integer
+arithmetic on you're not losing any Precision at all right so he has the amount
+of money m is the amount of money that he has and when he divides it integ
+division by 50 he gets the he gets the integer amount of time 50 go goes into
+the amount of money right that tells you how many 50% pieces so that's going to
+be that's going to be the half dollars um and then he he each time he's working
+with the amount of money that he has left to find out the amount of money that
+he has left he then mods uh he then mods the the money mods M and so the new
+amount is what was left over and again it's an integer value and then for
+quarters he does again the integ division divided by 25 and then he then mods
+that by uh by 25 to get what the remainder and goes all the way down and that
+gives them an exact amount so okay everybody see that it's a beautiful program
+and that is generally the way one would actually do this because you want to
+avoid the floating Point problems you get the same thing when you do uh let's
+say division right so you want to divide something so two take two ENT and
+divide it we saw that the the single divide gives you float back and the float
+has these problems that we're talking about so there is a library there's a
+module called decimal and what decimal does is it it uh it's used if you really
+need the complete Precision with decimal values um it does all the arithmetic on
+integers so if you at 1/2 it's not going to make it internally as 0.  five it's
+going to leave it as one and two and then it's going to then um you know
+simulate all the arithmetic that's usually done on folding Point numbers okay
+very good thank you let's check it out I need a screen back me share uh that was
+changing coins let's see what's next over here let's do the salary calculation
+again but a little bit more complicated I'm going to prompt your user for the
+number of hours worked I worked 37 it work like 62.5 hours and then you're going
+to get an hourly rate so those are the two inputs and you're going to calculate
+the amount of money however um since the normal work week let's assume is 40
+hours then there's a different rate for the first 40 hours and then for the
+overtime that uh the person Works normally over time overtime is calculated is
+time and half right so it's 1.5 of what the original thing would be so your
+program is going to Output three lines you going get the amount of work then
+you're going to calculate the pay you have straight pay which the amount owed to
+workers for the you know the 40 hours or less they work only 35 hours there's no
+overtime but if they work let's say 67 hours so they're going to get 40 hours
+and then another uh another 27 hours so then you'll tell me what the out the out
+overtime pay that's be lying too if there is any and then under line uh and then
+you're going to calculate the amount owed uh the total pay which is the sum of
+the straight pay and the um and overtime so the assumptions are that a normal
+work hour is 40 hours uh you work 40 or less you compensated by rate times hours
+and if work more than that so it's the amount that you get is the amount for 40
+hours plus time and a half of the rest so there's there's one thing that you're
+going to do over here but you're not going to do over here is there's no
+remember there's no if you can't use an if because we didn't do that yet right
+there's no if uh if then there else and so on all right let's work on this when
+we finish this we'll take a break for 10 minutes so let's start on this every
+understand the problem okay go remember there is no if you can't use an IF
+function how do you do the selection without an if we saw this we did this
+yesterday right remember that if you do comparison operators you're going to get
+back a Boolean but the Boolean internally is represented as a zero and one and
+then right you can multiply by the output of a of a boo expression better
+comparison expression all right Rohan show us what you so I calculate the
+straight hours worked as um program a little bit larger that area sure is this
+good a little bit more perfect okay good okay so if the hours work is greater
+than or equal to 40 then the straight hours work defaults to 40 otherwise it
+just becomes the hours worked and then overtime would just be the hours worked
+minus the straight hours worked so the straight pay would be that times the rate
+overtime pay is overtime work times oh oops it should be like rate times 1.5 uh
+and yeah that should be good so if you work for 60 hours at a rate of 25
+calculate stat and uh if you work like less than the overtime pay it'll
+calculate that as zero yeah Rohan let's work through this again let's uh we want
+to print out the straight pay on one line the the uh the overtime on the other
+line and the um and the total on the third line right so let's modify a little
+bit okay so what did you put in how many where's theun so uh I'm going to put in
+42 hours yeah let's put so there's going to be okay let fine 42 hours right all
+right so there's going to be two hours of overtime pay right I'm going to put a
+rate of $1 per hour very good right very good very good all right let's go
+through the line at the we figure out the hours worked okay great hours work
+let's see I want to see Boolean explain the Boolean over there okay so basically
+straight hours worked if the hours worked is greater than equal to 40 then the
+straight hours work becomes 40 and if this evaluates to false then it'll default
+to uh the variable hours worked right and then the overtime yeah right the
+overtime okay so the overtime would just be the hours worked minus the straight
+hours work so like if it's uh if it defaults to hours work then this just
+becomes hours work minus hours work then that's just zero uh if it becomes 40
+then the overtime would just be the hours worked uh minus the straight hours
+work so that'll just give us the overtime after that right so let's say let's
+your example of 40 what did you put in here 41 hours uh I put 42 so hours work
+so 42 is greater than 40 that's true so so what is so what's going to be the
+value of straight arrows works so it's going to become 40 and then overtime
+would become two because uh you know 402 is greater than 40 so it'll uh evaluate
+to this side of the expression the end so then it'll become 40 and then the
+overtime would be uh uh 42 minus 40 any questions about this any would this work
+for uh less than 40 hours yeah if I put in for example 20 hours at a rate of one
+uh over time would become zero can work that out show us how that works okay so
+um straight hours work is equal to hours work we said is 20 20 is not greater
+than equal to 40 so this side will not evaluate and it instead evaluate to this
+side of the expression which is the or so hours work so straight hours work is
+equal to hours work basically which is 20 and then overtime would be 20 minus 20
+since we saw that this became this so that's zero makes sense thank you yep any
+other questions anybody do this substantially different very nice right right
+very good anybody else everybody basically the same thing here okay let's take a
+10-minute break and we'll come back I'm going to turn off the recording right so
+please remind me to turn it back on recording stopped okay I have a question
+yeah um in the exam would you expect us to use uh this and or logic instead of
+for Loops if if the question specifies it yes you know and they say do this
+without a without an if then that's the question depending on what the question
+is you have to answer the question in the real right if you're writing real
+programs should you use an if of course you should use an if right but you have
+to do whatever the question is but whatever the question is best if that's what
+okay all right let's go so we're starting a new topic um some of the stuff is
+Trivial it's all you know all the stuff anyway we're going to do it anyway just
+see how you do it as a reminder to record oh good thank you very good you're
+hired okay one second let me SL this back on um recording in progress yes it is
+good all right very good so um we're now looking at control so I know what
+control is Right a simple example of control down here is um control means what
+do I do next right you start a program you do the first thing you see over there
+and so far the only thing we have a simple assignment statements and input
+output stat so on so you just do them right and you do them one after the other
+but um that's what all you can do um you know you don't have very much uh you
+know the programs are going to get very tedious you want to repeat something you
+have to like repeat the whole piece of text so of course you can have other ways
+of changeing control so that will be we want to Loop things but many times we
+have you know we want to change what we do depending on some condition and we
+saw that it was a little tedious because we didn't have the ability to say have
+an if statement so of course python like every other language has if statements
+it has three forms um so actually we'll see something very clever at the end but
+here the ones that you expect so first of all um what's your age we've seen
+Professor Reba's notes this taking directly from those notes notes I think and
+um so we get an age and here's how the if works right it's an if and then a
+Boolean expression and then a value notice what you don't have here is you don't
+have parentheses over here then is a colon separates the the booing expression
+for the if and then uh in the normal in the you know in the uh interactive uh uh
+input when you hit when you press input you always automatically go back and
+it's going to automatically to um it's going to Dent for you to give you a block
+and you explicitly have to come out of the block it keeps doing it if your age
+is greater than 99 if this is true you do whatever the block is you print very
+funny if it's and then you continue on in the program just as you would expect
+but if age is not greater than 99 if this is false you don't do what's in the
+block and you simply calculate the minutes and you print 10 many the minutes so
+we can do it and it works and the and the uh syntax is if then some booing
+expression very complicated be like a colon and then one of more statements in
+this block a block as we saw is a sequence of of texts and it all happens until
+you enter the block exit the block I'm sorry so write a program that inputs a
+number and determines if it's even rods so this is what we did before without it
+but uh of course it's much easier if you do with it you do use an if let's spend
+two minutes and do it with an F right do it in two ways using two if state this
+ridiculous just do it just do it right no fancy Bing expression you want to
+enter an integer and print if it's in even R really very very F but this
+remember is not an else not else just an question no I I just ra my hand because
+I finished it okay good wow very good all right remember there's no else okay
+araseli I'm sorry if I mispronounced it but let's see what you got okay so right
+so this is um this is using two ifs right so so if it's so so explain how it
+works okay so um what I did is I did a mod so if it's if it equals a zero then
+it's even and if it doesn't then it's odd very good all right who did it with
+one with one if statement who wants to show with one if but I used else no
+without else no we didn't do else just you know one boo again anybody nobody I
+did who is sorry Nicholas Nicholas show us what you got uh this second one down
+here uh uses a more simple Boolean expression where if this evaluates to true
+then it prints out or if it evaluates to false then it'll print out over here uh
+so if I for something like five it would print the first odd comes from here and
+then the second one comes from the if statement and if I do two the first one
+comes from here and the second one comes from here let's look so so we your your
+solution is we are starting on what line uh 177 let me just get rid of this okay
+so let's say somebody puts in a two so what happens so some two two is even
+because this evaluates to true and so it ignores the rest of this and it just
+prints that the number is even right so let's say it's three if it's three this
+would evaluate to false so it would check this and then this would execute so it
+would print that three is odd but a print statement what does print statement
+return uh I believe print statement returns a one uh because it's it returns a
+one if it executes properly and a zero if it doesn't uh I'm not sure if that's
+the case but I know that uh you can evaluate things like this so so if it's odds
+so mod 2 is equal Z is false and so the value is going to be the second part
+right whether or not you is it going to evaluate the second part or not uh it it
+looks at the second part because it needs to know if this evaluates to true or
+not in order to determine whether this hold thing is true or not right so the
+first part is false the or is going to be true so let's let's go to so let's run
+this thing and make sure this works put in a three three is odd now at the uh
+come to the can you do the following say print just independently independently
+of this independently of this say print uh and and and say print hello world
+okay no print inside the print that was he going to print what comes back from
+Hello World in this one no no no 177 right put another put another print around
+that print that so what does it what does it evalue to none right so is a type
+so it doesn't it doesn't come out to be a one right it comes out one is a type
+and um it's it's something like it's it's a unique type there there only one of
+the nuns so if that's true if print returns a none then how come your program
+works go back to 173 and it was not returning a one so it returns a none then so
+does none if none is in a Boolean does that evaluate to true because it's not a
+zero l so so if you put in a three the first part is false right and then it and
+then it goes on to do it prints right so it'll do the print it'll print it and
+then what happens it returns none and then none gets evaluated in this place as
+what uh none gets evaluated as it would have to be false because otherwise this
+would execute right okay so that works right okay good very nice anybody do it
+slightly differently no nobody I did a a slightly differently single LIF
+excellent show us um I just stored the result as an even and then if uh X was um
+evaluated to odd through this uh statement I change result to odd and then I
+printed number is X and oddc this is what I wanted to see very good all all your
+other things are very good I but this is this is a standard way to this a
+standard trick very good so what happens is over here there are two there's two
+possibilities but it's either even or odd so what you do is um Matthew is a very
+positive person obviously so even positive response he says he said result is
+equal to even and he might have to change his mind if it turns out that it's odd
+but what he's going to end up printing if you look at the print he's printing
+whatever whatever is in result right so if if U result thoughts out is even if
+it turns out that um line 11 is um does not is false right in other words it's
+not an odd number then it's not going to change the value of result result stays
+at even then he prints out even however it turns out if line 11 is true then the
+value that he originally St was the even the string even that's going to get
+changed to odd and it's going to print out odd this it's it's an important trick
+to know this very it's a standard thing you'll see there in a lot of places
+right we see you just make an assumption then you might have to change your mind
+if you don't then the original assumption says okay thanks very good very nice
+all right let's go on um okay so that's the first form um let's try this which
+which which which one are we over here second oh this is all right let's try
+this I'd actually like to see some more of the women participating here we have
+one or two Olivia's a champ here but we need some more emale participation can
+you see my screen uh no okay let me leave it and restart because I just gave we
+got we got it we got we got it all right so this is how I did it with the if
+statements and then the print okay is that going to work so let's say let's say
+num is equal to three so you got down the color is blue right right well then if
+it's any other number or but did we look at an else in there there's an else
+yeah no I say but when we looked at the if the if didn't have an else this would
+work this is very good but was was there an else that we looked at I think so
+right there's no else really there was just an if and we didn't get to the else
+part oh so then I would just do if num is greater than than three or less than
+one right so let's try or none is less than one one okay run that let's say five
+okay good excellent all right now what just before you go can you can you change
+in line nine remember we saw another form that you put num in the middle and you
+could use a sort of standard mathematical way to do this like can you say you
+know put num in the middle and then say um some kind of expression what do you
+mean by putting num in the middle so remember we saw that in as opposed to other
+languages I can have let's say um you know less than one and num and something
+greater than greater than greater than three in other words a normal
+mathematical expression where you want to show as you would see in a math
+textbook you know you you have two relationships one on the left one on the
+right with the numb in the middle that you want to say with the range the valid
+range of numbness num has to be greater than right and less than something okay
+so yeah there you go okay okay so it's like if num is less than three it's a
+simple expression no no anybody can want someone suggest this what should he
+write anybody all right we we'll see later on very good this works this is fine
+um anybody a little bit differently uh I have a different approach okay let's
+see so I begin by uh setting color the empty string and if the number is one I
+set the color to Red otherwise two or blue otherwise green or blue depending on
+the number and I'll print the color is color if this is true otherwise I'll just
+print error okay you're assuming that a no string evaluates to uh to to fors
+right yeah okay is there another way to do this a nice idea is using Matthew's
+trick from before is another way to do this just slightly it's good idea but
+instead of initializing color to the null string you end up proving you end up
+printing color right yeah is there what could so go to the Top Line right the
+second line color equals what happens if you initialize color to the string
+error oh yeah that that'll work right so you know you don't need a Boolean thing
+over there so you just print color let's see if that works right yep right okay
+okay um the only thing is the color is not error yeah the color is error so how
+would we fix that up uh we could just do if color equals error then print error
+I don't know uh you can do that right you can put the whole string inside your
+yeah good who suggested that um it was me yesir I did it the same way very nice
+that's there EXC excellent very nice you guys are good all right any other
+questions about this great all right let's go on so let's say we want to do this
+it's the same basic idea so we'll skip this we go to the next one so the second
+form is an if and an else and it does what you'd expect right so you can give me
+an integer and you'll print as even as odds it syntaxes what you expected to be
+again but notice how this thing works there's the Boolean expression and then
+there's a colon and when you you've tried this you've seen this obviously press
+enter and in in an indent so you can give it the block all right in semantics as
+you would imagine and how much to indent python doesn't care right it's it's
+usually whatever the ID is you can send you can you know uh you can set what the
+indent is but the the expectation is like four that is the expectation all right
+um right so let's try this right write a program inputs two different we got we
+got to do this quicker though guys right and everybody has to participate write
+a program that puts two different integers and prints out the larger of the two
+got can you see my yep screen um here is my uh solution and I assign uh Max what
+whatever XIs assign Max to the max is X and then I compare to Y and X so if Y is
+greater than x then I assign the maximum is y so then I print the larger one
+which is Max see this is this is basically the same idea we saw earlier right we
+that we saw for math right we choose some default in this case you choose the
+default to be um right to be uh uh the first input and then you change your mind
+if you have very nice everybody understand okay this important thing to know how
+to do excellent all right let's do the next [Music] thing uh try with three
+different integers you want to know which is the largest they can all be the
+same right they can be the same let's skip three let's skip three let's go to
+five how how not to do this thing right you don't want to start comparing pairs
+of numbers and then one against three and something against four we want to use
+the same trick that we saw until now right this doesn't make a difference how
+many do you do this with an array right you pick the first one as the maximum
+and you go down the chain and shap Ching your mind if you had to right so
+there's no difference really between the ones that we've seen in can everybody
+try Ana you'll show your screen in a moment okay let's give some of the just
+have a minute more sure yeah can you see it y so I commented these lines out cuz
+it's just another way to do it but I found that just printing the max was the
+easiest um because you can just put any numbers in and it's just gonna the
+number very good very good very good but don't okay this is interesting what she
+did of course was this this will work this a Max function which and this is the
+way to really do this right in other words you call the built-in Max function
+and get back right but we didn't C we didn't do that yet right okay everybody
+look at this this is very good okay you just just bu if you can use the built-
+ins use the builtins why because it's obvious why right because they it's
+maximized however they did internally it's maximized and uh they debugged this
+thing when they put the pro hopefully they debugged it when to put into The
+Interpreter and everybody knows what it does it's clear it gets you the max okay
+very good but who did it without using the functions that we've seen already
+Matthew okay who else anybody else somebody who didn't speak yet um I'll go for
+it okay go on okay do you hear my do you see my screen yep all right so I kind
+of went off the approach from the last example um where I'm basically taking in
+the five numbers I'm setting like a default um like answer to the first number
+that's entered and then I'm just continuously checking to see if the other
+numbers are greater than the answer um which is currently set to num one and
+then I'm just updating that answer every time and then finally printing it out
+right this is right very nice okay just keep oh you run it okay let's run It Go
+okay any questions very nice all right all right what's next let's see what we
+got next okay here's an interesting question not even clear this as really
+doable as you see it um let's say you have a you have three values X Y and Z so
+in many programming languages the rule for if you have these These are nested
+right if x is greater than y so then you have this if over here and then you
+print and you have another else and then you have a another if and so on and so
+forth so let's say the question is they give you this and they say rewrite it
+here's the rule here's the rule then in many programming languages the rule is
+if you if you have nested if statements so the way you parse it is that the else
+goes with the closest if that has no else let's read that again right so if you
+have if statement and then you keep you keep going through the thing over there
+and then you find an else where does the else go to let's see three let's see
+there were three ifs until you locate the F so he put the else with the first F
+the second F so the rule is you put the closest one that had no else associated
+with it so if that were the rule how would this thing be interpreted that's what
+I want you to do see if you can figure out how does this and if you can you know
+many of the ideas areow you to print I'm I think I L you to give you annotation
+I think you can annotate over here so um I me I can so you should also be able
+to I hope and so see let's see what this is you can actually print it out if you
+want print it out as a as a program and we'll all analyze it with you okay every
+I want if I will and rewrite this into real python how are the ifs and any
+else's um um you know um be associated before we do this let's take a look at um
+let take a look at this I'm not sharing right I'm not this can you hear me m um
+I got that yeah anybody else who's who's speaking who got this uh Matthew I just
+reading it as described that's what it sounds like that's what you got right did
+according to the rule is that true seven participants okay is that is that true
+okay so who's good let's see let's see your screens then where did I get this by
+the way I asked chat GPT and this is what 40 gave me so let's see how this works
+unfortunately all right so I'm I I am sharing right so let's I am sharing gonna
+say share again and I'm gonna say stop okay so who wants to show who has their
+hand up Ana you want to show yeah go you got the same answer that chat GPT got
+no I did it myself no no no did you get the same result oh yes yes so's see why
+did you could you put can you put in the screen can you put um from the class
+notes also show it side by side yeah let's do that good yeah and put the class
+notes side by side so we can see them on the same screen I think you're not sh
+screen oh right right right one second here that better yeah yeah so a bit more
+make the make the right part a little bit smaller so we could actually the whole
+oh there's a statement okay so how did you decide good good how did you decide
+so go through it yeah so um you start with the first if you see you can
+automatically see there's two ifs nested in each other so here they are and then
+we know that the first else we see has to be paired with the first lone if that
+we see which is why I commented that out so the else goes directly under that if
+because they're combined um so if if this then this if not that then this and
+then we see another if way to find the so we have the else right yeah so the
+else and then you have another show us on the left hand side where this else is
+so this this right here and the this is the first that goes under the closest if
+right and yeah another the closest if and then we see another if right where is
+that if Z is greater than or equal to seven right here then we're printing this
+and if not that then our last else has to go with that if so that's why it's
+directly under it so everybody got this very nice very nice Professor I got
+something slightly different let's who who's talking Olivia is talking so let's
+see what did you do can you see my screen yeah so I put the lse here parallel
+with the but we need to we need to uh see the question also can you put the
+question on the same thing okay question oh question was on my iPad uh I can
+it's on page 32 thank you there's another 32 probably down there with it's a
+different go down go down is this is this the right uh PVF yeah part two I think
+um page 32 of the PDF you're on page 28 of 37 uh on the top so go to 32 yeah
+thank you thank you okay sure all right so the rule is what the rule is that the
+the else goes with the closest if that doesn't have an else right so let's see
+your code yeah right so you have one if and then another if but then the else
+goes with if you have the if if going with the outside have the else going to
+the outside if but which is the closest if that doesn't have an else so yeah so
+right so and how do you tell python which is which it only tells it bind
+indentation right yeah because at first I think it prints X less than or equals
+to 9 so the right but I mean the point is that according to the if you're going
+to follow the rule the L should go with this your second if right yeah right all
+right anybody else there all right let's go on thank you let's go on Professor I
+had a question uh this is yes you're speaking um sir my question is uh when I
+tried to paste the whole line into python it said it's a syntax error uh only
+when I fixed it then it said okay is that something I need to worry about very
+good show us excellent show us show us the error oh no you can't no that's a
+syntax there no but when you that's a syntax ER but I mean when you when you fix
+when you redo it you don't get a syntax error right when you when you when you
+refor the whole trick is to reformat it so you don't get right to the trick is
+to reformat that the first thing will be a syntax here sure but if you reformat
+then you don't get it right yeah okay good let's go on some of I think some of
+us are a little mythed that it appears that there's a bug in the code due to the
+strict interpretation right pairing the if with the else with the closest if
+right the uh when we run your screen bring up your screen all right let's see
+screen react raise hand no that's wrong share all right so this is like the
+original problem when we run this we get um their our invalid syntax thing we
+have the if followed by an if which this interpreter doesn't like no yeah yeah
+you can't but when you rewrite it right when we rewrite it it it it's properly
+syntactically correct and what happens is X is not greater than n and we print
+nothing um but uh uh some people are saying like this control tab yeah some
+people are saying to do this which would tie this elf statement to the first if
+statement which would break our strict rules on the uh if statement um but if we
+look at the logic of the code and what's going on um there's no logic to the
+code there's no logic to the code no logic to the code what we're trying to do
+is we're trying to take this thing over here right that the big string that you
+get a syntax eror with and interpret it according to the rule that the L's Goos
+with the closest if don't try to figure what the intent was okay simply we want
+to we want to interpret that string according to the rule that the if that the
+else goes with the closest if we don't want to look at what the intent of the
+program was we just want to do what that says all right thanks does that make
+sense yeah okay all right any any other question very good all right uh let me
+just take the screen back oh let let's take a five minute break and then we'll
+go on okay let's take a five minute here yep okay all right so um you can see my
+screen I suppose right so let's um am I still recording that's a good question
+yes so um so we saw we saw various forms of if right we saw if if then and then
+we saw if there and there's an interesting one in fact this is actually quite
+interesting so um it says just like C++ there's a Turner operator it's also
+conditional so for example in C++ I have a number and what I do is I want to get
+a result and I want to know if it's positive or even or negative right so um I
+can ask the following question so this is I have I have the the the Boolean
+expression over here and it says I'm asking a question right so what's the
+answer so if this is true then I say um then I say it's positive right if it's
+not true then I say negative of course this is not true because what if it's
+zero but if it's um and then I return the results right so uh in Python you have
+the same kind of idea you're going to assign something to results you have a
+variable uh but um python it's it's very interesting because this starts with a
+booing expression right and you but you're not going to assign the booing
+expression to the result you're you're going to you're going to assign either
+this or that so in Python it's sort of a little bit more natural right python is
+going to say here's the expression except if I change my mind right we saw
+earlier right so um so so give me give me an A and give me B so the answer is
+going to be a um unless a is less than b right so it's gonna be which is the big
+I want to know which is bigger or which is smaller so it's G I'll change my mind
+to say is Big right so this is consistent what we saw earlier it say the
+smallest number is whatever um this thing is everybody everybody got that that
+get clear it's very nice construction here's a strange one so um so I could do
+like this give me an A and give me a B I want to know which one is smaller so
+here is what it looks like you can do this in Python sobody look at it for a
+moment those of you that don't have any python experience will not be able to
+see what this means but um just for a moment let me show of hands who has a
+background in Python just raise your hand keep it up for a little bit it's got
+to be more than six back that's it there 10 out of 10 out of the whole clip keep
+it up for a bit please oh this is I thought there was more than this all right
+so let's let's see what this thing means so so this over here um this is this is
+something called a list right a list is basically a list is like an array but
+like an array on steroids we'll get to this this this is the fundamental data
+structure python is the list and so um if this is a call the list if this is a
+list X so we can index it just like an index in Array so this would be x sub Z
+and this would be x sub one right this we've seen a little bit now formally this
+is what we call a tupo right uh so this is but this is the if this tupo is
+called T this is T sub Z and T sub one and we can get at it this is the indexing
+operation this is really very neat right index operation so um what's the
+possible if I have um expression like a less than b right this um this
+relational expression what are the possibilities it's either going to be true or
+false right so if it's false what's the internal value of false we saw that's a
+zero if it's true then the value is going to be one so what this is doing is uh
+it's going to be either zero or one so if it's zero it's going to pick out the
+zero element which is going to be B if it's one it's going to pick out the the
+one element which is which is a likewise so that's in terms of the two same
+thing works um for for a list right so if a is less than b that's true it's
+going to pick out a right but if a is a if is not less than b so that's going to
+be zero it's going to pick out B have you see this this is really neat it's a
+cool idea so it's using booleans we still we can do you can use booleans to do
+multiplication of strings and so on you could actually use the Boolean
+expression to give us um an index into an an indexable structure and this a find
+the third form uh is the if L if um so uh let's see how that works input an
+integer between one and five so if n is equal to one print uh print red if it's
+not then print two right and the structure is here's the if this's the booing
+expression and just as before there's a colon after the buing expression so if
+this is true you do whatever this block can have as many things as you want this
+a block so if n is equal to one you do this then what happens the first one that
+is true the first one satisf that's what the value of the if else is and you
+just come out to the bottom right um but if it's not true then you go to the
+next one again it just says L if and then there's another B expression with a
+colon and there's this block and so on and so forth and this else over here is
+is you don't need it and but if you put it in there then uh it'll do whatever
+put in that block okay that's the basic idea how many lfs do you need as many as
+you need there's no rule here the semantics as we saw let's try to write this
+program right many times when I have to given the grades so I have all kinds of
+numerical values and then when I finally send it to the regist I have to
+translate all those numerical values into a letter grade and put that into some
+form that goes electronically to the to the regist so I have some kind of thing
+like this except it's in Excel but how would I write this in in Python right so
+if the score is 90 or above it's a and so on and so forth otherwise it's F so
+you want to write a program um that takes a look at the scores and takes it's
+going to take in a numerical method numerical value and print out um print out
+the letter grade okay let's try that all right Garrett get ready to show your
+screen okay um I can't I'm on yeah I have per it's like giving me a permission
+error are you are you running on a Mac yeah anybody know how to do that because
+I don't have a Mac that that seems to be a problem that comes up quite often
+what's this permission error can you have any idea uh let me look it up all
+right meanwhile screen Professor can you see my screen yeah excuse me I have a
+lot of things open sorry okay so um here's my uh code so I'm going to open this
+side by side with the problem okay so um this program as uh if score is n to
+above a so but I start with checking if the score is within the range so um if
+score is greater than 100 or less than zero I print out score is out of range
+then I do else if uh check if it's greater than 90 or equal to a and then
+including 80 up to 90b and all that and less than 60f if I run this uh if for
+example if my score is 34 I get an f um if I run this again if my score is uh
+989 I should get a b and I get a B right and you're can and complain that you
+want one more point right yeah all right now very good this is don't go away
+don't go away yeah is there any way so this is what I asked earlier so you have
+a Boolean expression over here uh can you into an expression where the score is
+in the middle and the numbers are on both sides profess I did it that way um uh
+score in range no no no no oh okay so I can do uh the I can do with uh greater
+than less than S sure I can do um 80 uh less than or sorry 18 four arrow 92 like
+this is this a valid syntax I'm not sure maybe we can have the expression in the
+middle and the values on the two sides right that was one of the things we could
+do here is this correct I did it that way you did it that way okay let's see
+okay let me stop sh Who's Talking Now whose screen are we gonna see uh Naji n
+yeah very good so let walk us through this thing yeah so just take an input of
+grade as an integer and then the first statement is if grade is greater than 90
+prce you're greater than a and then for the else if I put grade in the middle
+and then if grade is greater than or equal to 80 right or greater is less than
+90 then it PR be and that's how it goes for the rest leave it on leave it on
+very okay everybody see this you so this one of the things you could do in
+Python right you can use this is sort of a normal thing you would see in a math
+problem right you would have the the value you have the expression in the middle
+and You' have the limits on the expression on both sides you can actually do
+this in Python so if the grade for the second point if the grade is on the one
+hand it's greater than or equal to the guy on the left right uh but less than or
+equal to um right to to to the 90 then the grade's going to be B and the ell
+will take you to the next one all right good now run this thing and that's what
+happens and if we get a a 85 we can't see your run oh you can't see um uh hold
+one uh give me one6 not sure can you see it now can you see it now on you see it
+now yeah okay well be run it again over let me I'm let me CLI over other oh
+there we go can you still see it we can't see you run but we can see the okay do
+you see it now s 136 all right so the problem with this of course there is no oh
+yeah what happens you put it a minus 6us yeah he didn't do but so let's go back
+to your program yeah I I didn't put the range for um right how would you do that
+where would that go so I for yeah I could just do for the top one yeah so put
+put something on top of the first no no just add an on top you on top why would
+I say it's since 100 as I say the great largest you can have so it's greater
+than 100 or less than zero than it's out of range yeah I could I would just put
+another LF statement El if um El if uh let me see gr is than less than zero and
+greatest rated in 100 um that would work that's an idea but you got this is fine
+this is fine very good okay any any other question any questions here any
+suggest questions any alternatives there we go all right thank you um go back
+here share all right let's try this one a pound Drome is the any number that
+reads it's a string that reads the same forward and backwards so this is a pal
+Drome because one two reads like 1221 or 1221 this is pound drum this is not a
+pound drum you want to write a program inputs a four-digit integer and
+determines if it's a pound drum or not reject any input in only appropriate
+range okay this is also very straightforward let's see remember we can't use
+anything that we did not do a general question can you hear me is my microphone
+clear enough can you hear when I speak yes we can hear you I can hear you but
+you sound a little more muffled than you were before I can hear you like 90% of
+the beginning because I was not reading you now now it's probably it's not a big
+difference I can hear both both times then we can only use the toys that we have
+so fun okay Ado I'm going to ask you to show your screen in about 30 seconds
+okay a let's see what you got okay you guys see yeah if you can make a little
+bit bigger that would be helpful so I've been trying to do that in this editor
+but it's so hard I don't know if I'm not doing it right um anybody using a Mac
+that knows how to do this like I'm pressing the zoom button but it just does
+that which I don't want right you could just drag the corners of the screen out
+if you want to do it like that drag the corners of the screen out yeah click the
+green button on the top left like make it minimize like yeah oh no yeah minimize
+it sorry oh the green button yeah and then drag it like to make it bigger or
+smaller if that's what he wants you could also um could click on idle next to
+Apple and then go to the sets I believe um it the Apple s something under the
+Apple I think I think it was the before go into look go to format uh on on idol
+see that any gives you the SC the size of the no I don't see that maybe window
+window yeah I just have the zoom option which just does the um full screen thing
+this is strange just because all right let's take a look what you got do so how
+does it work okay so um I'm taking in um an input from the user uh I'm not
+casting it to an integer just leaving it as a string um and then I'm checking so
+I have like basically four outer conditional checks that checks the length um so
+if the length of the string is just one then the number is a palindrome because
+it's just itself uh if it's size two then we're just checking the the two
+numbers to see if they're equal to each other okay this is a good idea it
+actually is a nice idea however what's the problem with it what happens is if
+somebody if if you you you do some Consulting for somebody right and they give
+you a spec right you have to like you have to make sure that you answer what
+they want right if you you give them a brilliant brilliant you know program but
+it's not the right thing that it's not what they wanted so they aren't they
+aren't going to pay you right so the problem as is stated it doesn't say what
+the range of the input is supposed to be it says a four-digit number right so
+you can use it as a string that's a nice idea however you're talking if somebody
+gives you a one that's out of range of what the problem stated right that's
+number one it has to be a 4digit number that's what it said that's what you know
+that's what the the contract that you signed with the with the end user that's
+what the contract said it has to be a four-digit number that's number one number
+two oh okay okay but also the guy told you that the only because he has a
+programs are not too you know they don't know much python so you can't use
+anything that they haven't gotten up to in their class yet right so string uh
+these are strings right but we don't know how to access individual elements
+strings we don't know anything about you know how you can you know what the
+colon means and the strings and so on so while it's a nice program you didn't
+solve the problem right you didn't solve the problem you didn't use the
+constraints I understand okay generally that's important all right El we have
+here we have you see anybody else over here an I got something different okay
+yep let's see what you got uh Shing I really like this same kind of similar to
+the coin problem but it only works with four digits though right that's because
+the problem said four digits so what what happens right you doing so it's
+basically breaking the uh breaking the numbers this one gets the the hund uh the
+Thousand unit this one gets the 100 unit the 10th unit and then the single unit
+and then Compares them over here it com it Compares them individually if Q
+equals to R and then if W equals to e the both have to be okay that's a nice
+idea right in other words what he did was he took it go go to the program he
+took it as a number right came as came as a string but he made it into an
+integer and then he pull the integer apart right by using the the the the mod
+and the integer divide right see everybody see that he he pulls out the various
+digits uh one by one he assigns it to individual variables and then he you know
+what does he pull out first which is the Q when you say Q is X which is that the
+first or the last which is uh the first number yeah right because because how
+many times does a thousand go in there whatever the first value is right and and
+he and then he shrinks he's shrinking the value there and he does the same thing
+each time gets the gets the appropriate digit and since you know because that's
+the way the the the problem is for is formulated you know that's only a four-
+digit number okay but what's missing over here you know with the contract that
+you sign that you have to re you have to reject um one a number that's not in
+range oh yeah I did my program like that if you want to see yep very that was a
+nice program but again just okay who's who's coming on here Ana me Ana yeah this
+is the condition to check if it's in range because if it's anything less than a
+thousand or bigger than 99,999 it's not in the range um and then you extract
+each of the digits and then you compare them similar to what he did excellent so
+this it's the same idea except that she actually met the requirements all right
+let's Co it a day any questions before before we go away it's good all right so
+see you tomorrow

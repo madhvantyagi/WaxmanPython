@@ -1,0 +1,33 @@
+- The `@property` decorator defines a getter for `age`. When you access `p.age`, it returns the value of
+`_age`.
+- The `@age.setter` decorator defines a setter for `age`. When you set `p.age = value`, it validates the
+value before setting `_age`.
+- The `@age.deleter` decorator defines a deleter for `age`. When you delete `age` with `del p.age`, it
+performs the necessary cleanup.
+Encapsulation through Properties
+Properties provide a way to control access to an attribute:
+Data Validation: The setter method can include validation logic to ensure that only valid data is
+assigned to the attribute.
+Data Hiding: By using properties, the direct access to underlying data (like `_age`) is restricted,
+enforcing the use of getter and setter methods.
+Additional Processing: Getter and setter methods can include additional logic like logging, error
+handling, or data transformation.
+Properties offer a Pythonic way to achieve a level of encapsulation similar to private and public access
+modifiers in other languages. While they don't completely prevent access to the underlying data (as
+Python's philosophy allows for more flexibility), they provide a structured way to manage how data is
+accessed and modified within a class.
+Instance variables and class variables
+Instance variables and class variables serve different purposes and have different behaviors.
+Instance variables are like data members in a C++ class, Python class variables are like C++
+static data members.
+Instance variables are variables that are specific to each instance of a class. Every object
+(instance) of the class has its own copy of these variables. They are usually defined and
+initialized within the `__init__` method.
+In the `Rat` class, `n` (numerator) and `d` (denominator) are instance variables:
+class Rat:
+def __init__(self, n=0, d=1):
+self.n = n # Instance variable
+self.d = d # Instance variable
+Each `Rat` object will have its own `n` and `d` values, independent of other `Rat` objects.
+Class Variables
+8

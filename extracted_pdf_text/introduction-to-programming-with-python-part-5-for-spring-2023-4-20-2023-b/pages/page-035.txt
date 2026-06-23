@@ -1,0 +1,37 @@
+cav=0 # class average
+def last_then_first(x):
+return x[1]+x[0]
+grades=[] # This will be a 2 dimensional table with the grades of all the
+students
+for line in open('bnames.txt'): # The file with the student grades, one/line
+line=line.split()
+line[2]=float(line[2])
+line[3]=float(line[3])
+grades.append(line)
+cav+=(line[2]+line[3])/2
+cav=cav/len(grades)
+outfile=open('scores.txt','w')
+grades.sort(key=last_then_first)
+for line in grades:
+av=(line[2]+line[3])/2
+line=format(line[0],'<10s')+format(line[1],'<10s')+str(line[2])+'
+'+str(line[3])+' '+str(av)+' '+str(av-cav)+'\n'
+outfile.write(line)
+outfile.close()
+CSV Files
+Handling CSV (Comma-Separated Values) files in Python is straightforward and can be done using the
+built-in `csv` module. This module provides methods for reading from and writing to CSV files.
+To read data from a CSV file
+1. Import the `csv` module.
+2. Open the CSV file using the `open()` function.
+3. Create a CSV reader object using `csv.reader()` to read data from the file.
+4. Iterate through the rows in the CSV file and process the data.
+import csv
+# Open the CSV file for reading
+with open("data.csv", mode="r") as file:
+# Create a CSV reader
+csv_reader = csv.reader(file)
+# Iterate through rows and process data
+for row in csv_reader:
+print(row)
+110

@@ -1,0 +1,17 @@
+Let’s take a break!
+really
+Here is a interesting
+Microsoft/Google/Wall Street Interview Question!
+1. Run the following program:
+from math import sqrt
+from random import random
+count=0
+for i in range(1000000):
+x=random()
+y=random()
+if sqrt(x*x+y*y)<1:
+count+=1
+print(4*(count/1000000))
+2. What is it calculating?
+3. How/why does it work? What is the theory behind this?
+138

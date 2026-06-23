@@ -1,0 +1,32 @@
+Static Methods
+1. Not Bound to Instances or Class: Static methods are methods that belong to a class but do
+not require an instance of the class to be used. They don't have access to the instance (`self`) or
+the class (`cls`) unless explicitly passed.
+2. Defined with @staticmethod Decorator: They are marked with the `@staticmethod`
+decorator to indicate that they are static methods.
+3. Usage: Static methods are used for functionality that is related to a class but is self-
+contained and does not need to access or modify class or instance state.
+Relationship
+Class Level: Both class variables and static methods are defined at the class level.
+Independence: Static methods can be used independently of class or instance state. They can
+be called without creating an instance of the class. While they can access class variables if
+necessary, they do not rely on instance variables.
+Utility Functions: Static methods often act as utility functions related to the class’s purpose
+but don't need to interact with class or instance variables.
+For example:
+class Rat:
+count = 0 # Class variable
+def __init__(self, n=0, d=1):
+self.n = n
+self.d = d
+Rat.count += 1
+@staticmethod
+def get_total_rats_created():
+return Rat.count # Accessing class variable
+# Usage
+r1 = Rat(1, 2)
+r2 = Rat(3, 4)
+print(Rat.get_total_rats_created()) # Static method accessing class variable
+In this example, the static method `get_total_rats_created` accesses the class variable `count` to
+provide class-level information, demonstrating how static methods can interact with class
+10

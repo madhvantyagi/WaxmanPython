@@ -1,0 +1,14 @@
+Problem:
+Create a 4X4 array and initialize each of the elements to 0.
+Solution:
+a=[]
+for i in range(4):
+a.append(4*[0])
+What does 4*[8] mean?
++
+Python lets us use and * with lists.
++ concatenate extend
+So from here you see is i.e. it acts like the list function . But you can only
++ a list to a list, not a string to a list like you can with extend.
+What about “*” ?
+163

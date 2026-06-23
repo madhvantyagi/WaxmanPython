@@ -1,0 +1,37 @@
+5. Offset
+The offset indicates the position of the bytecode instruction within the bytecode sequence. It's essentially
+the "address" of the instruction in the bytecode. This is useful for understanding the flow of execution,
+especially for operations that involve jumps, as it tells you where in the bytecode sequence an instruction
+is located.
+6. Line Starts and Jump Targets
+Line Starts: This indicates whether the instruction is the first one on a new line of source code. It's useful
+for debugging and profiling, as it helps map bytecode instructions back to the lines of source code they
+came from.
+Jump Targets: This indicates whether the instruction is a target for jumps from other instructions.
+Control flow operations like loops and conditionals involve jumps in the bytecode. An instruction marked
+as a jump target is where the control flow might jump to during execution.
+Aside: Load_FAST
+`LOAD_FAST` is an opcode used in Python's bytecode instruction set, which is part of the Python Virtual
+Machine (PVM). The `LOAD_FAST` opcode is used to load a local variable onto the stack quickly. It's
+designed to be an efficient way to access local variables within a function.
+Here's a breakdown of how `LOAD_FAST` works:
+Local Variable Access: Each function in Python maintains its own local variables. These are stored in a
+fixed-size array where each local variable can be accessed by its index. The `LOAD_FAST` instruction
+takes advantage of this by using the variable's index to access it directly.
+Stack: The Python Virtual Machine (PVM) uses a stack-based execution model. Operations are performed
+by pushing operands onto the stack and then executing an instruction that operates on those operands. The
+results of operations are then pushed back onto the stack.
+Efficiency: The `LOAD_FAST` opcode is optimized for speed. Since local variables are frequently
+accessed during function execution, having a fast way to load these variables onto the stack is crucial for
+performance. By using the index of the variable in the local environment, `LOAD_FAST` can quickly
+fetch the variable's value and push it onto the stack.
+In the context of the bytecode for the `add` function:
+LOAD_FAST a
+LOAD_FAST b
+- The first `LOAD_FAST` instruction loads the value of the local variable `a` onto the stack.
+- The second `LOAD_FAST` instruction loads the value of the local variable `b` onto the stack.
+After these instructions, the top two elements on the stack are the values of `a` and `b`, ready to be used by
+subsequent operations, such as `BINARY_ADD` in the case of the `add` function. This opcode is a critical
+part of the Python bytecode execution model, contributing to the efficiency of function calls and variable
+access within functions.
+109

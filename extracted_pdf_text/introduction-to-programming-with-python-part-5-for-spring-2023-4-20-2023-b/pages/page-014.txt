@@ -1,0 +1,12 @@
+Here is another way:
+def diagonal_threat(q):
+from itertools import permutations
+candidates=permutations([0,1,2,3,4,5,6,7])
+count=0
+for p in candidates:
+if diagonal_threat(p):
+continue
+count+=1
+print('Solution number ', count,': ',p)
+print()
+122

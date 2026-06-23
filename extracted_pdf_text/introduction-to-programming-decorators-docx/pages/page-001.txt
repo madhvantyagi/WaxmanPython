@@ -1,0 +1,21 @@
+Decorators
+Recall that:
+A function can define a new function inside itself as well as return the function.
+def f(x):
+def sq(z):
+return z*z
+return sq(x)
+A function is a first-class object and so can be assigned to a variable.
+def f(x):
+def sq(z):
+return z*z
+return sq(x)
+g=f
+print(g(3))
+We get
+The name of a function is a pointer to the function object.
+So, if we write sum=0, this breaks the connection to the built-in sum function.
+These ideas allow us to define “decorator” functions in Python.
+Note: for a nice introduction see https://www.geeksforgeeks.org/decorators-in-
+python/ or https://www.programiz.com/python-programming/decorator
+1

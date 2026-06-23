@@ -1,0 +1,32 @@
+Say that you would like to print a message when add_numbers is entered and when it exits. You
+can do it with decorators like this:
+1. Define a function (for this example call the function “log_function_call”) that takes the
+original function (call original function func) as an argument and makes a “sandwich”
+around f that
+a. Prints that func has entered
+b. Calls func to do the work
+c. Prints that func has exited.
+We call the sandwich a “wrapper”.
+The “log_function_call” function returns the wrapper functions. This is easier to
+understand by just looking at the code.
+This is the decorator function
+def log_function_call(func):
+def wrapper(*args, **kwargs):
+print(f"Calling function {func.__name__}")
+result = func(*args, **kwargs)
+print(f"Finished calling function {func.__name__}")
+return result
+return wrapper
+This is the function to be decorated
+def add_numbers(x, y):
+return x + y
+This says that the log_function_call function will “decorate” the add function
+@log_function_call
+def add_numbers(x, y):
+return x + y
+Now you call add_number(2,3)
+result = add_numbers(2, 3)
+print(result)
+This is equivalent to (as we saw in the first example)
+add_numbers= log_function_call(add_numbers(2,3))
+3

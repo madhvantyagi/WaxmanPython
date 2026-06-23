@@ -1,0 +1,22 @@
+Creating an empty dictionary
+As we saw earlier,there are 2two ways.
+prices = {} # An empty dict
+prices = dict() # An empty dict
+1. It is more idiomatic to use {} for an empty dictionary—although caution is required since it
+might look like you are trying to create an empty set (use set() instead).
+2. dict() is commonly used to create dictionaries from key-value values.
+For example:
+pairs = [('IBM', 125), ('ACME', 50), ('PHP', 40)]
+d = dict(pairs)
+How to obtain a list of dictionary keys:
+Two ways:
+1. convert a dictionary to a list:
+syms = list(prices) # syms = ['AAPL', 'MSFT', 'IBM', 'GOOG']
+2. Alternatively, you can obtain the keys using dict.keys():
+syms = prices.keys()
+The difference between these two methods is that
+keys() returns a special “keys view” a list of the keys that is attached to the dictionary and actively reflects
+changes made to the dictionary.
+list(prices) returns a list of the keys that is “frozen” at the time that the lisyt constructor was called.
+For example:
+138

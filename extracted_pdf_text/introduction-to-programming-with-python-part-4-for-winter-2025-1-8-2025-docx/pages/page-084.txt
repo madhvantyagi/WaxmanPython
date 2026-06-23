@@ -1,0 +1,8 @@
+Copying lists
+Let a=[1,2,3]. We want b to be a copy of a. How do we do this?
+1. How about b=a?
+But if we the write b[0]=4, we get:
+2. How about:
+Or:
+3. But what about:
+156

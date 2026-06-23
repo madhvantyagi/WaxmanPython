@@ -1,0 +1,33 @@
+Functions are objects and …
+Can have attributes assigned to them. For example:
+def do_thing():
+return
+do_thing.whatever = "hi"
+print(do_thing.whatever)
+#> hi
+Note that not all objects can have attributes assigned to them.
+Python explicitly forbids attribute assignment to built-in functions:
+print.some_data = "foo"
+> AttributeError: 'builtin_function_or_method' object has no attribute 'some_data'
+And you can’t assign attributes to built-in types:
+var = "stringy string"
+var.some_data = "foo"
+> AttributeError: 'str' object has no attribute 'some_data'
+Even though both are objects:
+isinstance(print, object)
+#> True
+isinstance(var, object)
+#> True
+How does this work?
+Internally, it's just a dictionary that handles failed attribute lookups (i.e., nondefault attributes). You can
+access or even replace such dictionary using __dict__ attribute.
+For example, you can track the number of times a function was called:
+def func(a, b):
+func.ncalls += 1
+return a + b
+func.ncalls = 0
+func(1, 2)
+func(3, 2)
+print(func.ncalls)
+Notice that ncalls is not a local variable in func, rather it is an attribute of the function object func.
+91

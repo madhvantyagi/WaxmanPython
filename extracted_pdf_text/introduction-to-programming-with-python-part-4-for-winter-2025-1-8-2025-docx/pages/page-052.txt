@@ -1,0 +1,16 @@
+We can find out the size (=length) of a list by using the len() function:
+We say that a list is mutable. This means that is can be modified (i.e. “mutated).
+Problem:
+Given:
+a=[[1,2],[3,4],[5,6]]
+what is :
+list(a)
+list(list(a))
+list((list(a)))
+Why?
+What about:
+[a]
+[[a]]
+[[[a]]]
+Why?
+124

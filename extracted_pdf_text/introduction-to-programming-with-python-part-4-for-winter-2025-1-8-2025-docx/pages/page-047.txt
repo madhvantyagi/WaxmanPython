@@ -1,0 +1,16 @@
+# Define a function to do something
+def greet(name):
+print(f"Hello, {name}!")
+# define some more functions to do other things
+……. And perhaps more functions
+# Define the main function to encapsulate the script's primary logic
+def main():
+# Call the greet function with a name
+greet("Alice")
+# You can add more logic here in the main that should execute when the script runs directly
+# This idiom checks if the script is being run directly (not imported as a module)
+if __name__ == "__main__":
+# If so, call the main function
+main()
+This structure is similar to the `main()` function in C++ programs, which serves as the entry point for execution.
+119

@@ -1,0 +1,13 @@
+When using lists, it is often convenient to have Python generate some random values for us. Python
+provides a module called random that has some useful functions for this purpose. The two that we will
+use most are:
+• random and
+• randint
+So ..
+Function “random()” generates a random floating point number from zero up to but not including
+1.
+Function randint(a,b) generates a random integer in the range a to b inclusive. Note that a and b here
+are integers.
+Problem:
+Write a program to fill a list of size 10 with random integers in the range 1 – 10 and print it out.
+133

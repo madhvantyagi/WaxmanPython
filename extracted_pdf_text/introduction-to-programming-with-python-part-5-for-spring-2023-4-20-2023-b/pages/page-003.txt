@@ -1,0 +1,8 @@
+Problem:
+Ask the user for three integer n and m and k, where k>m*n.
+Create a two dimensional table (list of lists) x of size n*m. Populate the list with n*m unique random
+integers in the range 1through k.
+Problem:
+Write a function get_row(x,i) which takes a square matrix (=table=list of lists) and returns a list
+containing the ith row of matrix X.
+112

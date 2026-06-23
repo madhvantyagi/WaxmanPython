@@ -1,0 +1,24 @@
+def __str__(self):
+return str(self.data)
+Using it:
+sa = SA(10, 20)
+sa[15] = 100
+print(sa) # [0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0]
+sa2 = SA(10)
+print(sa2) # [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Key points in the translation:
+1. Constructors: Python doesn't support multiple constructors, so the `__init__`
+method uses variable arguments (`*args`) to handle different construction scenarios.
+2. Array Representation: Python lists are used to represent the array. Unlike C++,
+Python handles memory management for lists automatically.
+3. Indexing: The `__getitem__` and `__setitem__` methods are used to implement
+array indexing (`[]` operator).
+4. Copy Constructor: Python doesn't have a copy constructor in the same way as
+C++. Instead, you can define a method to create a copy (using `__copy__` here).
+5. Destructor: Python's garbage collector handles memory management, so an explicit
+destructor like C++'s `~SA()` is not needed.
+6. Printing: The `__str__` method is used for string representation of the object,
+which allows printing the object directly.
+This Python class maintains the core functionalities of the C++ `SA` class, adapting
+them to Python's style and capabilities.
+18

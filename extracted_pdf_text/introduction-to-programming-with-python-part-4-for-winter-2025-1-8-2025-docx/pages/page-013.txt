@@ -1,0 +1,26 @@
+LOCAL VARIABLES
+Firstly, function parameters have local scope, so that any changes to them do not affect their “original”
+value outside the function. This is like call by value in C++.
+If I define a variable inside a function, then it’s considered to be a local variable. Local variables exist
+only as long as the function does; when the function goes away, so do the local variables it defined; for
+example
+x = 100
+def foo():
+x = 200
+print(x)
+print(x)
+foo()
+print(x)
+This code will print 100, 200, and then 100 again. In the code, we’ve defined two variables: x in the global
+scope is defined to be 100 and never changes, whereas x in the local scope, available only within the
+function foo, is 200 and never changes. The fact that both are called x doesn’t confuse Python, because
+from within the function, it’ll see the local x and ignore the global one entirely.
+THE GLOBAL STATEMENT
+What if, from within the function, I want to change the global variable?
+Use the global statement.
+x = 100
+def foo():
+global x
+x = 200
+print(x)
+85

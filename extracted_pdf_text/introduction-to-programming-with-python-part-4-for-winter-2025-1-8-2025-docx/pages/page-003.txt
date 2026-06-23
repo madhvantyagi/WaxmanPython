@@ -1,0 +1,13 @@
+How do we use functions in a module?
+There are three ways.
+1. The way we just saw: This just makes the module available but we need to use the “dot” syntax to
+actually access the function.
+2. We can import a single function from a module. The function is then available to be used “directly”
+like the len() function.
+3. We can import all the functions from a module at one time. We can then use the function name
+directly as in 2 above.
+Question:
+What are the advantages and disadvantages of each of the methods above?
+Answer:
+We can also do this:
+75

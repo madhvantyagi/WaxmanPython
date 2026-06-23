@@ -1,0 +1,18 @@
+Problem:
+Write a program to generate all the eight-digit base 8 integers from 00000000➔77777777
+What is a base eight integer?
+The following code will do it.
+for i0 in range(8):
+for i1 in range(8):
+for i2 in range(8):
+for i3 in range(8):
+for i4 in range(8):
+for i5 in range(8):
+for i6 in range(8):
+for i7 in range(8):
+q=[i0,i1,i2,i3,i4,i5,i6,i7]
+print(q)
+Problem:
+Write a function get_num(n) which returns a list of length 8 representing the base eight representation
+of the decimal number n.
+120

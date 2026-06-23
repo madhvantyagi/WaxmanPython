@@ -1,0 +1,41 @@
+>>> list(values)
+[2, 1, 1, 500]
+>>> # view objects are dynamic and reflect dict changes
+>>> del dishes['eggs']
+>>> del dishes['sausage']
+>>> list(keys)
+['bacon', 'spam']
+>>> # set operations
+>>> keys & {'eggs', 'bacon', 'salad'}
+{'bacon'}
+>>> keys ^ {'sausage', 'juice'}
+{'juice', 'sausage', 'bacon', 'spam'}
+What is the order of elements in the dictionary?
+The keys always appear in the same order as the items were initially inserted into the dictionary. The list
+conversion above will preserve this order.
+This can be useful when dicts are used to represent key-value data read from files and other data sources.
+The dictionary will preserve the input order. This might help readability and debugging. It’s also nice if
+you want to write the data back to a file.
+Note: Prior to Python 3.6, however, this ordering was not guaranteed, so you cannot rely upon it if
+compatibility with older versions of Python is required. Order is also not guaranteed if multiple deletions
+and insertions have taken place. Its possible (though not very likely) that the ordering might once again be
+unpredictable as it was before Python 3.6.
+Therefore, if you absolutely need the key value pairs you can use “collections.OrderedDict”:
+collections.OrderedDict is a subclass of the built-in dict class that is guaranteed to maintain the order of
+the keys in which they were inserted.
+For example:
+import collections
+# Create an empty ordered dictionary
+od = collections.OrderedDict()
+# Add items to the dictionary in a specific order
+od['apple'] = 1
+od['banana'] = 2
+od['orange'] = 3
+od['grape'] = 4
+# Print the items in the order they were added
+for key, value in od.items():
+print(key, value)
+The output is:
+apple 1
+banana 2
+141

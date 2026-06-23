@@ -1,0 +1,15 @@
+Just like there are conversions, int, float, str, there is a built-in function called bin. The documentation
+says:
+bin(x)
+Convert an integer number to a binary string.
+For example:
+Problem:
+Write a function my_bin(n) which converts an integer number to a string representation of n. But
+Leave out the leading ‘0b’ returned by the built in function bin.
+Problem:
+A generalization of the above.
+Write a function
+convert(a , basea, b)
+where a is an integer in base a to an equivalent integer in base b. The result will be a base b interger
+represented as a string. basea and baseb are integers between 2 – 9.
+83

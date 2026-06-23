@@ -1,0 +1,9 @@
+{
+  "source_pdf": "Classes PDF/introduction-to-programming-generators.pdf",
+  "output_dir": "extracted_pdf_text/introduction-to-programming-generators",
+  "combined_text_file": "extracted_pdf_text/introduction-to-programming-generators/combined.txt",
+  "page_count": 14,
+  "character_count": 19369,
+  "word_count": 3228,
+  "pages_with_no_text": []
+}

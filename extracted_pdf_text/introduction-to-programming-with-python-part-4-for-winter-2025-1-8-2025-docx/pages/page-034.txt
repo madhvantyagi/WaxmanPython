@@ -1,0 +1,40 @@
+Now … above we have 1. Parsing the Function Definition. What does that look like?
+First, Python creates an Abstract Syntax Tree (AST) representation of the abstract syntactic structure of
+the source code Each node in the tree denotes a construct occurring in the source code.
+For example, consider:
+def add(a, b):
+return a + b
+The AST for this function would represent the structure of the function in a hierarchical manner, breaking
+down the function definition, parameters, body, and return statement. A simplified version might look
+something like this:
+FunctionDef
+├── name: "add"
+├── arguments
+│ ├── arg: "a"
+│ └── arg: "b"
+└── body
+└── Return
+└── BinOp
+├── Left: Name(id='a', ctx=Load())
+├── Op: Add()
+└── Right: Name(id='b', ctx=Load())
+In this tree:
+. The root is a `FunctionDef` node, representing the function definition.
+. The `FunctionDef` node has children representing the function's name (`add`), its arguments (`a` and
+`b`), and its body.
+. The `arguments` node lists all parameters the function accepts. In this case, there are two arguments, `a`
+and `b`.
+. The `body` node contains a `Return` node, indicating that the function will return a value.
+. The `Return` node has a child `BinOp` (binary operation) node, representing the addition operation.
+. The `BinOp` node has three children: `Left`, `Op`, and `Right`. `Left` and `Right` are `Name` nodes
+representing the operands (the parameters `a` and `b`), and `Op` is an `Add` node representing the addition
+operator.
+In the context of the Abstract Syntax Tree (AST) for Python, `ctx` stands for "context", and it indicates
+how a variable or name is being used in that particular part of the code. The context can be one of several
+types, indicating whether a variable is being read from, assigned to, or deleted, among other possibilities.
+In the AST snippet above, the `ctx` is specifically marked as `Load()`, which means the variables `a` and
+`b` are being loaded from their respective locations (e.g., memory, a scope, etc.) for use in an expression.
+In this case, they are being used as operands in a binary addition operation.
+The different types of contexts in Python's AST include: Load, Store, Del, AugLoad, AugStore, and
+Param.
+106

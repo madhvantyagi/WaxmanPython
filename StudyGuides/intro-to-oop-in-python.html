@@ -1,0 +1,1290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intro to OOP in Python - Exam Study Guide</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --paper: #ffffff;
+      --ink: #1f2937;
+      --muted: #5b6472;
+      --line: #d9dee7;
+      --accent: #2457a6;
+      --accent-2: #0f766e;
+      --warn: #9a3412;
+      --bad: #b91c1c;
+      --good: #166534;
+      --code-bg: #111827;
+      --code-ink: #f9fafb;
+      --soft-blue: #eaf2ff;
+      --soft-green: #e9f7ef;
+      --soft-yellow: #fff7db;
+      --soft-red: #fdecec;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.58;
+    }
+
+    header {
+      background: #182235;
+      color: white;
+      padding: 34px 18px 28px;
+      border-bottom: 5px solid var(--accent-2);
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    header p {
+      max-width: 900px;
+      margin: 0;
+      color: #d8e3f4;
+      font-size: 1.05rem;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 22px auto 60px;
+      padding: 0 18px;
+    }
+
+    nav {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+
+    nav h2 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+
+    nav ul {
+      margin: 0;
+      padding-left: 20px;
+      columns: 2;
+      column-gap: 40px;
+    }
+
+    nav li {
+      break-inside: avoid;
+      margin: 4px 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      margin: 18px 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 1.75rem;
+      line-height: 1.2;
+    }
+
+    h3 {
+      margin: 24px 0 8px;
+      font-size: 1.25rem;
+      line-height: 1.25;
+    }
+
+    h4 {
+      margin: 18px 0 6px;
+      font-size: 1.05rem;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    ul, ol {
+      margin-top: 8px;
+      padding-left: 24px;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.94em;
+      background: #eef1f6;
+      padding: 0.08rem 0.25rem;
+      border-radius: 4px;
+    }
+
+    pre {
+      margin: 12px 0;
+      padding: 14px;
+      overflow-x: auto;
+      border-radius: 8px;
+      background: var(--code-bg);
+      color: var(--code-ink);
+      line-height: 1.45;
+      border: 1px solid #0b1020;
+    }
+
+    pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      border-radius: 0;
+      font-size: 0.92rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 0.96rem;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 9px 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #edf2f9;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin: 12px 0;
+      background: #fbfcff;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 12px 14px;
+      font-weight: 700;
+      color: #172033;
+    }
+
+    details .answer {
+      border-top: 1px solid var(--line);
+      padding: 12px 14px 14px;
+      background: white;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #e5eaf2;
+      color: #374151;
+      font-size: 0.78rem;
+      font-weight: 700;
+      vertical-align: 0.08rem;
+      white-space: nowrap;
+    }
+
+    .page {
+      background: var(--soft-blue);
+      color: #183d73;
+    }
+
+    .must {
+      background: var(--soft-green);
+      color: var(--good);
+    }
+
+    .trap {
+      background: var(--soft-yellow);
+      color: var(--warn);
+    }
+
+    .danger {
+      background: var(--soft-red);
+      color: var(--bad);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 14px 0;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fbfcff;
+    }
+
+    .callout {
+      border-left: 5px solid var(--accent);
+      background: var(--soft-blue);
+      padding: 12px 14px;
+      margin: 14px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .callout.warning {
+      border-left-color: var(--warn);
+      background: var(--soft-yellow);
+    }
+
+    .callout.danger {
+      border-left-color: var(--bad);
+      background: var(--soft-red);
+    }
+
+    .callout.good {
+      border-left-color: var(--good);
+      background: var(--soft-green);
+    }
+
+    .mini {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .checklist li {
+      list-style-type: square;
+    }
+
+    @media (max-width: 820px) {
+      nav ul {
+        columns: 1;
+      }
+
+      .grid,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Intro to OOP in Python</h1>
+      <p>Source-specific exam guide for <strong>intro-to-oop-in-python.pdf</strong>. It follows the 18-page slide extraction and turns the Rat and Safe Array translations into testable Python behavior.</p>
+    </div>
+  </header>
+
+  <main>
+    <nav aria-label="Table of contents">
+      <h2>Study Map</h2>
+      <ul>
+        <li><a href="#source-map">Slide Source Map</a></li>
+        <li><a href="#big-picture">Big Picture</a></li>
+        <li><a href="#rat">Rat Class Translation</a></li>
+        <li><a href="#constructors">Constructors, self, and cls</a></li>
+        <li><a href="#hiding">Data Hiding and Properties</a></li>
+        <li><a href="#variables">Instance, Class, and Static</a></li>
+        <li><a href="#deleters">Property Deleters</a></li>
+        <li><a href="#sa">Safe Array Translation</a></li>
+        <li><a href="#memory">Python Memory Mechanics</a></li>
+        <li><a href="#questions">Professor-Style Output Questions</a></li>
+        <li><a href="#likely">Likely Exam Questions</a></li>
+        <li><a href="#traps">Common Traps</a></li>
+      </ul>
+    </nav>
+
+    <section id="source-map">
+      <h2>Slide Source Map</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Pages</th>
+            <th>What the PDF Covers</th>
+            <th>What an exam can test</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag page">pp. 1-2</span></td>
+            <td>C++ <code>Rat</code> class: private data, multiple constructors, accessors/mutators, overloaded arithmetic, friend I/O operators.</td>
+            <td>Translate C++ OOP ideas into Python: encapsulation, operator overloading, constructors, object printing.</td>
+          </tr>
+          <tr>
+            <td><span class="tag page">pp. 3-4</span></td>
+            <td>Python <code>Rat</code>: <code>__init__</code>, properties, <code>__add__</code>, <code>__radd__</code>, <code>__sub__</code>, <code>__rsub__</code>, <code>__mul__</code>, <code>__truediv__</code>, <code>__str__</code>.</td>
+            <td>Operator dispatch order, right-hand methods, string conversion, validation through property setters.</td>
+          </tr>
+          <tr>
+            <td><span class="tag page">p. 5</span></td>
+            <td>Python does not directly support C++/Java-style multiple constructors. Use default arguments or class methods. <code>self</code> is explicit. <code>cls</code> refers to the class used to call a class method.</td>
+            <td>Default parameters, <code>*args</code>, <code>@classmethod</code>, inheritance behavior of <code>cls</code>.</td>
+          </tr>
+          <tr>
+            <td><span class="tag page">pp. 6-8</span></td>
+            <td>Data hiding, underscore convention, double-underscore name mangling, properties, getters, setters, deleters.</td>
+            <td>Why Python privacy is convention-based, what <code>_x</code> and <code>__x</code> actually do, how <code>@property</code> intercepts access.</td>
+          </tr>
+          <tr>
+            <td><span class="tag page">pp. 8-11</span></td>
+            <td>Instance variables, class variables, static methods. <code>Rat.count</code> counts created objects. <code>get_total_rats_created</code> is a static method.</td>
+            <td>Shared vs per-object state, instance shadowing of class variables, when static methods should or should not use class state.</td>
+          </tr>
+          <tr>
+            <td><span class="tag page">pp. 11-13</span></td>
+            <td>Property deleters and why deletion affects instances, not the class definition. Reasons and risks of deleting attributes.</td>
+            <td><code>del obj.prop</code> calls the deleter, not magic class rewriting. Later access can fail if backing data is gone.</td>
+          </tr>
+          <tr>
+            <td><span class="tag page">pp. 14-16</span></td>
+            <td>C++ <code>SA</code> safe-array class: bounds, dynamic allocation, copy constructor, destructor, <code>[]</code>, assignment, printing.</td>
+            <td>What Python removes or replaces: raw pointers, explicit destructor, manual deep copy, assignment overloads.</td>
+          </tr>
+          <tr>
+            <td><span class="tag page">pp. 17-18</span></td>
+            <td>Python <code>SA</code>: <code>__init__(*args)</code>, list-backed storage, <code>__copy__</code>, <code>__getitem__</code>, <code>__setitem__</code>, <code>__str__</code>.</td>
+            <td>Custom indexing, list reference behavior, bounds checking, copying mistakes, default list values.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="big-picture">
+      <h2>Big Picture</h2>
+      <p>The PDF is not teaching OOP from scratch. It is mostly teaching how familiar C++ class features map into Python's object model.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>C++ idea</h3>
+          <ul>
+            <li><code>private</code> and <code>public</code> enforce access.</li>
+            <li>Multiple constructors can have different signatures.</li>
+            <li>Operator overloads are named with operators, like <code>operator+</code>.</li>
+            <li>Memory management can require constructors, copy constructors, assignment operators, and destructors.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Python idea</h3>
+          <ul>
+            <li>Privacy is convention-first: <code>_name</code> means internal; <code>__name</code> triggers name mangling.</li>
+            <li>One <code>__init__</code>; simulate alternatives with defaults, <code>*args</code>, or <code>@classmethod</code>.</li>
+            <li>Operator overloads use special methods like <code>__add__</code> and <code>__getitem__</code>.</li>
+            <li>Objects live on the heap and are cleaned up by reference counting plus garbage collection in CPython.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout good">
+        <strong>Exam framing:</strong> the professor can ask, "What does this print?" but the real skill is knowing which special method is called, which object owns the data, and whether a name lookup hits the instance, class, property descriptor, or fallback right-hand operator.
+      </div>
+    </section>
+
+    <section id="rat">
+      <h2>Rat Class Translation <span class="tag page">pp. 1-4</span></h2>
+      <p>The PDF starts with a C++ rational-number class and then translates it to Python. The same object idea exists in both: store numerator and denominator, validate denominator, support arithmetic, and print cleanly.</p>
+
+      <h3>Clean Python version of the slide idea</h3>
+      <pre><code>class Rat:
+    def __init__(self, n=0, d=1):
+        self.n = n
+        self.d = d
+
+    @property
+    def n(self):
+        return self._n
+
+    @n.setter
+    def n(self, value):
+        self._n = value
+
+    @property
+    def d(self):
+        return self._d
+
+    @d.setter
+    def d(self, value):
+        if value == 0:
+            raise ValueError("Denominator cannot be zero")
+        self._d = value
+
+    def __add__(self, other):
+        if isinstance(other, Rat):
+            return Rat(self.n * other.d + self.d * other.n,
+                       self.d * other.d)
+        elif isinstance(other, int):
+            return self + Rat(other)
+        return NotImplemented
+
+    def __radd__(self, other):
+        return self + other
+
+    def __sub__(self, other):
+        if isinstance(other, Rat):
+            return Rat(self.n * other.d - self.d * other.n,
+                       self.d * other.d)
+        elif isinstance(other, int):
+            return self - Rat(other)
+        return NotImplemented
+
+    def __rsub__(self, other):
+        return Rat(other) - self
+
+    def __mul__(self, other):
+        if isinstance(other, Rat):
+            return Rat(self.n * other.n, self.d * other.d)
+        elif isinstance(other, int):
+            return self * Rat(other)
+        return NotImplemented
+
+    def __rmul__(self, other):
+        return self * other
+
+    def __truediv__(self, other):
+        if isinstance(other, Rat):
+            return Rat(self.n * other.d, self.d * other.n)
+        elif isinstance(other, int):
+            return self / Rat(other)
+        return NotImplemented
+
+    def __rtruediv__(self, other):
+        return Rat(other) / self
+
+    def __str__(self):
+        return f"{self.n}/{self.d}"</code></pre>
+
+      <div class="callout warning">
+        <strong>Source-specific correction:</strong> the slide code on page 3 uses <code>def __rsub__(self, other): return -self + other</code>, but the shown class does not define <code>__neg__</code>. If you run that exact version, <code>5 - Rat(1, 2)</code> raises a <code>TypeError</code>. The safer implementation is <code>return Rat(other) - self</code>.
+      </div>
+
+      <h3>Operator Overload Dispatch</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Expression</th>
+            <th>Method Python tries</th>
+            <th>Why</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>r1 + r2</code></td>
+            <td><code>r1.__add__(r2)</code></td>
+            <td>Left operand is a <code>Rat</code>, so its <code>__add__</code> owns the first attempt.</td>
+          </tr>
+          <tr>
+            <td><code>r1 + 3</code></td>
+            <td><code>r1.__add__(3)</code></td>
+            <td>The slide handles <code>int</code> by converting <code>3</code> into <code>Rat(3)</code>.</td>
+          </tr>
+          <tr>
+            <td><code>3 + r1</code></td>
+            <td><code>int.__add__(3, r1)</code>, then <code>r1.__radd__(3)</code></td>
+            <td>If the left operand cannot handle the right operand, Python asks the right operand's reflected method.</td>
+          </tr>
+          <tr>
+            <td><code>r1 / r2</code></td>
+            <td><code>r1.__truediv__(r2)</code></td>
+            <td>In Python 3, <code>/</code> maps to <code>__truediv__</code>, not <code>__div__</code>.</td>
+          </tr>
+          <tr>
+            <td><code>print(r1)</code></td>
+            <td><code>str(r1)</code>, which calls <code>r1.__str__()</code></td>
+            <td>This replaces the C++ <code>&lt;&lt;</code> stream overload in this example.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Behind the scenes for <code>r = Rat(3, 4)</code></h3>
+      <ol>
+        <li>Python looks up the class object named <code>Rat</code>.</li>
+        <li>Calling a class normally invokes <code>Rat.__new__(Rat)</code> first. Since the slide does not define <code>__new__</code>, Python uses <code>object.__new__</code> to allocate a blank object.</li>
+        <li>Python then calls <code>Rat.__init__(blank_object, 3, 4)</code>.</li>
+        <li>Inside <code>__init__</code>, <code>self.n = n</code> does not simply put <code>n</code> into the instance dictionary because <code>n</code> is a property. It calls the <code>n</code> setter, which stores <code>self._n = value</code>.</li>
+        <li><code>self.d = d</code> calls the denominator setter. The setter rejects zero and stores <code>self._d = value</code> if valid.</li>
+        <li>The variable <code>r</code> receives a reference to the new object. The object holds references to two integer objects through its attributes.</li>
+      </ol>
+
+      <h3>What arithmetic returns</h3>
+      <p>The slide does not reduce fractions. That matters for output questions.</p>
+      <pre><code>r1 = Rat(3, 4)
+r2 = Rat(2, 5)
+print(r1 + r2)  # 23/20
+print(r1 - r2)  # 7/20
+print(r1 * r2)  # 6/20, not 3/10
+print(r1 / r2)  # 15/8</code></pre>
+    </section>
+
+    <section id="constructors">
+      <h2>Constructors, self, and cls <span class="tag page">p. 5</span></h2>
+      <p>The PDF compares C++ multiple constructors with Python's single <code>__init__</code>. Python only keeps one method with a given name in a class body. If you write two <code>__init__</code> methods, the later definition replaces the earlier one.</p>
+
+      <h3>Three Python ways to imitate multiple constructors</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Technique</th>
+            <th>Slide example</th>
+            <th>Exam issue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Default arguments</td>
+            <td><code>def __init__(self, n=0, d=1)</code></td>
+            <td><code>Rat()</code>, <code>Rat(5)</code>, and <code>Rat(3, 4)</code> all work through one method.</td>
+          </tr>
+          <tr>
+            <td>Class methods</td>
+            <td><code>@classmethod def from_string(cls, string)</code></td>
+            <td><code>cls</code> points to the class used in the call, so subclasses can construct subclass instances.</td>
+          </tr>
+          <tr>
+            <td>Variable argument lists</td>
+            <td><code>SA.__init__(self, *args)</code> on pages 17-18</td>
+            <td>Code branches on <code>len(args)</code>. Invalid argument counts must be rejected manually.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3><code>self</code> is explicit</h3>
+      <p>The slide says <code>self</code> is like C++ <code>this</code>, but must be explicitly written. More precisely:</p>
+      <ul>
+        <li><code>self</code> is not a keyword. You could name it <code>this</code>, <code>x</code>, or anything else, but <code>self</code> is the standard convention.</li>
+        <li>When you call <code>r.__str__()</code>, Python passes <code>r</code> as the first argument automatically.</li>
+        <li>When you define the method, you must include that first parameter yourself.</li>
+      </ul>
+
+      <pre><code>class Demo:
+    def show(self):
+        print(self)
+
+d = Demo()
+d.show()       # Python turns this into Demo.show(d)
+Demo.show(d)   # Same call, written explicitly</code></pre>
+
+      <h3><code>cls</code> in class methods</h3>
+      <pre><code>class Rat:
+    def __init__(self, n=0, d=1):
+        self.n = n
+        self.d = d
+
+    @classmethod
+    def from_string(cls, string):
+        n, d = string.split("/")
+        return cls(int(n), int(d))
+
+class SpecialRat(Rat):
+    pass
+
+x = SpecialRat.from_string("3/4")
+print(type(x).__name__)  # SpecialRat</code></pre>
+
+      <div class="callout good">
+        <strong>Why this matters:</strong> using <code>return Rat(n, d)</code> inside the class method would always build a <code>Rat</code>. Using <code>return cls(n, d)</code> preserves subclass behavior, which is exactly the distinction called out on page 5.
+      </div>
+    </section>
+
+    <section id="hiding">
+      <h2>Data Hiding and Properties <span class="tag page">pp. 6-8</span></h2>
+      <p>The C++ version uses <code>private</code>. Python does not enforce the same kind of privacy. Instead, the PDF gives three levels of access discipline.</p>
+
+      <h3>Access levels in Python</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Pattern</th>
+            <th>Meaning</th>
+            <th>Enforced?</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>name</code></td>
+            <td>Public attribute.</td>
+            <td>No restriction.</td>
+            <td><code>obj.name</code></td>
+          </tr>
+          <tr>
+            <td><code>_name</code></td>
+            <td>Internal-use convention.</td>
+            <td>No. Other code can still access it.</td>
+            <td><code>obj._hidden_data</code></td>
+          </tr>
+          <tr>
+            <td><code>__name</code></td>
+            <td>Name-mangled to reduce accidental collisions.</td>
+            <td>Partly. It is harder to access accidentally, not truly private.</td>
+            <td><code>obj._ClassName__name</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Properties are descriptors</h3>
+      <p>The slide describes properties as getter, setter, and deleter methods. Behind the scenes, a <code>property</code> object is stored on the class. It implements descriptor behavior, so attribute access can call methods instead of directly reading or writing instance data.</p>
+
+      <pre><code>class Person:
+    def __init__(self, age):
+        self._age = age
+
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def age(self, value):
+        if value &lt; 0:
+            raise ValueError("Age cannot be negative")
+        self._age = value
+
+p = Person(20)
+print(p.age)   # calls Person.age.__get__(p, Person), then getter
+p.age = 21     # calls Person.age.__set__(p, 21), then setter</code></pre>
+
+      <h3>Why the slide's Rat uses <code>self.d = d</code>, not <code>self._d = d</code></h3>
+      <p>Inside <code>__init__</code>, assigning <code>self.d = d</code> deliberately goes through the property setter. That means the constructor gets the same denominator validation as later assignments.</p>
+
+      <pre><code>r = Rat(1, 2)
+r.d = 0        # raises ValueError
+Rat(1, 0)      # also raises ValueError because __init__ uses self.d = d</code></pre>
+
+      <div class="callout warning">
+        <strong>Trap:</strong> properties do not hide the backing attribute absolutely. A determined caller can still write <code>r._d = 0</code> and break the rational-number invariant. The point is controlled normal access, not absolute security.
+      </div>
+    </section>
+
+    <section id="variables">
+      <h2>Instance Variables, Class Variables, and Static Methods <span class="tag page">pp. 8-11</span></h2>
+
+      <h3>Instance variables</h3>
+      <p>Instance variables belong to one object. In the <code>Rat</code> class, every object has its own numerator and denominator.</p>
+
+      <pre><code>r1 = Rat(1, 2)
+r2 = Rat(3, 4)
+r1.n = 9
+print(r1)  # 9/2
+print(r2)  # 3/4</code></pre>
+
+      <h3>Class variables</h3>
+      <p>Class variables live on the class object and are shared by normal lookup across instances.</p>
+
+      <pre><code>class Rat:
+    count = 0
+
+    def __init__(self, n=0, d=1):
+        self.n = n
+        self.d = d
+        Rat.count += 1
+
+r1 = Rat(1, 2)
+r2 = Rat(3, 4)
+print(Rat.count)  # 2</code></pre>
+
+      <h3>Attribute lookup order</h3>
+      <ol>
+        <li>For ordinary attributes, Python first checks the instance dictionary: <code>obj.__dict__</code>.</li>
+        <li>If not found, Python checks the class and parent classes.</li>
+        <li>Properties and other data descriptors on the class can intercept lookup before instance data.</li>
+      </ol>
+
+      <pre><code>class C:
+    x = 10
+
+a = C()
+b = C()
+print(a.x, b.x, C.x)  # 10 10 10
+a.x = 99              # creates an instance attribute on a
+print(a.x, b.x, C.x)  # 99 10 10
+C.x = 7
+print(a.x, b.x, C.x)  # 99 7 7</code></pre>
+
+      <h3>Static methods</h3>
+      <p>A static method belongs to the class namespace but does not receive <code>self</code> or <code>cls</code> automatically. The slide uses it for class-related utility behavior.</p>
+
+      <pre><code>class Rat:
+    count = 0
+
+    def __init__(self, n=0, d=1):
+        self.n = n
+        self.d = d
+        Rat.count += 1
+
+    @staticmethod
+    def get_total_rats_created():
+        return Rat.count
+
+print(Rat.get_total_rats_created())</code></pre>
+
+      <div class="callout warning">
+        <strong>Static vs class method trap:</strong> page 10 returns <code>Rat.count</code>. That is fine for exactly <code>Rat</code>, but it is less flexible for subclasses. If the method needs to respect subclasses, use <code>@classmethod</code> and <code>cls.count</code>.
+      </div>
+    </section>
+
+    <section id="deleters">
+      <h2>Property Deleters <span class="tag page">pp. 11-13</span></h2>
+      <p>The PDF emphasizes that a deleter does not change the definition of the class. It only defines what happens when a specific property is deleted from a specific instance.</p>
+
+      <pre><code>class MyClass:
+    def __init__(self, value):
+        self._my_property = value
+
+    @property
+    def my_property(self):
+        return self._my_property
+
+    @my_property.setter
+    def my_property(self, value):
+        if value &lt; 0:
+            raise ValueError("Value cannot be negative")
+        self._my_property = value
+
+    @my_property.deleter
+    def my_property(self):
+        print("Property is being deleted")
+        del self._my_property</code></pre>
+
+      <h3>What happens on deletion</h3>
+      <pre><code>obj = MyClass(5)
+print(obj.my_property)
+del obj.my_property
+print(obj.my_property)</code></pre>
+
+      <p>Output and result:</p>
+      <pre><code>5
+Property is being deleted
+AttributeError on the final print</code></pre>
+
+      <ol>
+        <li><code>print(obj.my_property)</code> calls the getter and returns <code>5</code>.</li>
+        <li><code>del obj.my_property</code> calls the deleter.</li>
+        <li>The deleter deletes the backing attribute <code>_my_property</code> from <code>obj.__dict__</code>.</li>
+        <li>The class still has the <code>my_property</code> property object.</li>
+        <li>The final getter call tries to return <code>self._my_property</code>, but that instance attribute is gone.</li>
+      </ol>
+
+      <h3>Reasons the PDF gives for deleters</h3>
+      <ul>
+        <li>Cleanup external resources.</li>
+        <li>Prevent memory/resource leaks in resource-heavy classes.</li>
+        <li>Maintain state consistency.</li>
+        <li>Enforce business logic around deletion.</li>
+        <li>Log or audit deletion.</li>
+        <li>Validate whether a property should be deletable.</li>
+      </ul>
+
+      <div class="callout danger">
+        <strong>Exam warning:</strong> deleting attributes can make instances of the same class have different shapes. The PDF specifically warns that setting a value to <code>None</code> can be clearer than deleting the attribute outright.
+      </div>
+    </section>
+
+    <section id="sa">
+      <h2>Safe Array Translation <span class="tag page">pp. 14-18</span></h2>
+      <p>The second source example translates a C++ safe-array class into Python. The C++ class manually handles bounds, heap allocation, copying, assignment, destruction, indexing, and printing. The Python class keeps the important behavior but uses a list for storage.</p>
+
+      <h3>Python version from the slide idea</h3>
+      <pre><code>class SA:
+    def __init__(self, *args):
+        if len(args) == 0:
+            self.low = 0
+            self.high = -1
+            self.data = []
+        elif len(args) == 1:
+            self.low = 0
+            self.high = args[0] - 1
+            self.data = [0] * args[0]
+        elif len(args) == 2:
+            l, h = args
+            if h - l + 1 &lt;= 0:
+                raise ValueError("constructor error in bounds definition")
+            self.low = l
+            self.high = h
+            self.data = [0] * (h - l + 1)
+        else:
+            raise ValueError("Invalid number of arguments")
+
+    def __copy__(self):
+        copy_obj = SA(self.high - self.low + 1)
+        copy_obj.data = self.data.copy()
+        return copy_obj
+
+    def __getitem__(self, index):
+        if index &lt; self.low or index &gt; self.high:
+            raise IndexError(f"index {index} out of range")
+        return self.data[index - self.low]
+
+    def __setitem__(self, index, value):
+        if index &lt; self.low or index &gt; self.high:
+            raise IndexError(f"index {index} out of range")
+        self.data[index - self.low] = value
+
+    def __str__(self):
+        return str(self.data)</code></pre>
+
+      <h3>What the constructor branches mean</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Call</th>
+            <th>Bounds</th>
+            <th>Stored list</th>
+            <th>Valid user indexes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>SA()</code></td>
+            <td><code>low = 0</code>, <code>high = -1</code></td>
+            <td><code>[]</code></td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td><code>SA(10)</code></td>
+            <td><code>low = 0</code>, <code>high = 9</code></td>
+            <td>10 zeroes</td>
+            <td><code>0</code> through <code>9</code></td>
+          </tr>
+          <tr>
+            <td><code>SA(10, 20)</code></td>
+            <td><code>low = 10</code>, <code>high = 20</code></td>
+            <td>11 zeroes</td>
+            <td><code>10</code> through <code>20</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Index translation</h3>
+      <p>The external index is not always the internal list index. For <code>SA(10, 20)</code>, external index <code>15</code> maps to internal list index <code>15 - 10 = 5</code>.</p>
+
+      <pre><code>sa = SA(10, 20)
+sa[15] = 100
+print(sa)       # [0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0]
+print(sa[15])   # 100
+print(sa.data[5])  # 100</code></pre>
+
+      <h3>C++ memory management vs Python memory management</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>C++ <code>SA</code></th>
+            <th>Python <code>SA</code></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>int* p</code> points to manually allocated array memory.</td>
+            <td><code>self.data</code> references a Python list object.</td>
+          </tr>
+          <tr>
+            <td>Constructor uses <code>new int[size]</code>.</td>
+            <td>Constructor uses <code>[0] * size</code> to build a list.</td>
+          </tr>
+          <tr>
+            <td>Destructor uses <code>delete [] p</code>.</td>
+            <td>No explicit destructor is needed for this list-backed version.</td>
+          </tr>
+          <tr>
+            <td>Copy constructor and assignment operator must make deep copies to avoid shared raw pointers.</td>
+            <td>Assignment shares references. Use <code>copy.copy</code>, <code>copy.deepcopy</code>, or a custom copy method when a separate list is required.</td>
+          </tr>
+          <tr>
+            <td><code>operator[]</code> returns <code>int&amp;</code>, so assignment like <code>x[15] = 100</code> works.</td>
+            <td><code>__setitem__</code> handles assignment, and <code>__getitem__</code> handles reading.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout warning">
+        <strong>Source-specific copy trap:</strong> the slide's <code>__copy__</code> creates <code>SA(self.high - self.low + 1)</code>. For <code>SA(10, 20)</code>, that copy has bounds <code>0..10</code>, not <code>10..20</code>. A bounds-preserving copy should create <code>SA(self.low, self.high)</code>.
+      </div>
+    </section>
+
+    <section id="memory">
+      <h2>Python Memory and Reference Mechanics</h2>
+      <p>These mechanics are not always spelled out in the slides, but they are directly testable from the Rat and SA examples.</p>
+
+      <h3>Variables are references</h3>
+      <pre><code>a = SA(3)
+b = a
+b[1] = 99
+print(a)  # [0, 99, 0]</code></pre>
+      <p><code>a</code> and <code>b</code> refer to the same <code>SA</code> object. No copy was made by assignment.</p>
+
+      <h3>Object attributes reference other objects</h3>
+      <p>An <code>SA</code> instance has attributes like <code>low</code>, <code>high</code>, and <code>data</code>. The <code>data</code> attribute references a list object. Mutating that list changes the same list object that the <code>SA</code> object points to.</p>
+
+      <pre><code>sa = SA(3)
+lst = sa.data
+lst[0] = 7
+print(sa)  # [7, 0, 0]</code></pre>
+
+      <h3>Integer immutability vs list mutability</h3>
+      <p>Integers are immutable. When <code>self._n = value</code> stores an integer, later arithmetic creates new integer objects rather than changing the old integer. Lists are mutable. <code>self.data[index] = value</code> changes the existing list object.</p>
+
+      <h3>Garbage collection and destructors</h3>
+      <p>For the slide's Python <code>SA</code>, there is no explicit destructor because the list is a Python object. In CPython, objects are usually cleaned up when their reference count reaches zero, with a cycle detector for reference cycles. You should not rely on exact destructor timing for ordinary course-level Python code.</p>
+
+      <h3>Important memory model consequences</h3>
+      <ul class="checklist">
+        <li><code>x = y</code> binds another name to the same object.</li>
+        <li><code>SA.__copy__</code> needs to copy the internal list if independent storage is required.</li>
+        <li><code>self.data.copy()</code> is enough for a list of integers, but not enough for nested mutable objects.</li>
+        <li><code>del obj.prop</code> removes a reference from the instance if the deleter deletes a backing attribute.</li>
+        <li>When no references remain to an object, the object becomes eligible for cleanup.</li>
+      </ul>
+    </section>
+
+    <section id="questions">
+      <h2>Professor-Style Output Questions</h2>
+      <p>These questions are written from the exact PDF concepts and include the kind of step-by-step reasoning needed on a hard Python exam.</p>
+
+      <details>
+        <summary>Q1. What prints? Rat arithmetic without simplification.</summary>
+        <pre><code>r1 = Rat(3, 4)
+r2 = Rat(2, 5)
+print(r1 + r2)
+print(r1 * r2)</code></pre>
+        <div class="answer">
+          <p><strong>Output:</strong></p>
+          <pre><code>23/20
+6/20</code></pre>
+          <p><strong>Reasoning:</strong> <code>r1 + r2</code> calls <code>__add__</code>. Numerator is <code>3 * 5 + 4 * 2 = 23</code>. Denominator is <code>4 * 5 = 20</code>. Multiplication returns <code>Rat(3 * 2, 4 * 5)</code>, which is <code>6/20</code>. The slide class does not reduce fractions.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Q2. What prints? Left-hand int uses reflected method.</summary>
+        <pre><code>r = Rat(1, 2)
+print(3 + r)</code></pre>
+        <div class="answer">
+          <p><strong>Output:</strong></p>
+          <pre><code>7/2</code></pre>
+          <p><strong>Reasoning:</strong> Python first tries <code>int.__add__(3, r)</code>. Since an <code>int</code> cannot add a <code>Rat</code>, Python tries <code>r.__radd__(3)</code>. The slide's <code>__radd__</code> returns <code>self + other</code>, so <code>r.__add__(3)</code> converts <code>3</code> into <code>Rat(3, 1)</code>. Result is <code>1 * 1 + 2 * 3 = 7</code> over <code>2 * 1 = 2</code>.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Q3. What happens? Exact slide version of <code>__rsub__</code>.</summary>
+        <pre><code># Using the page 3 version:
+# def __rsub__(self, other):
+#     return -self + other
+
+r = Rat(1, 2)
+print(3 - r)</code></pre>
+        <div class="answer">
+          <p><strong>Result:</strong> it raises <code>TypeError</code> in the exact shown class.</p>
+          <p><strong>Reasoning:</strong> <code>3 - r</code> eventually calls <code>r.__rsub__(3)</code>. That tries <code>-self</code>. The shown class does not define <code>__neg__</code>, so unary minus is unsupported for <code>Rat</code>. A corrected reflected subtraction is <code>return Rat(other) - self</code>.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Q4. What prints? Constructor defaults.</summary>
+        <pre><code>print(Rat())
+print(Rat(5))
+print(Rat(5, 6))</code></pre>
+        <div class="answer">
+          <p><strong>Output:</strong></p>
+          <pre><code>0/1
+5/1
+5/6</code></pre>
+          <p><strong>Reasoning:</strong> Python does not use three separate constructors. One <code>__init__(self, n=0, d=1)</code> handles all three calls through default arguments.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Q5. What happens? Property validation in constructor.</summary>
+        <pre><code>r = Rat(4, 0)
+print(r)</code></pre>
+        <div class="answer">
+          <p><strong>Result:</strong> <code>ValueError: Denominator cannot be zero</code>.</p>
+          <p><strong>Reasoning:</strong> <code>__init__</code> does <code>self.d = d</code>, and <code>d</code> is a property. Assignment calls the setter. The setter rejects zero before <code>print</code> can run.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Q6. What prints? Bypassing the property.</summary>
+        <pre><code>r = Rat(1, 2)
+r._d = 0
+print(r)</code></pre>
+        <div class="answer">
+          <p><strong>Output:</strong></p>
+          <pre><code>1/0</code></pre>
+          <p><strong>Reasoning:</strong> The property setter only runs on <code>r.d = value</code>. Directly assigning <code>r._d</code> bypasses validation. This demonstrates the PDF's point: Python does not enforce absolute privacy.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Q7. What prints? Class variable and instance shadowing.</summary>
+        <pre><code>class C:
+    count = 0
+
+a = C()
+b = C()
+a.count = 5
+C.count = 2
+print(a.count, b.count, C.count)</code></pre>
+        <div class="answer">
+          <p><strong>Output:</strong></p>
+          <pre><code>5 2 2</code></pre>
+          <p><strong>Reasoning:</strong> <code>a.count = 5</code> creates an instance variable on <code>a</code>. It does not change <code>C.count</code>. Then <code>C.count = 2</code> changes the class variable. <code>a.count</code> finds the instance value first; <code>b.count</code> falls back to the class value.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Q8. What prints? Static method reading class variable.</summary>
+        <pre><code>class Rat:
+    count = 0
+
+    def __init__(self):
+        Rat.count += 1
+
+    @staticmethod
+    def get_total_rats_created():
+        return Rat.count
+
+print(Rat.get_total_rats_created())
+a = Rat()
+b = Rat()
+print(a.get_total_rats_created())</code></pre>
+        <div class="answer">
+          <p><strong>Output:</strong></p>
+          <pre><code>0
+2</code></pre>
+          <p><strong>Reasoning:</strong> A static method receives neither <code>self</code> nor <code>cls</code>. It can still be called from the class or an instance. Here it explicitly reads <code>Rat.count</code>.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Q9. What prints? Safe Array index translation.</summary>
+        <pre><code>sa = SA(10, 20)
+sa[15] = 100
+print(sa[10])
+print(sa[15])
+print(sa[20])
+print(sa)</code></pre>
+        <div class="answer">
+          <p><strong>Output:</strong></p>
+          <pre><code>0
+100
+0
+[0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0]</code></pre>
+          <p><strong>Reasoning:</strong> Valid external indexes are <code>10..20</code>. <code>15</code> maps to internal list position <code>5</code>. Printing calls <code>__str__</code>, which returns <code>str(self.data)</code>.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Q10. What happens? Out-of-range Safe Array access.</summary>
+        <pre><code>sa = SA(10, 20)
+print(sa[9])</code></pre>
+        <div class="answer">
+          <p><strong>Result:</strong> <code>IndexError: index 9 out of range</code>.</p>
+          <p><strong>Reasoning:</strong> <code>__getitem__</code> checks <code>index &lt; self.low or index &gt; self.high</code>. Since <code>9 &lt; 10</code>, it raises before reading the list.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Q11. What prints? Assignment shares the object.</summary>
+        <pre><code>a = SA(3)
+b = a
+b[0] = 8
+print(a)
+print(b)</code></pre>
+        <div class="answer">
+          <p><strong>Output:</strong></p>
+          <pre><code>[8, 0, 0]
+[8, 0, 0]</code></pre>
+          <p><strong>Reasoning:</strong> Python assignment does not call a copy constructor. <code>a</code> and <code>b</code> are two names for the same object. <code>b[0] = 8</code> mutates that object.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Q12. What prints? The slide's <code>__copy__</code> bounds issue.</summary>
+        <pre><code>import copy
+
+sa = SA(10, 20)
+sa[15] = 100
+cp = copy.copy(sa)
+print(cp.low, cp.high)
+print(cp)</code></pre>
+        <div class="answer">
+          <p><strong>Output with the slide's Python version:</strong></p>
+          <pre><code>0 10
+[0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0]</code></pre>
+          <p><strong>Reasoning:</strong> <code>__copy__</code> calls <code>SA(self.high - self.low + 1)</code>. For bounds <code>10..20</code>, size is <code>11</code>, so the one-argument constructor makes bounds <code>0..10</code>. It copies data values but loses the original low/high bounds.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Q13. What happens after deleting a property?</summary>
+        <pre><code>p = Person(20)
+del p.age
+print(p.age)</code></pre>
+        <div class="answer">
+          <p><strong>Result:</strong> the deleter deletes <code>p._age</code>, then the final print raises <code>AttributeError</code>.</p>
+          <p><strong>Reasoning:</strong> The class still has the <code>age</code> property. The getter still runs. But the backing instance attribute is missing.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Q14. What prints? Class method and subclass construction.</summary>
+        <pre><code>class Rat:
+    def __init__(self, n=0, d=1):
+        self.n = n
+        self.d = d
+
+    @classmethod
+    def from_string(cls, s):
+        n, d = s.split("/")
+        return cls(int(n), int(d))
+
+class LoudRat(Rat):
+    pass
+
+x = LoudRat.from_string("4/5")
+print(type(x).__name__)</code></pre>
+        <div class="answer">
+          <p><strong>Output:</strong></p>
+          <pre><code>LoudRat</code></pre>
+          <p><strong>Reasoning:</strong> <code>cls</code> is the class the method was called on. Since the call is <code>LoudRat.from_string(...)</code>, <code>cls</code> is <code>LoudRat</code>, not necessarily <code>Rat</code>.</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="likely">
+      <h2>Likely Questions Not Explicitly Shown but Naturally Testable</h2>
+
+      <details>
+        <summary>1. Why should unsupported arithmetic return <code>NotImplemented</code> instead of nothing?</summary>
+        <div class="answer">
+          <p>If <code>__add__</code> returns <code>NotImplemented</code>, Python can try the other operand's reflected method. If the method falls off the end and returns <code>None</code>, the expression can silently produce wrong behavior or fail with a confusing error later. The PDF's operator examples are about dispatch, so a hard exam may test the fallback path.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>2. What is the difference between <code>__str__</code> and <code>__repr__</code>?</summary>
+        <div class="answer">
+          <p>The PDF uses <code>__str__</code> as the replacement for C++ <code>&lt;&lt;</code> printing. <code>str(obj)</code> and <code>print(obj)</code> call <code>__str__</code>. <code>repr(obj)</code>, interactive display, and containers often use <code>__repr__</code>. If only <code>__str__</code> is defined, printing the object itself looks nice, but a list of Rats may still show default object representations unless <code>__repr__</code> is also defined.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>3. Why does <code>SA</code> need both <code>__getitem__</code> and <code>__setitem__</code>?</summary>
+        <div class="answer">
+          <p><code>sa[i]</code> calls <code>__getitem__</code>. <code>sa[i] = value</code> calls <code>__setitem__</code>. C++ can return an <code>int&amp;</code> from <code>operator[]</code> so the same operator supports reading and writing. Python separates the read and write hooks.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>4. If Python has garbage collection, why might a deleter still matter?</summary>
+        <div class="answer">
+          <p>The PDF's deleter section is not about destroying the whole object. It is about controlled deletion of a property. A deleter can close a resource, log the deletion, maintain internal state, or reject deletion based on business rules. Garbage collection only handles object cleanup when objects become unreachable.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>5. What is name mangling, exactly?</summary>
+        <div class="answer">
+          <p>Inside class <code>MyClass</code>, an attribute named <code>__x</code> is internally stored as something like <code>_MyClass__x</code>. This prevents accidental collision in subclasses. It does not make the attribute impossible to access.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>6. Why is <code>[0] * n</code> okay in the slide's <code>SA</code>, but sometimes dangerous?</summary>
+        <div class="answer">
+          <p>It is okay here because <code>0</code> is immutable. Every slot can refer to the same integer object without mutation problems. It is dangerous with nested mutable objects, like <code>[[]] * 3</code>, because all slots reference the same inner list.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>7. What is the difference between <code>Rat.count += 1</code> and <code>self.count += 1</code>?</summary>
+        <div class="answer">
+          <p><code>Rat.count += 1</code> definitely updates the class variable on <code>Rat</code>. <code>self.count += 1</code> first reads through normal lookup, then assigns back to the instance, often creating or updating an instance variable that shadows the class variable. For counters shared by all objects, use the class name or a class method with <code>cls</code>.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>8. Does <code>del obj.my_property</code> delete the property from the class?</summary>
+        <div class="answer">
+          <p>No. It invokes the property deleter for that instance. The property object remains in the class definition. Other instances still have the property behavior.</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="traps">
+      <h2>Common Traps for This PDF</h2>
+      <ul>
+        <li><span class="tag trap">Fractions</span> The shown <code>Rat</code> class does not simplify fractions. <code>Rat(3, 4) * Rat(2, 5)</code> prints <code>6/20</code>, not <code>3/10</code>.</li>
+        <li><span class="tag trap">Right-hand ops</span> <code>3 + r</code> is not <code>r.__add__(3)</code> first. Python tries the left operand first, then the right operand's reflected method.</li>
+        <li><span class="tag danger">Slide bug</span> The page 3 <code>__rsub__</code> needs <code>__neg__</code> but does not define it. Exact slide code can fail for <code>int - Rat</code>.</li>
+        <li><span class="tag trap">One constructor</span> Python does not choose between multiple <code>__init__</code> definitions. Later definitions replace earlier ones.</li>
+        <li><span class="tag trap">self</span> <code>self</code> is explicit in the method definition but automatically supplied in normal instance method calls.</li>
+        <li><span class="tag trap">cls</span> In a class method, <code>cls</code> is the class used for the call. It can be a subclass.</li>
+        <li><span class="tag trap">Privacy</span> <code>_x</code> is convention. <code>__x</code> is name-mangled. Neither is absolute privacy like C++ <code>private</code>.</li>
+        <li><span class="tag trap">Properties</span> <code>self.d = d</code> can call a setter. It is not always a simple dictionary assignment.</li>
+        <li><span class="tag trap">Deleters</span> A property deleter changes one instance's state. It does not remove the property from the class.</li>
+        <li><span class="tag trap">Class variables</span> Assigning <code>obj.count = 10</code> usually creates an instance variable; it does not necessarily update the class variable.</li>
+        <li><span class="tag trap">Static methods</span> A static method receives no automatic <code>self</code> or <code>cls</code>. If it uses <code>Rat.count</code>, it is hard-coded to <code>Rat</code>.</li>
+        <li><span class="tag trap">SA indexing</span> In <code>SA(10, 20)</code>, external index <code>10</code> maps to internal list index <code>0</code>.</li>
+        <li><span class="tag danger">Slide copy issue</span> The page 17 <code>__copy__</code> copies data but not original bounds for nonzero-low arrays.</li>
+        <li><span class="tag trap">Assignment</span> <code>b = a</code> never calls <code>__copy__</code>. It only binds another name to the same object.</li>
+      </ul>
+    </section>
+
+    <section id="exam-checklist">
+      <h2>Final Exam Checklist</h2>
+      <ul class="checklist">
+        <li>Can you translate C++ <code>operator+</code>, <code>operator[]</code>, and <code>&lt;&lt;</code> into Python special methods?</li>
+        <li>Can you predict when <code>__add__</code> vs <code>__radd__</code> is called?</li>
+        <li>Can you explain why Python uses one <code>__init__</code> with defaults, class methods, or <code>*args</code>?</li>
+        <li>Can you explain the difference between <code>self</code>, <code>cls</code>, and no automatic first parameter in static methods?</li>
+        <li>Can you identify whether a variable is per-instance or shared at class level?</li>
+        <li>Can you trace property getter/setter/deleter behavior?</li>
+        <li>Can you explain why Python's data hiding is not C++ <code>private</code>?</li>
+        <li>Can you trace <code>SA(10, 20)</code> index translation and list storage?</li>
+        <li>Can you explain why C++ needs a destructor/copy constructor for raw arrays but the Python list-backed version does not?</li>
+        <li>Can you spot when assignment shares an object versus when a copy is made?</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

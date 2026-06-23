@@ -1,0 +1,6 @@
+Problem:
+Ask the user for two integer n and m where m>n.
+Create a list x of size n. Populate the list with n random integers in the range 1through m.
+Problem:
+Modify the answer to the problem above so that all of the integers in list x are unique.
+110

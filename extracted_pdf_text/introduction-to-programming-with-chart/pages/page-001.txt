@@ -1,0 +1,9 @@
+Dictionaries
+Think of an on-line dictionary. You type in a word and the dictionary returns one or more meanings
+of the word you entered.
+We can think of the dictionary as a “list” that is indexed by the “word” whose definition you seek and
+the value that is returned is the set of meaning associated with that word.
+Or …
+Think of an on-line phone book. You time in the name of the person whose phone number you want
+and the phone book app returns the associated number.
+We can model the above in Python using the dictionary.

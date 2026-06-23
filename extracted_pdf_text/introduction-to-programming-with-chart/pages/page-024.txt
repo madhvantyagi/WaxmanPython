@@ -1,0 +1,33 @@
+def squish(x):
+if not x: # Check if the list is empty
+return []
+result = []
+count = 1
+current = x[0]
+for i in range(1, len(x)):
+if x[i] == current:
+count += 1
+else:
+result.append((current, count))
+current = x[i]
+count = 1
+result.append((current, count)) # Add the last element
+return result
+# Example usage
+print(squish([4, 4, 4, 6, 6, 8, 8, 8, 8])) # Outputs: [(4, 3), (6, 2), (8, 4)]
+Another way using library functions:
+from itertools import groupby
+def squish(x):
+return [(key, len(list(group))) for key, group in groupby(x)]
+So, for example:
+print(squish([4, 4, 4, 6, 6, 8, 8, 8, 8])) # Outputs: [(4, 3), (6, 2), (8, 4)]
+groupby is a very useful function
+The groupby function from Python's itertools module is used to group consecutive elements in an iterable that have
+the same value. Let's break down the structure of the groups created by groupby and examine their types with an
+example.
+When groupby is applied to an iterable, it returns an iterator that produces pairs of values. Each pair consists of:
+1. The Group Key: This is the value on which the grouping is being performed. It's the common value shared
+by all elements in the current group.
+2. The Group Itself: This is an iterator that yields all items in the current group. The items in each group are
+those that have the same key value and are consecutive in the original iterable.
+152

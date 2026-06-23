@@ -1,0 +1,37 @@
+5.Functions Accepting All Inputs
+By using both * and **, you can write a function that accepts any combination of
+arguments. The positional arguments are passed as a tuple and the keyword arguments are
+passed as a dictionary. For example:
+# Accept variable number of positional or keyword arguments
+def func(*args, **kwargs):
+# args is a tuple of positional args
+# kwargs is dictionary of keyword args
+...
+This combined use of *args and **kwargs is commonly used to write wrappers, decorators,
+proxies, and similar functions.
+For example, suppose you have a function to parse lines of text taken from an
+iterable:
+def parse_lines(lines, separator=',', types=(), debug=False):
+for line in lines:
+...
+statements
+...
+Now, suppose you want to make a special-case function that parses data from a file
+specified by filename instead. To do that, you could write:
+def parse_file(filename, *args, **kwargs):
+with open(filename, 'rt') as file:
+return parse_lines(file, *args, **kwargs)
+The benefit of this approach is that the parse_file() function doesn’t need to know
+anything about the arguments of parse_lines(). It accepts any extra arguments the caller
+provides and passes them along. This also simplifies the maintenance of the parse_file()
+function. For example, if new arguments are added to parse_lines(), those arguments will
+magically work with the parse_file() function too.
+6.Positional-Only Arguments
+Many of Python’s built-in functions only accept arguments by position. You’ll see this
+indicated by the presence of a slash (/) in the calling signature of a function shown by
+various help utilities and IDEs. For example, you might see something like func(x, y, /).
+This means that all arguments appearing before the slash can only be specified by position.
+Thus, you could call the function as func(2, 3) but not as func(x=2, y=3). For
+completeness, this syntax may also be used when defining functions. For example, you can
+write the following:
+98

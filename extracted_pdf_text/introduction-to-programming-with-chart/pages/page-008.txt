@@ -1,0 +1,41 @@
+Negative counts indicate items were removed more times than they appeared. Often, negative or zero
+counts aren't needed; quickly remove them using:
+c += Counter() # or c = +c
+# Result: Counter({'red': 2, 'blue': 1})
+Counter Arithmetic: Combining and Comparing
+Counters support intuitive arithmetic operations, allowing you to easily merge or compare multiple
+counters:
+• Addition (+): combines counts by adding corresponding elements.
+• Subtraction (-): subtracts counts, discarding any negative results.
+• Intersection (&): takes minimum counts—useful for common occurrences.
+• Union (|): takes maximum counts—useful for merged tallies.
+c1 = Counter(a=4, b=2)
+c2 = Counter(a=1, b=3, c=1)
+print(c1 + c2) # Counter({'a': 5, 'b': 5, 'c': 1})
+print(c1 - c2) # Counter({'a': 3})
+print(c1 & c2) # Counter({'a': 1, 'b': 2})
+print(c1 | c2) # Counter({'a': 4, 'b': 3, 'c': 1})
+Helpful Methods for Data Analysis
+Counters offer several convenient methods for data analysis:
+• most_common(n): quickly retrieve the n most frequent elements.
+• elements(): expand counts back into an iterable of repeated elements.
+• total() (Python 3.10+): sum all counts for a quick multiset size calculation.
+Example usage:
+text = "to be or not to be that is the question"
+word_counts = Counter(text.split())
+print(word_counts.most_common(3))
+# [('to', 2), ('be', 2), ('or', 1)]
+print(word_counts.total())
+# 10 (total number of words)
+# Iterate through elements based on their frequency
+for word in word_counts.elements():
+print(word, end=' ')
+# "to to be be or not that is the question"
+When to Reach for a Counter—and When Not To
+• Use a Counter when:
+o Counting elements (words, letters, items, votes, etc.) in collections.
+o Constructing frequency distributions or histograms quickly.
+o Handling sparse numeric datasets with integer tallies.
+o Quickly identifying most or least common items.
+• Avoid using Counter if:
+136

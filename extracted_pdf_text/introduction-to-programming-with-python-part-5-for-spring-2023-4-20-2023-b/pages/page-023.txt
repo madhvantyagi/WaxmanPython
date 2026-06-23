@@ -1,0 +1,16 @@
+Matrix Multiplication Logic:
+return [ [dot(ri,cj) for cj in zip(*B)] for ri in A]
+This is a nested list comprehension which forms the core of the matrix multiplication:
+- `for ri in A`: This outer loop iterates over each row `ri` in matrix `A`.
+- `for cj in zip(*B)`: This inner loop iterates over each transposed row (which is
+effectively a column) `cj` in matrix `B`.
+- `dot(ri, cj)`: For each pair of row `ri` from `A` and column `cj` from `B`, the dot
+product is calculated.
+The outer list comprehension collects these dot products into rows, and the inner list
+comprehension assembles the rows into the resulting matrix.
+The function returns a new matrix which is the product of matrix `A` and matrix `B`.
+So, for example:
+If `A` is a 3x2 matrix and `B` is a 2x3 matrix, `matrix_mult(A, B)` will return a 3x3 matrix
+where each element `(i, j)` is the dot product of the `i`-th row of `A` and the `j`-th column
+of `B`.
+131

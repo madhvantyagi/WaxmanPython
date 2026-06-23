@@ -1,0 +1,19 @@
+Sorting … a third way, using Python’s two built-in sorting functions: sort() and sorted().
+1. sort() – is a method of the list class and is a stable sort
+Let a be a list.
+Important: a.sort() will sort the elements in a, thereby changing a.
+Notice: function sort() takes 2 optional key word arguments:
+• key
+• reverse
+key specifies a function of one argument that is applied to the list elements before the comparison is
+made.
+reverse specifies that the list should be in reverse order. That means that “>” is used for comparison
+rather than “<”.
+Why is it called a “keyword argument”?
+Because if you want to use it, you need to use the “keyword=value” syntax. We have seen keyword
+arguments before.
+Say, for example, we want to sort a list of strings. String comparison depends on capitalization as
+in the following example. If we wanted to discount the capitalization in the comparison we could use
+the lower() function.
+The default value for key is None.
+149

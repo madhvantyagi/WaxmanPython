@@ -1,0 +1,8 @@
+Problem:
+Write a function get_col(x,i) which takes a square matrix (=table=list of lists) and returns a list
+containing the ith column of matrix X.
+Problem:
+Write a function to calculate and return the sum of all the elements on the “main diagonal” of the
+square two dimensional list x passed to it as an argument. This is the diagonal going from the upper left
+to the bottom right.
+113

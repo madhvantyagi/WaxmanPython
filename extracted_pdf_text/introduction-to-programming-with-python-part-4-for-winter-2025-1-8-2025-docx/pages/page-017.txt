@@ -1,0 +1,37 @@
+In some more detail …
+Code:
+def foo(x):
+def bar(y):
+return x * y
+return bar
+f = foo(10)
+print(f(20))
+What is going on?
+1. Definition of foo:
+• foo(x) is a function that takes a single argument x.
+• Inside foo, another function bar(y) is defined.
+o bar(y) takes another argument y and returns the product of x and y.
+• foo(x) returns the function bar.
+2. Calling foo:
+• When foo(10) is called, x is set to 10.
+• The function bar(y) is returned by foo, and it remembers the value of x (which is 10) even after foo
+finishes execution.
+o This is called a closure: bar retains access to the variable x from the surrounding scope of foo.
+3. Assigning bar to f:
+• f = foo(10) assigns the returned bar function to the variable f.
+• Now, f is a function that takes one argument y and computes 10 * y.
+4. Calling f(20):
+• When f(20) is called, it executes the bar(y) function:
+o The x value is remembered as 10 (from the closure).
+o The y value is 20.
+o So, x * y becomes 10 * 20, which equals 200.
+5. Printing the Result:
+• print(f(20)) prints the result of f(20), which is 200.
+Note:
+1. Closure: The inner function bar retains access to the variable x from the outer function foo even after foo
+has finished execution.
+2. Function as a First-Class Object: The bar function is returned as a value and assigned to f, allowing it to
+be called independently.
+Final Output:
+200
+89

@@ -1,0 +1,1273 @@
+I think we were over here right we were talking about um let me my recording
+recording in progress um we were talking about the um the squ U the prime
+numbers right over here all the Primes one and 100 um and somebody somebody
+pointed out that you only have to go to half who who wrote the program that did
+that only need to go to the half the um the amount can you guys hear me I want
+um yes we can hear Professor yeah can who show who show the program yesterday I
+did show it again the one who went to the half right that's what I want to see I
+can't share my screen it says uh because you're sharing screen yep uh try again
+you should be able to sh I yeah um you want me to move out set function uh no I
+want you to yeah how come you only have to go the question is you only have to
+go to a half you only to go to half I mean I remember there's like a not theor
+but um that says that uh if you don't find a prime number up to like the half of
+a you know the input number it doesn't exist visibility and I think there's also
+like a more efficient way that deals with the square root of the number but I'm
+not sure about that does anyone know why that's the case I mean he's right if we
+got got would be fine got a square root also be fine I can make a suggestion
+this is okay yeah so um for example uh if two numbers are multiplied uh so if uh
+imagine uh two numbers that are half the number and that are multiplied that
+would be greater than the number itself so I can do the square root better so um
+imagine two numbers uh n /2 * n over two if you multiply them um you will have
+I'm sorry the square root of N and square root of n if you multiply them you'll
+have n now if one of those square roots if you make it bigger than the uh uh
+square root of n um the other number has to shrink to get to n now our two
+numbers much must multiply and give us n so if uh one of the factors is greater
+than the square root of n the other Factor must be smaller than the square root
+of n to give us n so if we check all the factors up to the square root of n the
+other fact we have checked all possible pairs because factors will come in pair
+and we have check only one part of the pair and there is nothing over there that
+means the other part of the pair do not exist either very good does everybody
+understand what he said was exactly correct don't don't be shy if you if you
+want to go over this again we something you should know and you might Professor
+if you draw it out it will be more help all right hold on a second can you try
+to draw can you you have any of the drawing tools available can you do that um
+let me check um can you give me a minute I can join from my I don't my sure
+Professor thank you give me a minute please available anybody have any questions
+meanwhile well I guess it tries to bring up some annotation everybody's okay all
+right d how you um is it working I think so um can you guys yeah okay I'm sorry
+can you guys excent so this is the zoom whiteboard I'm just doing it on my PC
+the tablet thing so um so this is square root of n this is square root of n If I
+multiply them both I have n now if I want to factors to N I would have to need
+two numbers that multiply up to n now if I say okay if I want a number greater
+than square root of n the other number must be smaller than the square root of n
+this is to balance them out so that they multiply up to n now so what this means
+is if there is one number I think a number line would be so this is all the way
+up to n if we think about it in terms of product the square root of n would be
+somewhere in the middle this is not a linear line but I'm thinking in terms of
+the product this is n this is square root of n if I say there is uh a prod a
+factor that is greater than the square root of n somewhere here there must be a
+corresponding factor that must be smaller than the square root of n which is
+right here so and we know all factors must come in pairs so if we only check
+this part from 0 to square root of n uh we will find uh if there are any uh
+factors we'll find them here and we do not need to check this part because it is
+redundant uh if there is a factor here there must be a factor over there if
+there's no Factor on this side there will be no Factor on the other side the
+must come in pairs so this is the reason if we find any factors all the way up
+to we only need to check up to square root of n if we find anything up to here
+then that's a composite because there are two numbers that multiply up to n if
+we do not find anything then then we'll not find anything beyond the square root
+of that we don't need to check excellent thank you very much I hope that was
+clear if not ask later on we'll try to clarify that's true so if you're looking
+if you if you're looking this is a very naive approach to in general to find the
+factors but um if you're doing it this way Noti trying all the numbers you don't
+have to go past the square of n because as yesterday pointed out um the square
+of n times the square Ro of n gives you n so and he pointed out these numbers
+come in pairs so if you have if these if there's it can't one of the pairs if
+it's less than the square root of n the other one um has to be on the other side
+uh if you get past if you get past the square Ro of then you've already counted
+it on the way up very good excellent thank you very much so let's get back to
+trying some let's go to one right before which I don't think we did yesterday uh
+let's look at this one here let's go up one and we want to generate we did the
+primes we want to find um given a positive integer n uh no we did this one uh
+this one over here try to F print all the numbers between one and 100 since that
+such that when we sum the digits of that number um uh if all the sum of the
+digits is equal to 20 we want to print it out if the sum is not equal to 20 we
+don't want to print it right so that's what we want to do now okay you're going
+to use a while loop to do this okay let's try it let's try to do it quickly okay
+let's do one more minute and then um Nicholas I'm going to ask you to show your
+uh so here's the code up here so uh we have our wall Loop going from 1 to 1,00
+uh we make a copy of that number over here because when we do the integer
+division later on we need to print out the original number uh we sum up the
+digits just as we did before by getting the last digit and then integer dividing
+It Off and uh we keep running sum of the digits and then if the sum of that if
+the sum of those digits is 20 then we print out that original number and then we
+increment to the next number and so when we run it it gives us a bunch of
+numbers that if you add up the digits so like 9 plus 8 plus 3 equals 20 very
+good now is there any way that you could um already see this this is very nice
+it's exactly I think what one should do here anyway do it keep this keep it on
+the screen um uh U every anybody have any different uh approach to this
+fundamentally different than this what he's doing is he's getting the numbers
+he's taking them apart adding together and checking if the sum is equal to 20
+can anybody suggest maybe a way of um of making this go faster mean if we want
+to if we want to just try and optimize it like in a super crazy way we can start
+with the with um like a minimal digits and then start shifting numbers around
+the digits to generate three-digit numbers instead of counting through all the
+numbers from zero tobly why would that be faster I mean you're talking about
+permutations of the numbers take longer than generating the next number that's n
+well no not not permutations necessarily um if we look at our output we start
+with 299 that's the smallest um so we so we start with the numbers 2 99 what we
+can do is we can start shifting digits around we can take the from the rightmost
+nine we can take one out of that and put it into the leftmost slot the um
+rightmost slot to the left of it that it could fit in so from 299 we could
+generate 398 um and then from 39 eight we could generate um like 488 and other
+what you're saying is once you find the first one then try to get all the
+permutations of the digits in there right and then but how do you find the next
+one you still have to count up um not exactly that so it's we have we start from
+like a a ma a maximum Bound in One Direction and we move to the maximum Bound in
+the other direction so the maximum Bound in the first direction would be 299
+that's where all of our digits are like pushed off to the right side right and
+we're keeping track of three variables here that would be each digits uh value
+and then the maximal digit in the other direction is 992 so from here we just
+have to find a way to generate all the um to um take our current permutation and
+start moving the bits in the other direction while trying to keep everything in
+the middle I don't know an algorithm to do that though it's an interesting idea
+uh you can think of that very interesting idea because anything very is there
+anything simpler that we could do I it's a good idea right now once you notice
+that the digits 299 uh do it up to 20 so probably 992 will also a 929 will also
+right but once you do that that's very good but how do you know which is the
+next one to try how you that that won't give you 389 right but if you figure
+some way of fig of you know getting the next one once we start with the with the
+first one that'd be an interesting idea but there's a very simple thing that we
+can do over here it's not not going to do a major major upgrade but anybody yes
+you have an idea I it's a very simple very simple idea is there any number less
+many times just it it it's a good idea just to help the program is there any
+number less than 299 that's going to work no simple observation no so you could
+just start at 29 99 yeah that's right just start at 299 many many times you can
+save a lot of work like we saw for example the square roots and so on with we
+with we looking into um the primes so by doing some basic analysis you know to
+say that all the work going from one up to two that's what I was looking for but
+Matthew had a very interesting idea just think about that that's a good a good
+idea well let's go past this let's see what's comes next um we did the primes
+let's write a program using four Loops to print the following okay notice what
+this looks like sort of looks like indexing into some structure right you start
+with one two 3 four and then you go all the way across to fourth one one one two
+1 3 one four and then two and then three and then four this should not be
+difficult but it's obviously two Loops right you want Imagine One Loop inside
+the other let's try this screen do you see my screen yep so I did a double for
+Loop both of them ranged from they start at one and they end at four and then I
+just printed within parentheses using an F string I and J and then without this
+they would just print on separate lines so you need the end that they print on
+the same line and then once that completes you start on a new line then when you
+run it it gives you that very good keep on there anybody do it little different
+than this when we looked at the range function did we look at the two arguments
+to the range function we just had one value going in there and let's look at a
+line line one for example she has a range with one comma 5 did we cover that yet
+um no we did not cover that anybody this is very good this is the way to do it
+actually excuse me um anybody to do without without that I did it the regular
+way I use i+ j+ okay anybody else all right show us what you did very this is
+very good Anan thank you thank you this okay um but go go to the go to the class
+notes for a second oh I think you have it on the second line okay very good um
+yeah it starts at one not zero right so so where did you start at go back to
+your program right that one work that one works very good all right any
+questions very nice thank you any questions no questions all right let's go back
+how about this this a little bit more challenging let's try this one now see
+make sure everybody sees the pattern right um I go 1 2 3 4 5 6 Seven 8 n and
+then it goes down then it starts at two to nine and then it goes down 8 nine
+there's an 8 n and then at the bottom where there's a nine so it's going up it's
+going down and each time it's starting with the the next value so this starts at
+one this starts at two and these match on the S side and notice you got the
+inverted triangle right so me try this it seems pretty clear you need Loops
+right how many Loops do you need okay think about this and I really try to write
+it again everybody should be trying this whether or not you 100% understand what
+you're doing triy is important right who who is getting who who thinks they're
+going to have a correct solution here just raise your hand who thinks he'll get
+a correct solution just one all right Nicholas how how do you how are you going
+about doing this what do you think how should we do this uh I'm using two uh for
+loops and I'm comparing like looping over uh variables I and J and then I'm
+comparing whether one is greater than or equal to the other and then I'm adding
+that to a string and then that's going from one to nine and then I'm just going
+to add the reverse of it mhm okay in other words one Loop is going up and the
+other loop is going down what are the two Loops for uh it's looping from uh one
+to the first one is looping from uh 1 to n and the second one is also looping
+from 1 to nine and uh when it's run uh if you're comparing if the first is less
+than or equal to the second then it's uh what what I can get is the first half
+of it so like the first row is printing 1 to nine the second is 2 to n third is
+3 to n um but then you just have to reverse it after that so that you can get
+the from the nine back to the one well can't you print down I mean can't you
+can't you just count down in the loop first Loop counts up and second Loop
+counts down uh yes you can right anybody else Matthew how did you do do
+basically what um uh no I'm doing it in one for Loop and then I have a multiple
+y loops on the middle to increment a number then decrement a number and now I PL
+add one to print the spaces um on the left side well you print the spaces how um
+by instead of um so first I'm just getting it working with like the numbers um
+so that I can print up and down and I have all the numbers they're in the wrong
+order though uh vertically now I want to do another loop um to in instead of of
+um starting from the index of my for loop I want to start from zero and for
+everything that's outside of my Range Loop or whatever I'm going to print a
+space I'm I have a usually I'm doing a bunch of statements which are print digit
+comma end is equal to nothing so I'm not printing new lines between my print
+statements that's basically my trick okay how are you how are you getting how
+you how are you getting the indentation um the plan is to add a bunch of Spates
+spes um instead of printing one I print a space when it's not the one thing
+right can't you have a can't you have a a blank string and multiply the string
+by the number of spaces I can Cate it at the beginning right yeah I could do
+that right right so that what you would have is you would have blank spaces the
+number blank spaces required here what this would be no blank spaces in one
+blank space f by a loop going up followed by a loop going down so there's an
+outside Loop right you know three two blank spaces and a loop going up and a
+loop going down right and so the outside Loop controls which number starts here
+and then the two loops on the inside one goes up one goes down and then in order
+to get the triangle shape right don't have to worry about the left hand side
+just simply multiply by whatever the outside control variable is that would also
+work all right let's keep going everybody should try to do this all right Kevin
+let's see your code hear me yep all okay okay looks good let's see the code walk
+walk us through it so for the spaces what's happening how you have three for
+Loops there what's happening with the outside Loop so for an outside for loop
+it's the current uh it should be the current row we're on it's and starts in the
+first row and because of the way like the range works it goes up to the ninth
+row so this is how like I keep track of like what roow we're on okay and then
+the next Line This is How we keep track of the amount of space we need to make
+the pyramid so in the since we're on the first row we only get one space and on
+the second row you indent it twice and like Etc that's how like you get this
+pattern okay now here I have two four loops separated from I have one dedicated
+to the left side and one to the right side this adds the numbers up until nine
+that based on and it starts off which row we're on since we're on the first row
+we start with one on second row it starts with two and then keeps adding up
+until we reach nine for for the left side and on the second for Loop this is
+adds on to the right side of the same line but it starts at 8 and what I the way
+I have it is based on the it leads to the number on it ends to the number on the
+curent row we're on and it decrements by one so it'll start off at eight and
+then it'll add on to 76 54 321 in and based on where it is it it leaves off on
+the current row so this would ended five on row five and and right so you build
+so it's it's one string right and you're building onto the string and then when
+you come out of the uh the two for loops on the inside you then print the string
+yeah everybody see this it's a very nice program um again I like it very much
+the the issue is that um we didn't talk about the this is this is the correct
+way to do this right so if you're standing on the Whiteboard and the interviewer
+says make this this is what you should do um the only thing is we're using toys
+we don't have yet right we don't know how to play with the range function we'll
+see that a little bit later today but this is understand what he did here right
+the range fun you control various things right where you're starting where
+you're ending and this thing over here on the the last FL Loop the third Flor
+Loop one of the second one in the yeah that's is decrementing and you the steps
+that are allowed in the range function let you go down we'll see this in detail
+later on very good anybody do this without thank you very much anybody do this
+without playing with the range by slicing the string yeah but without slicing
+without without slicing anybody else Olivia did you do it differently yeah yeah
+I just print the number I didn't use string or stuff like that let's show you
+show uh can you see my screen uh yeah good looks nice all right so so show us
+what wel us through the Cod so oh actually I don't so uh I start from one uh is
+between it will print one to n because the range is uh inclusive the first one
+and exclusive the the second uh parenthesis so this for this row I print uh the
+uh spaces here because when is one I have sorry I have one space two I have two
+spaces Etc so uh this for loop I print the spaces uh before the first number and
+also each first number of uh the first number of each row so one to n so I print
+this one in this for Loop and then for this for loop I print the thing uh in the
+middle from like for example the first one is two to n is increasing because the
+range is from row plus one so when the row is one it starts from row plus one
+which is two so it will start from it will print numbers from two to 9 Which is
+less than 10 and then this while loop uh I deal with the decreasing numbers so
+when the uh so when the row head is one we need to print one and stop at like
+here so when the row number is two the first number of the row is two the last
+number of the row is also two so we stop here that's why I set this um condition
+when I um is greater than row we do we keep decreasing until we print it and
+then I print since I set all the end light I over write it here as spaces so I
+print the I print the new light at the very end when I finish all the part let
+me just ask a question so for the for Loop the inside for loop I is the
+appropriate range then you go into the Y Loop where does he get the I where is
+the where does the Y Loop get the I from uh I think the I is from uh the
+original one right so your claim is that after the range function finishes I I
+maintains the value I mean it's working right so is that what you claim I mean
+is yeah I think I should use an other very varble but but how you going to get I
+mean it's working yeah yeah yeah no no because I have to do decreasing yeah so I
+think it's from here because this part is increased so starts from here is
+decreased so we have to check that right in other words when we look at the
+range function we're going to see what happens when we we we go out of the range
+what what values persist right what happens to the I there one possibility is I
+is local and I disappears that happens in four loops and C+ plus but here since
+the program is working it seems to be that when you come out of the four um the
+value I the value of the i in the four somehow is available or else our program
+wouldn't work so we're going to have to check that okay very good thank you
+thank you all right let's go next okay so uh this should be clear we know the is
+a continue other language you know about right is it continue in a break so
+continue what does a continue look like so when you say continue it goes if you
+have continue inside of a loop um the The Interpreter goes right back up to the
+top of the loop that the continues in right so here I have an outside Loop and
+an inside loop so if this thing is true you're going to continue right continue
+means it doesn't mean doesn't mean go to the print or go back up to the four
+what does continue mean so you skip all the statements after the continue and
+you come back up to the top of the loop and you continue on so the claim is that
+this program produces this output so how does that work so I starts at one right
+and then J starts at one and so so I + J is equal to zero a mod 2 is equal to
+zero so it goes continue so it's not going to print one one right because one
+and one and when you go through this actually will do it right so that's the
+continue statement and there's the break statement and and the contention is
+that the break when you run this program what is break going to do it's not
+going to go back up to the top it's going to break out of the containing Loop so
+if I plus j m 2 is equal to zero so it's found in this loop it's going to break
+out of the loop it's not going to do this and where is it going to go it's not
+going to go to this loop it's going to go back up here right so the claim is
+that it's going to do 21 and then 41 is that true everybody sees this let's
+examine the code everybody looks at it for a moment and see that it makes sense
+right you also there's a blank line being printed over here right what's causing
+that code Matthew you want to explain this uh sure all right for I in range 1
+comma 5 this is the this is going to create uh things then we have J in the same
+range if J if I plus J per 2 is equal to zero continue that means no no no which
+one this one over here example this code which one we looking at the one the
+break the page after okay got it um um if I plus j% 2 is equal to zero break
+okay where does break take you um break is going to take you to the empty print
+statement after the for Loop what yes yes it will it's going to jump you out of
+the loop it's going to shortcut the loop very quickly so you go to the print if
+we have line numbers break is on line four it's going to take you straight to
+line six so there'll be uh empty there'll be a an empty line we're going to
+print we're going to print the end of the line and then we're going going to go
+to the next line so this output we're seeing here um in the first line in the
+first increment we have an empty line printed you don't see it because it's
+empty what we have is I is equal to 1 J is equal to 1 1 + 1 is equal to 2 mod 2
+is equal to zero so then we break out of the incoming J Loop we print an empty
+line on line six then we see this um this 2 comma 1 print I is equal to two uh J
+is equal to one we're going to skip the break statement because we're not going
+into that if statement where that's where we actually print the I and J 2 and
+one and then we're going to go back to J increments to two 2 + 2 is equal to 4
+mod 2 is zero then we're going to hit that break statement and we're going to
+print the end of the line then we're going to do just like the first line I is
+equal to 3 J is equal to 1 and that's going to instantly hit the break and then
+we're going to print the 4 comma 1 and when we're trying to print 4 comma 2
+that's going to hit the break and we're going to print the end of line and then
+the program's going to finish makes sense so the break goes straight to the next
+line no break goes from line four to line six because the break statement is
+tied to the most recent for Loop the for loop on line two here so the brake
+statement on line four is going to skip out of the loop on line two so that's
+why we end up on line six outside of the loop the first statement after the loop
+if you look over here the break when python count as a Brak statement inside of
+a loop so here's a here is the loop you have a for Loop over here so basically
+if you look at the big the big thing here you have a for loop on the outside you
+have for loop on the inside and then after the for Loop there's a break so this
+controlling two statements it's controlling this one and then controlling the
+print so if a break occurs it jumps out of this FL and comes down to do this and
+it goes back up to the outside floor okay so if an count as a break it ter
+terminates the loop terminates the execution of the loop and then the program
+continues after the loop in this case with the print statement because the print
+statement is still inside the outside for but it's on the same level of
+indentation as this going over here uh um okay we'll take a look at this when we
+come back let's come back in the break take 10 minutes and then remind me we
+want to talk about the the midterm exam okay 10 minutes guys oh I'm going to
+turn off the um the audio so the recording so please remind me to turn it back
+on I'll try to remember thank you stopped all right welcome back everybody
+please come back up let's talk about the exam but first turn on the turn on the
+right if I mispronounce your name when I call on you please correct me right
+don't let me keep but you know okay shya you here Daniel yes I'm here good okay
+put the right aim the camera at your face so we can see who everybody is all
+right so let's talk about the exam so we spoke about this yesterday so the
+question is Monday or you know Monday or Tuesday just with a show of hands who
+does not want it absolutely cannot do it or be very difficult to do on Monday
+because prior you know work over the weekend just it's now do raise your hand on
+also on the you know on the machine like there's the raise hand button down
+there so we get to see who that is so I have shy over here but shy raise your
+hand over there who else that's it I say where is everybody all right we got
+shya there that's it just one person all right so that is a problem shya um we
+had we had two or three others yesterday right Professor yeah who's speaking uh
+this is yes sir um yes yes sir yes yes sir so uh we had a poll on the Discord
+group would you like to know about the results um uh 28 people responded uh 10
+people said either Monday or Tuesday works nine people said Monday is better
+nine people said Tuesdays are better well that helps um how many let's do it the
+other way who can't who really can't do it for who will it be really a problem
+to do that you can do yet either way it doesn't really you know doesn't make a
+difference who cannot do it on Monday not a preference okay Luca and shya can
+you do it on Monday um yeah I could do it on Monday all right so so luuka has an
+issue and Luka there's no way that you could mitigate that in other words you
+can't talk to the boss and say yeah I will talk to the boss will that work I
+don't want to you know I don't want it to be a financial issue here for you no I
+think I could talk to my boss I don't think it will be a major problem if
+anything I will let you know but shouldn't be a problem okay so now let's make
+it on Monday okay because then you can study over the weekend um if you have
+there is a do Discord setup I I suggest you know people get together uh either
+on the Discord or um somehow get together and study because that really works if
+you're working with somebody else uh and you know things show up that you really
+don't understand so a understands things that b doesn't and so on the other way
+also so it's a good idea to have a study Department all right okay if there's
+any way I can facilitate that just let me know let's get back to work we close
+the video so we have more bandwidth and we shall continue all right so we did
+this thing over here the question are you recording I'm not recording good thank
+you recording in progress so we looked we didn't look at this one I don't think
+right so uh uh you do this offline but you know you should be able to do this
+should to interpret a loop like this uh even you know if you on a on a white on
+a white board or during an exam this should not be an issue including blank
+lines and so on same thing with this and so on all right so let's just's take
+stock we looked at different ways of uh changing look to control structures we
+had the while and we had the four um so the the Y Loop behaves uh pretty much
+like the Y Loop in the other languages you know except we saw some anomaly last
+time what was the anomaly that we saw something different in the Y Loop that you
+don't fire in other languages the while loop had an else that was valid by the
+while loop had an else which really doesn't make much sense right but it's there
+and what about then we saw the the four we'll get back to that in a moment what
+about the for Loop does the for Loop have an else we didn't see here but does a
+for Loop somebody want to Google that for us can you attach an else to a for it
+that's sort of strange right both of four and the else have uh have have um the
+I mean the while and the four have Els is associated them we'll talk about in a
+second what happens when you do that but but there's another difference over
+here the Y Loop basically forget about the El part but the Y Loop um behaves
+just as it does in the other languages but the for Loop is sort of different
+right so if you think about a language like like C++ or or or Java and so on the
+there's a difference between the for Loop and and the Y Loop the the Y Loop is
+used what when is a y what's the difference and we want to just speak to that
+take language like C+ Plus what's the difference in usage the use cases for
+while and for what's when do you use one when do you use the other just speak
+out I can volunteer this is say who you are right yeah I feel like for Loops are
+appropriate when you know the number of iteration beforehand right while Loops
+are more appropriate when you don't know and you rely on the condition right
+right so y Loops are basically controlled by a condition right while a certain
+condition is true keep doing it you come back to the loop and you check the
+condition four Loops um basically are used to iterate when you have your
+counting right well I is less than 10 um can you can you use in let's say
+language like in C++ can you use a for Loop to be controlled by a condition as
+you do in a while the answer is yes right you can put a condition to control it
+not necessarily a count um and you keep going until the condition is true but
+that's not the typical use the typical use isy counting a certain number of
+times uh and that's the for Loop and and uh and it's a condition that's
+controlling it it's the um it's the uh well that's not exactly what happens here
+in um uh in Python right basically what happens is python um the way it works is
+when it's this is the range is is an example right so but let's take a look at
+the other example over here it says 4N and this is a we haven't seen it forly
+but we've seen examples a list right and in a list is an example of something
+called an iterable and an iterable is something you can iterate through right
+iter iterate through means you can sort of snap your fingers each time and say
+give me the next element in this sort of collection right so the first time you
+go through it gives you the one and then the two and then the three because it
+it's iterating through this over here it's not counting it's not counting it's
+picking up the next value in the interval right if you're having a a regular for
+Loop say in C++ you really every time you're generating the next value through
+some counter or something and essentially counting through hearing not counting
+right it's just simply picking up the next element this doesn't have to be 1 2 3
+4 five it could be 1 4 3 7 6 9 eight and so on uh you can also do this here I
+have a string and a string is also in iterable in what sense because it's sort
+of could be thought of as a collection of char substring characters right and as
+I iterate through I pick up the first one and the second one the third one so I
+say this is message it's it's a string I can say for see a message and it's
+going to print out each uh each thing over here here's an example um list why
+I'm doing this again I don't know here is an example of a dictionary dictionary
+what's a dictionary in uh in Python anybody what's the equivalent to dictionary
+in other languages it's like a hash set it's a hash right has list right right
+the hash list so this is the key and this is the value right so I can iterate
+through this thing and it says for key and prices I print out the key and then I
+print out prices sub key right so again a dictionary is in iterable I can give
+say give me the next one the next one the next one and it's going to do this
+right so so so that's major difference between the four in um in a language like
+C++ it's not it's not work it's not walking its way through a through a um you
+know C+ plus you're getting a counter so for example if I have a I have a an
+array in C++ called let's say a I I would say for you know I less than 10 you
+know C out a subi so I'm going in there using the using the index as a as a
+using the variable as an index I can do the same thing over here I can say if I
+have a you know I have this guy over here this uh the list I can say let's say
+the list had a name L right I say l sub I and but that's not really the way you
+use it right the the normal way to use this is simply iterate directly uh
+through the iterable I can also look at um I can iterate through a file because
+it makes sense to say the next line in a file and so on so uh with open this is
+a file file name food.  text this with thing we'll see later on establish
+something called the context manager whatever that is but for once I open the
+file so I can say for line in file right here's a for Loop and this thing is
+taking us through this iterable because because it makes sense to iterate
+through this and it's going to print it right does that make sense sort of so
+this is a much more General thing and it's not necessarily you know using as a
+you know counting of course we do in the range you know it sort of simulates
+that see when you say range is also gives me an iterable and we'll see it in
+detail in a little bit uh but it's also give me the next one in the range the
+next one in the range and so on okay you see a question comment um yes sir I
+have a question so when you showed us for line in file my question is how does
+python know line means one whole line but not a character why doesn't it Go
+character by character but line by line right we'll see we get we talk about FS
+we'll see that but it's going look for an endline character the F we're talking
+about here are um or text file so if you don't specify something other than that
+the endline character tells you what the next one is you can read it all into a
+string right and then you can read it character by character well we'll see that
+we'll see that um all right so that's the basic IDE did now let's talk about the
+the else how does the else work so I can attack what is it I mean you can't do
+this in other languages what does it mean to attach an else to a while and an
+else to a um to a four how does that work anybody when is the else going to get
+triggered in python in the for Loop uh it's going to be triggered four the while
+both cases it really behaves the same way once we exhaust the loop naturally
+what is that um so in this case on screen we have the four n in range 1 through
+10 so at after nine uh range is not going to give 10 so once range says I'm done
+I'm not I can't give you anymore for n it'll execute the else the else statement
+so in other words you could attach an else at the bottom of this for Loop right
+and as long as the loop that is attached to both while and for doesn't doesn't
+end unnaturally what is unnaturally in this context you don't break out right if
+you don't break out and you continue the you continue the loop to its end uh
+then the else will kick in and it'll do what's in the else if you if you break
+out it won't do the else so it's sort of strange language right else in this
+case right you want to say add an addition right but else is a strange thing but
+right what happens if you understand what what Matthew said here so if you
+attach an else to a y Loop or to a four Loop if the loop continues totally it's
+going to all without without disturbance and and dies a natural death then the
+else will get done right and really what else means is in addition to what
+happens if um if the loop what do you think will happen if the loop condition is
+never true let's say for example n in let's say I have an empty list I itate
+through list so it's never going to do anything how does it you think it if you
+were designing the language what would you do same thing with a Y Loop let's say
+I have a y loop with an else attached to the bottom how would you design the
+language so that will the will you arrange it so the else is triggered or not so
+it's a no case right think um yeah uh it should trigger if there's like a if
+while false for example if while false statements else other statements I think
+other statements should work in that case else should work right why is that
+because you're not breaking out of the loop itself and the same thing with the
+do so it's sort of very strange thing but that's the idea it does it does have
+use cases it has certain uses right um in other words you if you let's say
+you're going through some some database or going through some log or something
+and if there's no errors encountered then you want to do some maybe some print
+out stuff but if youve ENC counted are erors at all then you don't want to do
+that stuff you only want to do it when everything went fine you ask your a
+question I'm not sure if this is appropriate I'm trying to make a parallel how I
+would do the same thing in C++ is there a parallel or um I have to think about
+this but that's not you think about maybe let me think about it you think about
+we'll talk about it what what I'm thinking about like this is if you're this is
+like every every um every Loop becomes comes an if El statement sort of where
+the if the loop if while the loop condition holds we do the loop else we do the
+other thing right that I think about that anal that doesn't really work because
+um the else is usually triggered when the if is when the if is false right here
+what you here it's it's triggered essentially if the else is true you know we
+went through everything in the loop everything was fine so that's why if I were
+designing this I would call it and also right to LZ so doesn't not the I think
+it's not the correct but that's the way it works that's the way it works so if
+it's null initially when you come in and the condition is false it's going to go
+into the else anyway that's pretty strange but that's that's what happens okay
+that's that's it for this let's move on to the next this part three I think let
+go to part four and part four what's in part four let's see uh modules and
+functions Okay so um so obviously in um in python as in other languages you can
+write functions functions are your friends right why why do you what's the point
+of having functions what's the point I mean this is you know 111 stuff but just
+let's talk it through for like one minute why why what do you get by having
+functions if you want to do a piece of code a lot of times and then you put it
+in a function now you don't have to repeat it you have to just call the function
+right and know it saves time and it saves space right right it's so the US the
+analogy I give when we talk about this in 211 is that it's like a um you know
+it's like a uh you know a cookbook where you define the terms and uh you know
+you don't have to keep saying what brace means or what sauté means you define it
+once and you use it multiple times so it saves space in the clickbook and but
+also the fundamental thing is that functions allow you to think on a higher
+level right in other words if you need some something to happen let's say like a
+sort you can certainly write a sort each time but besides for taking all the
+extra space you have to see what's going what does that mean what does this code
+do right but if you say sort then you thinking on a higher level and you're
+communicating with the with the the reader of your program right the compiler
+doesn't really care the the the machine is going to execute whatever you write
+but but you when you you know your future self who reads this code to maintain
+it and who else is reading your code they would appreciate function calls with
+functions name that make sense don't call them ABC uncore 16 so that you want a
+fun that's basically the idea so um so there are certain built-in functions Into
+The Interpreter and then you can write your own functions um but again I just
+want to point out that functions as just like you have in other languages as
+every you have functions as you have in other languages but there there's a
+fundamental difference between uh let's say C++ and and and python in terms of
+how one thinks about functions so we saw a little bit we have a built-in
+function called sum um and that lets you sum the values in an itera book right
+we saw given a list that has 13 and and I can say sum and it adds up those
+values saw the example and we also saw that if you use a variable if I if I have
+a variable called sum when I want to add my own stuff up so that what that's
+going to do is it's going to break the pointer I no longer sum is no longer
+pointing to the to the um you know to the sum function but it's just became a
+local variable we so we tried to call it we got an error message yesterday today
+right um so that's one difference sort of it's a difference and also in C in in
+in Python functions are first class objects in other words they act like
+everything else so if I if I Define one function let's say in Python I can pass
+in you know f is a function I'm talking about I can pass in one two three and
+some string and so on and I can also put as one of the arguments to this
+function the name of another function and that's perfectly fine I can pass
+functions around like can pass you know the builtins around there's no problem
+at all there's not the case in C++ I can't easily pass functions to functions I
+have to you jump through hoops if you remember this to uh you know sort of in we
+did in 211 on the other hand the other hand there is a similarity because what
+are function names in C++ what are those things remember this if I have a
+function called f and C++ I identify her to a memory what is what is an
+internally right we I think we saw this let me give me a second let's go here
+for a second so if I let's say a function right have a function let's say get
+function returns an integer let's say it's called add what's happening wow this
+ain't working so we'll try it later on but basically if I have a function and uh
+and I call I Define my own function called a let's give it right and I say add 1
+three and and it does I shouldn't be doing this it does what you'd expect and as
+I print out a 13 it's going to print a four right but what if I say see out
+something is maybe maybe have an extra keyboard that's messing things up but but
+if I were just to say see out add just like that right the name of the function
+without any arguments what it's going to do is it's going to print out where
+that function lives in memory right it's the same as the name of an array if I
+have an array a and I say C out a sub one it's going to print out whatever is in
+a sub one but if I simply say C out a it's going to print out the the address of
+way the r Begins the same thing with function calls so so in that sense C++ and
+python are equivalent in that the names of the functions are Pointers however
+it's much more difficult so so so functions are in first class arguments
+pointers of first place arguments right um but in in Python it's different right
+even though it's passing pointers around um function we'll see the difference is
+functions are can be passed not the point the pointers the implementation of it
+is that the points are being passed but I can uh but it's uh but it's the
+function itself conceptually uh that's being passed in in um in python as
+opposed to just just the point we'll see what I mean by this as we go along but
+U the implementation sense of the names are really pointers but the um but there
+are differences in terms of it's thought about how you can use it when you pass
+them around so there are built-ins right like length and uh when I say what's
+the length of this it's so this is built into the language on the highest level
+uh so it tells me six I have these Constructors are all built in so I take five
+which is an integer and I construct it as a float and this will do the same
+thing this will do the same thing and so on these are available directly on the
+Shell at the highest level um but what about something like square root if I
+give me the square root of n it's it's going to say I can't do that right it's
+going to say um the square of nine it says there an a error right using a name
+that I don't know anything about right so we'll see later on that python keeps a
+list of something or dictionaries are called locals and it shows you what the
+local what's what's available in the local scope um python all the objects have
+dictionaries and lists that are associated internally with them um and so it
+looks to see do I know in the scope what sqrt is and it says I have no clue it's
+not defined at all however um it's defined somewhere right so there's a math
+module it's like a library and I can say import math and when I import math the
+math functions in Python are available and then to use the square so there is a
+square root function in the math library and to use it it's math.  square root
+and then I can pass the value in the argument in and I get a three right so this
+is typical of the kind of uh of you know the the syntax of calling functions
+from various you know from various libraries right this is the name of the
+library and then the dot just used also when I want member functions of objects
+and then I and I and I can use it so uh that works and if I look and ask what's
+in the math module I can say math is the name of the module I can say di right
+show me the directory and that's going to show me whatever is in available in
+that Library right so check this out just take a look at it a little bit and see
+what that looks like that's sort of interesting right what's in there so it says
+Doc is in there and then name and then package and then cosign and and whatever
+it is absolute value the fling Point absolute value the mod all the square root
+that we just saw and so on so the first thing you'll notice is some of these so
+these are the functions Associated right um so um what do you notice right away
+that there's sort of two kinds of functions over here right so some of them and
+these are all member functions some of them have these underscores right we call
+those the dunder functions or the magic functions and some of them don't right
+so what is the difference this is the math module right so what's the difference
+between um these things they're all quable by using the object.  name as we saw
+the last time we saw that I think with we were looking at the format right so we
+it was string.  format when it was a Dunder we could call that so basically the
+idea is that the dunder functions um they're used to um you want to if you write
+your own classes for example so uh let's say I have a class let's go back to C++
+for a second I wish I could write I'm not sure during the next break I'll check
+what happened to my tablet here but I should be able to write on that screen um
+if I want to uh and C++ let's say we did this 211 also I had we defined a
+rational number class right so let's say I Define A and B to be rats um and I
+want these rational numbers to behave just like normal numbers so if I have if I
+have integers I and J are integers I can say I plus J right and I can use the
+plus sign so likewise when I Define my own rational number Quest I want to be
+able to say you say X and Y are rational numbers I want to say X Plus y Right
+Use the plus symbol also can I do that can I overload I can't do it in pyth in
+in Java but can I can I overload the operators in C++ may you remember that can
+I overload The Operators can I what do I do if I have let's say rational number
+class and I want to use Plus on these rational numbers anybody remember how do I
+do that we can overload operators by explicitly defining the left hand side and
+right hand side to a specific operator no but how do I how do I use how do I use
+the plus how do I use the Plus if x if what is happening right how do I how do I
+the plus does not take arguments inside a bracket it takes arguments on either
+side it's a binary operator but what do I I say I want to x was a wor let me try
+it over here with annotations let me try it this way if I want to say X Plus y
+right X+ Y and these are new these are new things right other words this doesn't
+exist uh in my in the real world because this is a rational number X is rational
+and Y is rational so in the in the if you think that what we did there in the
+rational number class I have to overload the plus symbol and I do this by saying
+Operator Operator plus right and then to call X Plus y I can use this C C++
+allows me to do this but what's really happening it's x.  operator plus of Y and
+then the this comes in secretly as one of the arguments the the the compiler
+takes the address of this or generates code that takes the address of the left
+hand side and sneaks it in there for this but in other what basic point is that
+when I want to say plus I have to overload specifically this right this this
+this and I can't say you know operated with capital O and so on built into the
+language and the definition of the language in order to use this in my classes
+in order to say plus an object that I Define I have to say operator plus and
+then it lets me do that if I want to use x minus y x times Y and so on I have to
+use I have to say operator Plus or operator times and so on these are very
+special functions these are like the dunders in um in in Python right python the
+dunders are those that let me um let let me uh um use for example there's an
+operator there there's a a Dunder ad which we'll see later on so I can say if I
+Define in my new class let's say let's say X and Y are rational numbers if I do
+this in Python hopefully you'll see this later on if I want to say X Plus y to
+my rational numbers in the rational number class that I Define in Python I have
+to I have to um I have to overload the ad in my class definition and that's a
+Dunder and then add lets me use the plus the same thing as it allows so the
+dunders are use um for um if I want to take these if I want to use the sort of
+these built-in methods and and and to invoke them in my program right they
+implement the custom functionality that's tied to the built-in operators in
+Python so plus is builtin times is built in right these are built in so if I the
+dunders are connected to those built-in functions also if I have a member
+function say for example in Python that's not an say for example calculate or
+something or like whatever it is so I I I I have to it won't get invoked
+automatically we'll do we'll see this in detail as we get into classes if I have
+like a calculate function I have to have to explicitly invoke it right I have to
+say you know x.  calculate you know in Python I have to call it directly whereas
+these dunders they are tied to the built-in so if I if I Define Dunder add I
+don't have to call Dunder ad by using the plus symbol it'll automatically right
+automatically invoke it for me does that make sense so that's the difference
+that we see over here all right let's go back to this okay uh that's a problem
+with this one give me a second okay I'm so so the dir will tell me what's in a
+particular library and um and then if I want some help on a specific element in
+the library I I use the help function and on that the help will also work on um
+one second so uh for example I can say help on math and it lists me all of the
+functions that are in there and then also it'll tell me you know so give me a
+little bit introduction like a dock string we saw before the doc is also built
+in there we actually when we write our own functions we'll see how this thing
+works and so on I get the help on the single function by saying Help um math.
+tan it tells you what it does um and that's that's it any questions about that
+all right so there's different ways of getting out the functions in a particular
+module one way is has just we sort right I import I say open math I import math
+it opens math makes it available makes the names available but I have to qualify
+the name of the function I want by uh by the by the uh module names so the
+module is called math module is the same in this case as a library uh and I say
+math do square root and that works I can also import a single function by saying
+from math import square root and then I can use square root directly right um if
+I want all the function at one time I simply say for math import Star this
+General General symbol in many many uh context means everything so then I can
+quot directly we know the advantages and disadvantages let's talk to that for 30
+seconds who wants to say about the disadvantages or these different methods yeah
+sir you have an idea question or a statement sorry I had a question about the
+previous thing what's the difference between let's do this first what are the
+advantage and disadvantages of the methods that we talked about is this a better
+way to do this import square root to use it directly or to do something like
+this oh uh so to import square root only you do not have to include a lot of the
+other functions in your code and it makes the code lighter right now you don't
+pollute the namespace right in other words you don't put in stuff that you don't
+need so if you if you bring everything in it sort of he makes everything heavier
+right you're using space and so on and um and this um you know so that that's
+one thing what about what are the any disadvantages of doing that disadvantages
+is if you need many functions you have to individually get all of that yeah and
+if you use it inadvertently and you don't test and go some path doesn't get
+tested and use a name for some library and you ship a million copies and then
+all of a sudden one user is going to end up exercising that path and then
+everything blows up right so the these you know already from other places uh Yas
+you had a question um yes sir sir what's the difference between uh import math
+and from math import Star because when you say import Star you're making all the
+names available directly if I say from ma if I say import math what that does it
+just it makes the names available but when I use them I have to qualify by if I
+say input math it's going to know that it has a square root but if I just say
+square root it won't it won't do it I have to say math do square root oh I see
+it will not use the whole names right right this is better qualify by the
+library name okay we can write our own functions and let's see how to do that
+how do I write my own functions so there's a keyword called defa I've seen
+number of people have done this already because you have basic background in
+this and so uh it looks what you'd expect it to look like and you say uh def
+means I'm defining a function here then you have the name of the function and
+then these are the arguments and then the function body and so on and so forth
+right a function can take arguments doesn't need to there are a bunch of
+different kind of this gets a little bit complicated and we're g to this will be
+a just a first introduction to the and we're going to go into these things in
+pretty much detail r on so function can take arguments their values P to the
+function there are certain types of arguments there's positional argument so
+what are positional arguments when I Define my function I say my function
+parameter 1 parameter 2 and when I call the function if I say like my function
+you know 5 comma 7 so five goes into parameter 1 and seven go parameter 2 as
+you'd expect right those are positional arguments so if you have them it's their
+position in the function called that matters right like we saw in other language
+but you can also have keyword arguments so these are optional and have default
+values and they're identified by the keyword and not their position where do we
+see do we see keyword arguments before anywhere do we ever see something like
+this yes in the print functions separ and right the print function right we we
+saw that to say SE is equal to file is equal to right FL is equal to and they
+they can give them um you can give them um you give them values initially and
+then when you call the function you don't have to specify them because they you
+can give them um give them uh uh initial values and unless you change them their
+initial values so that's if I simply say print we saw just print with with no
+arguments passed to it that's going to give me a blank line why because the the
+end is defined to be the new line character and all the other The Falls don't
+matter at this point are set there but it don't matter right so you don't have
+to call them with these print uh with the um with the keyword arguments right
+they're there so this is very powerful the idea of keyw arguments I can have
+things called arbitrary positional values and um that's I think we saw one
+example we didn't go into it but um but you can use star the definition of a
+function again we'll do this in detail what this means is let's say for example
+I want to write a function called my sum right my sum and my sum will be able to
+add up I would to say my sum of 1 two 3 four and it's going to give me the sum
+of one two 3 four right my sum of one two 3 four um but then I also want to be
+able to say I don't want to limit it to just fourth I want to say my sum of one
+two and that's going to give me the sum of one and two right so I I would be
+able to pass an arbitrary number of of arguments to the function I want to
+Define my function so it can support that kind of functionality can I do that in
+Python yes I I use this thing called star ORS uh star ARs and uh and it will
+work can I do that in C++ can I write a function called sum in C++ and have it
+accept an arbitrary number of values is that possible and we know in C++ I I'm
+thinking we could use a vector uh uh well yeah but a vector you've got to pass
+in in a certain form right you can't Define vector and just put like 1 two 3 4
+right you have to pass in a vector for Vector the only other place I've seen it
+is when we are calling something from the command line we can pass question can
+do or not the answer is yes you can do it in C+ plus we'll get into this we'll
+see how you do it a little bit uh but it's really in Python it's absolutely
+trivial to do you just put a star in front of the name of the variable and then
+you can put as many as you want in here um and we'll see where it goes into we
+see we see we see how it works and and and Associates the T po that we saw
+earlier in in C++ is really really very very complicated uh they made it less
+complicated in the later version C++ but it's not that's one of the advantages
+of python p is extremely easy to do but in other language is complicated right
+so then we'll see how this works this can't do easily other language also I can
+have an arbitrary number of keyword arguments right so um and and we'll see how
+that works so I can define a function that that's some that I can uh I can every
+time I invoke it I can call it with any keyword arguments with this with the
+with the uh syntax of keyword arguments a equals this b equals this and so on
+and it'll take all those things from the dictionary and then I can I can change
+that every time I call it makes it very very powerful and it makes it easy to
+give multiple versions of functions there it's very the I'm speaking
+specifically sort of a very high level here no is I'm not going into details
+just want to let you know that this is really a cool cool thing you can do here
+um I can return values functions in Python return values the return statement if
+no return statement is present so I don't put a return in there um or if return
+is called without value the function will return none the none is that specific
+you know value it's a single ter there only one none and it's none so just like
+that um what you need to know about is Scopes in name spaces right what is a
+scope every know what a scope is so functions in Python have local scope so
+things defined in the language I things to find within the context of a function
+like def a b and so on if I would if I use c d and e in here the c and d and e
+they have a local scope so they only exist within the function that's the same
+as if I Define local variables that's saying C++ they they have local they have
+local scope right um what about and then so that's one those are so with
+normally within a function if I I can Define variables locally I can by Define
+by using them and they have local scope however I can also reach out of my
+function so if they have a variable say outside my function definition I can
+reach up and get a hold of that variable too these refer to varable at the top
+level of a module um or the cleared Global we'll see what that means within the
+function right and then um I can have enclosing scope if I have functions within
+functions this is something that's unique at least in terms of the normal
+language that we encounter generally um in C++ can I have a function that calls
+a function in C++ a function f calls function G is that possible the function
+possible yes or no yes we can pass the pointer to the fun right like well I I
+don't to pass a point a pointer I have a function f i can call square root for
+example in have to pass I can use I can use functions right within within
+functions can I define functions in C++ within functions I can define local
+variables right I can Define in I in J in C++ but I can Define and and I andj
+have local scope can I define a function inside of a function in C++ and the
+answer is no but in Python I can right I can have local functions and and that
+that leaves that gives us very interesting things that we can do uh that that's
+not impossible but much more difficult in language they know wild right we saw
+earlier so far so good I'm again leaving out details because we're going to
+really dig in later on but just as inorder orientation to this you know the
+richness you get uh in Python in terms of function calls we saw that python the
+functions are first class objects okay that means you can do stuff you can do
+all the other types you can pass them around you can use them as arguments you
+can use return values and so on um so I this allows to high order functions and
+functional program so by passing them in we'll see one of the main things we're
+going to do here um we'll we'll we'll see it's really cool stuff they could do
+let's let's actually see what happens when I run this I want you to read this
+right and then then predict what's going to happen and then we'll run it and see
+if those predictions are correct right so read this here right what's going to
+happen and then run it and then you tell me what it does and we will discuss it
+go go through that just type this in and and and let's do that it's using sort
+of things you might not have seen before like text.  upper but that shouldn't be
+a problem imagine what it does it does what you'd imagine everybody everybody
+this is not difficult right just do read it predict and then run just raise your
+hand when you're done as I said this is straightforward all right who wants to
+talk through this Mato let's see what did you see here what what happens exactly
+so we have a definer function called GRE that accepts um oh so we have shout
+function which accepts that uh as an argument accepts a variable called text and
+it Returns the same text with do oper which uh operates the a string we passes
+the function and the same for whisper it just uh lowercase it and then we have
+theet um which is function um which is going to be either shout or whisper and
+as I said um both shout and Whisper function except a string which is a text in
+this case it's hello I'm a function and it's going to be be returned either as
+op or lower and then we're just pring we're thring that in a reading variable
+and we're just pranking it right so here would told you what it was doing right
+but but do everybody predict it correctly right and if you run it you actually
+get's so let's talk through this thing so we are I say I write this in a file
+and I and I and I and I uh and then I save the file and I and python is now
+executing my file what's going to happen what is The Interpreter going to do it
+sees the first de F right um so that means there's a function now called shout
+does this run the function right as it's going through the interpretor finds
+this one this one and this one does it run the function def when it first
+encounters it what happens exactly so what happens here is f python sees this
+keyword def it says a function is being defined so what it's going to do is it's
+going to create a function object right just everything's an object as we saw
+including functions and so what it's going to do is in that function object it's
+going to have a whole bunch of stuff it's going to have for example the the code
+there'll be a code object within this function object that's all this this a
+trivial function is going to Simply have return text the upper it's not going to
+do it it's going to it's going to have this code object within here it's also
+going to have place for all the variables in this case I have a variable this is
+the the argument that get passed in it'll register that in the local dictionary
+uh for the for the names that it knows it's also um it's going to do all that
+not run anything and um and then U after that function object is is created it's
+going to take the name that you pass in over here and this and Shout will be a
+pointer to the function object that has created the same thing with with whisper
+right it's going to you count to this it's not going to run this it's going to
+create a function object with all the local variables the arguments everything
+over here on uh you know all the all the uh all of the um code that'll be part
+of the code object and then it'll do that what about this gu this is a little
+bit different right because it says okay I have another one called greet and
+greed is also taking an argument but what is the argument supposed to be right
+the argument is a is going to be a function but notice it doesn't look any
+different in terms of the way you define this as the ones that are taking text
+in here it's taking a function and um and here it's going to say and so it makes
+a function object which has the local variables which is Funk uh but uh and then
+um and then it's going to store the code it's going to store the local variables
+it's going to then take greet and make it as a pointer just as it did before um
+then it's going to start to run this program so it's going to call greet by
+passing in shout so when that happens what's going to happen exactly so it's
+going to call shout within within within um within greet when a call shout shout
+is now going to be running so at that point it's going to actually execute the
+text in here because that's that text that which is this um this this return uh
+return statement because that's part of the code object of sha right and so if
+you if you input it's going to print uh let's make sure this clear so when I
+come in here greed is GNA is g to takes in Funk so what is Funk going to be when
+I call it funk will be shout when Funk is shout so this will be shout right this
+function or greet is going to call function shout which was passed in as an
+argument it's going to say hello I am a function that's why over here what I
+passed in it's going to it's going to call that but why does that work because
+when it Call Shout it's going to take the text that comes in which is this
+argument over here and then call Upper on it and and what it returns it's going
+to return the upper of this greeting is going to be that and then it's going to
+print greeting which is hello on the function the next time I'm going to be I'm
+going to call greed again it passes in whisper whisper is also a a function so
+this is going to call um The Whisper function um and it gets the the greed is
+going to get the um greed is call whisper over here is going to say Al a
+function when it call but the function this time is going to be the whisper
+function it's going to call Whisper of the function that's going to make Tech
+everything to be lower it's going to run that um and so that's when the text
+gets that's when the function uh the the uh statements of the function actually
+get executed is when the function is run and so print I'm a function so what we
+saw was we can call functions within functions in a sort of a a different in a
+straightforward way any questions about how that works okay so what what we
+didn't see over here is functions within functions and here we'll have that
+example in a moment so far so good right makes sense to everybody okay so the
+next SL idea is a little bit uh uh I think new unless you know the closures are
+not so strange who who does not know just a straight just a show of hands who
+has never seen the notion of a closure let me just let me just um erase her in
+here just with a show of hands who has never seen a closure before everybody
+knows what a closure is uh don't don't know okay AB do you know what a function
+is what what a closure is just say yes or no uh not really I've heard of them
+but I don't know what they are so closures we have in every language have these
+things called closures uh they're very important in specifically in Python
+because they're going to help us do things like this have functions defined
+within functions so a close what does it sound like sounds like something being
+closed in right in other words have a certain environment and within that
+environment you um you're enclosing things that are useful uh when when you run
+that particular object so closure in Python is a function object so so a closure
+in Python is a function object that's the thing that a pointer that a function
+pointer points to so it's a function object that aside from having loow
+variables and other things it has other things also it has remembers the values
+in the enclosing scope so for example if I have an inside function and an
+outside function the outside function might have variables so the inside
+function the function object for the inside function can remember enclosed some
+built into that the inside function object all of these things from the outside
+so um remember values in the enclosing scope even though they're not present in
+memory so if they the time you're running the inside object again we'll see
+details of this as we go along this is just an introduction I will really dive
+deeply into all of these things um it sort of remembers you know where it came
+from remembers this this history REM what's going on in the old neighborhood
+even if the old neighborhood is not there anymore right it's a record that
+stores a function together with an environment right so the enclosure the
+closure was the environment in which it was created which it was defined a
+mapping Associates every free variable we'll get into this with the value to
+which the name was bound when the closure was created okay so when it was
+created is when Define what what defines the values in this closure not when
+it's being P okay so far so good not question G you have your hand up I'm
+Professor you answered it sorry okay all right so here's an example um let's
+just look at this an outer function takes text have an inner function called
+inner function and that prints text and then and and then return in function and
+so on and then I do this and I do this look at this for two minutes and we'll
+talk about it see if this makes sense Naji question yes so basically enclosure
+is almost like inheritance like an outside function that's what it's like it's a
+different idea an idea let's just do the example then we'll take your it's a
+good question it's a good question let's just let's just look at the example and
+then we'll we'll take your question every read this and see you know what makes
+sense with this all right let's let's let's see what's going on over here so I
+have this in a file right and then I'm and I run I run the F so the first thing
+that The Interpreter encounters is this def so what it says is it now does what
+it's going to try to create a function object uh using this the inside of this
+thing and then it's GNA If it creates that function object everything inside of
+it WR the local variables and so on and so forth and uh and then it'll have a
+pointer called outer function pointing to that function object but when it does
+it when it does that it's a little bit different than we saw before right
+because before what was inside we had code normal code uh we had variables that
+were assigned values and so on and so forth and you know whatever and we had
+some stuff that came in as arguments but here we have a function defined inside
+the function so what happens to the inside function when the outer function is
+not encounted by running it but encounted by the comp by The Interpreter uh the
+first time right just to create the outside to create the function object called
+outer function so it just notes that there's a function definition it does not
+create an inside uh a function object right it just says I'm creating outer
+function it notes there's a name called inner function which the function it
+doesn't go inside at all it doesn't it doesn't create a function object when the
+outer function object is created right um and then and what's so what's what
+what are the what what are the action what are the action steps here the first
+action step is to note that there's a function defined but not go inside of it
+and then to note that the second thing is return function this becomes part of
+the code you know but but that's it and also it has some names that it puts into
+the dictionary um and in function is one of the names and puts text in there and
+so on right because text came in there that make sense that clear right so it's
+counts as it doesn't run it but it creates a function object but only on the
+outer level not on the inner level what is the when is the inner function object
+going to be created when outer function is called okay so now um we actually run
+some code right this is an an executable statement so so Funk is going to be
+outer function passing the string col what happens here exactly what happens
+here I have a function object pointed to by outer function right so that outer
+function the function object that fun that outer function gets executed what's
+there's two steps right this is step one this is step two so when outer function
+is executing the first thing it notes is that I have a function that's being
+defined it now at this point when outer function is executing this point says
+okay wait I got to create a function object for this guy at runtime right so it
+does it it goes in it creates a function object it pass in all the arguments
+which there aren't any and and then then it has a pointer called inner function
+is all happening when outer function is running um a fun function pointer called
+inner function that's pointing to the the function object that was created here
+and then it returns inner function so what it returns is a pointer to Inner
+function um and then and then what so that that's happening so it comes back out
+over here and what happens here I'm so one other point one other point hello was
+passed in right so hello passed in as text right now this this this thing here
+sort of belongs to the outside environment right because it's not used on the
+outside it's only used on the inside right so a closure is created over here
+because the the the inner function is using something that was passed in from
+the outside this is not reading some text from the outside it's using something
+passed in so the fun the the the a closure will be created this this this
+function definition is now a closure because it's it has access to the outer
+functions um variables not these are variable but the out the it's this outer
+function variable is called text it returns inner function so what gets returned
+EX exactly what can return exactly is this going to create any output for me is
+this going to print hello when this when this is when this is called is this
+going to print hello when when this line here is that going to print hello let
+me give you a hint no right why not why isn't it your print hello because all
+that's being H all that's happening over here is that it's running this function
+here this function doesn't print anything this function creates a function
+object um inside there's a pointer to something called this it part of after
+this function I was created this pointer inner function is pointing to that
+however as as this in as this object is being created it has a it has access to
+to stuff on the outside right the stuff that's been passed in to the to the
+outer function named text so text over here becomes part of the definition of of
+the of the function called inner function the inner function is not running it's
+being defined and a pointer is being set up to the to the uh to the function
+object but in there uh it has a it has access to that variable called text right
+now does text have a value this variable text does text have a value when this
+function is being created Hello was just passed in right when it's created text
+had a low so as part of uh as part of this text will be uh in the closure of the
+inner function but it's not going to print it's all setting stuff up and inner
+function return so what the value of my fun is a pointer it's not going to run
+the function it's a pointer and that's the pointer that's returned over here
+returns inner function which is a pointer to this function object now when I go
+to the next line it calls my funk but when it calls my funk my funk is now a
+pointer and it's quable how do I know that it's quable because of the
+parentheses that's a quable thing and it's now going to run um whatever is in my
+funk well what's in my funk my funk is a pointer to function called inner
+function so it's going to run inner function in function print text it has text
+it has text you passed in because that became part of the closure and that is
+the story is that at least a little bit clear we're going to do this in really
+great detail but this is just you know a test of how the notion for you see the
+idea of defining inner function inside of an oun function and and it does this
+the real the real use of this is in decorators which we'll see in detail later
+on but I'll go through the example in a second you answer a question um yes sir
+uh my question is um does this dip the passing of the variable along to the
+inner scope does that depend on where the function is defined or where the
+function is called because in JavaScript uh wherever the function is called it
+just grabs everything it has access to and goes at the screen screen okay so in
+Python it's only when it's created right right I see that's the difference thank
+you okay all right let's take five minutes because my voice is cracking here
+we'll come back we'll look at decorators and look at some examples okay five
+minutes it was sort of the first Complicated new thing that we've seen so far um
+any any questions we will dig deeply into all of these topics so this is just an
+overview but any questions was completely incomprehensible it made sense to
+everybody everybody okay with this all right good so so we saw that you can have
+functions defined within functions and the main use of that is in this thing
+called decorators what are decorators these really cool stuff decorators so
+imagine here's the situation decorators are a power aspect you modify behavior
+and function without changing see imagine I have a bunch of functions and then
+as I run my as I run my program it's really really really very slow and I'm not
+sure why it's slow right so in many most programming language I use production
+code you have things called profilers right that let you you run the code under
+the under the profiler and that profiles the behavior of the various function
+calls right I'll tell you you know give you timing and so on and so forth so
+these decorator is used basically for something like that so imagine I have a
+bunch of functions and what I want to do is I want to just take the function and
+and and when the function is run I want to figure out how long that function
+takes right so one thing I can do because it's all text really here in Python is
+I can go make I can do surgery on all of the functions in other words I can take
+the function does whatever it does has nothing to do with timing or anything but
+I can insert a call uh on the timing class and I say start a clock and then
+it'll it'll give me what time I'm starting and then at the end of the function
+call before it returns I can um you know I can say stop the clock and then I can
+I can uh subtract the two the times right I can say I can take the ending time
+minus the starting time and and it'll tell me how how how long it took for the
+function to run that's very useful right but if you have hundreds of functions
+and I'm I'm writing C I don't want to have to go and you know change the code
+and sort of put stuff in there that could mess things up right so so that's the
+idea decorators decorators allow me to change to modify the behavior of code
+without actually changing the inside here's an example here's an example of a of
+a decorator and notice a decorator takes in a function as an argument and it
+defines as we saw before it defines an inside function and uh the inside
+function is getting the function that I pass in right so this's going to be
+appointed to some function on the outside um the inside function is called
+wrapper it's not a technical term but you see the word wrapper is going to be
+generally used in the programs that you're going to be writing and reading and
+because why is it why you want to use the word raer it's sort of being wrapped
+by The Decorator but the rapper function gets the function and it executes the
+function there's a function call in here what's happening is when when the
+python interpreter sees this it notes I've got a function called my decorator
+and it does what we saw it creates a function object it notes that I've got a
+function on the inside that's step one uh it notes all the local variables all
+everything else and then the second step is return wrapper which it doesn't do
+it just it's it puts it into the code part of the function of the function
+object and then it has a pointer called my decorator pointing to the newly
+created function object now it comes down here and uh this is also a function
+definition this called say hello right so again it creates a function object
+called say hello um that function object has trivial stuff inside of it but
+every they all have there's a lot of stuff that not being used over here right
+but it it'll create dictionaries inside and lists inside and all kinds of
+attributes inside we'll hopefully have a chance to examine what it really looks
+like inside later on but basically this creates an object with like a lot of a
+lot of internal structure um and then it's going to have a pointer to what
+called say hello and um that's that's going to be available uh at this scope
+right but it's not going to run this thing now it's going to now when it comes
+down here the first executable statement says say hello so what happens when we
+uh we say say hello so notice so far so good every with me any questions this is
+good all right so what happens when it runs say hello so notice that um say
+hello has been decorated say has been decorated so what does that mean now this
+is this this is the actual sent not to make it pretty it it's um it's been
+decorated so when I have a function that's decorated when that function is
+created it takes into account The Decorator so it it does more if what what I
+said happened will happen the function object created and so on and so forth
+that will happen without this Decor if I didn't have this line what I said is
+true right it's going to do everything on the inside it's create it's going to
+create a a function object that has a local variables and all that kind of stuff
+but this thing has been modified by being decorated which means that that this
+function is is is destined not to be called directly but to be called via my
+decorator so when this is encountered at the at the time this function is
+encountered it's going to get decorated in other words what's going to happen
+it's going to say all right take this function called say hello and stick it in
+here right you're not right you're not you're not running this decorator you're
+just just doing what it says in here so now so um so uh my hello is going to go
+in his Funk and then this thing and this is going to be a variable that's
+available to rapper right and then rapper is going uh uh what's what's going to
+happen here with the rapper since it'll now it'll now organize it so that my
+something is happening and so on and so forth print that funk is now going to be
+a pointer to this say hello and then the rapper is going to know when it when it
+runs it's not running yet it's it's going to sort of decorating this outside
+function and then it knows it's going to call this function that becomes part of
+the part of the the the uh the function object that will be created created over
+here it's going to be created when it's run right when it's run and then it's
+going to do this and it's going to turn rapper so now uh we come down over here
+when we say hello it returns rapper so now say hello what is say hello going to
+be say hello is not going to be um the original say hello function say hello is
+going to be the decorated function and when the decorated function is going to
+run wrapper is going to run right wrapper is going to run what happens in rapper
+it's now going to say prining happen function called it's going to call the
+original function right it's going to call the this say hello function the
+unrapped version of of of say hello then it's going to print something that's
+happening after the function is called right and and and so that's why it's
+going to print the hello but after all of this stuff is happening why it's a
+crazy thing right why would you go through all this stuff well you wouldn't you
+we wouldn't go through it just if something is happening but first of all you
+could be using for tracing I want to know did the function actually get called
+so I put some tracing over here that's called now when it's then you do it
+something called now but to do more exciting things like timing and so on this
+is really uh very very useful and as I said this is not the only time we counter
+this we're going to spend like a whole you know three hours or more uh with many
+examples of decorators and how this stuff works internally I just want to point
+out at this point that this is available and is very very powerful okay uh just
+this is any any questions about this just in general terms the details as I said
+we'll leave for later on okay but the idea is that you can do this you can have
+functions that defined functions and you can have and this and then you have
+this kind of syntax over here that will essentially that this say hello um
+because it has been decorated is really a different function we managed to
+change the functionality of say hello um uh uh because of the mechanism of
+decorators now decorators are syntactic sugar we see you can get around this
+we'll see again when we get through this in deta you can do this without the
+decorating mechanism but this makes it clear this says take this function and
+decorate it and it does this okay if that's not clear it should be get clear
+when we get later on let's do some very simple examples right so I can define a
+function called greater than and it's going to take an X and Y and is greater
+than 34 and to say false right because X is three and that's four is 3 greater
+than four um it's uh is not right so it's going to turn four is four greater
+than three yes okay so terminology I'm going to skip this you know how this
+thing works and so on here's a function called add um and uh let's see let's see
+how this thing works um let's let's take a look at this so add a and b so add X
+and Y so uh when I if a is equal to 10 and B is equal to 20 when I call a and 10
+and 20 what happens so X becomes 10 and Y y becomes 20 so inside over here uh
+the 10 becomes an 11 right and the the Y becomes was that was a that was a 20
+becomes 21 and I print 10 and 21 right so when I call add a and b it'll print I
+mean it's 11 and 21 but now when I look at a h it still is the 10 and I look at
+B it's Stills a 20 that's not surprising because how are the how is it passing
+them in was it passing in by reference or by value how does it get these these
+parameters these arguments it's it's clear right was it passing by by by value
+or by reference can you hear me somebody yes sir I would think by reference
+because they're objects somebody say by reference anybody disagree and say by
+value what's the difference in passing by value passing by reference if I yeah
+um yeah so this is Yes again so passing by value means whatever uh variable is
+passed in we copy the value and then pass the copy of the value not the original
+passing by reference passing the original object itself just pointed to the
+object so how is so how is this behaving as a reference variable or or or a
+value argument it's passing it by value right because I'm changing X and Y here
+but so X was a and Y was B when I come back A and B have the same values as they
+did before I executed the program so it means the copy of A and B came in here
+so X and Y are local are local to the function that means the values that were
+passed in are passed in not a pointer to the right to the um to the original
+value right so these are local the variables in paramet list are local does that
+make sense right so changing them makes no doesn't have any effect on the
+outside yeah sir um profor I'm a little confused um are everything passed by
+value in python or because I thought all objects are so notice too the actual
+story is a bit subtler because what we passed in over here but understand is
+question the question is is everything passed by value so what do you see about
+A and B they're built-in types and they're simple types right and that I can I
+change if if a is the integer 10 I can change a can I change 10 can I change the
+object 10 itself no because it's not a mutable object right so so things that
+are not mutable behave like we saw over here right however we'll see later on I
+have I have things that are mutable right a list is mutable a list is like that
+array but I can change the elements in the list so that will be passed in by
+reference and stuff that I change within the function will be uh will be uh
+changed on the outside too right so mutable objects are passed in by refence so
+we'll see this later on it's a good question how do I return values back we saw
+there's a return statement I return a value simply return um or the function
+falls off and and that's the idea the first form right just simply be S return
+in some value terminates the function right when I return and makes the value
+available at the place from which function for this is normal right if I say x
+is equal to F of something so after F executes and returns a value that value is
+going to be assigned to X right that's normally right the second form when I
+just simply return it terminates the function and then the computation resumes
+from the next place which is what You' expect the third form just falling off on
+the bottom it just continues on from where is quote we will be making a
+distinction is normal distinction between function and procedure right when we
+say function we're going and it's not again it's not a technical term in Python
+we're going to say function we mean a function that returns a value right we say
+procedure P procedure returns a non type so for example the built-in function
+length let see what's the length of the string ASD it's going to it's going to
+turn Val it's going to say three right so if I say show me the typee what's the
+type of length what is what is when I evaluate this what's this going to give me
+it's going to give me an integer back right class means type right it's going to
+give me integer back but if I say what's the type of print right so print does
+stuff for me right this guy gives me something back the length gives me
+something a number back right the prints it doesn't it does a job for me prints
+but then why does it return returns none I think we saw this earlier right we
+had this thing in one of the examples it's going to return a nun time so we're g
+to make that distinction um what time is it let's just try uh let's try two
+examples right call it a day right let's write a trivial function called is even
+now it's going to return true if x is even and false otherwise really this is
+like a minute minute problem so everybody do this let me know the first guy that
+solves this okay Matthew let's see what you got let me stop sharing yeah right
+what does it print does it what is it okay let's see now what what did the
+question say what was what did the question say show us the question again so
+supposed to be turn true or false no isn't the obvious thing to put an if and an
+else in the in the function definition you want it to be clear and not not
+clever right okay okay so that's that's good can we get rid of the else in there
+and have it still work everybody yeah right because once once if it knows it
+it's if what knows it it's even it's going to return true and then terminate the
+function so it's never going to get to the return false right but if n is odd
+it's not going to return true it's going to come out and return false and end
+right so that that will work very good thank you let's do one more thing and
+then we will call it a day let's try this one over here um let's do we what's a
+leap here right what's a leap here so a leap here here's a definition I think
+it's the correct definition a leap here is uh simplest definition every fourth
+year is a leap year right so four is a leap year two um um you know eight is a
+leap year and so on it gets more complicated when you have Century years because
+even though Century years are divisible by four right so it's a it's a fourth
+year there's a special rule not every Century year is a leap year only those
+that are divisible by 100 so 96 is a leap year however 100 is not it's not
+divisible by 400 so the leap all those numbers divisible all those years
+divisible by four except you have to treat leapia separately and those are only
+going to be leapia if they're divisible by 100 okay by by by 400 okay let's do
+this and we will We we'll wrap it up everybody try it it's not a complicated
+problem got all right I think um my microphone muted itself somewhere halfway
+between my last presentation all right can you yield the uh screen all right I
+did the esoteric thing again do you want me to undo that uh uh yeah just let's
+no this talk through it let's see what you got all right so this is the leap
+year my Leap Year function um we've got very simply the one odd case every 400
+years we um every even 400 like like year 2000 was not a leap year so we just
+get all of those out in the way whenever it's here we return and we're not
+dealing with uh any any number that rounds 400 then we return the Boolean
+expression from this so this would be the year percent 4 is equal to zero so
+whenever our year is evenly divisible by four we return true otherwise we're
+returning false because that's what this expression is going to result in and
+then I made this a for in Range Loop where we have our start number and our end
+number so we're overriding the default zero here um and we can just redo it
+again and we can see that 1992 is a leap year we have 1996 we have 2000 false
+this um this return returns early so then we don't have so we don't calculate
+this expression and then we have um all the other truths exactly where they
+should be okay so what an example of a 100 year that is a we year right's what
+would happen with 3 can we see 300 go that uh yep let's see 300 make sure it all
+works like that and we're going to see the year 300 is a leap year but I 100
+don't 100 years have to be divisible by 400 to be weep years isn't it um it's
+every every 400 so 2,000 was a leap here yeah oh my bad okay let's let's leave
+this now because we're getting late we'll pick this up tomorrow um any questions
+here any any any questions no stick around for one more moment but I want to
+record recording stop so we decided that the the exam will be on Monday we're
+not moving as quickly as I had hoped um I'm not getting the kind of you know
+feedback that I would normally have people aren't really responding quickly
+enough really try to pick up if I have five people out of 40 um that's not
+that's not very good so if you have to talk to the boss for most of you Monday
+and Tuesday was was fine um if you're talking to the boss about Monday you have
+to arrange something um talk to the boss provisionally right you say you might
+need to take off Monday or or else you might not right because I want to be able
+to see by the end of the the week how much stuff we covered because I want to be
+able to sort of get at least half the semesters worth of material um you know on
+the midre okay so we're shooting for Monday but if we don't you move a little
+bit faster um we'll probably be on Tuesday okay everybody got that okay let's
+call it a day any questions no questions all right all right have a great day
+guys please keep up with this right keep up do if you didn't work the problems
+during during class time do them now all right bye

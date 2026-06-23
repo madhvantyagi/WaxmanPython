@@ -1,0 +1,16 @@
+Write a generator get_oct() that will produce the next octal number each time it’s called. The value
+should be a string, so that when the octal number 20 is produced (this is the octal representation for the
+decimal 16) the generator will return ‘20’.
+Problem:
+Write a generator fib that will produce the next Fibonacci on demand.
+Problem:
+Write a generator that produces “serial numbers” according to the following rule: a serial number is a
+ten-character string where
+• the first two characters are upper-case alphabetic and
+• the following eight are numeric.
+The alphabetic portion will be all strings from AA through ZZ in lexicographic order (AA,AB,AC …).
+For each alphabetic prefix, the numeric part will be all strings 00000000 – 99999999. So we have
+AA00000000, AA00000001 …ZZ99999999.
+Answer
+Problem:
+7

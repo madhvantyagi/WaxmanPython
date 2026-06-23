@@ -1,0 +1,9 @@
+{
+  "source_pdf": "Classes PDF/intro-to-oop-in-python.pdf",
+  "output_dir": "extracted_pdf_text/intro-to-oop-in-python",
+  "combined_text_file": "extracted_pdf_text/intro-to-oop-in-python/combined.txt",
+  "page_count": 18,
+  "character_count": 25415,
+  "word_count": 4204,
+  "pages_with_no_text": []
+}

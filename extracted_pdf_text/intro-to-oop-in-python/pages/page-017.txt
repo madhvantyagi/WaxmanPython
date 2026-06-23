@@ -1,0 +1,41 @@
+The Python version:
+To translate the C++ `SA` (Simple Array) class into Python, we need to adapt the code
+to fit Python's object-oriented programming style. Python's built-in list type already
+provides much of the functionality of a dynamic array, so the `SA` class can be
+simplified significantly. Here's a Python version of the `SA` class:
+class SA:
+def __init__(self, *args):
+if len(args) == 0:
+self.low = 0
+self.high = -1
+self.data = []
+elif len(args) == 1:
+self.low = 0
+self.high = args[0] - 1
+self.data = [0] * args[0]
+elif len(args) == 2:
+l, h = args
+if h - l + 1 <= 0:
+raise ValueError("constructor error
+in bounds definition")
+self.low = l
+self.high = h
+self.data = [0] * (h - l + 1)
+else:
+raise ValueError("Invalid number of
+arguments")
+def __copy__(self):
+copy_obj = SA(self.high - self.low + 1)
+copy_obj.data = self.data.copy()
+return copy_obj
+def __getitem__(self, index):
+if index < self.low or index > self.high:
+raise IndexError(f"index {index} out
+of range")
+return self.data[index - self.low]
+def __setitem__(self, index, value):
+if index < self.low or index > self.high:
+raise IndexError(f"index {index} out
+of range")
+self.data[index - self.low] = value
+17

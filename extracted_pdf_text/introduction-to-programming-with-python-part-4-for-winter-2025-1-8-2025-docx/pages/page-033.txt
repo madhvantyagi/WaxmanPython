@@ -1,0 +1,40 @@
+Function definitions
+What does Python do when it encounters a function definition?
+When the Python interpreter encounters a function definition in a program for the first time, a series of steps are
+followed to interpret and store the function for later use. Here's a detailed breakdown of what happens:
+1. Parsing the Function Definition
+The interpreter first parses the function definition. This involves analyzing the syntax of the `def` statement,
+including the function name, parameters, and the body of the function. Python's parser converts this source code
+into an abstract syntax tree (AST), which represents the structure of the code in a tree-like form.
+2. Compilation to Bytecode
+After parsing, the function's code block (its body) is compiled into bytecode. Bytecode is a low-level, platform-
+independent representation of the source code, which is designed to be executed by the Python Virtual Machine
+(PVM). Each operation in the function body, such as variable assignment, operation on variables, and function calls,
+is translated into a series of bytecode instructions.
+3. Creation of a Function Object
+Once the bytecode is ready, Python creates a function object. This function object is a first-class object, meaning it
+can be passed around and manipulated like any other object in Python. The function object contains several pieces
+of information:
+What’s in the function object?
+Code object: This contains the compiled bytecode of the function, as well as other metadata such as the function's
+name, its argument names, and its defaults.
+Global references: The function object also keeps a reference to the globals of the module in which it is defined.
+This is important because the function will need access to global variables and other functions defined at the module
+level when it is called.
+Closure: If the function is a closure, the function object will also contain a reference to any variables captured from
+an enclosing scope.
+4. Function Object Assignment
+The function object is then bound to the function's name in the current namespace. This means that after the
+definition is interpreted, you can call the function by using its name. In Python, namespaces are implemented as
+dictionaries, so the function name is a key in this dictionary, and the function object is the value.
+5. Ready for Execution
+At this point, the function is fully defined and ready to be executed. However, it's important to note that the
+function's code has not been executed yet; the function will only be executed when it is called.
+When you call the function, the interpreter creates a new execution frame for that function call, pushing it onto the
+call stack. This frame contains its own namespace for local variables, references to any global or nonlocal variables
+it needs, and a pointer back to the function object's code so that the interpreter knows what bytecode to execute.
+In summary, when the Python interpreter encounters a function definition for the first time, it parses the
+definition, compiles the body of the function into bytecode, creates a function object containing this bytecode and
+other relevant information, and then binds this object to the function's name in the current namespace. This process
+makes the function ready for execution whenever it is called later in the program.
+105

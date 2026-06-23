@@ -1,0 +1,25 @@
+4.Variadic Keyword Arguments
+If the last argument of a function definition is prefixed with **, all the additional keyword arguments
+(those that don’t match any of the other parameter names) are placed in a dictionary and passed to the
+function. The order of items in this dictionary is guaranteed to match the order in which keyword
+arguments were provided.
+Why do this?
+Arbitrary keyword arguments might be useful for defining functions that accept a large number of
+potentially open-ended configuration options that would be too unwieldy to list as parameters. Here’s an
+example:
+def make_table(data, **parms):
+# Get configuration parameters from parms (a dict)
+fgcolor = parms.pop('fgcolor', 'black')
+bgcolor = parms.pop('bgcolor', 'white')
+width = parms.pop('width', None)
+...
+# No more options
+if parms:
+raise TypeError(f'Unsupported configuration options {list(parms)}')
+make_table(items, fgcolor='black', bgcolor='white', border=1,
+borderstyle='grooved', cellpadding=10,
+width=400)
+The pop() method of a dictionary removes an item from a dictionary, returning a possible default value if
+it’s not defined. The parms.pop('fgcolor', 'black') expression used in this code mimics the behavior of a
+keyword argument specified with a default value.
+97

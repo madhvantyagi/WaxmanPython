@@ -1,0 +1,23 @@
+Example
+from itertools import groupby
+data = [1, 1, 2, 2, 2, 3, 3, 3, 3]
+When groupby is applied to data:
+groups = groupby(data)
+groups will be an iterator where each element is a tuple: (key, group).
+Let's iterate over groups and print out the structure:
+for key, group in groups: print(f"Key: {key}, Group: {list(group)}")
+This will output something like:
+Key: 1, Group: [1, 1]
+Key: 2, Group: [2, 2, 2]
+Key: 3, Group: [3, 3, 3, 3]
+What is the type of a Group
+• The type of each group in the pairs returned by groupby is an iterator. It's not a list or any other collection
+type by default. If you need a list, you have to explicitly convert it using list(group).
+Important Note
+• groupby only groups consecutive items. If the same value appears in non-consecutive positions in the
+iterable, it will be treated as belonging to different groups.
+• The iterable should be sorted on the same key function if you expect to group all identical items together,
+regardless of their original order.
+This understanding of groupby is essential when working with data aggregations or transformations in Python, as it
+provides a powerful tool for grouping data efficiently.
+153

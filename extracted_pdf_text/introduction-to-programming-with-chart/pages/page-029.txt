@@ -1,0 +1,36 @@
+Problem
+Create a sample CSV file with last name, first name and exam score. The exam score should come from a
+normal distribution with a mean of 75 and a standard deviation of 15.
+import os
+import csv
+import random
+import numpy as np
+from faker import Faker
+# Initialize Faker to generate random names
+fake = Faker()
+# Function to generate random data
+def generate_data_normal_dist(num_rows, mean=75, std_dev=15):
+data = []
+for _ in range(num_rows):
+last_name = fake.last_name()
+first_name = fake.first_name()
+score = np.random.normal(mean, std_dev)
+# Ensure score is within 0-100 range
+score = min(max(score, 0), 100)
+data.append([last_name, first_name, score])
+return data
+# Generating data for 100 rows as an example
+data = generate_data_normal_dist(100)
+# File path for the CSV
+# Get the path to the Documents directory
+csv_file_path = os.path.join('C:/Users/waxman/Documents', 'random_names_scores.csv')
+# Writing data to a CSV file
+with open(csv_file_path, mode='w', newline='') as file:
+writer = csv.writer(file)
+writer.writerow(['LastName', 'FirstName', 'Score'])
+writer.writerows(data)
+The Faker module is a Python library that allows you to generate fake data, such as names, addresses, and
+much more. It's often used for testing and filling databases with random data.
+To install the Faker module, you can use pip, which is the package installer for Python.
+pip install Faker
+157

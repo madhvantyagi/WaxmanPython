@@ -1,0 +1,33 @@
+and generators), but use `yield`, `yield from`, or `await` to suspend their execution and transfer control
+back to the caller. The key difference is that coroutines can also receive data after yielding, which
+allows for two-way communication between the coroutine and its caller.
+For the above problem imagine that we have a “producer” sending the ones and zeros to a “consumer”
+that is minding the gaps and sending out the gaps as before. Python has many powerful ways to do this
+including the async module and threading.
+Let’s look at a simpler example here:
+import random
+def sensor_monitor():
+zero_count = 0
+while True:
+state
+= (yield zero_count) # state is where the generator get the value from the producer
+if state == 1:
+zero_count = 0
+else:
+zero_count += 1
+def main():
+monitor = sensor_monitor() # monitor is the iterator
+next(monitor) # Prime the generator
+for _ in range(20): # Run for 20 iterations
+# Producer: Generate a random 0 or 1
+produced = random.randint(0, 1)
+print(f"Produced: {produced}")
+# Consumer: Process the produced value
+gap = monitor.send(produced)
+print(f"Consumed: {produced}, Gap: {gap}")
+main()
+and here is a step-by-step explanation:
+1. Initialization of the Sensor Monitor Generator:
+- `monitor = sensor_monitor()` creates a generator object named `monitor`.
+- `next(monitor)` is then called to 'prime' the generator.
+11

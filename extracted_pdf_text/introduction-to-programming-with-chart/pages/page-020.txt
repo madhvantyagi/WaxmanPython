@@ -1,0 +1,25 @@
+The technique of using the **kwargs dictionary will allow us to create multiple constructors for Python
+classes.
+Let’s look at some larger examples of dictionaries. The first will be will be a scrabble dictionary and
+the second will be to create an inverted index for a file.
+But first, some preliminaries.
+Problem:
+Write a function, signature(n) that and returns a string with same letters in lexicographic order.
+For example, signature(stop) ➔ opst
+Problem:
+Scrabble Descrambler – Very Lite
+You are in the middle of an intense game of Scrabble, and you find that your tiles have the letters
+“ACENRT”. What can you possibly do with that??
+You whip out your smart-phone and run your handy Scrabble Descrambler! You simply enter the letters
+on the tiles, and PRESTO!!!, all legal Scrabble words with those letters magically appear on your screen.
+How cool is that?
+Your assignment: write the Scrabble Descrambler.
+How?
+For this problem, we will only deal with six letter words.
+1. From main page of the lecture web site copy the contents at the link “Legal Six Letter Scrabble Words”
+and store it in a file in your Python directory called wordlist.txt.
+2. Create a Python dictionary where for each entry, the key is the signature and the associated value is a
+list of all words with the same signature.
+3. Finally, in a loop, ask the user for the six letters that they want to look up, and your program will return
+all valid six-letter Scrabble words matching the request.
+148

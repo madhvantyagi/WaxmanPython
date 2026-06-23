@@ -1,0 +1,8 @@
+Instruction Length: The difference between consecutive byte offsets also implicitly indicates the length
+of each bytecode instruction. Different instructions can have different lengths depending on whether they
+have arguments and how those arguments are encoded.
+In the context of the above example, the `ROT_TWO` instruction at byte offset 4 follows the
+`LOAD_FAST` instruction at byte offset 2. The difference in offsets also tells you that the
+`LOAD_FAST` instruction (including any potential argument it might have) takes up 2 bytes.
+Question: By looking at the bytecode it seems that the swap is being done without a third variable. How?
+112

@@ -1,0 +1,36 @@
+Here is the transpose of matrix `B`:
+B = [
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]
+]
+Transpose of B = [
+[1, 4, 7],
+[2, 5, 8],
+[3, 6, 9]
+]
+In the transposed matrix, the first row `[1, 2, 3]` of `B` becomes the first column `[1, 4, 7]` of the
+transposed matrix, the second row `[4, 5, 6]` becomes the second column `[2, 5, 8]`, and the third row `[7,
+8, 9]` becomes the third column `[3, 6, 9]`.
+So, if
+B = [
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]
+]
+When you call `zip(*B)`, it is equivalent to calling `zip([1, 2, 3], [4, 5, 6], [7, 8, 9])`.
+The `zip` function will group the elements with the same index from each sublist together,
+effectively transposing the rows and columns.
+For the above example, after transposing, it would become:
+[
+(1, 4, 7),
+(2, 5, 8),
+(3, 6, 9)
+]
+Aside: Remember, when you zip you get tuples. You can convert the tuples back to lists (if needed) by
+using a list comprehension:
+transposed = [list(group) for group in zip(*B)]
+print(transposed)
+# Output: [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+This is a concise way to transpose a matrix in Python, making use of the built-in `zip` function.
+129

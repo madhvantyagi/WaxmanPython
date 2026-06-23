@@ -1,0 +1,41 @@
+Note also that the decorated function is its own object, distinct from the original function
+object. When a function is decorated, the decorator takes the original function object as an input
+and typically returns a new function object. This new function object usually wraps or modifies
+the behavior of the original function. As a result, the original and decorated functions are two
+different function objects.
+In general
+1. Original Function Object:
+• When you define a function, Python creates a function object for it. This object
+represents the function with its original behavior.
+2. Applying the Decorator:
+• A decorator is a callable (usually another function) that takes a function object as
+an argument and returns a new function object.
+• The decorator may add some functionality to the original function, modify it, or
+even completely replace it with another function.
+3. New Function Object (Decorated Function):
+• The object returned by the decorator is now the decorated function. This new
+function object is what is accessible using the original function’s name after
+decoration.
+• The new function object can retain a reference to the original function object,
+allowing it to invoke the original function's behavior within the new behavior.
+4. Two Distinct Objects:
+• The original function object and the new (decorated) function object are separate
+objects in memory. *
+• If you retain a separate reference to the original function (before it is decorated),
+you can still access its undecorated behavior.
+Here is one way to keep the original function (other than defining it twice):
+def my_decorator(func):
+def wrapper(*args, **kwargs):
+print("Decorator adds this before the function call")
+result = func(*args, **kwargs)
+print("Decorator adds this after the function call")
+return result
+# Provide access to the undecorated function via an attribute of the wrapper
+wrapper.original = func
+return wrapper
+# Applying the decorator using the @ notation
+@my_decorator
+def original_function(x, y):
+print(f"Original function called with arguments: {x}, {y}")
+return x + y
+10

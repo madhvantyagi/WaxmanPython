@@ -1,0 +1,26 @@
+The Sieve of Eratosthenes provides an efficient solution.
+This algorithm is over 2200 years old! It's named after the Greek mathematician Eratosthenes. The
+beauty of this algorithm lies in its simplicity and efficiency, making it one of the most efficient ways to
+find all primes smaller than 10 million or so, especially when the range is not too large.
+Here is the Wikipedia description: http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+as well as an animation of the algorithm.
+To find all the prime numbers less than or equal to a given integer n by Eratosthenes' method:
+The algorithm works by iteratively marking the multiples of each prime number starting from 2. The key
+insight is that every non-prime number is a multiple of some prime number. By systematically marking
+the multiples of each prime as non-prime, we can sift through a list of integers and identify the primes.
+Here's a step-by-step explanation of how the algorithm works:
+1. Initialization: Start with a list of Boolean values representing each number in the range, initialized to
+`True` (indicating potential to be a prime), except for 0 and 1, which are set to `False` because they are
+not prime by definition.
+2. Iterate over numbers: Begin with the first prime number, 2, and iterate over the range. For each
+number (i) that is still marked as True (indicating it is a prime), proceed to mark its multiples as False
+(indicating they are not primes).
+3. Optimization: The marking of non-primes starts from i^2 because, for any prime i, multiples less
+than i^2 (like (2i, 3i, …, (i-1)i)) would have already been marked as non-prime by smaller primes.
+Increment the marking by (i) (marking (i^2, i^2 + i, i^2 + 2i, …)) as these are the multiples of i.
+4. Completion: The process continues until all numbers in the list have been considered. The numbers
+marked as True at the end of this process are the primes in the given range.
+Below is an implementation of the Sieve of Eratosthenes in Python, designed to find all prime numbers
+up to a specified limit. This implementation follows the described algorithm, utilizing a list of Booleans
+to represent the sieve and employing optimizations to enhance efficiency.
+136

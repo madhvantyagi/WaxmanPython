@@ -1,0 +1,3205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tricky Python Final Exam Drill Sheet</title>
+  <style>
+    :root {
+      --ink: #172026;
+      --muted: #5b6670;
+      --line: #d9e1e7;
+      --panel: #f6f8fa;
+      --panel-strong: #eef5f3;
+      --accent: #0f766e;
+      --accent-dark: #115e59;
+      --danger: #8a3b12;
+      --code-bg: #101820;
+      --code-fg: #e8eef2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #ffffff;
+      line-height: 1.55;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      background: var(--panel-strong);
+    }
+    .wrap {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    header .wrap {
+      padding: 32px 0 26px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      margin: 0;
+      max-width: 900px;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: #31414d;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+    main {
+      padding: 24px 0 56px;
+    }
+    .how {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      margin-bottom: 18px;
+    }
+    .how h2, .review h2 {
+      margin-top: 0;
+    }
+    .nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      margin: 16px 0 26px;
+    }
+    .nav a {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--accent-dark);
+      background: #fff;
+      font-weight: 800;
+    }
+    .nav small {
+      color: var(--muted);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .review {
+      margin: 18px 0 28px;
+      padding: 16px;
+      border-left: 5px solid var(--accent);
+      background: #f8fbfa;
+      border-radius: 6px;
+    }
+    h2 {
+      margin: 32px 0 10px;
+      font-size: 1.6rem;
+    }
+    h3 {
+      margin: 24px 0 8px;
+      font-size: 1.2rem;
+    }
+    h4 {
+      margin: 18px 0 8px;
+      font-size: 1.05rem;
+    }
+    .topic {
+      border-top: 2px solid var(--line);
+      padding-top: 12px;
+      margin-top: 22px;
+    }
+    .source-note {
+      color: var(--muted);
+      margin-top: -4px;
+      font-size: 0.92rem;
+    }
+    details.question {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin: 12px 0;
+      background: #fff;
+      overflow: hidden;
+    }
+    details.question summary {
+      cursor: pointer;
+      padding: 13px 15px;
+      font-weight: 850;
+      color: var(--accent-dark);
+      background: #f7faf9;
+    }
+    details.question[open] summary {
+      border-bottom: 1px solid var(--line);
+    }
+    details.question > p,
+    details.question > ul,
+    details.question > pre {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+    ul {
+      padding-left: 24px;
+    }
+    li + li {
+      margin-top: 4px;
+    }
+    code {
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 13px 14px;
+      border-radius: 7px;
+      background: var(--code-bg);
+      color: var(--code-fg);
+      line-height: 1.45;
+      tab-size: 4;
+    }
+    pre code {
+      color: inherit;
+      font-size: 0.91rem;
+    }
+    .danger {
+      color: var(--danger);
+      font-weight: 800;
+    }
+    @media print {
+      .nav { display: none; }
+      details.question { break-inside: avoid; }
+      details.question:not([open]) > *:not(summary) { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Tricky Python Final Exam Drill Sheet</h1>
+      <p class="subtitle">A combined question sheet focused on the professor-style traps: exact output, exact errors, memory/reference behavior, mutation during loops, iterators, generators, decorators, dictionaries, 2D lists, and objects.</p>
+      <div class="meta">
+        <span class="pill">136 collapsible drill blocks</span>
+        <span class="pill">6 guide sources</span>
+        <span class="pill">58 advanced gap drills</span>
+        <span class="pill">final-review transcript used</span>
+        <span class="pill">click questions to expand</span>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="how">
+      <h2>How To Use This</h2>
+      <ul>
+        <li>First write the exact output or exact exception without opening the answer.</li>
+        <li>Then draw names as arrows to objects: list, dict, object, function frame, generator frame.</li>
+        <li>Ask whether the line mutates an existing object or rebinds a name to a new object.</li>
+        <li>For loops and generators, track the hidden iterator state. The next value is not guessed; it is stored inside the iterator/generator object.</li>
+        <li>Priority labels mean exam risk: <code>[HIGH]</code> first, then <code>[MID]</code>, then <code>[LOW]</code>. The advanced gap drills are designed to cover broader question types, not just printed output.</li>
+      </ul>
+    </section>
+
+    <section class="review">
+      <h2>Final Review Patterns To Prioritize</h2>
+      <ul>
+        <li>Dictionaries: bracket lookup raises on missing keys; <code>get</code> and <code>pop(default)</code> can avoid that; <code>copy()</code> is shallow.</li>
+        <li>Views and grouping: <code>d.keys()</code>/<code>d.items()</code> are live views, and <code>itertools.groupby</code> gives one-pass group iterators that often need <code>list(group)</code>.</li>
+        <li>Generators: calling the function makes a generator object; the body runs only when consumed; extra <code>next()</code> raises <code>StopIteration</code>.</li>
+        <li>Decorators: the decorator runs when the function is defined, and the wrapper runs later when the decorated name is called. Stacked decorators are a common output-tracing trap.</li>
+        <li>2D lists: repeated rows, diagonal extraction, nested loops, and list comprehensions are high-probability final-review material.</li>
+        <li>Files/iterators: after a file-like object or iterator is consumed, reading it again from the same position may produce nothing unless you reset or recreate it.</li>
+      </ul>
+    </section>
+
+    
+    <section class="review">
+      <h2>Screenshot Topic Map</h2>
+      <p>If someone says these are the final topics, this is what each word means and where to drill it in this sheet.</p>
+      <ul>
+        <li><strong>Dictionaries</strong>: hash-table keys/values, missing-key errors, <code>get</code>, <code>pop</code>, live views, shallow copy, mutation during iteration. Use <a href="#dicts-sets-charts">Dictionaries, Sets, and Data Views</a>.</li>
+        <li><strong>Sets</strong>: unique unordered hash-based elements, <code>add</code>, <code>remove</code> vs <code>discard</code>, arbitrary <code>pop</code>, set operations, and unhashable-element traps. Use <a href="#dicts-sets-charts">Dictionaries, Sets, and Data Views</a> and <a href="#part5-functions-references">Functions and References</a>.</li>
+        <li><strong>functools</strong>: in our PDFs this mainly means <code>functools.wraps</code> for decorators. It keeps the original function metadata after wrapping. Broader <code>functools</code> tools are summarized below.</li>
+        <li><strong>groupby</strong>: <code>itertools.groupby</code> groups consecutive runs only, and each group is a one-pass iterator. Use the <code>groupby</code> drill in <a href="#dicts-sets-charts">Dictionaries, Sets, and Data Views</a>.</li>
+        <li><strong>counting</strong>: usually <code>collections.Counter</code> or manual dictionary counting. Watch missing counts, negative counts, and <code>+counter</code>. Use the <code>Counter</code> drill in <a href="#dicts-sets-charts">Dictionaries, Sets, and Data Views</a>.</li>
+        <li><strong>inverted index</strong>: a dictionary mapping each word to where it appears, often <code>word -&gt; [(line_number, position), ...]</code> or <code>word -&gt; {'count': n, 'lines': [...]}</code>. It is dictionary/list/defaultdict practice.</li>
+        <li><strong>stuff after midterm</strong>: dictionaries, sets, files/pickle, <code>Counter</code>, <code>defaultdict</code>, <code>groupby</code>, generators, decorators, OOP/properties, and 2D-list style tracing from the review.</li>
+        <li><strong>data hiding / encapsulation</strong>: OOP idea where outside code should not directly break object state. In Python this is convention plus properties: <code>_name</code>, name mangling with <code>__name</code>, and <code>@property</code> setters. Use <a href="#oop">Objects and Classes</a>.</li>
+      </ul>
+    </section>
+    
+
+    <nav class="nav" aria-label="Topics">
+      <a href="#part4-lists-runtime"><span>Lists, Runtime, Aliasing</span><small>15 drills</small></a>
+<a href="#part5-functions-references"><span>Functions and References</span><small>13 drills</small></a>
+<a href="#dicts-sets-charts"><span>Dictionaries, Sets, and Data Views</span><small>12 drills</small></a>
+<a href="#generators"><span>Iterators and Generators</span><small>12 drills</small></a>
+<a href="#decorators"><span>Decorators and Closures</span><small>11 drills</small></a>
+<a href="#oop"><span>Objects and Classes</span><small>12 drills</small></a>
+<a href="#advanced-comprehensions-extra-gaps"><span>Comprehensions and Remaining Risk Drills</span><small>12 advanced</small></a>
+<a href="#advanced-part4-runtime-additions"><span>Part 4 Runtime and Modules</span><small>10 advanced</small></a>
+<a href="#advanced-part5-sets-unpacking-matrix-additions"><span>Part 5 Sets, Unpacking, and Matrices</span><small>10 advanced</small></a>
+<a href="#advanced-dicts-data-additions"><span>Dictionary Data Problems</span><small>9 advanced</small></a>
+<a href="#advanced-generators-design-additions"><span>Generator Design Problems</span><small>9 advanced</small></a>
+<a href="#advanced-decorators-additions"><span>Decorator Design Problems</span><small>8 advanced</small></a>
+    </nav>
+
+    <section id="part4-lists-runtime" class="topic"><h2>Lists, Runtime, Aliasing</h2><p class="source-note">Built from <code>part4_lists_runtime.md</code> plus the final-review transcript.</p><h2>Part 4 Tricky Drill: Lists, References, Runtime, and Output Tracing</h2>
+<p>Use this section for professor-style output prediction. The main rule: names point to objects. Assignment changes a name binding; mutation changes the object.</p>
+<h3>Trap Checklist</h3>
+<ul>
+<li><code>b = a</code> makes an alias, not a copy.</li>
+<li><code>a[:]</code>, <code>list(a)</code>, and <code>copy.copy(a)</code> copy the outer list only.</li>
+<li><code>copy.deepcopy(a)</code> copies nested mutable objects too.</li>
+<li><code>list.sort()</code> and <code>list.reverse()</code> mutate and return <code>None</code>; <code>sorted(a)</code> returns a new list.</li>
+<li><code>append(x)</code> adds one object; <code>extend(x)</code> iterates over <code>x</code> and adds each element.</li>
+<li>A <code>for</code> loop over a list keeps using the same list object even if you mutate it.</li>
+<li>Removing while iterating can skip elements because later items shift left.</li>
+<li>Appending while iterating can make the loop visit appended items.</li>
+<li><code>del name</code> deletes a name; <code>del a[i]</code> deletes a list element; <code>a.clear()</code> mutates the list object.</li>
+<li><code>[[0] * n] * m</code> repeats the same row reference.</li>
+<li>Normal slice assignment can change length; strided slice assignment must match the exact number of selected positions.</li>
+<li>Mutable default arguments are created once, when <code>def</code> runs.</li>
+<li>If a function assigns to a name anywhere in its body, that name is local unless declared <code>global</code> or <code>nonlocal</code>.</li>
+<li>Function call arguments are evaluated before the function body runs.</li>
+<li>Tuple assignment like <code>a, b = b, a</code> loads the right side before storing the left side.</li>
+</ul>
+<h3>Questions</h3>
+<details class="question"><summary>1. Mutate, Alias, Then Rebind</summary>
+<pre><code>def touch(x):
+    x.append(4)
+    y = x
+    x = x + [5]
+    y[0] = 99
+    print(&quot;inside&quot;, x, y)
+
+a = [1, 2, 3]
+touch(a)
+print(&quot;outside&quot;, a)</code></pre>
+<p>Output:</p>
+<pre><code>inside [1, 2, 3, 4, 5] [99, 2, 3, 4]
+outside [99, 2, 3, 4]</code></pre>
+<p>Behind the scenes: <code>x</code> first points to the same list as <code>a</code>, so <code>append(4)</code> mutates <code>a</code>&#x27;s list. <code>y = x</code> makes another alias. <code>x = x + [5]</code> creates a new list and rebinds only local name <code>x</code>. <code>y[0] = 99</code> mutates the original list, so <code>a</code> sees it.</p>
+</details>
+<details class="question"><summary>2. Shallow Copy and Wrapper List</summary>
+<pre><code>a = [[1], [2]]
+b = a[:]
+c = [a]
+b[0].append(10)
+b.append([3])
+a[1] = [&quot;X&quot;]
+print(a)
+print(b)
+print(c)</code></pre>
+<p>Output:</p>
+<pre><code>[[1, 10], [&#x27;X&#x27;]]
+[[1, 10], [2], [3]]
+[[[1, 10], [&#x27;X&#x27;]]]</code></pre>
+<p>Behind the scenes: <code>b = a[:]</code> makes a new outer list but shares the original inner lists. <code>b[0].append(10)</code> mutates the shared inner list. <code>b.append([3])</code> changes only <code>b</code>&#x27;s outer list. <code>a[1] = [&quot;X&quot;]</code> replaces an element in <code>a</code>&#x27;s outer list; <code>b</code> still points to the old <code>[2]</code>. <code>c = [a]</code> stores a reference to the whole <code>a</code> list, so it reflects <code>a</code>&#x27;s current outer contents.</p>
+</details>
+<details class="question"><summary>3. 2D List Multiplication Alias</summary>
+<pre><code>grid = [[0] * 3] * 3
+grid[0].append(5)
+grid[1][0] = 9
+print(grid)
+print(grid[0] is grid[2])</code></pre>
+<p>Output:</p>
+<pre><code>[[9, 0, 0, 5], [9, 0, 0, 5], [9, 0, 0, 5]]
+True</code></pre>
+<p>Behind the scenes: <code>[0] * 3</code> creates one row. The outer <code>* 3</code> repeats that same row reference three times. Appending through row 0 and assigning through row 1 both mutate the same row object.</p>
+</details>
+<details class="question"><summary>4. Strided Slice Assignment</summary>
+<pre><code>a = [0, 1, 2, 3, 4, 5]
+a[1:5:2] = [&quot;a&quot;, &quot;b&quot;]
+print(a)
+a[::2] = [7, 8]
+print(a)</code></pre>
+<p>Error after the first print:</p>
+<pre><code>[0, &#x27;a&#x27;, 2, &#x27;b&#x27;, 4, 5]
+ValueError: attempt to assign sequence of size 2 to extended slice of size 3</code></pre>
+<p>Behind the scenes: <code>a[1:5:2]</code> selects indices 1 and 3, so two replacement values are allowed. After that, <code>a[::2]</code> selects indices 0, 2, and 4. A strided slice cannot change length, so two replacement values for three slots raises <code>ValueError</code>.</p>
+</details>
+<details class="question"><summary>5. Loop Variable Is Only a Name</summary>
+<pre><code>a = [[1], [2], [3]]
+for row in a:
+    row.append(0)
+    row = [&quot;gone&quot;]
+print(a)
+
+for row in a:
+    del row
+print(a)</code></pre>
+<p>Output:</p>
+<pre><code>[[1, 0], [2, 0], [3, 0]]
+[[1, 0], [2, 0], [3, 0]]</code></pre>
+<p>Behind the scenes: during each iteration, <code>row</code> is a temporary name pointing at one inner list. <code>row.append(0)</code> mutates that inner list. <code>row = [&quot;gone&quot;]</code> only rebinds the loop variable. <code>del row</code> deletes the loop variable name, not the element stored inside <code>a</code>.</p>
+</details>
+<details class="question"><summary>6. Removing While Iterating</summary>
+<pre><code>nums = [1, 2, 2, 2, 3]
+for x in nums:
+    if x == 2:
+        nums.remove(x)
+print(nums)</code></pre>
+<p>Output:</p>
+<pre><code>[1, 2, 3]</code></pre>
+<p>Behind the scenes: the loop has an internal index. When the first <code>2</code> is removed, later elements shift left, but the loop advances to the next index. That skips over a <code>2</code>. The same skip happens again, leaving one <code>2</code>.</p>
+</details>
+<details class="question"><summary>7. Appending While Iterating</summary>
+<pre><code>nums = [1, 2, 3]
+for x in nums:
+    print(x)
+    if x &lt; 3:
+        nums.append(x + 10)
+print(nums)</code></pre>
+<p>Output:</p>
+<pre><code>1
+2
+3
+11
+12
+[1, 2, 3, 11, 12]</code></pre>
+<p>Behind the scenes: the loop is walking the same list object. Values appended before the loop reaches the end can also be visited. The guard <code>x &lt; 3</code> prevents an infinite pattern here because <code>11</code> and <code>12</code> do not append more values.</p>
+</details>
+<details class="question"><summary>8. Mutable Default Value</summary>
+<pre><code>def add_tag(tag, bucket=[]):
+    bucket.append([tag])
+    return bucket
+
+x = add_tag(&quot;a&quot;)
+y = add_tag(&quot;b&quot;)
+y[0].append(&quot;A&quot;)
+z = add_tag(&quot;c&quot;, [])
+print(x)
+print(y)
+print(z)</code></pre>
+<p>Output:</p>
+<pre><code>[[&#x27;a&#x27;, &#x27;A&#x27;], [&#x27;b&#x27;]]
+[[&#x27;a&#x27;, &#x27;A&#x27;], [&#x27;b&#x27;]]
+[[&#x27;c&#x27;]]</code></pre>
+<p>Behind the scenes: the default <code>bucket</code> list is created once when Python executes the <code>def</code>. Calls that omit <code>bucket</code> share it, so <code>x</code> and <code>y</code> point to the same default list. The explicit <code>[]</code> in the third call is a fresh list.</p>
+</details>
+<details class="question"><summary>9. Scope: Assignment Makes the Name Local</summary>
+<pre><code>xs = [1, 2]
+
+def f():
+    xs.append(3)
+    xs = [9]
+    return xs
+
+f()
+print(xs)</code></pre>
+<p>Error:</p>
+<pre><code>UnboundLocalError: local variable &#x27;xs&#x27; referenced before assignment</code></pre>
+<p>Behind the scenes: because <code>xs = [9]</code> appears inside <code>f</code>, Python treats <code>xs</code> as a local variable for the whole function. The earlier <code>xs.append(3)</code> tries to read that local before it has been assigned. The global <code>xs</code> is not used.</p>
+</details>
+<details class="question"><summary>10. <code>sorted()</code> vs <code>sort()</code></summary>
+<pre><code>words = [&quot;bbb&quot;, &quot;A&quot;, &quot;cc&quot;]
+r1 = sorted(words, key=len)
+r2 = words.sort(key=str.lower)
+print(r1)
+print(words)
+print(r2)</code></pre>
+<p>Output:</p>
+<pre><code>[&#x27;A&#x27;, &#x27;cc&#x27;, &#x27;bbb&#x27;]
+[&#x27;A&#x27;, &#x27;bbb&#x27;, &#x27;cc&#x27;]
+None</code></pre>
+<p>Behind the scenes: <code>sorted(words, key=len)</code> returns a new list and leaves <code>words</code> alone. <code>words.sort(key=str.lower)</code> mutates <code>words</code> in place and returns <code>None</code>. The key function controls comparison, not the values returned in the list.</p>
+</details>
+<details class="question"><summary>11. Nested Loop 2D Trace</summary>
+<pre><code>mat = [[1, 2, 3], [4, 5], [6, 7, 8]]
+diag = []
+for i in range(len(mat)):
+    for j in range(len(mat[i])):
+        if i == j:
+            diag.append(mat[i][j])
+print(diag)
+print(sum(diag))</code></pre>
+<p>Output:</p>
+<pre><code>[1, 5, 8]
+14</code></pre>
+<p>Behind the scenes: <code>len(mat[i])</code> uses the current row length, so uneven row sizes are handled. The diagonal condition <code>i == j</code> selects <code>mat[0][0]</code>, <code>mat[1][1]</code>, and <code>mat[2][2]</code>. <code>diag</code> stores those integer objects, and <code>sum(diag)</code> adds them.</p>
+</details>
+<details class="question"><summary>12. Function Arguments Evaluate Before the Call Finishes</summary>
+<pre><code>def bump(L):
+    L.append(len(L))
+    return L[-1]
+
+a = [10]
+print(bump(a), bump(a), a)</code></pre>
+<p>Output:</p>
+<pre><code>1 2 [10, 1, 2]</code></pre>
+<p>Behind the scenes: <code>print</code> arguments are evaluated left to right. The first <code>bump(a)</code> sees length 1, appends <code>1</code>, and returns <code>1</code>. The second sees the already-mutated list length 2, appends <code>2</code>, and returns <code>2</code>. Then <code>print</code> receives the final same list object.</p>
+</details>
+<details class="question"><summary>13. Tuple Assignment and the Runtime Stack</summary>
+<pre><code>a = [1]
+b = [2]
+a, b = b, a
+a.append(9)
+print(a)
+print(b)</code></pre>
+<p>Output:</p>
+<pre><code>[2, 9]
+[1]</code></pre>
+<p>Behind the scenes: for <code>a, b = b, a</code>, Python loads the right-side object references before storing into the left-side names. No source-level temporary variable is needed because the runtime stack temporarily holds the old references. After the swap, <code>a</code> points to the old <code>[2]</code> list and <code>b</code> points to the old <code>[1]</code> list.</p>
+</details>
+<details class="question"><summary>14. <code>del</code> Name vs <code>clear()</code> Object</summary>
+<pre><code>a = [1, 2]
+b = a
+c = [a, a[:]]
+del a
+b.clear()
+print(b)
+print(c)</code></pre>
+<p>Output:</p>
+<pre><code>[]
+[[], [1, 2]]</code></pre>
+<p>Behind the scenes: <code>del a</code> removes only the name <code>a</code>; the original list still exists because <code>b</code> and <code>c[0]</code> reference it. <code>b.clear()</code> mutates that original list to empty. <code>a[:]</code> made a separate outer list copy for <code>c[1]</code>, so it remains <code>[1, 2]</code>.</p>
+</details>
+<details class="question"><summary>15. Shallow Copy vs Deep Copy</summary>
+<pre><code>import copy
+
+original = [[1], {&quot;k&quot;: [2]}]
+shallow = copy.copy(original)
+deep = copy.deepcopy(original)
+
+shallow[0].append(9)
+shallow[1][&quot;k&quot;].append(3)
+deep[0].append(8)
+deep[1][&quot;k&quot;].append(4)
+
+print(original)
+print(shallow)
+print(deep)</code></pre>
+<p>Output:</p>
+<pre><code>[[1, 9], {&#x27;k&#x27;: [2, 3]}]
+[[1, 9], {&#x27;k&#x27;: [2, 3]}]
+[[1, 8], {&#x27;k&#x27;: [2, 4]}]</code></pre>
+<p>Behind the scenes: <code>copy.copy(original)</code> creates a new outer list but shares the inner list and dictionary, including the dictionary&#x27;s inner list. Mutating through <code>shallow</code> affects <code>original</code>. <code>copy.deepcopy(original)</code> recursively copies the nested mutable objects, so mutations through <code>deep</code> stay separate.</p>
+</details></section>
+<section id="part5-functions-references" class="topic"><h2>Functions and References</h2><p class="source-note">Built from <code>part5_functions_references.md</code> plus the final-review transcript.</p><h2>Part 5 Tricky Drill: Functions, References, and Scope</h2>
+<p>Use this section for final-exam tracing. The main rule: draw stack frames, then draw objects. Names live in frames; lists and tuples live as objects; assignment rebinds a name; list methods and item assignment mutate an existing list object.</p>
+<h3>Trap Checklist</h3>
+<ul>
+<li>Function arguments are object references. The parameter name starts as another name for the same object.</li>
+<li><code>x = ...</code> inside a function rebinds local name <code>x</code>; it does not change the caller&#x27;s name.</li>
+<li><code>x.append(...)</code>, <code>x[i] = ...</code>, and <code>x.clear()</code> mutate the list object, so all aliases see it.</li>
+<li>Returning <code>x[i]</code> from a 2D list returns a row alias. Returning a comprehension or slice usually returns a new list.</li>
+<li><code>n * [inner]</code> repeats references to the same <code>inner</code> list.</li>
+<li>Tuples are immutable as containers, but a tuple can contain a mutable list.</li>
+<li>If a function assigns to a name anywhere in its body, Python treats that name as local unless <code>global</code> or <code>nonlocal</code> says otherwise.</li>
+<li>Mutable default arguments are created once when the function is defined, not once per call.</li>
+<li>Each recursive call has its own frame and local names.</li>
+</ul>
+<h3>Questions</h3>
+<details class="question"><summary>1. Parameter alias plus local rebinding</summary>
+<pre><code>def f(a):
+    a.append(4)
+    a = [9, 9]
+    a.append(10)
+    print(&quot;inside&quot;, a)
+
+x = [1, 2, 3]
+f(x)
+print(&quot;outside&quot;, x)</code></pre>
+<p>Exact output:</p>
+<pre><code>inside [9, 9, 10]
+outside [1, 2, 3, 4]</code></pre>
+<p>Behind the scenes: when <code>f(x)</code> starts, local name <code>a</code> and global name <code>x</code> point to the same list. <code>a.append(4)</code> mutates that shared list. Then <code>a = [9, 9]</code> rebinds only the local name <code>a</code> to a new list, so the later append affects only the new local list.</p>
+</details>
+<details class="question"><summary>2. Row copy versus row reference</summary>
+<pre><code>def row_copy(m, i):
+    return [m[i][j] for j in range(len(m[i]))]
+
+def row_ref(m, i):
+    return m[i]
+
+grid = [[1, 2], [3, 4]]
+a = row_copy(grid, 0)
+b = row_ref(grid, 0)
+a[0] = 99
+b[1] = 88
+print(a)
+print(b)
+print(grid)</code></pre>
+<p>Exact output:</p>
+<pre><code>[99, 2]
+[1, 88]
+[[1, 88], [3, 4]]</code></pre>
+<p>Behind the scenes: <code>row_copy</code> builds a new list object, so <code>a</code> is separate from <code>grid[0]</code>. <code>row_ref</code> returns the exact row object stored in <code>grid[0]</code>, so <code>b[1] = 88</code> mutates the matrix.</p>
+</details>
+<details class="question"><summary>3. Bad 2D-list construction</summary>
+<pre><code>rows = 3 * [[0, 0]]
+rows[0][1] = 7
+print(rows)
+print(rows[0] is rows[1])</code></pre>
+<p>Exact output:</p>
+<pre><code>[[0, 7], [0, 7], [0, 7]]
+True</code></pre>
+<p>Behind the scenes: the outer multiplication copied references, not rows. There are three slots in the outer list, but all three slots point to the same inner list object.</p>
+</details>
+<details class="question"><summary>4. Returning an alias from a function</summary>
+<pre><code>def first_row(m):
+    return m[0]
+
+def change(v):
+    v[0] = &quot;X&quot;
+    return v
+
+table = [[&quot;a&quot;, &quot;b&quot;], [&quot;c&quot;, &quot;d&quot;]]
+r = first_row(table)
+s = change(r)
+print(r)
+print(s)
+print(table)
+print(r is table[0], s is r)</code></pre>
+<p>Exact output:</p>
+<pre><code>[&#x27;X&#x27;, &#x27;b&#x27;]
+[&#x27;X&#x27;, &#x27;b&#x27;]
+[[&#x27;X&#x27;, &#x27;b&#x27;], [&#x27;c&#x27;, &#x27;d&#x27;]]
+True True</code></pre>
+<p>Behind the scenes: <code>first_row</code> returns the row object itself. <code>r</code>, <code>s</code>, and <code>table[0]</code> are three names/paths to the same list. <code>change</code> mutates that object and returns another reference to it.</p>
+</details>
+<details class="question"><summary>5. Mutable default argument</summary>
+<pre><code>def add_item(x, box=[]):
+    box.append(x)
+    return box
+
+print(add_item(&quot;a&quot;))
+print(add_item(&quot;b&quot;))
+print(add_item(&quot;c&quot;, []))
+print(add_item(&quot;d&quot;))</code></pre>
+<p>Exact output:</p>
+<pre><code>[&#x27;a&#x27;]
+[&#x27;a&#x27;, &#x27;b&#x27;]
+[&#x27;c&#x27;]
+[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;d&#x27;]</code></pre>
+<p>Behind the scenes: the default list for <code>box</code> is created once when Python defines the function. Calls that omit <code>box</code> reuse the same list object. The call with <code>[]</code> passes a fresh list only for that one call.</p>
+</details>
+<details class="question"><summary>6. Local scope error from assignment</summary>
+<pre><code>x = 5
+
+def f():
+    print(x)
+    x = 6
+
+f()</code></pre>
+<p>Exact error:</p>
+<pre><code>UnboundLocalError: local variable &#x27;x&#x27; referenced before assignment</code></pre>
+<p>Behind the scenes: because <code>x = 6</code> appears inside <code>f</code>, Python decides <code>x</code> is a local name for the whole function body. The <code>print(x)</code> tries to read local <code>x</code> before the local frame has a value for it.</p>
+</details>
+<details class="question"><summary>7. Global rebinding</summary>
+<pre><code>x = [1]
+
+def f():
+    global x
+    x = x + [2]
+    print(&quot;inside&quot;, x)
+
+f()
+print(&quot;outside&quot;, x)</code></pre>
+<p>Exact output:</p>
+<pre><code>inside [1, 2]
+outside [1, 2]</code></pre>
+<p>Behind the scenes: <code>global x</code> makes assignments to <code>x</code> target the module/global frame. <code>x + [2]</code> creates a new list, and the global name <code>x</code> is rebound to that new list.</p>
+</details>
+<details class="question"><summary>8. Nonlocal closure state</summary>
+<pre><code>def outer():
+    count = 0
+    def inner():
+        nonlocal count
+        count += 1
+        return count
+    return inner
+
+inc = outer()
+print(inc())
+print(inc())
+print(outer()())</code></pre>
+<p>Exact output:</p>
+<pre><code>1
+2
+1</code></pre>
+<p>Behind the scenes: <code>outer()</code> creates a frame with <code>count</code>. The returned <code>inner</code> function keeps access to that variable. <code>nonlocal count</code> rebinding changes the captured <code>count</code>, not a new local one. The last line calls a fresh <code>outer()</code>, so it gets a fresh <code>count</code>.</p>
+</details>
+<details class="question"><summary>9. Invalid nonlocal</summary>
+<pre><code>def f():
+    nonlocal x
+    x = 3</code></pre>
+<p>Exact error:</p>
+<pre><code>SyntaxError: no binding for nonlocal &#x27;x&#x27; found</code></pre>
+<p>Behind the scenes: <code>nonlocal</code> must refer to a name in an enclosing function scope. A global name is not enough, and here there is no enclosing function variable named <code>x</code>.</p>
+</details>
+<details class="question"><summary>10. Tuple container versus list inside tuple</summary>
+<pre><code>t = ([1, 2], 3)
+t[0].append(4)
+print(t)
+t[0] = [9]</code></pre>
+<p>Exact output before the error:</p>
+<pre><code>([1, 2, 4], 3)</code></pre>
+<p>Exact error:</p>
+<pre><code>TypeError: &#x27;tuple&#x27; object does not support item assignment</code></pre>
+<p>Behind the scenes: the tuple&#x27;s slots cannot be rebound, so <code>t[0] = [9]</code> fails. But slot <code>0</code> points to a list object, and that list object can still be mutated with <code>append</code>.</p>
+</details>
+<details class="question"><summary>11. Recursion frame tracing</summary>
+<pre><code>def mystery(n, acc):
+    print(&quot;enter&quot;, n, acc)
+    if n == 0:
+        return acc
+    ans = mystery(n - 1, acc + [n])
+    print(&quot;leave&quot;, n, ans)
+    return ans
+
+print(mystery(3, []))</code></pre>
+<p>Exact output:</p>
+<pre><code>enter 3 []
+enter 2 [3]
+enter 1 [3, 2]
+enter 0 [3, 2, 1]
+leave 1 [3, 2, 1]
+leave 2 [3, 2, 1]
+leave 3 [3, 2, 1]
+[3, 2, 1]</code></pre>
+<p>Behind the scenes: each call has its own <code>n</code>, <code>acc</code>, and later <code>ans</code>. <code>acc + [n]</code> creates a new list on each call, so the previous frame&#x27;s <code>acc</code> is not mutated. Returns move back up the stack from <code>n == 0</code> to <code>n == 3</code>.</p>
+</details>
+<details class="question"><summary>12. Recursion with shared mutation</summary>
+<pre><code>def collect(n, acc):
+    if n == 0:
+        return acc
+    acc.append(n)
+    ans = collect(n - 1, acc)
+    acc.append(-n)
+    return ans
+
+x = []
+y = collect(3, x)
+print(x)
+print(y)
+print(x is y)</code></pre>
+<p>Exact output:</p>
+<pre><code>[3, 2, 1, -1, -2, -3]
+[3, 2, 1, -1, -2, -3]
+True</code></pre>
+<p>Behind the scenes: every recursive frame receives a parameter name <code>acc</code> pointing to the same list object. The appends before and after the recursive call all mutate that one shared list. The base case returns the same object, so <code>x</code> and <code>y</code> are aliases.</p>
+</details>
+<details class="question"><summary>13. Print tracing with identity and equality</summary>
+<pre><code>def make_pair(a):
+    b = a[:]
+    c = a
+    b.append(3)
+    c.append(4)
+    return b, c
+
+nums = [1, 2]
+p, q = make_pair(nums)
+print(p)
+print(q)
+print(nums)
+print(p == q)
+print(q is nums)</code></pre>
+<p>Exact output:</p>
+<pre><code>[1, 2, 3]
+[1, 2, 4]
+[1, 2, 4]
+False
+True</code></pre>
+<p>Behind the scenes: <code>b = a[:]</code> makes a shallow copy of the outer list. <code>c = a</code> makes another name for the original list. Mutating <code>b</code> does not touch <code>nums</code>; mutating <code>c</code> does. <code>==</code> compares contents, while <code>is</code> compares object identity.</p>
+</details></section>
+<section id="dicts-sets-charts" class="topic"><h2>Dictionaries, Sets, and Data Views</h2><p class="source-note">Built from <code>dicts_sets_charts.md</code> plus the final-review transcript.</p><h2>Dictionaries, Sets, Counter, Defaultdict, Views, and Chart Data Traps</h2>
+<p>These are final-exam style trace questions. The point is not memorizing method names; it is knowing when Python is using a hash table, when a view is live, when a nested object is shared, and when a grouping/chart result depends on order.</p>
+<details class="question"><summary>1. Missing key: <code>get</code> vs bracket lookup</summary>
+<pre><code>prices = {&#x27;IBM&#x27;: 91.5, &#x27;MSFT&#x27;: 52.13}
+print(prices.get(&#x27;GOOG&#x27;, 0.0))
+print(prices[&#x27;GOOG&#x27;])</code></pre>
+<p>Exact output/error:</p>
+<pre><code>0.0
+KeyError: &#x27;GOOG&#x27;</code></pre>
+<p>Behind the scenes: a dict is a hash table. Python hashes the key and looks for it. <code>get</code> handles a missing key by returning the default. Bracket lookup requires the key to exist, so the missing hash-table entry raises <code>KeyError</code>.</p>
+</details>
+<details class="question"><summary>2. Tuple key hidden by commas</summary>
+<pre><code>d = {}
+d[&#x27;IBM&#x27;, &#x27;2015-02-04&#x27;] = 91.42
+print(list(d.keys()))
+print(d[(&#x27;IBM&#x27;, &#x27;2015-02-04&#x27;)])
+print(&#x27;IBM&#x27; in d)</code></pre>
+<p>Exact output:</p>
+<pre><code>[(&#x27;IBM&#x27;, &#x27;2015-02-04&#x27;)]
+91.42
+False</code></pre>
+<p>Behind the scenes: the comma creates one tuple key: <code>(&#x27;IBM&#x27;, &#x27;2015-02-04&#x27;)</code>. The string <code>&#x27;IBM&#x27;</code> is not a separate key inside the dictionary. Membership in a dict checks whole keys, not pieces of tuple keys and not values.</p>
+</details>
+<details class="question"><summary>3. Unhashable key error</summary>
+<pre><code>d = {}
+d[[1, 2]] = &#x27;bad key&#x27;
+print(d)</code></pre>
+<p>Exact error:</p>
+<pre><code>TypeError: unhashable type: &#x27;list&#x27;</code></pre>
+<p>Behind the scenes: dictionary keys must have a stable hash. Lists are mutable, so their contents can change after insertion. Python refuses to use them as keys. A tuple like <code>(1, 2)</code> works only because its contents are hashable.</p>
+</details>
+<details class="question"><summary>4. Live key view vs frozen list snapshot</summary>
+<pre><code>d = {&#x27;a&#x27;: 1, &#x27;b&#x27;: 2}
+keys_view = d.keys()
+keys_list = list(d)
+d[&#x27;c&#x27;] = 3
+del d[&#x27;a&#x27;]
+print(list(keys_view))
+print(keys_list)
+print(sorted(keys_view &amp; {&#x27;b&#x27;, &#x27;c&#x27;, &#x27;x&#x27;}))</code></pre>
+<p>Exact output:</p>
+<pre><code>[&#x27;b&#x27;, &#x27;c&#x27;]
+[&#x27;a&#x27;, &#x27;b&#x27;]
+[&#x27;b&#x27;, &#x27;c&#x27;]</code></pre>
+<p>Behind the scenes: <code>d.keys()</code> is a live view into the same dictionary. It does not copy the keys. <code>list(d)</code> creates a real list at that moment, so later dictionary mutations do not change it. A keys view can also do set-style operations because dict keys are unique and hashable; <code>sorted</code> is used here so the printed set result has a predictable order.</p>
+</details>
+<details class="question"><summary>5. Mutating dictionary size during iteration</summary>
+<pre><code>d = {&#x27;a&#x27;: 1, &#x27;b&#x27;: 2}
+for key in d:
+    print(key)
+    d[&#x27;c&#x27;] = 3</code></pre>
+<p>Exact output/error:</p>
+<pre><code>a
+RuntimeError: dictionary changed size during iteration</code></pre>
+<p>Behind the scenes: iterating over a dict walks its current hash-table structure. Adding or deleting keys changes the table size while the iterator is using it, so Python stops with <code>RuntimeError</code>. Safe version: iterate over <code>list(d)</code> if you need to add or delete keys.</p>
+</details>
+<details class="question"><summary>6. <code>items()</code> view changes live too</summary>
+<pre><code>d = {&#x27;x&#x27;: 1, &#x27;y&#x27;: 2}
+pairs = d.items()
+print(list(pairs))
+d[&#x27;x&#x27;] = 10
+d[&#x27;z&#x27;] = 3
+print(list(pairs))</code></pre>
+<p>Exact output:</p>
+<pre><code>[(&#x27;x&#x27;, 1), (&#x27;y&#x27;, 2)]
+[(&#x27;x&#x27;, 10), (&#x27;y&#x27;, 2), (&#x27;z&#x27;, 3)]</code></pre>
+<p>Behind the scenes: <code>items()</code> returns a <code>dict_items</code> view, not a copied list. The view keeps pointing at the same dictionary, so changed values and new keys appear when you convert it to a list later.</p>
+</details>
+<details class="question"><summary>7. Shallow copy vs alias</summary>
+<pre><code>a = {&#x27;nums&#x27;: [1, 2], &#x27;flag&#x27;: True}
+b = a
+c = a.copy()
+b[&#x27;flag&#x27;] = False
+c[&#x27;nums&#x27;].append(3)
+print(a)
+print(c)
+print(a is b, a is c, a[&#x27;nums&#x27;] is c[&#x27;nums&#x27;])</code></pre>
+<p>Exact output:</p>
+<pre><code>{&#x27;nums&#x27;: [1, 2, 3], &#x27;flag&#x27;: False}
+{&#x27;nums&#x27;: [1, 2, 3], &#x27;flag&#x27;: True}
+True False True</code></pre>
+<p>Behind the scenes: <code>b = a</code> is an alias, so both names point to the same outer dict. <code>a.copy()</code> makes a new outer dict, so <code>c[&#x27;flag&#x27;]</code> stays <code>True</code>. But the copy is shallow: the nested list is still the exact same list object, so appending through <code>c</code> changes the list seen from <code>a</code>.</p>
+</details>
+<details class="question"><summary>8. <code>dict.fromkeys</code> with a shared mutable value</summary>
+<pre><code>d = dict.fromkeys([&#x27;red&#x27;, &#x27;blue&#x27;], [])
+d[&#x27;red&#x27;].append(1)
+print(d)
+print(d[&#x27;red&#x27;] is d[&#x27;blue&#x27;])</code></pre>
+<p>Exact output:</p>
+<pre><code>{&#x27;red&#x27;: [1], &#x27;blue&#x27;: [1]}
+True</code></pre>
+<p>Behind the scenes: <code>fromkeys</code> assigns the same value object to every key. There are two hash-table keys, but both values reference one shared list. Use a loop or comprehension if each key needs its own list.</p>
+</details>
+<details class="question"><summary>9. Counter negative counts and cleanup</summary>
+<pre><code>from collections import Counter
+
+c = Counter(&#x27;mississippi&#x27;)
+c.subtract(&#x27;sipzzz&#x27;)
+print(c[&#x27;z&#x27;])
+print(c)
+print(+c)</code></pre>
+<p>Exact output:</p>
+<pre><code>-3
+Counter({&#x27;i&#x27;: 3, &#x27;s&#x27;: 3, &#x27;m&#x27;: 1, &#x27;p&#x27;: 1, &#x27;z&#x27;: -3})
+Counter({&#x27;i&#x27;: 3, &#x27;s&#x27;: 3, &#x27;m&#x27;: 1, &#x27;p&#x27;: 1})</code></pre>
+<p>Behind the scenes: <code>Counter</code> is a dict subclass for counts. Missing keys start at <code>0</code>, so subtracting <code>&#x27;z&#x27;</code> three times creates <code>-3</code>. Unary plus removes zero and negative counts; it does not mutate the original unless assigned back.</p>
+</details>
+<details class="question"><summary>10. Defaultdict creates keys by reading them</summary>
+<pre><code>from collections import defaultdict
+
+d = defaultdict(list)
+d[&#x27;a&#x27;].append(1)
+print(dict(d))
+print(d[&#x27;b&#x27;])
+print(list(d.keys()))</code></pre>
+<p>Exact output:</p>
+<pre><code>{&#x27;a&#x27;: [1]}
+[]
+[&#x27;a&#x27;, &#x27;b&#x27;]</code></pre>
+<p>Behind the scenes: <code>defaultdict(list)</code> calls <code>list()</code> when a missing key is accessed. Reading <code>d[&#x27;b&#x27;]</code> creates key <code>&#x27;b&#x27;</code> with a new empty list. This is useful for grouping, but it can accidentally add keys.</p>
+</details>
+<details class="question"><summary>11. <code>groupby</code> groups consecutive values only</summary>
+<pre><code>from itertools import groupby
+
+grades = [95, 12, 18, 91, 17]
+
+def interval_key(grade):
+    return f&quot;{int((grade - 1) // 10) * 10 + 1}-{int((grade - 1) // 10) * 10 + 10}&quot;
+
+for key, group in groupby(grades, interval_key):
+    print(key, list(group))</code></pre>
+<p>Exact output:</p>
+<pre><code>91-100 [95]
+11-20 [12, 18]
+91-100 [91]
+11-20 [17]</code></pre>
+<p>Behind the scenes: <code>groupby</code> does not search the whole list for matching keys. It streams left to right and starts a new group whenever the key changes. Sort by the same key first if all matching intervals must combine.</p>
+</details>
+<details class="question"><summary>12. CSV strings, positive filtering, and chart bins</summary>
+<pre><code>import csv
+from io import StringIO
+
+data = &quot;name,score\nAnn,10\nBo,\nCy,0\nDi,10.5\nEli,100\n&quot;
+rows = csv.reader(StringIO(data))
+next(rows)
+
+grades = [row[1] for row in rows]
+positive = [float(g) for g in grades if g and float(g) &gt; 0]
+
+print(grades)
+print(positive)
+for interval in range(1, 101, 10):
+    count = sum(1 for num in positive if interval &lt;= num &lt; interval + 10)
+    if count:
+        print(f&quot;{interval}-{interval + 9}: {count}&quot;)</code></pre>
+<p>Exact output:</p>
+<pre><code>[&#x27;10&#x27;, &#x27;&#x27;, &#x27;0&#x27;, &#x27;10.5&#x27;, &#x27;100&#x27;]
+[10.0, 10.5, 100.0]
+1-10: 2
+91-100: 1</code></pre>
+<p>Behind the scenes: CSV gives strings, not numbers. The blank string is skipped, and <code>&#x27;0&#x27;</code> is removed by <code>float(g) &gt; 0</code>. The interval test is half-open: <code>1 &lt;= num &lt; 11</code>, so <code>10.5</code> still belongs in <code>1-10</code>. Chart code like <code>plt.bar(counts.keys(), counts.values())</code> depends on dictionary insertion order so labels and bar heights line up.</p>
+</details>
+<h3>Trap Checklist</h3>
+<ul>
+<li><code>{}</code> creates an empty dict. Empty set is <code>set()</code>.</li>
+<li><code>key in d</code> checks keys, not values.</li>
+<li><code>d[key]</code> can raise <code>KeyError</code>; <code>d.get(key, default)</code> does not insert the key.</li>
+<li>Dict keys must be hashable; lists, sets, and dicts cannot be keys.</li>
+<li>Set print order is not the point on exams; use <code>sorted(s)</code> if exact order matters.</li>
+<li>Plain <code>for x in d</code> iterates keys. Use <code>d.items()</code> for <code>(key, value)</code> pairs.</li>
+<li><code>keys()</code>, <code>values()</code>, and <code>items()</code> are live views.</li>
+<li>Do not add or delete dict keys while iterating over the dict itself.</li>
+<li>Assignment aliases the same object. <code>copy()</code> is shallow. Nested mutable values stay shared.</li>
+<li><code>Counter.subtract()</code> can leave negative counts; <code>c1 - c2</code> discards nonpositive counts.</li>
+<li><code>defaultdict</code> can create a key just by reading <code>d[key]</code>.</li>
+<li><code>groupby</code> groups adjacent runs only; sort first when needed.</li>
+<li>CSV fields are strings until converted, and chart bins often fail at boundaries like <code>10</code>, <code>10.5</code>, <code>11</code>, and <code>100</code>.</li>
+</ul></section>
+<section id="generators" class="topic"><h2>Iterators and Generators</h2><p class="source-note">Built from <code>generators.md</code> plus the final-review transcript.</p><h2>Tricky Python Exam Drill: Iterators and Generators</h2>
+<p>Core rule: an iterable can produce an iterator. An iterator remembers where it is. <code>next(it)</code> asks for one value. When no value remains, Python raises <code>StopIteration</code>. A generator function is a shortcut for writing an iterator: it runs only when consumed, pauses at <code>yield</code>, and keeps its local variables alive between pauses.</p>
+<details class="question"><summary>1. Calling a generator does not run the body</summary>
+<pre><code>def countdown(n):
+    print(&quot;start&quot;, n)
+    while n &gt; 0:
+        print(&quot;before yield&quot;, n)
+        yield n
+        print(&quot;after yield&quot;, n)
+        n -= 1
+
+c = countdown(2)
+print(&quot;made&quot;)
+print(next(c))
+print(next(c))
+try:
+    print(next(c))
+except StopIteration:
+    print(&quot;StopIteration&quot;)</code></pre>
+<p>Exact output:</p>
+<pre><code>made
+start 2
+before yield 2
+2
+after yield 2
+before yield 1
+1
+after yield 1
+StopIteration</code></pre>
+<p>Behind the scenes: <code>c = countdown(2)</code> creates a generator object only. The body starts at the first <code>next(c)</code>. Each <code>yield n</code> returns <code>n</code> and freezes the frame. The next <code>next(c)</code> resumes immediately after the paused <code>yield</code>, so <code>&quot;after yield&quot;</code> prints before <code>n</code> changes.</p>
+</details>
+<details class="question"><summary>2. A generator object is one-use</summary>
+<pre><code>def pair():
+    yield &quot;A&quot;
+    yield &quot;B&quot;
+
+g = pair()
+print(list(g))
+print(list(g))
+try:
+    print(next(g))
+except StopIteration:
+    print(&quot;StopIteration&quot;)</code></pre>
+<p>Exact output:</p>
+<pre><code>[&#x27;A&#x27;, &#x27;B&#x27;]
+[]
+StopIteration</code></pre>
+<p>Behind the scenes: <code>list(g)</code> repeatedly calls <code>next(g)</code> until <code>StopIteration</code>. After the first <code>list(g)</code>, the same generator object is exhausted. Calling <code>list(g)</code> again does not restart it. Manual <code>next(g)</code> exposes the end as <code>StopIteration</code>.</p>
+</details>
+<details class="question"><summary>3. List comprehension now, generator expression later</summary>
+<pre><code>nums = [1, 2, 3]
+
+lst = [x * 10 for x in nums if x % 2 == 1]
+gen = (x * 10 for x in nums if x % 2 == 1)
+
+nums.append(5)
+
+print(lst)
+print(list(gen))</code></pre>
+<p>Exact output:</p>
+<pre><code>[10, 30]
+[10, 30, 50]</code></pre>
+<p>Behind the scenes: the list comprehension runs immediately and stores <code>[10, 30]</code>. The generator expression is lazy. It has not pulled values yet, so when <code>list(gen)</code> consumes it, the appended <code>5</code> is also seen by the list iterator and becomes <code>50</code>.</p>
+</details>
+<details class="question"><summary>4. Lazy generator expressions with side effects</summary>
+<pre><code>def noisy(x):
+    print(&quot;call&quot;, x)
+    return x * 2
+
+g = (noisy(x) for x in range(3))
+
+print(&quot;made&quot;)
+print(next(g))
+print(sum(g))</code></pre>
+<p>Exact output:</p>
+<pre><code>made
+call 0
+0
+call 1
+call 2
+6</code></pre>
+<p>Behind the scenes: making <code>g</code> does not call <code>noisy</code>. The first <code>next(g)</code> calls <code>noisy(0)</code> and yields <code>0</code>. Then <code>sum(g)</code> consumes the remaining values by calling <code>next(g)</code> until exhaustion, so <code>noisy(1)</code> and <code>noisy(2)</code> run before <code>sum</code> prints <code>2 + 4 = 6</code>.</p>
+</details>
+<details class="question"><summary>5. <code>send</code> resumes at the paused <code>yield</code></summary>
+<pre><code>def watch():
+    total = 0
+    while True:
+        value = (yield total)
+        if value is None:
+            total -= 1
+        else:
+            total += value
+
+m = watch()
+print(next(m))
+print(m.send(3))
+print(m.send(None))
+print(m.send(2))</code></pre>
+<p>Exact output:</p>
+<pre><code>0
+3
+2
+4</code></pre>
+<p>Behind the scenes: <code>next(m)</code> primes the generator and pauses at <code>(yield total)</code>, yielding <code>0</code>. <code>m.send(3)</code> resumes that exact yield expression, so <code>value</code> becomes <code>3</code>; then the loop yields the new <code>total</code>. Sending <code>None</code> is still a value: here it triggers <code>total -= 1</code>.</p>
+</details>
+<details class="question"><summary>6. Sending too early is an error</summary>
+<pre><code>def watch():
+    total = 0
+    while True:
+        value = (yield total)
+        total += value
+
+m = watch()
+try:
+    print(m.send(3))
+except TypeError as e:
+    print(type(e).__name__ + &quot;: &quot; + str(e))</code></pre>
+<p>Exact output:</p>
+<pre><code>TypeError: can&#x27;t send non-None value to a just-started generator</code></pre>
+<p>Behind the scenes: a new generator has not reached a <code>yield</code> yet. There is no paused <code>yield</code> expression where <code>3</code> can be assigned. Prime it first with <code>next(m)</code> or <code>m.send(None)</code>.</p>
+</details>
+<details class="question"><summary>7. Modifying a list during iteration changes what the iterator sees</summary>
+<pre><code>items = [1, 2, 3]
+
+for x in items:
+    print(x)
+    if x == 2:
+        items.append(4)
+
+print(items)</code></pre>
+<p>Exact output:</p>
+<pre><code>1
+2
+3
+4
+[1, 2, 3, 4]</code></pre>
+<p>Behind the scenes: a list iterator is not a frozen copy. It keeps an index into the same list object. When <code>4</code> is appended before the iterator reaches the end, the iterator can see it. This is legal but exam-dangerous because removing items can also skip values.</p>
+</details>
+<details class="question"><summary>8. Modifying a dictionary during iteration is different</summary>
+<pre><code>d = {&quot;a&quot;: 1, &quot;b&quot;: 2}
+
+try:
+    for k in d:
+        print(k)
+        d[&quot;c&quot;] = 3
+except RuntimeError as e:
+    print(type(e).__name__ + &quot;: &quot; + str(e))</code></pre>
+<p>Exact output:</p>
+<pre><code>a
+RuntimeError: dictionary changed size during iteration</code></pre>
+<p>Behind the scenes: dictionary iterators detect size changes. The loop starts with key <code>&quot;a&quot;</code> because dictionaries preserve insertion order. After adding <code>&quot;c&quot;</code>, the next attempt to advance the dictionary iterator raises <code>RuntimeError</code>.</p>
+</details>
+<details class="question"><summary>9. <code>enumerate</code> is also a one-pass iterator</summary>
+<pre><code>e = enumerate([&quot;x&quot;, &quot;y&quot;, &quot;z&quot;])
+
+print(next(e))
+print(list(e))
+print(list(e))</code></pre>
+<p>Exact output:</p>
+<pre><code>(0, &#x27;x&#x27;)
+[(1, &#x27;y&#x27;), (2, &#x27;z&#x27;)]
+[]</code></pre>
+<p>Behind the scenes: <code>enumerate</code> stores an index and an underlying iterator. The first <code>next(e)</code> consumes index <code>0</code> and value <code>&quot;x&quot;</code>. The first <code>list(e)</code> consumes the rest. The second <code>list(e)</code> gets nothing because <code>e</code> is already exhausted.</p>
+</details>
+<details class="question"><summary>10. <code>zip</code>, <code>map</code>, and <code>filter</code> all consume one pass</summary>
+<pre><code>nums = [1, 2, 3, 4]
+z = zip(
+    nums,
+    map(lambda x: x * 10, nums),
+    filter(lambda x: x % 2 == 0, nums)
+)
+
+print(next(z))
+print(list(z))
+print(list(z))</code></pre>
+<p>Exact output:</p>
+<pre><code>(1, 10, 2)
+[(2, 20, 4)]
+[]</code></pre>
+<p>Behind the scenes: <code>zip</code> asks each input iterator for one value. The plain <code>nums</code> iterator gives <code>1</code>; the <code>map</code> iterator gives <code>10</code>; the <code>filter</code> iterator skips <code>1</code> and yields <code>2</code>. On the next row, they give <code>2</code>, <code>20</code>, and <code>4</code>. After that, <code>filter</code> is exhausted, so <code>zip</code> stops. The same <code>z</code> cannot be reused.</p>
+</details>
+<details class="question"><summary>11. <code>return</code> inside a generator ends it</summary>
+<pre><code>def g():
+    yield 1
+    return &quot;done&quot;
+    yield 2
+
+x = g()
+print(next(x))
+try:
+    print(next(x))
+except StopIteration as e:
+    print(&quot;StopIteration value:&quot;, e.value)</code></pre>
+<p>Exact output:</p>
+<pre><code>1
+StopIteration value: done</code></pre>
+<p>Behind the scenes: after yielding <code>1</code>, the generator resumes and hits <code>return &quot;done&quot;</code>. That ends the generator. The later <code>yield 2</code> is unreachable. In a manual <code>next</code>, the return value is stored on the <code>StopIteration</code> exception as <code>e.value</code>; a normal <code>for</code> loop would hide the exception.</p>
+</details>
+<details class="question"><summary>12. <code>iter(generator)</code> does not restart it</summary>
+<pre><code>def small():
+    yield 1
+    yield 2
+
+a = small()
+print(next(a))
+b = iter(a)
+print(a is b)
+print(list(b))
+print(list(a))</code></pre>
+<p>Exact output:</p>
+<pre><code>1
+True
+[2]
+[]</code></pre>
+<p>Behind the scenes: a generator object is its own iterator, so <code>iter(a)</code> returns <code>a</code>, not a fresh object. Since <code>1</code> was already consumed, <code>list(b)</code> gets only <code>2</code>. Then the same generator is exhausted, so <code>list(a)</code> is empty.</p>
+</details>
+<h3>Trap checklist</h3>
+<ul>
+<li>A generator function call creates a generator object; the body starts only on <code>next</code>, a <code>for</code> loop, <code>list</code>, <code>sum</code>, <code>zip</code>, or another consumer.</li>
+<li><code>yield</code> returns one value and pauses. The next resume starts immediately after that <code>yield</code>.</li>
+<li>A generator object is one-use. Call the generator function again if you need a fresh stream.</li>
+<li><code>for</code> loops hide <code>StopIteration</code>; manual <code>next</code> shows it.</li>
+<li><code>list(g)</code> and <code>sum(g)</code> consume <code>g</code>. They do not peek.</li>
+<li>List comprehensions run immediately; generator expressions run lazily.</li>
+<li><code>enumerate</code>, <code>zip</code>, <code>map</code>, and <code>filter</code> are one-pass iterator-style tools in Python 3.</li>
+<li>Mutating a list during iteration may affect the loop; mutating a dictionary size during iteration raises <code>RuntimeError</code>.</li>
+<li><code>send(value)</code> needs a paused <code>yield</code>; prime first with <code>next(g)</code> or <code>g.send(None)</code>.</li>
+<li>Same printed values can hide different memory behavior: list stores values, generator streams them.</li>
+</ul></section>
+<section id="decorators" class="topic"><h2>Decorators and Closures</h2><p class="source-note">Built from <code>decorators.md</code> plus the final-review transcript.</p><h2>Decorators and Closures: Tricky Exam Drill</h2>
+<p>Core rule: <code>@deco</code> runs when the function is defined. The returned object is bound to the original function name. Usually that returned object is <code>wrapper</code>. Later, calling the function name calls <code>wrapper</code>, and <code>wrapper</code> reaches the original function through a closure cell.</p>
+<h3>Questions</h3>
+<details class="question"><summary>1. Definition time vs call time</summary>
+<pre><code>def deco(func):
+    print(&quot;make&quot;, func.__name__)
+
+    def wrapper():
+        print(&quot;before&quot;)
+        func()
+        print(&quot;after&quot;)
+
+    print(&quot;return wrapper&quot;)
+    return wrapper
+
+@deco
+def f():
+    print(&quot;body&quot;)
+
+print(&quot;between&quot;)
+f()</code></pre>
+<p>Exact output:</p>
+<pre><code>make f
+return wrapper
+between
+before
+body
+after</code></pre>
+<p>Behind the scenes: Python creates the original <code>f</code>, immediately calls <code>deco(f)</code>, and rebinds <code>f</code> to <code>wrapper</code>. That is why <code>make f</code> and <code>return wrapper</code> print before <code>between</code>. The wrapper body waits until <code>f()</code> is called.</p>
+</details>
+<details class="question"><summary>2. Passing the function result instead of the function</summary>
+<pre><code>def deco(func):
+    def wrapper():
+        return func()
+    return wrapper
+
+def f():
+    print(&quot;body&quot;)
+    return 10
+
+f = deco(f())
+print(&quot;ready&quot;)
+f()</code></pre>
+<p>Exact output/error:</p>
+<pre><code>body
+ready
+TypeError: &#x27;int&#x27; object is not callable</code></pre>
+<p>Behind the scenes: <code>f()</code> runs before decoration and returns <code>10</code>. So <code>deco</code> stores <code>10</code> in its closure as <code>func</code>. Later <code>wrapper</code> tries <code>func()</code>, meaning <code>10()</code>, which is illegal.</p>
+</details>
+<details class="question"><summary>3. Wrapper returned function and closure cell</summary>
+<pre><code>def deco(func):
+    def wrapper():
+        return func()
+    return wrapper
+
+@deco
+def greet():
+    return &quot;hi&quot;
+
+print(greet.__name__)
+print(greet.__closure__[0].cell_contents.__name__)
+print(greet())</code></pre>
+<p>Exact output:</p>
+<pre><code>wrapper
+greet
+hi</code></pre>
+<p>Behind the scenes: after decoration, the name <code>greet</code> points to <code>wrapper</code>, so <code>greet.__name__</code> is <code>wrapper</code>. But <code>wrapper</code> has a closure cell holding the original function object, whose name is still <code>greet</code>.</p>
+</details>
+<details class="question"><summary>4. Missing <code>return result</code> from the wrapper</summary>
+<pre><code>def deco(func):
+    def wrapper(*args, **kwargs):
+        print(&quot;start&quot;)
+        result = func(*args, **kwargs)
+        print(&quot;end&quot;)
+        # no return result
+    return wrapper
+
+@deco
+def add(x, y):
+    return x + y
+
+print(add(2, 3))</code></pre>
+<p>Exact output:</p>
+<pre><code>start
+end
+None</code></pre>
+<p>Behind the scenes: <code>add</code> is really <code>wrapper</code>. The original <code>add</code> returns <code>5</code>, but <code>wrapper</code> does not return that value. A Python function with no explicit return returns <code>None</code>.</p>
+</details>
+<details class="question"><summary>5. <code>nonlocal</code> mutates the closure cell</summary>
+<pre><code>def count_calls(func):
+    count = 0
+
+    def wrapper():
+        nonlocal count
+        count += 1
+        print(&quot;count&quot;, count)
+        return func()
+
+    return wrapper
+
+@count_calls
+def ping():
+    print(&quot;ping&quot;)
+
+ping()
+ping()</code></pre>
+<p>Exact output:</p>
+<pre><code>count 1
+ping
+count 2
+ping</code></pre>
+<p>Behind the scenes: <code>count</code> lives in the enclosing <code>count_calls</code> frame through a closure cell. <code>nonlocal count</code> tells <code>wrapper</code> to update that cell instead of creating a new local variable.</p>
+</details>
+<details class="question"><summary>6. <code>global</code> does not mean enclosing decorator scope</summary>
+<pre><code>count = 100
+
+def deco(func):
+    count = 0
+
+    def wrapper():
+        global count
+        count += 1
+        print(&quot;count&quot;, count)
+        return func()
+
+    return wrapper
+
+@deco
+def f():
+    print(&quot;body&quot;)
+
+f()
+print(&quot;module count&quot;, count)</code></pre>
+<p>Exact output:</p>
+<pre><code>count 101
+body
+module count 101</code></pre>
+<p>Behind the scenes: the <code>count = 0</code> inside <code>deco</code> is an enclosing local, but <code>global count</code> skips it and binds to the module-level <code>count</code>. Use <code>nonlocal</code> for the enclosing decorator variable.</p>
+</details>
+<details class="question"><summary>7. Nested decorated calls with a shared dictionary</summary>
+<pre><code>def countcalls(d):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            d[func.__name__] = d.get(func.__name__, 0) + 1
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+calls = {}
+
+@countcalls(calls)
+def a():
+    print(&quot;A&quot;)
+    return &quot;done&quot;
+
+@countcalls(calls)
+def b():
+    print(&quot;B&quot;)
+    return a()
+
+print(b())
+print(calls)</code></pre>
+<p>Exact output:</p>
+<pre><code>B
+A
+done
+{&#x27;b&#x27;: 1, &#x27;a&#x27;: 1}</code></pre>
+<p>Behind the scenes: <code>b()</code> calls the wrapper for <code>b</code>, which increments <code>b</code>. Inside the original <code>b</code>, the name <code>a</code> now points to the wrapper for <code>a</code>, so calling <code>a()</code> increments <code>a</code> before running the original <code>a</code>.</p>
+</details>
+<details class="question"><summary>8. Metadata/name surprise, without and with <code>functools.wraps</code></summary>
+<pre><code>import functools
+
+def plain(func):
+    def wrapper():
+        &quot;&quot;&quot;wrapper doc&quot;&quot;&quot;
+        return func()
+    return wrapper
+
+def fixed(func):
+    @functools.wraps(func)
+    def wrapper():
+        &quot;&quot;&quot;wrapper doc&quot;&quot;&quot;
+        return func()
+    return wrapper
+
+@plain
+def a():
+    &quot;&quot;&quot;a doc&quot;&quot;&quot;
+    return 1
+
+@fixed
+def b():
+    &quot;&quot;&quot;b doc&quot;&quot;&quot;
+    return 2
+
+print(a.__name__, a.__doc__)
+print(b.__name__, b.__doc__)</code></pre>
+<p>Exact output:</p>
+<pre><code>wrapper wrapper doc
+b b doc</code></pre>
+<p>Behind the scenes: without <code>wraps</code>, the visible function is the wrapper, so its metadata is shown. <code>functools.wraps(func)</code> copies the original function metadata onto the wrapper and stores the original in <code>__wrapped__</code>.</p>
+</details>
+<details class="question"><summary>9. Decorator stacking: application order vs call order</summary>
+<pre><code>def d1(func):
+    print(&quot;make d1&quot;)
+
+    def wrapper():
+        print(&quot;run d1&quot;)
+        return func()
+
+    return wrapper
+
+def d2(func):
+    print(&quot;make d2&quot;)
+
+    def wrapper():
+        print(&quot;run d2&quot;)
+        return func()
+
+    return wrapper
+
+@d2
+@d1
+def f():
+    print(&quot;body&quot;)
+
+f()</code></pre>
+<p>Exact output:</p>
+<pre><code>make d1
+make d2
+run d2
+run d1
+body</code></pre>
+<p>Behind the scenes: the binding is <code>f = d2(d1(f))</code>. The decorator closest to the function, <code>d1</code>, is applied first. But the outermost wrapper, from <code>d2</code>, runs first when <code>f()</code> is called.</p>
+</details>
+<details class="question"><summary>10. Timer wrapper changes recursive return values</summary>
+<pre><code>def timer(func):
+    def wrapper(n):
+        print(&quot;time&quot;, n)
+        value = func(n)
+        return &quot;T&quot; + str(n), value
+    return wrapper
+
+@timer
+def fact(n):
+    if n == 0:
+        return 1
+    _, previous = fact(n - 1)
+    return n * previous
+
+print(fact(3))</code></pre>
+<p>Exact output:</p>
+<pre><code>time 3
+time 2
+time 1
+time 0
+(&#x27;T3&#x27;, 6)</code></pre>
+<p>Behind the scenes: after decoration, the global name <code>fact</code> points to <code>wrapper</code>. Recursive calls inside the original body also go through <code>wrapper</code>, so they return <code>(&quot;T...&quot;, value)</code>. The unpacking ignores the timer label and keeps the numeric value.</p>
+</details>
+<details class="question"><summary>11. Recursive timing wrapper without unpacking</summary>
+<pre><code>def timer(func):
+    def wrapper(n):
+        print(&quot;time&quot;, n)
+        value = func(n)
+        return 0.0, value
+    return wrapper
+
+@timer
+def total(n):
+    if n == 0:
+        return 0
+    return n + total(n - 1)
+
+print(total(2))</code></pre>
+<p>Exact output/error:</p>
+<pre><code>time 2
+time 1
+time 0
+TypeError: unsupported operand type(s) for +: &#x27;int&#x27; and &#x27;tuple&#x27;</code></pre>
+<p>Behind the scenes: <code>total(0)</code> returns <code>(0.0, 0)</code> because the name <code>total</code> means the wrapper. Then the original body for <code>n == 1</code> tries <code>1 + (0.0, 0)</code>, causing the error.</p>
+</details>
+<h3>Trap Checklist</h3>
+<ul>
+<li>Translate <code>@deco</code> as <code>name = deco(original_name)</code>.</li>
+<li>Decoration-time code runs immediately after the original function object is created.</li>
+<li>Call-time code is the body of the returned wrapper.</li>
+<li>The original function name is usually rebound to <code>wrapper</code>.</li>
+<li>A wrapper can still call the original through a closure cell named <code>func</code>.</li>
+<li><code>wrapper.original = func</code> preserves manual access to the undecorated function.</li>
+<li>Forgetting <code>return wrapper</code> makes the decorated name become <code>None</code>.</li>
+<li>Forgetting <code>return result</code> inside <code>wrapper</code> makes the decorated function return <code>None</code>.</li>
+<li>Use <code>*args, **kwargs</code> in a general wrapper, then forward them into <code>func</code>.</li>
+<li><code>nonlocal</code> updates the enclosing decorator variable; <code>global</code> updates the module variable.</li>
+<li>Stacked decorators apply bottom-up but execute top-down.</li>
+<li>Without <code>functools.wraps</code>, <code>__name__</code> and <code>__doc__</code> usually belong to <code>wrapper</code>.</li>
+<li>Timing decorators often change the return type, for example from <code>value</code> to <code>(runtime, value)</code>.</li>
+<li>Recursive decorated functions call the decorated global name unless you deliberately call an undecorated reference.</li>
+</ul></section>
+<section id="oop" class="topic"><h2>Objects and Classes</h2><p class="source-note">Built from <code>oop.md</code> plus the final-review transcript.</p><h2>OOP Edge Cases: Final Exam Drill</h2>
+<p>Use this section for trace-the-output questions. The main rule is simple: names point to objects, attributes point to objects, and method calls are just function calls with one argument filled in for you.</p>
+<details class="question"><summary>1. Bound method vs unbound function</summary>
+<pre><code>class Box:
+    def __init__(self, name):
+        self.name = name
+
+    def show(self):
+        print(self.name)
+
+b = Box(&quot;red&quot;)
+f = b.show
+g = Box.show
+
+f()
+g(b)
+g()</code></pre>
+<p>Exact output/error:</p>
+<pre><code>red
+red
+TypeError: show() missing 1 required positional argument: &#x27;self&#x27;</code></pre>
+<p>Behind the scenes: <code>b.show</code> is a bound method, so it remembers <code>b</code> as <code>self</code>. <code>Box.show</code> is the raw function stored on the class, so you must pass the object yourself. <code>g()</code> fails because no object was supplied for <code>self</code>.</p>
+</details>
+<details class="question"><summary>2. Class variable shadowed by instance assignment</summary>
+<pre><code>class Counter:
+    total = 0
+
+    def __init__(self):
+        self.total += 1
+
+a = Counter()
+b = Counter()
+print(Counter.total, a.total, b.total)
+print(a.__dict__)
+
+Counter.total = 10
+c = Counter()
+print(Counter.total, a.total, b.total, c.total)
+print(c.__dict__)</code></pre>
+<p>Exact output:</p>
+<pre><code>0 1 1
+{&#x27;total&#x27;: 1}
+10 1 1 11
+{&#x27;total&#x27;: 11}</code></pre>
+<p>Behind the scenes: <code>self.total += 1</code> first reads <code>total</code> by lookup. If the instance does not have <code>total</code>, Python finds <code>Counter.total</code>. But the assignment part writes back to the instance, creating <code>self.__dict__[&quot;total&quot;]</code>. The class variable never increments.</p>
+</details>
+<details class="question"><summary>3. Shared mutable class attribute</summary>
+<pre><code>class Bag:
+    items = []
+
+    def add(self, x):
+        self.items.append(x)
+
+a = Bag()
+b = Bag()
+a.add(&quot;A&quot;)
+b.add(&quot;B&quot;)
+
+print(a.items)
+print(b.items)
+print(a.items is b.items)</code></pre>
+<p>Exact output:</p>
+<pre><code>[&#x27;A&#x27;, &#x27;B&#x27;]
+[&#x27;A&#x27;, &#x27;B&#x27;]
+True</code></pre>
+<p>Behind the scenes: neither <code>a</code> nor <code>b</code> has an instance attribute named <code>items</code>, so lookup finds the one list stored on the class. <code>append</code> mutates that shared list. No assignment creates a new instance attribute here.</p>
+</details>
+<details class="question"><summary>4. Object alias plus list alias</summary>
+<pre><code>class Holder:
+    def __init__(self):
+        self.data = [0, 0]
+
+a = Holder()
+b = a
+c = Holder()
+lst = a.data
+
+b.data[0] = 7
+lst.append(9)
+
+print(a.data, b.data, c.data)
+print(a is b, a.data is lst, a is c)</code></pre>
+<p>Exact output:</p>
+<pre><code>[7, 0, 9] [7, 0, 9] [0, 0]
+True True False</code></pre>
+<p>Behind the scenes: <code>b = a</code> does not make a second <code>Holder</code>; it gives the same object another name. <code>lst = a.data</code> gives the internal list another name. Mutating through <code>b.data</code> or <code>lst</code> changes the same list inside <code>a</code>.</p>
+</details>
+<details class="question"><summary>5. Mutable default argument inside objects</summary>
+<pre><code>class Weird:
+    def __init__(self, values=[]):
+        self.values = values
+
+    def add(self, x):
+        self.values.append(x)
+
+a = Weird()
+b = Weird()
+c = Weird([])
+
+a.add(1)
+b.add(2)
+c.add(3)
+
+print(a.values)
+print(b.values)
+print(c.values)
+print(a.values is b.values, a.values is c.values)</code></pre>
+<p>Exact output:</p>
+<pre><code>[1, 2]
+[1, 2]
+[3]
+True False</code></pre>
+<p>Behind the scenes: the default list is created once when the function is defined, not once per call. Both <code>a</code> and <code>b</code> store references to that same default list. <code>c</code> gets a fresh list because <code>[]</code> was passed explicitly.</p>
+</details>
+<details class="question"><summary>6. Constructor goes through a property setter</summary>
+<pre><code>class Rat:
+    def __init__(self, n=0, d=1):
+        self.n = n
+        self.d = d
+
+    @property
+    def d(self):
+        return self._d
+
+    @d.setter
+    def d(self, value):
+        if value == 0:
+            raise ValueError(&quot;zero denominator&quot;)
+        self._d = value
+
+try:
+    bad = Rat(1, 0)
+except Exception as e:
+    print(type(e).__name__ + &quot;: &quot; + str(e))
+
+r = Rat(1, 2)
+r._d = 0
+print(r.d)</code></pre>
+<p>Exact output:</p>
+<pre><code>ValueError: zero denominator
+0</code></pre>
+<p>Behind the scenes: <code>self.d = d</code> does not directly put <code>d</code> in <code>__dict__</code>; the property setter runs and rejects zero. But <code>_d</code> is just a normal attribute by convention. Writing <code>r._d = 0</code> bypasses the setter and breaks the invariant.</p>
+</details>
+<details class="question"><summary>7. <code>__str__</code>, <code>__repr__</code>, and containers</summary>
+<pre><code>class MiniRat:
+    def __init__(self, n, d):
+        self.n = n
+        self.d = d
+
+    def __str__(self):
+        return str(self.n) + &quot;/&quot; + str(self.d)
+
+    def __repr__(self):
+        return &quot;MiniRat(&quot; + str(self.n) + &quot;, &quot; + str(self.d) + &quot;)&quot;
+
+r = MiniRat(1, 2)
+print(r)
+print(repr(r))
+print([r])</code></pre>
+<p>Exact output:</p>
+<pre><code>1/2
+MiniRat(1, 2)
+[MiniRat(1, 2)]</code></pre>
+<p>Behind the scenes: <code>print(r)</code> uses <code>str(r)</code>, which calls <code>__str__</code>. <code>repr(r)</code> calls <code>__repr__</code>. A list uses each element&#x27;s <code>repr</code>, not its <code>str</code>, so containers usually need <code>__repr__</code> if you want clean trace output.</p>
+</details>
+<details class="question"><summary>8. Equality vs identity</summary>
+<pre><code>class Card:
+    def __init__(self, rank):
+        self.rank = rank
+
+    def __eq__(self, other):
+        return isinstance(other, Card) and self.rank == other.rank
+
+a = Card(7)
+b = Card(7)
+c = a
+
+print(a == b, a is b)
+print(a == c, a is c)
+b.rank = 8
+print(a == b, a is b)</code></pre>
+<p>Exact output:</p>
+<pre><code>True False
+True True
+False False</code></pre>
+<p>Behind the scenes: <code>==</code> asks the objects whether their values are equal by calling <code>__eq__</code>. <code>is</code> checks whether two names point to the exact same object. <code>a</code> and <code>b</code> start with equal state, but they are separate objects. <code>c</code> is an alias for <code>a</code>.</p>
+</details>
+<details class="question"><summary>9. <code>cls</code> preserves subclass construction</summary>
+<pre><code>class Rat:
+    def __init__(self, n=0, d=1):
+        self.n = n
+        self.d = d
+
+    @classmethod
+    def from_string(cls, s):
+        n, d = s.split(&quot;/&quot;)
+        return cls(int(n), int(d))
+
+    @classmethod
+    def bad_from_string(cls, s):
+        n, d = s.split(&quot;/&quot;)
+        return Rat(int(n), int(d))
+
+class LoudRat(Rat):
+    pass
+
+x = LoudRat.from_string(&quot;3/4&quot;)
+y = LoudRat.bad_from_string(&quot;5/6&quot;)
+
+print(type(x).__name__, x.n, x.d)
+print(type(y).__name__, y.n, y.d)</code></pre>
+<p>Exact output:</p>
+<pre><code>LoudRat 3 4
+Rat 5 6</code></pre>
+<p>Behind the scenes: in a class method, <code>cls</code> is the class used in the call. <code>LoudRat.from_string</code> passes <code>LoudRat</code> as <code>cls</code>, so <code>cls(...)</code> builds a <code>LoudRat</code>. Hard-coding <code>Rat(...)</code> ignores the subclass.</p>
+</details>
+<details class="question"><summary>10. Copying an object but not preserving all object state</summary>
+<pre><code>import copy
+
+class SA:
+    def __init__(self, *args):
+        if len(args) == 1:
+            self.low = 0
+            self.high = args[0] - 1
+            self.data = [0] * args[0]
+        elif len(args) == 2:
+            self.low, self.high = args
+            self.data = [0] * (self.high - self.low + 1)
+
+    def __copy__(self):
+        cp = SA(self.high - self.low + 1)
+        cp.data = self.data.copy()
+        return cp
+
+    def __getitem__(self, index):
+        if index &lt; self.low or index &gt; self.high:
+            raise IndexError(&quot;index &quot; + str(index) + &quot; out of range&quot;)
+        return self.data[index - self.low]
+
+    def __setitem__(self, index, value):
+        if index &lt; self.low or index &gt; self.high:
+            raise IndexError(&quot;index &quot; + str(index) + &quot; out of range&quot;)
+        self.data[index - self.low] = value
+
+sa = SA(10, 12)
+sa[10] = 5
+sa[12] = 9
+cp = copy.copy(sa)
+
+print(sa.low, sa.high, sa.data)
+print(cp.low, cp.high, cp.data)
+
+try:
+    print(cp[10])
+except Exception as e:
+    print(type(e).__name__ + &quot;: &quot; + str(e))</code></pre>
+<p>Exact output:</p>
+<pre><code>10 12 [5, 0, 9]
+0 2 [5, 0, 9]
+IndexError: index 10 out of range</code></pre>
+<p>Behind the scenes: <code>copy.copy(sa)</code> calls <code>sa.__copy__()</code>. This version copies the internal list, but it constructs the new array with <code>SA(size)</code>, so the copied bounds become <code>0..2</code> instead of <code>10..12</code>. The values moved, but part of the object state did not.</p>
+</details>
+<details class="question"><summary>11. Nested list alias inside an object</summary>
+<pre><code>class Grid:
+    def __init__(self):
+        self.rows = [[0] * 2] * 2
+
+g = Grid()
+h = g
+
+g.rows[0][1] = 7
+h.rows.append([9, 9])
+
+print(g.rows)
+print(g.rows[0] is g.rows[1])
+print(g is h)</code></pre>
+<p>Exact output:</p>
+<pre><code>[[0, 7], [0, 7], [9, 9]]
+True
+True</code></pre>
+<p>Behind the scenes: <code>[[0] * 2] * 2</code> repeats a reference to the same inner list. Changing <code>g.rows[0][1]</code> also changes <code>g.rows[1][1]</code>. Also, <code>h = g</code> aliases the whole <code>Grid</code> object, so appending through <code>h.rows</code> changes <code>g.rows</code>.</p>
+</details>
+<details class="question"><summary>12. Two <code>__init__</code> definitions do not overload constructors</summary>
+<pre><code>class Build:
+    def __init__(self):
+        self.kind = &quot;empty&quot;
+
+    def __init__(self, x):
+        self.kind = &quot;one&quot;
+        self.x = x
+
+try:
+    a = Build()
+except Exception as e:
+    print(type(e).__name__ + &quot;: &quot; + str(e))
+
+b = Build(4)
+print(b.__dict__)</code></pre>
+<p>Exact output:</p>
+<pre><code>TypeError: __init__() missing 1 required positional argument: &#x27;x&#x27;
+{&#x27;kind&#x27;: &#x27;one&#x27;, &#x27;x&#x27;: 4}</code></pre>
+<p>Behind the scenes: Python does not overload constructors by signature. The second <code>def __init__</code> replaces the first one in the class dictionary. <code>Build()</code> fails because the only remaining constructor requires <code>x</code>.</p>
+</details>
+<h3>Trap Checklist</h3>
+<ul>
+<li><code>self</code> is not magic syntax, but normal instance calls automatically pass the object as the first argument.</li>
+<li><code>Class.method(obj)</code> and <code>obj.method()</code> can call the same function; the difference is who supplies <code>self</code>.</li>
+<li><code>x = y</code> never copies an object. It binds another name to the same object.</li>
+<li><code>obj.attr = value</code> can create or replace an instance attribute, even if the class has an attribute with the same name.</li>
+<li>Mutating a shared list changes the list object; assigning a new list changes which list a name or attribute references.</li>
+<li>Class attributes that are mutable, like lists or dictionaries, are shared until an instance shadows them.</li>
+<li>Default mutable arguments are created once, so object constructors can accidentally share lists.</li>
+<li><code>__str__</code> controls <code>print(obj)</code>. <code>__repr__</code> controls <code>repr(obj)</code> and how the object appears inside lists and dictionaries.</li>
+<li><code>==</code> can be customized with <code>__eq__</code>; <code>is</code> only checks whether two references point to the same object.</li>
+<li><code>@staticmethod</code> gets no automatic <code>self</code> or <code>cls</code>. <code>@classmethod</code> gets <code>cls</code>.</li>
+<li>A property setter can run inside <code>__init__</code> when the constructor assigns <code>self.prop = value</code>.</li>
+<li>Shallow copy copies the outer container or object shell; nested mutable objects may still be shared unless copied too.</li>
+</ul></section>
+    <section class="review">
+      <h2>Advanced Gap Drills Added After Deeper PDF Review</h2>
+      <p>These questions target concepts that appeared in the extracted PDFs but were thinner in the first combined sheet. They avoid OOP updates and focus on modules/runtime, sets, unpacking, matrix-style problems, dictionary data problems, generator design, and decorator design.</p>
+    </section>
+    <section id="advanced-comprehensions-extra-gaps" class="topic advanced"><h2>Comprehensions and Remaining Risk Drills</h2><p class="source-note">Advanced gap questions from <code>comprehensions_extra_gaps.md</code>. OOP was intentionally left unchanged.</p><h2>Comprehensions and Remaining Risk Drills</h2>
+<p>These questions cover a gap found after re-auditing the extracted PDFs: comprehensions are not just syntax. They are often used to test memory behavior, duplicate removal, dictionary overwrites, nested-loop order, and whether a result is built now or streamed later.</p>
+<details class="question"><summary>[HIGH] 1. Loop to list comprehension: expression, loop, filter order</summary>
+<p>Source: Part 5 pp. 114-115.</p>
+<p>Question type: convert and trace.</p>
+<p>Rewrite the loop as one list comprehension, then give the output.</p>
+<pre><code>z = [13, 14, 7, 12, 11, 3, 18]
+out = []
+for i in range(len(z)):
+    if z[i] % 2 == 0:
+        out.append((i, z[i]))
+print(out)</code></pre>
+<p>Answer:</p>
+<pre><code>out = [(i, z[i]) for i in range(len(z)) if z[i] % 2 == 0]</code></pre>
+<p>Output:</p>
+<pre><code>[(1, 14), (3, 12), (6, 18)]</code></pre>
+<p>Why: a comprehension reads left to right like the loop: choose <code>i</code>, test the <code>if</code>, then build the expression <code>(i, z[i])</code>. The expression is not the loop variable; it is the value appended to the new list.</p>
+</details>
+<details class="question"><summary>[HIGH] 2. Comprehension reassignment does not mutate the caller&#x27;s list</summary>
+<p>Source: Part 4 p. 101.</p>
+<p>Question type: output and memory explanation.</p>
+<pre><code>def square_rebind(items):
+    items = [x * x for x in items]
+    print(&quot;inside&quot;, items)
+
+def square_mutate(items):
+    for i, x in enumerate(items):
+        items[i] = x * x
+    print(&quot;inside&quot;, items)
+
+a = [1, 2, 3]
+square_rebind(a)
+print(&quot;after rebind&quot;, a)
+square_mutate(a)
+print(&quot;after mutate&quot;, a)</code></pre>
+<p>Answer:</p>
+<pre><code>inside [1, 4, 9]
+after rebind [1, 2, 3]
+inside [1, 4, 9]
+after mutate [1, 4, 9]</code></pre>
+<p>Why: the comprehension creates a new list object and local name <code>items</code> is rebound to it. The caller&#x27;s list is not changed. The second function writes into the original list object by index, so the caller sees the mutation.</p>
+</details>
+<details class="question"><summary>[HIGH] 3. Set comprehension removes duplicates, but order is not the point</summary>
+<p>Source: Part 5 pp. 111, 121; eight-queens diagonal test.</p>
+<p>Question type: exact concept and possible output.</p>
+<pre><code>nums = [1, 2, 2, 3, 3, 3]
+squares = {x * x for x in nums}
+print(len(squares))
+print(4 in squares)</code></pre>
+<p>Answer:</p>
+<pre><code>3
+True</code></pre>
+<p>Why: <code>{x * x for x in nums}</code> is a set comprehension. The duplicate <code>2</code>s all produce <code>4</code>, but a set stores one copy. Do not depend on printed set order for exam reasoning unless the question asks only membership or length.</p>
+</details>
+<details class="question"><summary>[HIGH] 4. Generator expression passed to set is still consumed immediately by set</summary>
+<p>Source: Part 5 p. 121; Generators pp. 1-2.</p>
+<p>Question type: explain syntax and trace.</p>
+<pre><code>vec = (0, 2, 4)
+col = [0, 1, 2]
+
+a = {vec[i] + i for i in col}
+b = set(vec[i] - i for i in col)
+
+print(a)
+print(b)
+print(len(a), len(b))</code></pre>
+<p>Answer:</p>
+<pre><code>{0, 3, 6}
+{0, 1, 2}
+3 3</code></pre>
+<p>Why: <code>a</code> uses a set comprehension. <code>b</code> passes a generator expression into <code>set(...)</code>. The generator expression is lazy by itself, but <code>set(...)</code> immediately consumes it to build a set. In the eight-queens test, this is used to check whether all diagonal values are unique.</p>
+</details>
+<details class="question"><summary>[HIGH] 5. Dict comprehension with duplicate keys overwrites earlier values</summary>
+<p>Source: Chart/dictionaries pp. 133, 141.</p>
+<p>Question type: output and data-structure reasoning.</p>
+<pre><code>portfolio = [
+    (&quot;IBM&quot;, 75),
+    (&quot;ACME&quot;, 50),
+    (&quot;IBM&quot;, 25),
+]
+
+d = {name: shares for name, shares in portfolio}
+totals = {name: 0 for name, shares in portfolio}
+for name, shares in portfolio:
+    totals[name] += shares
+
+print(d)
+print(totals)</code></pre>
+<p>Answer:</p>
+<pre><code>{&#x27;IBM&#x27;: 25, &#x27;ACME&#x27;: 50}
+{&#x27;IBM&#x27;: 100, &#x27;ACME&#x27;: 50}</code></pre>
+<p>Why: dictionary keys are unique. In <code>d</code>, the second <code>&quot;IBM&quot;</code> overwrites the first <code>&quot;IBM&quot;</code>. In <code>totals</code>, the comprehension only initializes each key to <code>0</code>; the following loop accumulates both IBM rows.</p>
+</details>
+<details class="question"><summary>[HIGH] 6. Nested list comprehension loop order</summary>
+<p>Source: Part 5 pp. 119, 129.</p>
+<p>Question type: trace and fill-in.</p>
+<pre><code>pairs = [(i, j) for i in range(2) for j in range(3)]
+print(pairs)</code></pre>
+<p>Answer:</p>
+<pre><code>[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2)]</code></pre>
+<p>Why: the comprehension is equivalent to:</p>
+<pre><code>pairs = []
+for i in range(2):
+    for j in range(3):
+        pairs.append((i, j))</code></pre>
+<p>The leftmost <code>for</code> is the outer loop. This matters in matrix code like <code>[[dot(ri, cj) for cj in zip(*B)] for ri in A]</code>.</p>
+</details>
+<details class="question"><summary>[HIGH] 7. Matrix multiplication comprehension: what is each loop doing?</summary>
+<p>Source: Part 5 pp. 128-129.</p>
+<p>Question type: choose-correct-version.</p>
+<p>Which version computes matrix multiplication?</p>
+<pre><code>A = [[1, 2], [3, 4]]
+B = [[10, 20], [30, 40]]
+
+def version1(A, B):
+    dot = lambda r, c: sum(r[i] * c[i] for i in range(len(r)))
+    return [[dot(ri, cj) for cj in zip(*B)] for ri in A]
+
+def version2(A, B):
+    return [[A[i][j] * B[i][j] for j in range(len(B[0]))]
+            for i in range(len(A))]
+
+print(version1(A, B))
+print(version2(A, B))</code></pre>
+<p>Answer:</p>
+<pre><code>[[70, 100], [150, 220]]
+[[10, 40], [90, 160]]</code></pre>
+<p>Why: matrix multiplication uses row-column dot products, so <code>version1</code> is correct. <code>zip(*B)</code> turns B&#x27;s columns into tuples. <code>version2</code> only multiplies matching positions element-by-element.</p>
+</details>
+<details class="question"><summary>[MID] 8. List comprehension can hide an IndexError</summary>
+<p>Source: Part 5 pp. 113-118.</p>
+<p>Question type: exact error and fix.</p>
+<pre><code>x = [[1, 2], [3, 4], [5]]
+col1 = [row[1] for row in x]
+print(col1)</code></pre>
+<p>Answer:</p>
+<pre><code>IndexError: list index out of range</code></pre>
+<p>Fix if you only want rows that have column 1:</p>
+<pre><code>col1 = [row[1] for row in x if len(row) &gt; 1]</code></pre>
+<p>Why: the comprehension is still normal indexing. It does not skip bad rows unless you explicitly add an <code>if</code> filter.</p>
+</details>
+<details class="question"><summary>[HIGH] 9. Comprehension scope does not leak the loop variable</summary>
+<p>Source: Part 4 scoping pp. 84-87; Part 5 comprehension syntax.</p>
+<p>Question type: output and scope explanation.</p>
+<pre><code>i = 100
+nums = [i * 2 for i in range(3)]
+print(nums)
+print(i)</code></pre>
+<p>Answer in Python 3:</p>
+<pre><code>[0, 2, 4]
+100</code></pre>
+<p>Why: in Python 3, the comprehension&#x27;s loop variable has its own local comprehension scope. It does not overwrite the outer <code>i</code>. This is still LEGB thinking: names are resolved by scope, not indentation alone.</p>
+</details>
+<details class="question"><summary>[MID] 10. Deep-copy logic with list, dict, and set comprehensions</summary>
+<p>Source: Part 4 pp. 87-88.</p>
+<p>Question type: implement and explain.</p>
+<p>Complete the recursive copy function so lists, dicts, and sets do not share nested mutable objects.</p>
+<pre><code>def deep_copy(obj):
+    if isinstance(obj, list):
+        return __________________________
+    if isinstance(obj, dict):
+        return __________________________
+    if isinstance(obj, set):
+        return __________________________
+    return obj
+
+data = {&quot;a&quot;: [[1]], &quot;b&quot;: {2, 3}}
+copy_data = deep_copy(data)
+copy_data[&quot;a&quot;][0].append(99)
+copy_data[&quot;b&quot;].add(4)
+print(data)
+print(copy_data)</code></pre>
+<p>Answer:</p>
+<pre><code>def deep_copy(obj):
+    if isinstance(obj, list):
+        return [deep_copy(item) for item in obj]
+    if isinstance(obj, dict):
+        return {deep_copy(key): deep_copy(value) for key, value in obj.items()}
+    if isinstance(obj, set):
+        return {deep_copy(item) for item in obj}
+    return obj</code></pre>
+<p>Output:</p>
+<pre><code>{&#x27;a&#x27;: [[1]], &#x27;b&#x27;: {2, 3}}
+{&#x27;a&#x27;: [[1, 99]], &#x27;b&#x27;: {2, 3, 4}}</code></pre>
+<p>Why: each comprehension builds a new container. Recursing into each element prevents nested lists/dicts/sets from being shared.</p>
+</details>
+<details class="question"><summary>[MID] 11. Decorated calls inside a comprehension still call the wrapper each time</summary>
+<p>Source: Decorators pp. 7-10; countcalls dictionary.</p>
+<p>Question type: output/state trace.</p>
+<pre><code>calls = {}
+
+def countcalls(d):
+    def deco(func):
+        def wrapper(*args, **kwargs):
+            d[func.__name__] = d.get(func.__name__, 0) + 1
+            return func(*args, **kwargs)
+        return wrapper
+    return deco
+
+@countcalls(calls)
+def add(a, b):
+    return a + b
+
+values = [add(i, i) for i in range(3)]
+print(values)
+print(calls)</code></pre>
+<p>Answer:</p>
+<pre><code>[0, 2, 4]
+{&#x27;add&#x27;: 3}</code></pre>
+<p>Why: the list comprehension calls <code>add(i, i)</code> three times. The name <code>add</code> points to the wrapper, so the wrapper updates the shared dictionary on every iteration.</p>
+</details>
+<details class="question"><summary>[LOW] 12. Comprehension vs map/filter is mostly style here</summary>
+<p>Source: Part 5 list comprehension intro; chart data cleaning.</p>
+<p>Question type: choose clearer version.</p>
+<pre><code>words = [&quot;cat,&quot;, &quot;dog.&quot;, &quot;bird&quot;]
+a = [w.strip(&quot;.,;&quot;) for w in words]
+b = list(map(lambda w: w.strip(&quot;.,;&quot;), words))
+print(a)
+print(b)</code></pre>
+<p>Answer:</p>
+<pre><code>[&#x27;cat&#x27;, &#x27;dog&#x27;, &#x27;bird&#x27;]
+[&#x27;cat&#x27;, &#x27;dog&#x27;, &#x27;bird&#x27;]</code></pre>
+<p>Why: both produce the same list. For this class, the comprehension is usually clearer because the expression, loop source, and optional filter are visible in one place.</p>
+</details></section>
+<section id="advanced-part4-runtime-additions" class="topic advanced"><h2>Part 4 Runtime and Modules</h2><p class="source-note">Advanced gap questions from <code>part4_runtime_additions.md</code>. OOP was intentionally left unchanged.</p><h2>Part 4 Runtime Additions</h2>
+<p>These are extra Part 4 questions for gaps not already covered in <code>part4_lists_runtime.md</code> or the merged drill sheet.</p>
+<h3>Questions</h3>
+<details class="question"><summary>[HIGH] 1. Import Style and Name Collision</summary>
+<p>Source: Part 4 pp. 73-75, 138.</p>
+<p>Question type: output/trace.</p>
+<pre><code>import math
+from math import sqrt
+
+sqrt = &quot;not a function&quot;
+print(math.sqrt(16))
+print(sqrt(16))</code></pre>
+<p>Answer:</p>
+<pre><code>4.0
+TypeError: &#x27;str&#x27; object is not callable</code></pre>
+<p>Why: <code>import math</code> binds the module name, so <code>math.sqrt</code> still reaches the function inside the module. <code>from math import sqrt</code> binds the name <code>sqrt</code> directly in the current namespace, and the later assignment shadows that imported function.</p>
+</details>
+<details class="question"><summary>[HIGH] 2. Builtins Are Not Reserved Names</summary>
+<p>Source: Part 4 p. 84.</p>
+<p>Question type: exact error and fix-the-bug.</p>
+<pre><code>sum = 0
+for i in range(4):
+    sum += i
+
+print(sum)
+print(sum([10, 20, 30]))</code></pre>
+<p>Answer:</p>
+<pre><code>6
+TypeError: &#x27;int&#x27; object is not callable</code></pre>
+<p>Fix:</p>
+<pre><code>total = 0
+for i in range(4):
+    total += i
+
+print(total)
+print(sum([10, 20, 30]))</code></pre>
+<p>Why: Python searches globals before builtins. The global name <code>sum</code> now points to the integer <code>6</code>, so <code>sum(...)</code> tries to call an integer.</p>
+</details>
+<details class="question"><summary>[HIGH] 3. Function Attributes Are Not Local Variables</summary>
+<p>Source: Part 4 pp. 91-92.</p>
+<p>Question type: output/trace.</p>
+<pre><code>def tracker(x):
+    tracker.calls += 1
+    return x * 2
+
+tracker.calls = 0
+print(tracker.__dict__)
+print(tracker(3), tracker(4))
+print(tracker.__dict__)</code></pre>
+<p>Answer:</p>
+<pre><code>{&#x27;calls&#x27;: 0}
+6 8
+{&#x27;calls&#x27;: 2}</code></pre>
+<p>Why: user-defined functions are objects and can store custom attributes. <code>tracker.calls</code> lives in <code>tracker.__dict__</code>; it is not a local variable inside the function call frame.</p>
+<p>Follow-up: Why would this fail?</p>
+<pre><code>print.calls = 0</code></pre>
+<p>Answer: built-in functions do not allow arbitrary attribute assignment, so this raises <code>AttributeError</code>.</p>
+<pre><code>AttributeError: &#x27;builtin_function_or_method&#x27; object has no attribute &#x27;calls&#x27; and no __dict__ for setting new attributes</code></pre>
+</details>
+<details class="question"><summary>[HIGH] 4. <code>def</code> Creates a Function Object Before Any Call</summary>
+<p>Source: Part 4 pp. 79, 105-109.</p>
+<p>Question type: output/trace plus explain concept.</p>
+<pre><code>print(&quot;A&quot;)
+
+def make_adder(n):
+    print(&quot;B&quot;)
+    def add(x):
+        print(&quot;C&quot;)
+        return x + n
+    return add
+
+print(&quot;D&quot;)
+f = make_adder(10)
+print(f.__name__)
+print(f(5))</code></pre>
+<p>Answer:</p>
+<pre><code>A
+D
+B
+add
+C
+15</code></pre>
+<p>Why: executing the outer <code>def</code> parses/compiles the body, creates a function object, and binds <code>make_adder</code>; it does not run the body yet. <code>B</code> prints only when <code>make_adder(10)</code> is called. The inner <code>def add</code> runs during that call and creates another function object. <code>C</code> prints only when <code>f(5)</code> calls that returned function.</p>
+</details>
+<details class="question"><summary>[HIGH] 5. Positional-Only and Keyword-Only Parameters</summary>
+<p>Source: Part 4 pp. 96-99.</p>
+<p>Question type: exact error.</p>
+<pre><code>def after(seconds, func, /, *args, **kwargs):
+    return func(*args, **kwargs)
+
+def duration(*, seconds, minutes=0, hours=0):
+    return seconds + 60 * minutes + 3600 * hours
+
+print(after(0, duration, seconds=20, minutes=1))
+print(duration(20))</code></pre>
+<p>Answer:</p>
+<pre><code>80
+TypeError: duration() takes 0 positional arguments but 1 was given</code></pre>
+<p>Why: in <code>after(seconds, func, /, ...)</code>, <code>seconds</code> and <code>func</code> must be supplied positionally to <code>after</code>. In <code>duration(*, seconds, ...)</code>, everything after <code>*</code> must be supplied by keyword, so <code>duration(20)</code> is illegal.</p>
+</details>
+<details class="question"><summary>[HIGH] 6. <code>*</code> and <code>**</code> Unpacking Still Must Match the Signature</summary>
+<p>Source: Part 4 p. 102.</p>
+<p>Question type: output/trace and exact error.</p>
+<pre><code>def f(a, b, c=0, *, scale=1):
+    return (a + b + c) * scale
+
+args = [1, 2]
+opts = {&quot;c&quot;: 3, &quot;scale&quot;: 10}
+
+print(f(*args, **opts))
+print(f(1, *[2], b=9))</code></pre>
+<p>Answer:</p>
+<pre><code>60
+TypeError: f() got multiple values for argument &#x27;b&#x27;</code></pre>
+<p>Why: <code>*args</code> fills <code>a=1</code> and <code>b=2</code>; <code>**opts</code> fills <code>c=3</code> and keyword-only <code>scale=10</code>. The second call also fills <code>b</code> positionally from <code>*[2]</code>, then tries to fill <code>b</code> again by keyword.</p>
+</details>
+<details class="question"><summary>[MID] 7. Annotations and Docstrings Are Metadata, Not Runtime Checks</summary>
+<p>Source: Part 4 pp. 99-100.</p>
+<p>Question type: output/trace and explain concept.</p>
+<pre><code>def twice(x: int) -&gt; int:
+    &quot;&quot;&quot;Return x twice.&quot;&quot;&quot;
+    return x + x
+
+print(twice(&quot;ha&quot;))
+print(twice.__annotations__)
+print(twice.__doc__)</code></pre>
+<p>Answer:</p>
+<pre><code>haha
+{&#x27;x&#x27;: &lt;class &#x27;int&#x27;&gt;, &#x27;return&#x27;: &lt;class &#x27;int&#x27;&gt;}
+Return x twice.</code></pre>
+<p>Why: annotations are stored in <code>__annotations__</code>; the docstring is stored in <code>__doc__</code>. Python does not use either one to enforce argument types during normal execution.</p>
+</details>
+<details class="question"><summary>[MID] 8. Named Tuple Return Values</summary>
+<p>Source: Part 4 pp. 103-104.</p>
+<p>Question type: implement small function.</p>
+<p>Implement <code>parse_value(text)</code> so all three uses below work.</p>
+<pre><code>from typing import NamedTuple
+
+class ParseResult(NamedTuple):
+    name: str
+    value: str
+
+def parse_value(text):
+    # your code here
+    pass
+
+r = parse_value(&quot;url = http://example.com&quot;)
+print(r.name)
+print(r[1])
+name, value = r
+print(name, value)</code></pre>
+<p>Answer:</p>
+<pre><code>def parse_value(text):
+    name, value = text.split(&quot;=&quot;, 1)
+    return ParseResult(name.strip(), value.strip())</code></pre>
+<p>Output:</p>
+<pre><code>url
+http://example.com
+url http://example.com</code></pre>
+<p>Why: a named tuple behaves like a tuple for unpacking and indexing, but it also exposes named fields such as <code>r.name</code> and <code>r.value</code>.</p>
+</details>
+<details class="question"><summary>[MID] 9. AST, Bytecode, and the Call Stack</summary>
+<p>Source: Part 4 pp. 105-112.</p>
+<p>Question type: explain concept.</p>
+<p>Put these events in the correct order for this code, and say which event runs the body.</p>
+<pre><code>def add(a, b):
+    return a + b
+
+result = add(2, 3)</code></pre>
+<p>Events:</p>
+<pre><code>A. Python creates a new execution frame for the call.
+B. Python parses the function definition into an AST.
+C. Python binds the name add to a function object.
+D. Python compiles the function body into bytecode.
+E. Bytecode instructions load a and b, add them, and return the value.</code></pre>
+<p>Answer:</p>
+<pre><code>B, D, C, A, E</code></pre>
+<p>Why: the <code>def</code> statement prepares the function first: parse to AST, compile to bytecode, create/bind the function object. The body does not execute until the call <code>add(2, 3)</code>, when Python creates a call frame and runs the bytecode using its stack-based virtual machine.</p>
+</details>
+<details class="question"><summary>[HIGH] 10. <code>exec</code>, <code>eval</code>, and <code>__name__ == &quot;__main__&quot;</code></summary>
+<p>Source: Part 4 pp. 115-119.</p>
+<p>Question type: exact error plus explain concept.</p>
+<p>Part A:</p>
+<pre><code>code = &quot;def triple(x):\n    return x * 3&quot;
+
+print(exec(code))
+print(triple(4))
+print(eval(&quot;triple(5)&quot;))
+try:
+    print(eval(&quot;x = 3&quot;))
+except SyntaxError as e:
+    print(type(e).__name__ + &quot;: &quot; + e.msg)</code></pre>
+<p>Answer:</p>
+<pre><code>None
+12
+15
+SyntaxError: invalid syntax</code></pre>
+<p>Why: <code>exec</code> runs statements and can create names such as <code>triple</code>, but it returns <code>None</code>. <code>eval</code> evaluates one expression and returns its value; assignment is a statement, not an expression.</p>
+<p>Part B:</p>
+<pre><code># module.py
+print(&quot;loading&quot;, __name__)
+
+def foo():
+    print(&quot;foo&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    print(&quot;direct&quot;)
+    foo()</code></pre>
+<pre><code># app.py
+import module
+module.foo()</code></pre>
+<p>If you run <code>python module.py</code>, output is:</p>
+<pre><code>loading __main__
+direct
+foo</code></pre>
+<p>If you run <code>python app.py</code>, output is:</p>
+<pre><code>loading module
+foo</code></pre>
+<p>Why: when a file is executed directly, Python sets its <code>__name__</code> to <code>&quot;__main__&quot;</code>. When the same file is imported, <code>__name__</code> is the module name, so the guarded script block does not run.</p>
+</details></section>
+<section id="advanced-part5-sets-unpacking-matrix-additions" class="topic advanced"><h2>Part 5 Sets, Unpacking, and Matrices</h2><p class="source-note">Advanced gap questions from <code>part5_sets_unpacking_matrix_additions.md</code>. OOP was intentionally left unchanged.</p><h2>Part 5 Additions: Sets, Matrix Logic, DP, and Unpacking</h2>
+<p>These are new Part 5 practice questions meant to fill gaps not already covered by the current functions/references drill. Source page references use the Part 5 PDF&#x27;s printed page number when visible, with the extracted page in parentheses.</p>
+<h3>Questions</h3>
+<details class="question"><summary>[HIGH] 1. Set methods: exact output and exact errors</summary>
+<p>Source: Part 5 PDF p. 111 (extracted page 2).</p>
+<pre><code>s = {1, 2, 3}
+t = {3, 4}
+print(sorted(s &amp; t))
+print(sorted(s | t))
+print(sorted(s - t))
+print(s.remove(2))
+print(2 in s, len(s))
+print(s.discard(9))
+print(9 in s, len(s))
+s.remove(9)
+print(&quot;done&quot;)</code></pre>
+<p>What is the exact output/error? Then answer: if the last <code>remove</code> is replaced by <code>s.pop()</code> after <code>s.clear()</code>, what error is raised?</p>
+<p>Answer:</p>
+<pre><code>[3]
+[1, 2, 3, 4]
+[1, 2]
+None
+False 2
+None
+False 2
+KeyError: 9</code></pre>
+<p>After <code>s.clear(); s.pop()</code>, Python raises:</p>
+<pre><code>KeyError: &#x27;pop from an empty set&#x27;</code></pre>
+<p>Set algebra creates new sets: <code>&amp;</code> is intersection, <code>|</code> is union, and <code>-</code> is difference. <code>remove</code> requires the element to exist. <code>discard</code> is silent when the element is absent. <code>pop</code> removes an arbitrary element, so only use it when any element is acceptable; on an empty set it raises <code>KeyError</code>.</p>
+</details>
+<details class="question"><summary>[HIGH] 2. Unique random table: choose the correct version</summary>
+<p>Source: Part 5 PDF pp. 110-112 (extracted pages 1-3).</p>
+<p>We need an <code>n</code> by <code>m</code> table filled with <code>n*m</code> unique random integers in <code>1..k</code>, and <code>k &gt; n*m</code>. Which version is correct?</p>
+<pre><code># A
+x = []
+seen = set()
+for i in range(n):
+    row = []
+    for j in range(m):
+        r = randint(1, k)
+        while r in seen:
+            r = randint(1, k)
+        seen.add(r)
+        row.append(r)
+    x.append(row)
+
+# B
+x = []
+seen = set()
+for i in range(n):
+    row = []
+    for j in range(m):
+        r = randint(1, k)
+        if r not in seen:
+            seen.add(r)
+            row.append(r)
+    x.append(row)</code></pre>
+<p>Answer: A is correct. B can make short rows because a duplicate simply gets skipped and the inner <code>for</code> still moves to the next column.</p>
+<p>Performance note: A is usually fine when <code>k</code> is much larger than <code>n*m</code>, but slows as the set fills because collisions cause repeated random draws. A deterministic high-performance version is:</p>
+<pre><code>nums = list(range(1, k + 1))
+shuffle(nums)
+x = [nums[i*m:(i+1)*m] for i in range(n)]</code></pre>
+<p>That uses more memory for <code>nums</code>, but it avoids repeated rejection attempts.</p>
+</details>
+<details class="question"><summary>[HIGH] 3. Matrix list comprehensions: column, diagonals, and dot product</summary>
+<p>Source: Part 5 PDF pp. 113-118 (extracted pages 4-8).</p>
+<p>Trace the output.</p>
+<pre><code>x = [
+    [3, 1, 4],
+    [1, 5, 9],
+    [2, 6, 5],
+]
+
+col1 = [x[j][1] for j in range(len(x))]
+d1 = sum(x[i][i] for i in range(len(x)))
+d2 = sum(x[i][len(x) - 1 - i] for i in range(len(x)))
+dot = sum(x[0][i] * col1[i] for i in range(len(x)))
+
+print(col1)
+print(d1, d2, d1 - d2)
+print(dot)</code></pre>
+<p>Answer:</p>
+<pre><code>[1, 5, 6]
+13 11 2
+32</code></pre>
+<p>The anti-diagonal index is <code>len(x) - 1 - i</code>, not <code>len(x) - i</code>. The dot product pairs positions: <code>3*1 + 1*5 + 4*6</code>.</p>
+</details>
+<details class="question"><summary>[HIGH] 4. Digit-list integers: implement <code>make_int</code> and trace <code>int_add</code></summary>
+<p>Source: Part 5 PDF pp. 118-119 (extracted pages 8-9).</p>
+<p>Implement <code>make_int(x)</code> so <code>&quot;907&quot;</code> becomes <code>[9, 0, 7]</code>. Then trace the output of this addition logic:</p>
+<pre><code>def make_int(x):
+    return [int(ch) for ch in x]
+
+def int_add(x, y):
+    if len(x) &lt; len(y):
+        x = [0] * (len(y) - len(x)) + x
+    if len(y) &lt; len(x):
+        y = [0] * (len(x) - len(y)) + y
+
+    carry = 0
+    out = []
+    for i in range(len(x) - 1, -1, -1):
+        total = x[i] + y[i] + carry
+        out.append(total % 10)
+        carry = total // 10
+    if carry:
+        out.append(carry)
+    return out[::-1]
+
+a = make_int(&quot;999&quot;)
+b = make_int(&quot;7&quot;)
+print(a, b)
+print(int_add(a, b))
+print(a, b)</code></pre>
+<p>Answer:</p>
+<pre><code>[9, 9, 9] [7]
+[1, 0, 0, 6]
+[9, 9, 9] [7]</code></pre>
+<p>The shorter list is padded by rebinding local names <code>x</code> or <code>y</code>, not by mutating <code>a</code> or <code>b</code>. The result grows by one digit because the final carry remains after the leftmost column.</p>
+</details>
+<details class="question"><summary>[HIGH] 5. Matrix multiply: choose the correct design</summary>
+<p>Source: Part 5 PDF pp. 119, 128-131 (extracted pages 9, 20-23).</p>
+<p>First, implement <code>matrix_add(X, Y)</code> for same-size square matrices. Then choose which <code>matrix_mult</code> implementation matches the definition &quot;row of A dot column of B&quot;.</p>
+<p>Answer for addition:</p>
+<pre><code>def matrix_add(X, Y):
+    return [[X[i][j] + Y[i][j] for j in range(len(X))]
+            for i in range(len(X))]</code></pre>
+<pre><code># A
+def matrix_mult(A, B):
+    dot = lambda r, c: sum(r[i] * c[i] for i in range(len(r)))
+    return [[dot(ri, cj) for cj in zip(*B)] for ri in A]
+
+# B
+def matrix_mult(A, B):
+    return [[A[i][j] * B[i][j] for j in range(len(B[0]))]
+            for i in range(len(A))]</code></pre>
+<p>Then trace version A:</p>
+<pre><code>A = [[1, 2, 3],
+     [4, 5, 6]]
+B = [[7, 8],
+     [9, 10],
+     [11, 12]]
+print(matrix_mult(A, B))
+print(list(zip(*B)))</code></pre>
+<p>Answer:</p>
+<pre><code>[[58, 64], [139, 154]]
+[(7, 9, 11), (8, 10, 12)]</code></pre>
+<p>A is correct. B is element-by-element multiplication, not matrix multiplication. <code>zip(*B)</code> turns B&#x27;s columns into tuples, so each output cell is one dot product.</p>
+</details>
+<details class="question"><summary>[MID] 6. Saddle point: implement and explain the scan</summary>
+<p>Source: Part 5 PDF p. 119 (extracted page 10).</p>
+<p>A saddle point is the minimum in its row and maximum in its column. Implement <code>saddle(x)</code> returning <code>(value, row, col)</code> or <code>&quot;not found&quot;</code>. Then give the result for the table below.</p>
+<pre><code>x = [
+    [4, 2, 5],
+    [3, 1, 6],
+    [7, 0, 8],
+]</code></pre>
+<p>Answer:</p>
+<pre><code>def saddle(x):
+    n = len(x)
+    for i in range(n):
+        row_min = min(x[i])
+        for j in range(n):
+            if x[i][j] == row_min:
+                col = [x[r][j] for r in range(n)]
+                if x[i][j] == max(col):
+                    return (x[i][j], i, j)
+    return &quot;not found&quot;</code></pre>
+<p>Result:</p>
+<pre><code>(2, 0, 1)</code></pre>
+<p><code>2</code> is the smallest value in row <code>0</code>, and column <code>1</code> is <code>[2, 1, 0]</code>, so <code>2</code> is also the largest value in that column.</p>
+</details>
+<details class="question"><summary>[HIGH] 7. Robot paths: DP table versus recursion</summary>
+<p>Source: Part 5 PDF pp. 120-121 (extracted page 11).</p>
+<p>For an <code>n</code> by <code>n</code> grid, a robot starts at upper left and can only move right or down. Trace the printed table and result for <code>n = 4</code>.</p>
+<pre><code>n = 4
+a = [[0] * n for _ in range(n)]
+for i in range(n):
+    a[i][0] = 1
+    a[0][i] = 1
+for i in range(1, n):
+    for j in range(1, n):
+        a[i][j] = a[i - 1][j] + a[i][j - 1]
+print(a)
+print(a[n - 1][n - 1])</code></pre>
+<p>Answer:</p>
+<pre><code>[[1, 1, 1, 1], [1, 2, 3, 4], [1, 3, 6, 10], [1, 4, 10, 20]]
+20</code></pre>
+<p>Each cell counts paths from above plus paths from the left. The plain recursive version computes the same recurrence, but repeats subproblems many times. The DP table stores each subproblem once, so it is much faster and also shows the intermediate counts.</p>
+</details>
+<details class="question"><summary>[HIGH] 8. Base-8 generation, permutations, and diagonal sets</summary>
+<p>Source: Part 5 PDF pp. 120-122 (extracted pages 12-14).</p>
+<p>Part A: Write <code>get_num(n)</code> returning the 8-digit base-8 representation of decimal <code>n</code> as a list of digits. Trace <code>get_num(65)</code>.</p>
+<p>Part B: Explain why this eight queens test finds diagonal conflicts:</p>
+<pre><code>col = [0,1,2,3,4,5,6,7]
+8 == len(set(vec[i] + i for i in col)) == len(set(vec[i] - i for i in col))</code></pre>
+<p>Answer:</p>
+<pre><code>def get_num(n):
+    out = [0] * 8
+    for i in range(7, -1, -1):
+        out[i] = n % 8
+        n //= 8
+    return out</code></pre>
+<pre><code>get_num(65) -&gt; [0, 0, 0, 0, 0, 1, 0, 1]</code></pre>
+<p>For queens, a permutation already guarantees one queen per row and one per column if <code>i</code> is the row and <code>vec[i]</code> is the column. Queens share one diagonal when <code>row + col</code> matches, and they share the other diagonal when <code>col - row</code> matches. The two sets must both have length <code>8</code>; any duplicate means a diagonal conflict.</p>
+</details>
+<details class="question"><summary>[MID] 9. Starred and nested unpacking: trace and exact error</summary>
+<p>Source: Part 5 PDF pp. 123-126 (extracted pages 15-18).</p>
+<p>Trace the output/error.</p>
+<pre><code>a, *body, c = range(5)
+print(a, body, c)
+
+record = (&quot;Tokyo&quot;, &quot;JP&quot;, 36.933, (35.689722, 139.691667))
+name, _, pop, (lat, lon) = record
+print(name, pop, round(lon, 2))
+
+x, *mid, y, z = [10, 20]
+print(x, mid, y, z)</code></pre>
+<p>Answer:</p>
+<pre><code>0 [1, 2, 3] 4
+Tokyo 36.933 139.69
+ValueError: not enough values to unpack (expected at least 3, got 2)</code></pre>
+<p>The starred target collects excess items into a list, but the non-starred targets still need enough values. In the last assignment, <code>x</code>, <code>y</code>, and <code>z</code> require three values before <code>mid</code> can collect extras.</p>
+</details>
+<details class="question"><summary>[MID] 10. <code>zip(*B)</code> transpose and <code>dict(zip(keys, values))</code></summary>
+<p>Source: Part 5 PDF pp. 127-129 (extracted pages 19-21).</p>
+<p>Trace the output.</p>
+<pre><code>B = [[1, 2, 3],
+     [4, 5, 6]]
+print(list(zip(*B)))
+print([list(group) for group in zip(*B)])
+
+keys = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+values = [10, 20]
+print(dict(zip(keys, values)))</code></pre>
+<p>Answer:</p>
+<pre><code>[(1, 4), (2, 5), (3, 6)]
+[[1, 4], [2, 5], [3, 6]]
+{&#x27;a&#x27;: 10, &#x27;b&#x27;: 20}</code></pre>
+<p><code>zip(*B)</code> passes each row as a separate argument to <code>zip</code>, so it groups column positions. <code>zip</code> produces tuples and stops at the shortest input; that is why key <code>&quot;c&quot;</code> is dropped when building the dictionary.</p>
+</details></section>
+<section id="advanced-dicts-data-additions" class="topic advanced"><h2>Dictionary Data Problems</h2><p class="source-note">Advanced gap questions from <code>dicts_data_additions.md</code>. OOP was intentionally left unchanged.</p><h2>Dictionary and Data Additions from the Chart PDF</h2>
+<p>These questions are new angles from <code>introduction-to-programming-with-chart</code>, not replacements for the existing dictionary/set/chart drills.</p>
+<details class="question"><summary>[HIGH] 1. Counter methods vs Counter arithmetic</summary>
+<p>Source: chart PDF pp. 7-9.</p>
+<p>Trace this exactly:</p>
+<pre><code>from collections import Counter
+
+c1 = Counter(&quot;abracadabra&quot;)
+c2 = Counter(&quot;barb&quot;)
+
+print(c1.most_common(3))
+print(list(c2.elements()))
+print(c1 - c2)
+print(c1.subtract(c2))
+print(c1)
+print(list(c1.elements()))
+print(+c1)</code></pre>
+<p>Answer:</p>
+<pre><code>[(&#x27;a&#x27;, 5), (&#x27;b&#x27;, 2), (&#x27;r&#x27;, 2)]
+[&#x27;b&#x27;, &#x27;b&#x27;, &#x27;a&#x27;, &#x27;r&#x27;]
+Counter({&#x27;a&#x27;: 4, &#x27;r&#x27;: 1, &#x27;c&#x27;: 1, &#x27;d&#x27;: 1})
+None
+Counter({&#x27;a&#x27;: 4, &#x27;r&#x27;: 1, &#x27;c&#x27;: 1, &#x27;d&#x27;: 1, &#x27;b&#x27;: 0})
+[&#x27;a&#x27;, &#x27;a&#x27;, &#x27;a&#x27;, &#x27;a&#x27;, &#x27;r&#x27;, &#x27;c&#x27;, &#x27;d&#x27;]
+Counter({&#x27;a&#x27;: 4, &#x27;r&#x27;: 1, &#x27;c&#x27;: 1, &#x27;d&#x27;: 1})</code></pre>
+<p>Why: <code>c1 - c2</code> returns a new Counter and drops zero/negative counts. <code>subtract</code> mutates in place and returns <code>None</code>. <code>elements()</code> repeats only positive-count elements. <code>most_common(3)</code> uses count order, with ties following first-seen order.</p>
+</details>
+<details class="question"><summary>[HIGH] 2. Dict comprehension for nth primes</summary>
+<p>Source: chart PDF p. 14.</p>
+<p>Implement <code>first_k_prime_map(k)</code> so it returns <code>{1: 2, 2: 3, 3: 5, ...}</code> for the first <code>k</code> primes, and the final dictionary construction must be a dictionary comprehension. <code>k</code> is already given and must not be requested inside the comprehension.</p>
+<p>Answer:</p>
+<pre><code>def is_prime(n):
+    if n &lt; 2:
+        return False
+    for factor in range(2, int(n ** 0.5) + 1):
+        if n % factor == 0:
+            return False
+    return True
+
+
+def first_k_prime_map(k):
+    primes = []
+    candidate = 2
+    while len(primes) &lt; k:
+        if is_prime(candidate):
+            primes.append(candidate)
+        candidate += 1
+    return {index + 1: prime for index, prime in enumerate(primes)}</code></pre>
+<p>Check:</p>
+<pre><code>print(first_k_prime_map(6))</code></pre>
+<pre><code>{1: 2, 2: 3, 3: 5, 4: 7, 5: 11, 6: 13}</code></pre>
+<p>Why: the comprehension maps an index to an already-computed prime. Do not hide an input call or an unbounded prime search inside the comprehension.</p>
+</details>
+<details class="question"><summary>[MID] 3. OrderedDict vs normal dict: what is the real reason?</summary>
+<p>Source: chart PDF pp. 13-14.</p>
+<p>Explain which data structure you would choose for each case:</p>
+<p>1. A Python 3.11 script builds <code>interval_counts</code> in order and immediately calls <code>plt.bar(interval_counts.keys(), interval_counts.values())</code>. 2. A library must preserve insertion order on older Python versions too. 3. You need to move a recently used key to the end after lookup.</p>
+<p>Answer:</p>
+<p>1. Use a normal <code>dict</code>. Modern Python preserves insertion order, and keys/values views iterate in the same dictionary order. 2. Use <code>collections.OrderedDict</code> if old-version compatibility is a requirement. 3. Use <code>OrderedDict</code> because it has order-manipulation methods such as <code>move_to_end</code>.</p>
+<p>Why: <code>OrderedDict</code> is not just &quot;a dict that remembers order&quot; anymore. In modern Python, normal dicts remember insertion order too; <code>OrderedDict</code> matters when compatibility or explicit order operations are part of the requirement.</p>
+</details>
+<details class="question"><summary>[HIGH] 4. <code>**kwargs</code>, <code>list(c.items())</code>, and a tuple key</summary>
+<p>Source: chart PDF pp. 17-19.</p>
+<p>Trace this:</p>
+<pre><code>def z(a, *b, **c):
+    print(type(a), type(b), type(c))
+    print(a, b[1], c, sep=&quot;\n&quot;)
+    print(len(c), list(c.items()))
+    g = list(c.items())
+    c[g[0]] = 156
+    print(list(c.items()))
+    d = [i for i in c.keys()]
+    print(c[d[0]])
+    print(c[list(c)[0]])
+    for i in iter(c):
+        print(i)
+
+z(12, 3, 4, 5, k=87, l=19)</code></pre>
+<p>Answer:</p>
+<pre><code>&lt;class &#x27;int&#x27;&gt; &lt;class &#x27;tuple&#x27;&gt; &lt;class &#x27;dict&#x27;&gt;
+12
+4
+{&#x27;k&#x27;: 87, &#x27;l&#x27;: 19}
+2 [(&#x27;k&#x27;, 87), (&#x27;l&#x27;, 19)]
+[(&#x27;k&#x27;, 87), (&#x27;l&#x27;, 19), ((&#x27;k&#x27;, 87), 156)]
+87
+87
+k
+l
+(&#x27;k&#x27;, 87)</code></pre>
+<p>Why: <code>*b</code> captures extra positional arguments as a tuple, and <code>**c</code> captures keyword arguments as a dict. <code>g[0]</code> is the tuple <code>(&#x27;k&#x27;, 87)</code>, which is hashable, so it can become a new key in <code>c</code>. Iterating over a dict gives keys.</p>
+</details>
+<details class="question"><summary>[HIGH] 5. Scrabble signature dictionary</summary>
+<p>Source: chart PDF pp. 20-22.</p>
+<p>Implement the core dictionary for a six-letter Scrabble descrambler. Given a list of words, build a dictionary where the key is the sorted-letter signature and the value is a list of all words with that signature. Then return matches for a rack.</p>
+<pre><code>words = [&quot;REACTN&quot;, &quot;CRETAN&quot;, &quot;TRANCE&quot;, &quot;PYTHON&quot;, &quot;THINGY&quot;]
+print(signature(&quot;ACENRT&quot;))
+print(build_scrabble_dict(words))
+print(find_words(&quot;ACENRT&quot;, words))</code></pre>
+<p>Answer:</p>
+<pre><code>def signature(word):
+    return &quot;&quot;.join(sorted(word.upper()))
+
+
+def build_scrabble_dict(words):
+    d = {}
+    for word in words:
+        sig = signature(word)
+        if sig not in d:
+            d[sig] = []
+        d[sig].append(word)
+    return d
+
+
+def find_words(rack, words):
+    d = build_scrabble_dict(words)
+    return d.get(signature(rack), [])</code></pre>
+<p>Exact output:</p>
+<pre><code>ACENRT
+{&#x27;ACENRT&#x27;: [&#x27;REACTN&#x27;, &#x27;CRETAN&#x27;, &#x27;TRANCE&#x27;], &#x27;HNOPTY&#x27;: [&#x27;PYTHON&#x27;], &#x27;GHINTY&#x27;: [&#x27;THINGY&#x27;]}
+[&#x27;REACTN&#x27;, &#x27;CRETAN&#x27;, &#x27;TRANCE&#x27;]</code></pre>
+<p>Why: anagrams share the same sorted-letter signature. The dictionary key should be the signature, not the original word.</p>
+</details>
+<details class="question"><summary>[MID] 6. Pickle dump/load modes and object reconstruction</summary>
+<p>Source: chart PDF pp. 21-22.</p>
+<p>Fix the bug and explain what gets reconstructed:</p>
+<pre><code>import pickle
+
+d = {&quot;ACENRT&quot;: [&quot;CRETAN&quot;, &quot;TRANCE&quot;]}
+
+with open(&quot;slwords&quot;, &quot;w&quot;) as f:
+    pickle.dump(d, f)
+
+with open(&quot;slwords&quot;, &quot;r&quot;) as f:
+    restored = pickle.load(f)</code></pre>
+<p>Answer:</p>
+<pre><code>import pickle
+
+d = {&quot;ACENRT&quot;: [&quot;CRETAN&quot;, &quot;TRANCE&quot;]}
+
+with open(&quot;slwords&quot;, &quot;wb&quot;) as f:
+    pickle.dump(d, f)
+
+with open(&quot;slwords&quot;, &quot;rb&quot;) as f:
+    restored = pickle.load(f)</code></pre>
+<p>Why: pickle uses a binary format, so the file must be opened with <code>wb</code> for dumping and <code>rb</code> for loading. <code>pickle.load</code> reconstructs a new Python object with the same nested structure and values. It is not the same object identity as the original in memory.</p>
+<p>Exact identity check:</p>
+<pre><code>print(restored == d)
+print(restored is d)</code></pre>
+<pre><code>True
+False</code></pre>
+</details>
+<details class="question"><summary>[HIGH] 7. Inverted index with defaultdict and squish</summary>
+<p>Source: chart PDF pp. 23-28.</p>
+<p>Implement an inverted index for these lines. The value for each word should store total count and squished line numbers as <code>(line, count_on_that_line)</code> pairs.</p>
+<pre><code>lines = [
+    &quot;Cat cat dog&quot;,
+    &quot;dog bird&quot;,
+    &quot;cat dog dog&quot;,
+]
+print(build_inverted_index(lines)[&quot;cat&quot;])
+print(build_inverted_index(lines)[&quot;dog&quot;])</code></pre>
+<p>Answer:</p>
+<pre><code>from collections import defaultdict
+
+
+def clean(text):
+    exclude = {&quot;.&quot;, &quot;,&quot;, &quot;-&quot;}
+    return &quot;&quot;.join(ch for ch in text.lower() if ch not in exclude)
+
+
+def squish(nums):
+    if not nums:
+        return []
+    result = []
+    current = nums[0]
+    count = 1
+    for number in nums[1:] + [None]:
+        if number == current:
+            count += 1
+        else:
+            result.append((current, count))
+            current = number
+            count = 1
+    return result
+
+
+def build_inverted_index(lines):
+    index = defaultdict(lambda: {&quot;count&quot;: 0, &quot;lines&quot;: []})
+    for line_number, line in enumerate(lines, 1):
+        for word in clean(line).split():
+            entry = index[word]
+            entry[&quot;count&quot;] += 1
+            entry[&quot;lines&quot;].append(line_number)
+    for data in index.values():
+        data[&quot;lines&quot;] = squish(sorted(data[&quot;lines&quot;]))
+    return index</code></pre>
+<p>Exact output:</p>
+<pre><code>{&#x27;count&#x27;: 3, &#x27;lines&#x27;: [(1, 2), (3, 1)]}
+{&#x27;count&#x27;: 4, &#x27;lines&#x27;: [(1, 1), (2, 1), (3, 2)]}</code></pre>
+<p>Why: <code>defaultdict</code> removes the repeated &quot;if word not in index&quot; setup. <code>squish</code> compresses repeated line numbers after sorting, so multiple occurrences on one line become one <code>(line, count)</code> pair.</p>
+</details>
+<details class="question"><summary>[MID] 8. <code>groupby</code> squish bug when input is unsorted</summary>
+<p>Source: chart PDF pp. 24-25 and pp. 33-34.</p>
+<p>Trace the bug and then fix it:</p>
+<pre><code>from itertools import groupby
+
+def squish_with_groupby(nums):
+    return [(key, len(list(group))) for key, group in groupby(nums)]
+
+line_numbers = [4, 6, 4, 4, 6, 8, 8]
+print(squish_with_groupby(line_numbers))
+print(squish_with_groupby(sorted(line_numbers)))</code></pre>
+<p>Answer:</p>
+<pre><code>[(4, 1), (6, 1), (4, 2), (6, 1), (8, 2)]
+[(4, 3), (6, 2), (8, 2)]</code></pre>
+<p>Why: <code>groupby</code> only groups consecutive equal values. For an inverted index, if line numbers might arrive out of order, sort first. For already sequential file reading, repeated line numbers for a word usually appear in line-number order, but the safe general rule is: sort before <code>groupby</code> when you want all equal keys combined.</p>
+</details>
+<details class="question"><summary>[MID] 9. Chart labels and values can silently misalign</summary>
+<p>Source: chart PDF pp. 31-34.</p>
+<p>Fix the bug. The labels are sorted, but the bar heights still come from the original insertion order.</p>
+<pre><code>interval_counts = {&quot;91-100&quot;: 2, &quot;1-10&quot;: 1, &quot;11-20&quot;: 3}
+
+labels = sorted(interval_counts)
+heights = list(interval_counts.values())
+
+print(labels)
+print(heights)</code></pre>
+<p>Buggy output:</p>
+<pre><code>[&#x27;1-10&#x27;, &#x27;11-20&#x27;, &#x27;91-100&#x27;]
+[2, 1, 3]</code></pre>
+<p>Correct answer:</p>
+<pre><code>labels = sorted(interval_counts, key=lambda label: int(label.split(&quot;-&quot;)[0]))
+heights = [interval_counts[label] for label in labels]
+
+print(labels)
+print(heights)</code></pre>
+<p>Correct output:</p>
+<pre><code>[&#x27;1-10&#x27;, &#x27;11-20&#x27;, &#x27;91-100&#x27;]
+[1, 3, 2]</code></pre>
+<p>Why: <code>dict.keys()</code> and <code>dict.values()</code> line up only when both views come from the same dictionary order. Once you sort or otherwise reorder the keys, build values from those exact labels.</p>
+</details></section>
+<section id="advanced-generators-design-additions" class="topic advanced"><h2>Generator Design Problems</h2><p class="source-note">Advanced gap questions from <code>generators_design_additions.md</code>. OOP was intentionally left unchanged.</p><h2>Generator Design Additions</h2>
+<p>These questions are from the generators PDF only and avoid repeating the existing lazy-execution, one-use, <code>send</code>, mutation, and <code>return</code> drills already in <code>generators.md</code>.</p>
+<details class="question"><summary>[HIGH] 1. Finite even-number generator with no global state</summary>
+<p>Source: generators PDF pp. 2-5.</p>
+<p>Implement a generator that produces the positive even integers less than 10. Then trace the exact behavior below.</p>
+<pre><code>def evens_under_10():
+    # fill in
+    pass
+
+g = evens_under_10()
+print(next(g))
+print(next(g))
+print(list(g))
+try:
+    print(next(g))
+except StopIteration:
+    print(&quot;done&quot;)</code></pre>
+<p>Answer:</p>
+<pre><code>def evens_under_10():
+    n = 2
+    while n &lt; 10:
+        yield n
+        n += 2</code></pre>
+<p>Exact output:</p>
+<pre><code>2
+4
+[6, 8]
+done</code></pre>
+<p>Why: <code>n</code> is a local variable stored inside the suspended generator frame. No global variable is needed. <code>list(g)</code> consumes the remaining values until <code>StopIteration</code>, catches that exception internally, and returns <code>[6, 8]</code>. A later manual <code>next(g)</code> exposes the exhaustion as <code>StopIteration</code>.</p>
+</details>
+<details class="question"><summary>[HIGH] 2. Infinite prime generator and <code>i -&gt; ith prime</code> dictionary</summary>
+<p>Source: generators PDF pp. 5-6.</p>
+<p>Write <code>gen_primes()</code> so each <code>next()</code> returns the next prime. Then implement <code>prime_dict(n)</code> so <code>d[i]</code> maps to the ith prime for <code>i</code> from <code>1</code> to <code>n</code>.</p>
+<pre><code>def gen_primes():
+    # fill in
+    pass
+
+def prime_dict(n):
+    # fill in using a dictionary comprehension
+    pass
+
+print(prime_dict(6))</code></pre>
+<p>Answer:</p>
+<pre><code>def is_prime(x):
+    if x &lt; 2:
+        return False
+    d = 2
+    while d * d &lt;= x:
+        if x % d == 0:
+            return False
+        d += 1
+    return True
+
+def gen_primes():
+    candidate = 2
+    while True:
+        if is_prime(candidate):
+            yield candidate
+        candidate += 1
+
+def prime_dict(n):
+    primes = gen_primes()
+    return {i: next(primes) for i in range(1, n + 1)}</code></pre>
+<p>Exact output:</p>
+<pre><code>{1: 2, 2: 3, 3: 5, 4: 7, 5: 11, 6: 13}</code></pre>
+<p>Why: the dictionary comprehension is the consumer. Each iteration calls <code>next(primes)</code> exactly once, so one shared generator object advances through the prime stream. Do not call <code>gen_primes()</code> inside the comprehension value, or every key would start from the first prime again.</p>
+</details>
+<details class="question"><summary>[HIGH] 3. Sensor monitor with warning and exact <code>return</code> behavior</summary>
+<p>Source: generators PDF pp. 8-12.</p>
+<p>Modify <code>sensor_monitor(states, n)</code> so it yields the gap every time a <code>1</code> arrives, but if the gap becomes larger than <code>n</code>, it returns <code>&quot;WARNING&quot;</code>. Trace the exact output.</p>
+<pre><code>def sensor_monitor(states, n):
+    # fill in
+    pass
+
+g = sensor_monitor([1, 0, 0, 1, 0, 0, 0, 1], 2)
+try:
+    while True:
+        print(next(g))
+except StopIteration as e:
+    print(&quot;stopped:&quot;, e.value)</code></pre>
+<p>Answer:</p>
+<pre><code>def sensor_monitor(states, n):
+    gap = 0
+    for state in states:
+        if state == 1:
+            yield gap
+            gap = 0
+        else:
+            gap += 1
+            if gap &gt; n:
+                return &quot;WARNING&quot;</code></pre>
+<p>Exact output:</p>
+<pre><code>0
+2
+stopped: WARNING</code></pre>
+<p>Why: the first <code>1</code> yields <code>0</code>. The next two zeros make <code>gap == 2</code>; the next <code>1</code> yields <code>2</code> and resets. Then three zeros make <code>gap == 3</code>, which is larger than <code>n</code>, so the generator returns. Manual <code>next()</code> sees that return value as <code>StopIteration.value</code>; a <code>for</code> loop or <code>list()</code> would hide it.</p>
+</details>
+<details class="question"><summary>[MID] 4. Leap-year generator: implement and trace partial consumption</summary>
+<p>Source: generators PDF p. 6.</p>
+<p>Write a generator that yields leap years starting at a given year. Use the standard rule: divisible by 4, except divisible by 100 unless also divisible by 400.</p>
+<pre><code>def leap_years(start):
+    # fill in
+    pass
+
+g = leap_years(1896)
+print([next(g) for _ in range(5)])
+print(next(g))</code></pre>
+<p>Answer:</p>
+<pre><code>def is_leap(year):
+    return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+
+def leap_years(start):
+    year = start
+    while True:
+        if is_leap(year):
+            yield year
+        year += 1</code></pre>
+<p>Exact output:</p>
+<pre><code>[1896, 1904, 1908, 1912, 1916]
+1920</code></pre>
+<p>Why: <code>1900</code> is skipped because it is divisible by <code>100</code> but not by <code>400</code>. The list comprehension is a consumer that calls <code>next(g)</code> five times and leaves the same generator positioned after <code>1916</code>.</p>
+</details>
+<details class="question"><summary>[MID] 5. Octal-string generator without using <code>oct()</code></summary>
+<p>Source: generators PDF p. 7.</p>
+<p>Implement <code>get_oct()</code> so it yields <code>&quot;0&quot;</code>, <code>&quot;1&quot;</code>, ..., <code>&quot;7&quot;</code>, <code>&quot;10&quot;</code>, ..., <code>&quot;20&quot;</code> as strings. Do not use Python&#x27;s <code>oct()</code> function.</p>
+<pre><code>def get_oct():
+    # fill in
+    pass
+
+g = get_oct()
+for _ in range(17):
+    value = next(g)
+print(value)
+print(next(g))</code></pre>
+<p>Answer:</p>
+<pre><code>def to_octal_string(n):
+    if n == 0:
+        return &quot;0&quot;
+    digits = &quot;&quot;
+    while n &gt; 0:
+        digits = str(n % 8) + digits
+        n //= 8
+    return digits
+
+def get_oct():
+    n = 0
+    while True:
+        yield to_octal_string(n)
+        n += 1</code></pre>
+<p>Exact output:</p>
+<pre><code>20
+21</code></pre>
+<p>Why: the loop calls <code>next(g)</code> 17 times, so <code>value</code> ends as the octal representation of decimal <code>16</code>, which is <code>&quot;20&quot;</code>. The following <code>next(g)</code> advances to decimal <code>17</code>, which is <code>&quot;21&quot;</code>.</p>
+</details>
+<details class="question"><summary>[MID] 6. Fibonacci generator state bug fix</summary>
+<p>Source: generators PDF p. 7.</p>
+<p>The intended output is <code>0, 1, 1, 2, 3, 5</code>. What is wrong, and how should it be fixed?</p>
+<pre><code>def fib():
+    a = 0
+    b = 1
+    while True:
+        yield a
+        a = b
+        b = a + b
+
+g = fib()
+print([next(g) for _ in range(6)])</code></pre>
+<p>Answer:</p>
+<pre><code>def fib():
+    a = 0
+    b = 1
+    while True:
+        yield a
+        a, b = b, a + b</code></pre>
+<p>Exact output:</p>
+<pre><code>[0, 1, 1, 2, 3, 5]</code></pre>
+<p>Why: in the broken version, <code>a = b</code> runs before <code>b = a + b</code>, so the second assignment uses the already-changed <code>a</code>. Tuple assignment computes the right side first from the old values, then updates both names together.</p>
+</details>
+<details class="question"><summary>[HIGH] 7. Iterator protocol class versus generator function</summary>
+<p>Source: generators PDF pp. 2-4, 13-14.</p>
+<p>Build a restartable countdown object. Each new <code>for</code> loop over the same object should start again from the original number.</p>
+<pre><code>class Countdown:
+    def __init__(self, start):
+        self.start = start
+
+    def __iter__(self):
+        # fill in
+        pass
+
+c = Countdown(3)
+print(list(c))
+print(list(c))</code></pre>
+<p>Answer:</p>
+<pre><code>class Countdown:
+    def __init__(self, start):
+        self.start = start
+
+    def __iter__(self):
+        n = self.start
+        while n &gt; 0:
+            yield n
+            n -= 1</code></pre>
+<p>Exact output:</p>
+<pre><code>[3, 2, 1]
+[3, 2, 1]</code></pre>
+<p>Why: <code>Countdown</code> is an iterable. Its <code>__iter__</code> method creates a fresh generator each time iteration starts. That is different from a generator object, whose <code>__iter__()</code> returns itself and therefore cannot restart after exhaustion. If writing a manual iterator instead, <code>__iter__</code> returns <code>self</code> and <code>__next__</code> must either return the next value or raise <code>StopIteration</code>.</p>
+</details>
+<details class="question"><summary>[MID] 8. Same sum, different memory model</summary>
+<p>Source: generators PDF pp. 1-2, 9-10.</p>
+<p>All three lines print <code>15</code>. Explain what each one stores or streams, and identify which object consumes the values.</p>
+<pre><code>print(sum([1, 2, 3, 4, 5]))
+print(sum(range(1, 6)))
+print(sum(i for i in range(1, 6)))</code></pre>
+<p>Answer:</p>
+<pre><code>15
+15
+15</code></pre>
+<p>Memory model:</p>
+<ul>
+<li><code>[1, 2, 3, 4, 5]</code> builds a list object containing all five integers before <code>sum</code> starts.</li>
+<li><code>range(1, 6)</code> builds a compact range object that can produce the integers without storing a list of them.</li>
+<li><code>(i for i in range(1, 6))</code> builds a generator object. It asks the range iterator for one value at a time and yields one value at a time.</li>
+</ul>
+<p>Consumer rule: <code>sum(...)</code> is the consumer in all three cases. Like <code>list(...)</code>, it repeatedly calls <code>next()</code> on the iterable&#x27;s iterator until <code>StopIteration</code>. The difference is that <code>list(...)</code> stores all produced values, while <code>sum(...)</code> combines them and keeps only the running total.</p>
+</details>
+<details class="question"><summary>[LOW] 9. Serial-number generator boundary trace</summary>
+<p>Source: generators PDF p. 7.</p>
+<p>Implement a generator for serial numbers from <code>AA00000000</code> through <code>ZZ99999999</code>. Then trace the boundary around the first prefix change.</p>
+<pre><code>def serial_numbers():
+    # fill in
+    pass
+
+g = serial_numbers()
+last = None
+for _ in range(100000001):
+    last = next(g)
+print(last)
+print(next(g))</code></pre>
+<p>Answer:</p>
+<pre><code>def serial_numbers():
+    for first in &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;:
+        for second in &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;:
+            prefix = first + second
+            for number in range(100000000):
+                yield prefix + str(number).zfill(8)</code></pre>
+<p>Exact output:</p>
+<pre><code>AB00000000
+AB00000001</code></pre>
+<p>Why: the first <code>100000000</code> values are <code>AA00000000</code> through <code>AA99999999</code>. The <code>100000001</code>st call returns the first <code>AB</code> value, so <code>last</code> is <code>AB00000000</code>; the next call returns <code>AB00000001</code>. The generator does not build all serial numbers in memory.</p>
+</details></section>
+<section id="advanced-decorators-additions" class="topic advanced"><h2>Decorator Design Problems</h2><p class="source-note">Advanced gap questions from <code>decorators_additions.md</code>. OOP was intentionally left unchanged.</p><h2>Decorators Additions: PDF-Only Gap Drills</h2>
+<p>These are new high-value practice questions from the decorators PDF. They avoid repeating the main drill&#x27;s basic decorator-definition, simple metadata, stacking, and recursive-timer examples.</p>
+<h3>Questions</h3>
+<details class="question"><summary>[HIGH] 1. Implement a metadata-safe logging decorator</summary>
+<p>Source: decorators PDF pages 3-6.</p>
+<p>Write <code>log_function_call</code> so this code preserves the return value, forwards any positional/keyword arguments, and keeps the decorated function&#x27;s metadata.</p>
+<pre><code>import functools
+
+def log_function_call(func):
+    # fill this in
+    pass
+
+@log_function_call
+def add_numbers(x, y):
+    &quot;&quot;&quot;add two numbers&quot;&quot;&quot;
+    return x + y
+
+print(add_numbers(2, 3))
+print(add_numbers.__name__)
+print(add_numbers.__doc__)
+print(add_numbers.__wrapped__(2, 3))</code></pre>
+<p>One correct solution:</p>
+<pre><code>def log_function_call(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        print(f&quot;Calling function {func.__name__}&quot;)
+        result = func(*args, **kwargs)
+        print(f&quot;Finished calling function {func.__name__}&quot;)
+        return result
+    return wrapper</code></pre>
+<p>Exact output:</p>
+<pre><code>Calling function add_numbers
+Finished calling function add_numbers
+5
+add_numbers
+add two numbers
+5</code></pre>
+<p>Why: <code>*args, **kwargs</code> makes the wrapper work for any call shape. <code>return result</code> preserves the original function&#x27;s value. <code>functools.wraps(func)</code> copies metadata and creates <code>__wrapped__</code>.</p>
+</details>
+<details class="question"><summary>[HIGH] 2. Fix the silent return-value bug before it becomes an exact error</summary>
+<p>Source: decorators PDF pages 3-5.</p>
+<p>What is the exact output/error, and what one line fixes it?</p>
+<pre><code>def noisy(func):
+    def wrapper(*args, **kwargs):
+        print(&quot;before&quot;)
+        result = func(*args, **kwargs)
+        print(&quot;after&quot;)
+    return wrapper
+
+@noisy
+def add(x, y):
+    return x + y
+
+print(add(2, 3) * 10)</code></pre>
+<p>Exact output/error:</p>
+<pre><code>before
+after
+TypeError: unsupported operand type(s) for *: &#x27;NoneType&#x27; and &#x27;int&#x27;</code></pre>
+<p>Fix:</p>
+<pre><code>return result</code></pre>
+<p>Why: the original <code>add</code> returns <code>5</code>, but the wrapper discards it. A function with no explicit return returns <code>None</code>, so the final line becomes <code>None * 10</code>.</p>
+</details>
+<details class="question"><summary>[HIGH] 3. Exact error when the wrapper forgets <code>*args, **kwargs</code></summary>
+<p>Source: decorators PDF pages 3, 4, and 6.</p>
+<p>What exact error is raised?</p>
+<pre><code>def deco(func):
+    def wrapper():
+        return func()
+    return wrapper
+
+@deco
+def mult(x, y):
+    return x * y
+
+print(mult(2, 3))</code></pre>
+<p>Exact error:</p>
+<pre><code>TypeError: deco.&lt;locals&gt;.wrapper() takes 0 positional arguments but 2 were given</code></pre>
+<p>Why: after decoration, <code>mult</code> means <code>wrapper</code>. Python tries to pass <code>2, 3</code> into <code>wrapper</code>, but <code>wrapper</code> was defined with no parameters. The general decorator shape is <code>def wrapper(*args, **kwargs): return func(*args, **kwargs)</code>.</p>
+</details>
+<details class="question"><summary>[HIGH] 4. Decorator factory with arguments and shared dictionary state</summary>
+<p>Source: decorators PDF pages 12-13.</p>
+<p>Fill in <code>countcalls</code> so the dictionary is shared across all decorated functions.</p>
+<pre><code>def countcalls(calldict):
+    # fill this in
+    pass
+
+calls = {}
+
+@countcalls(calls)
+def add(x, y):
+    return x + y
+
+@countcalls(calls)
+def mult(x, y):
+    return x * y
+
+print(add(2, 3))
+print(mult(2, y=4))
+print(calls)</code></pre>
+<p>One correct solution:</p>
+<pre><code>def countcalls(calldict):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            calldict[func.__name__] = calldict.get(func.__name__, 0) + 1
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator</code></pre>
+<p>Exact output:</p>
+<pre><code>5
+8
+{&#x27;add&#x27;: 1, &#x27;mult&#x27;: 1}</code></pre>
+<p>Why: <code>countcalls(calls)</code> runs first and returns the real decorator. Both wrappers close over the same <code>calls</code> dictionary, so updates made by different functions accumulate in one shared object.</p>
+</details>
+<details class="question"><summary>[MID] 5. When does the decorator factory run in a definition-only file?</summary>
+<p>Source: decorators PDF pages 7-8 and 12-13.</p>
+<p>This file never calls <code>add</code> or <code>mult</code>. What is the exact output?</p>
+<pre><code>def countcalls(calldict):
+    print(&quot;factory&quot;)
+    def decorator(func):
+        print(&quot;decorate&quot;, func.__name__)
+        def wrapper(*args, **kwargs):
+            print(&quot;call&quot;, func.__name__)
+            calldict[func.__name__] = calldict.get(func.__name__, 0) + 1
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+calls = {}
+
+@countcalls(calls)
+def add(x, y):
+    return x + y
+
+@countcalls(calls)
+def mult(x, y):
+    return x * y</code></pre>
+<p>Exact output:</p>
+<pre><code>factory
+decorate add
+factory
+decorate mult</code></pre>
+<p>Why: <code>countcalls(calls)</code> and then <code>decorator(original_function)</code> run immediately after each <code>def</code>. The wrapper body does not run because neither decorated function is called.</p>
+</details>
+<details class="question"><summary>[HIGH] 6. Store the original function on the wrapper</summary>
+<p>Source: decorators PDF pages 10-11.</p>
+<p>Give the exact output.</p>
+<pre><code>def my_decorator(func):
+    def wrapper(*args, **kwargs):
+        print(&quot;decorated&quot;)
+        return func(*args, **kwargs)
+    wrapper.original = func
+    return wrapper
+
+@my_decorator
+def add(x, y):
+    print(&quot;body&quot;, x, y)
+    return x + y
+
+print(add(1, 2))
+print(add.original(1, 2))
+print(add is add.original)</code></pre>
+<p>Exact output:</p>
+<pre><code>decorated
+body 1 2
+3
+body 1 2
+3
+False</code></pre>
+<p>Why: <code>add</code> is the decorated wrapper, so <code>add(1, 2)</code> prints the extra decorator line. <code>add.original</code> is the undecorated function object saved on the wrapper, so it skips the wrapper. They are different function objects.</p>
+</details>
+<details class="question"><summary>[HIGH] 7. <code>functools.wraps</code> plus <code>__wrapped__</code> changes what you can inspect and call</summary>
+<p>Source: decorators PDF pages 5-6.</p>
+<p>Give the exact output.</p>
+<pre><code>import functools
+
+def deco(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        print(&quot;wrap&quot;)
+        return func(*args, **kwargs) + 1
+    return wrapper
+
+@deco
+def inc(x):
+    &quot;&quot;&quot;inc doc&quot;&quot;&quot;
+    return x + 1
+
+print(inc.__name__, inc.__doc__)
+print(inc(4))
+print(inc.__wrapped__(4))</code></pre>
+<p>Exact output:</p>
+<pre><code>inc inc doc
+wrap
+6
+5</code></pre>
+<p>Why: <code>wraps</code> makes the wrapper look like <code>inc</code> for metadata. Calling <code>inc(4)</code> runs the wrapper, which adds one after the original result. Calling <code>inc.__wrapped__(4)</code> calls the original function directly, so it returns only <code>5</code>.</p>
+</details>
+<details class="question"><summary>[HIGH] 8. Recursive decorated function that deliberately bypasses wrapped recursion</summary>
+<p>Source: decorators PDF pages 10, 17, and 18.</p>
+<p>Give the exact output and explain why only one timing line prints.</p>
+<pre><code>def timer(func):
+    def wrapper(n):
+        print(&quot;time&quot;, n)
+        value = func(n)
+        return &quot;T&quot; + str(n), value
+    wrapper.original = func
+    return wrapper
+
+@timer
+def fact(n):
+    if n == 0:
+        return 1
+    return n * fact.original(n - 1)
+
+print(fact(3))</code></pre>
+<p>Exact output:</p>
+<pre><code>time 3
+(&#x27;T3&#x27;, 6)</code></pre>
+<p>Why: the outer call <code>fact(3)</code> goes through the wrapper. Inside the original function body, the recursive call uses <code>fact.original</code>, so the recursion bypasses the wrapper and returns plain integers. This is the same kind of return-shape control needed when a timer decorator returns <code>(runtime, value)</code>.</p>
+</details></section>
+    
+    <section id="functools-quick-hit" class="topic">
+      <h2>functools Quick Hit</h2>
+      <p>The class PDFs explicitly use <code>functools.wraps</code>. If the exam says just "functools", these are the realistic things to recognize.</p>
+
+      <details class="question">
+        <summary>functools.wraps keeps metadata after decoration</summary>
+        <pre><code>import functools
+
+def deco(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        return func(*args, **kwargs)
+    return wrapper
+
+@deco
+def add(a, b):
+    "adds two numbers"
+    return a + b
+
+print(add.__name__)
+print(add.__doc__)</code></pre>
+        <pre><code>add
+adds two numbers</code></pre>
+        <p>Behind the scenes: without <code>@functools.wraps(func)</code>, the name <code>add</code> would point to <code>wrapper</code>, so metadata like <code>__name__</code> and <code>__doc__</code> would look like the wrapper's metadata. <code>wraps</code> copies the original metadata onto the wrapper.</p>
+      </details>
+
+      <details class="question">
+        <summary>functools.reduce consumes left to right</summary>
+        <pre><code>from functools import reduce
+
+def f(a, b):
+    print("call", a, b)
+    return a - b
+
+print(reduce(f, [10, 3, 2]))</code></pre>
+        <pre><code>call 10 3
+call 7 2
+5</code></pre>
+        <p>Behind the scenes: <code>reduce</code> keeps an accumulator. First accumulator is <code>10</code>, then it calls <code>f(10, 3)</code> and stores <code>7</code>. Then it calls <code>f(7, 2)</code> and stores <code>5</code>. This is not the same as doing all operations at once.</p>
+      </details>
+
+      <details class="question">
+        <summary>functools.partial pre-fills arguments</summary>
+        <pre><code>from functools import partial
+
+def power(base, exp):
+    return base ** exp
+
+square = partial(power, exp=2)
+print(square(5))
+print(square(base=3))</code></pre>
+        <pre><code>25
+9</code></pre>
+        <p>Behind the scenes: <code>partial</code> creates a new callable that remembers some arguments. Here it remembers <code>exp=2</code>. Calling <code>square(5)</code> is like calling <code>power(5, exp=2)</code>.</p>
+      </details>
+    </section>
+    
+  </main>
+</body>
+</html>

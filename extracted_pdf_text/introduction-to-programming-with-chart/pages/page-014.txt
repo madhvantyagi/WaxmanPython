@@ -1,0 +1,27 @@
+orange 3
+grape 4
+Dictionary comprehensions
+A compact way to process all or part of the elements in an iterable and return a dictionary with the results.
+results = {n: n ** 2 for n in range(10)} generates a dictionary containing key n
+mapped to value n ** 2.
+Problem
+Using a dictionary comprehension create a dictionary with n associated to the nth prime number for the
+first k primes. K is provided by the user and is not part of the comprehension.
+Answer
+Copying dictionaries
+To copy a dictionary in Python, you can use either the dict() constructor or the dictionary method copy().
+Here's an example of how to use the copy() method to create a shallow copy of a dictionary:
+original_dict = {'a': 1, 'b': 2, 'c': 3}
+copy_dict = original_dict.copy()
+print(original_dict) # {'a': 1, 'b': 2, 'c': 3}
+print(copy_dict) # {'a': 1, 'b': 2, 'c': 3}
+In this example, we create an original_dict with three key-value pairs. We then create a shallow copy of
+the dictionary using the copy() method, and assign it to the copy_dict variable.
+When we print both dictionaries, we see that they contain the same key-value pairs, indicating that the
+copy() method created a copy of the original dictionary.
+Note that both of these methods create a shallow copy of the dictionary, which means that any mutable
+objects (such as lists or other dictionaries) contained in the original dictionary will still be referenced by
+both the original and copied dictionaries. I
+If you want to create a deep copy of a dictionary that also copies any mutable objects contained within it,
+you can use the copy module's deepcopy() function instead.
+142

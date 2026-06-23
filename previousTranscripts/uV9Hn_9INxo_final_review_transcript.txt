@@ -1,0 +1,2508 @@
+like decorators or like dictionaries you
+have to kind of trace and see like
+what's being
+printed
+um what
+[Music]
+else you could give recursion if you
+wanted
+[Music]
+to so from your previous videos yeah
+that's the part one to five
+stuff
+yeah but obviously you can get part one
+to five stuff and a part six to eight
+question
+like part one to five stuff it contained
+like lists it contained sets things like
+that um so just know about that stuff
+too
+okay so we'll start with part
+six um would it be better if
+I give me a
+second how can I do this better all
+right I'm going to share two screens I'm
+going to
+share my computer screen and I'm also
+going to
+share my
+iPad my my computer screen will just be
+used for like any coding that we do just
+make a new file really
+quickly
+okay let me share
+all right so you don't have to join that
+yet I'll let you guys know when I start
+coding something
+up uh
+okay so you guys should honestly already
+be familiar with dictionaries I don't
+know if it's taught in 21 but I know
+it's taught
+in2 but it's just under a different name
+instead of dictionaries attach Maps
+they're the same exact thing they're key
+value they're a key value pair data
+structure think hashmap right uh and
+this is how you initialize it you can
+either a uh use the dict method or B
+just use two curly brackets
+right um and then you can also pass in a
+list of key value pairs so like let's
+say you want to pass in a list of
+tupal to the dictionary parentheses or
+parameters you can do that as well and
+it'll automatically initialize uh that
+dictionary for you okay let's go over
+some important methods and operations
+obviously you can get the length of a
+dictionary that just Returns the number
+of keys in the dictionary so that's just
+L of D assuming D is
+dictionary we have D key so D bracket
+key which Returns the value of D with
+key key and an error if not in
+dictionary right so if will we get these
+notes after yeah so if the key is not in
+the dictionary you're going to get an
+error right there's also another method
+I don't think I wrote it down here but
+there's also a get method which does the
+same thing as this um except uh you can
+put like a default value if it's not in
+the key so he doesn't ra an error um but
+you can't use that to like input to the
+tree sorry to the hashmap if you want to
+input into it you would have to use this
+one
+here for example if you want to assign a
+value to a key in the dictionary use D
+key as equal to Value so you set D key
+to
+Value um and then if you want to delete
+a key from the value you choose the Dell
+operation which removes key from
+dictionary and obviously you get an
+error if it's not another the
+dictionary
+okay now we also have key in D assuming
+D is dictionary this returns true or
+false if the key exists in the
+dictionary um and then D do CLE that
+removes everything from the dictionary
+so it just makes it
+empty I think that's a operation that
+exists for like sets and list too that's
+just something common for most data
+structures then we have d. copy d. copy
+it just returns a shallow copy of a
+hashmap but remember it's a shallow copy
+what is can anyone tell me what a
+shallow copy
+is anyone at
+all see some people
+typing oh yeah copies of values but
+what's yeah Ned objects are passed by
+reference
+correct no they they are Pointers if
+it's a nested value right so let's say
+you have a key and it points to a list
+that list will be like it'll be like a
+pointer to the same list so if you
+change it in the copy that change will
+be reflected in the original as well but
+if you didn't want it to then you have
+to do a deep copy which I think there's
+a method deep copy for that if not you
+can just import copy and then just have
+like do like copy. deep copy and then
+pass the dictionary I think I think that
+also
+works
+okay it won't copy nested data
+structures well it'll copy nested data
+structures but it
+just I'm sorry I I'm not entirely sure
+what you mean it won't copy n data
+structures it'll copy it it'll just be a
+pointer to that data structure though so
+it's still copying it but it's a it's a
+reference to it
+next we have d. items this is very
+important this returns kind of a list of
+tuples uh containing key value pairs so
+let's say you wanted to iterate over a
+dictionary you would use the dot items
+method um so you could do like four key
+comma value in D do items that will
+assign whatever key is at the current
+tle to the key uh variable and whatever
+value is in the value tuples like the
+second position
+that would go to the of value variable
+um but you can name it whatever you want
+similarly if you wanted to just get the
+list of keys you can do that too which
+is d. keys and if you wanted to get a
+list of uh values you can just do do
+values there's also do. pop right so
+this just removes a specific key from a
+stack and returns its value so
+originally here we had Dell uh D key
+that'll just remove it from the from the
+dictionary without returning its value
+but pop Returns the value all right but
+if it does not exist in the in the
+dictionary obviously you're going to get
+a uh an error so you can also pass in a
+default value right and that default
+value will be given if the key does not
+exist in the
+dictionary okay is anyone recording I do
+not know
+uh but if no one's not oh
+well right so if key indict remove it
+and return its value else return uh
+default error if not indict and default
+not
+given okay again we have d. keys that
+just turns a list of keys and D do
+values that just turns a list of values
+D.G this is what I was talking about
+before um that can just return the value
+of a key without removing it from the
+hashmap or sorry the dictionary I I code
+in Java a lot uh if it's in there then
+it'll return the value if it's not it'll
+return an error unless you supply a
+default
+value
+okay uh okay so again the structure of a
+dictionary it is a key value pair data
+structure so it's going to look
+something like this here we have a
+dictionary where the key is name
+and its value is goo uh the shares are
+100 and the price is
+$490 right um You can put V as you can
+see here you can put varying different
+types as values so the first one there
+we have a string the second one an INT
+and a third one a double right so the
+types don't matter across the dictionary
+um and then you can also put different
+data structures as well so you wanted to
+put a list as value that works but you
+cannot put a list as a
+key okay you cannot put a list you
+cannot put a stack you can't put
+anything like that as a key the only
+different structure data structure that
+you can put as a key is a
+tuple
+okay other than that you
+can't assign any other data structure to
+a key I I'm not too sure if you can put
+a dictionary as a key I'm not entirely
+sure uh but
+yeah are you sharing again you have to
+be looking at my iPad screen it's under
+Oliver the one that I'm sharing right
+now that's when we start
+coding I'll tell you when to look at
+that screen I'll just stop sharing it
+for
+[Music]
+now
+okay uh
+okay that's structure of a
+dictionary and now here are some useful
+dictionaries that you should know um
+these will make your life a lot easier
+first one we have is
+counter so counter is used to count the
+occurrence of let's say characters in a
+string right so Ed to count occurrences
+and store them in key value pairs um so
+how you use them you have to import them
+from collections so you say from
+collections import counter um and let's
+say we have the string a AA
+bbcc if we create a counter so C is
+equal to counter and pass in s it will
+count the number of occurrences in the
+dictionary and store or sorry in the
+string and then store it in C as
+dictionary right so can anyone tell me
+what C would look like after I run this
+program
+typing A3 B2 C1
+correct yep and then also note how you
+guys put it in the dictionary in the
+order that it occurred in the string uh
+that's also how it's supposed to go if
+you want it in a different way I think
+you can use an order dict I think you
+just have to import that from
+Collections and then I think you just
+pass in like as a
+key like I'm not entirely I don't
+remember but I don't think it's that
+important yeah so if you print CA items
+you're going to get something like this
+obviously it's not going to print as a
+dictionary um it's going to print as a
+list of TBL but those are just the
+values okay another good one is default
+dict right so default dict allows you to
+assign a default value to Keys um input
+to default dict must be a function what
+does that mean well if you see check
+over here for this example here we
+import from collections default dict and
+I have two examples here for the first
+one I'm making a default dict where the
+default value is the number zero and for
+the second one here the default value is
+an empty list right so if you wanted the
+default value to be the number zero you
+can't just say zero you need to pass in
+a function you can either Define that
+function outside if you wanted to I
+don't know why you do that but you can
+if you wanted to Lambda would be the
+easiest way though just put no
+parameters and then put whatever value
+you want so Lambda colon zero and then
+the automatic default value would be
+zeros if you want it to be an empty list
+you can either put Lambda comma and then
+empty brackets or you can just write
+list uh either one works right so first
+one default value of zero second one
+default value of empty
+list okay so any questions about counter
+or default
+dict so what's the difference between a
+like when you say Zero versus list like
+what do you mean by
+that uh I'm not entirely sure what you
+mean so you're saying like the default
+dick lambda zero right that's going to
+assign like the default value is going
+to start off from zero and then it's
+going to go up yeah well it's not
+necessarily going to go up like like we
+don't know what it will do it's just
+saying that like the default value is
+zero so like anytime you try to like I
+guess like search a dictionary like
+let's say I make a brand new dictionary
+so nothing's in it and I say d brackets
+or D doget and I put in the string um
+hello it's going to return the value
+zero because that's the default
+value oh okay I get what you mean I get
+so then what what does list do in this
+situation then list it does the same
+thing if I put like D.G get hello it's
+going to return an empty list because
+hello does not exist in the dictionary
+and its default value is an empty list
+list itself is a function if you
+remember like list uh parentheses
+parenthesis like that that's another way
+of initializing a list you can either
+say like L is equal to like empty
+brackets that's a way of initializing an
+MP list or you could say l is equal to
+list parentheses parenthesis that's
+another way of initializing a list so
+that's a function gotcha got you thank
+you why do you put Lambda in in default
+because you need to pass in a function
+and Lambda is a it's a Lambda function
+so you're able to do
+that okay now similar to list
+compressions you can also write
+dictionary
+compressions where if you want to just
+fill a uh dictionary you can do it in
+the same way that you do with list
+compressions you just need to um say
+what the key is going to be and what the
+value is going to be how do you do that
+instead of brackets uh you put curly
+braces um and then for the actual value
+like you know with
+um with list you write something like
+let's say I want a list filled with
+zeros I put zero for I in range let's
+say I want five zeros something like
+this right right so with a default sorry
+with a dictionary compression instead
+you're going to write curly
+brackets and then over here you're going
+to write the key value so you're going
+to write the key
+colon value right so it's going to look
+something like
+this uh here's just an example here uh
+I'm assigning n to its n s value for n
+in range 10 so for the numbers 0 to 9
+I'm filling dictionaries with the number
+itself and then the value is that number
+squared
+okay so it generates a dict containing a
+key n map to
+N2 okay any questions about dictionary
+comprehensions or yeah yeah
+comprehensions someone's
+[Music]
+typing can I ask a question in the
+meantime
+yeah um with the default dict if you
+don't pass a value to the function it
+doesn't set One automatically
+correct that I don't know I think you
+have to pass something
+you yeah I think you have to pass
+something
+gotcha uh unless someone could double
+check that but I pretty sure you do when
+the dictionaries created in this example
+is n a string or an INT for the key um
+for the Constructor default dict is a
+function so you have to pass something
+in if you don't pass in something for a
+default dict you get a
+error
+yeah uh sorry what he was saying when
+the dictionary is created in this
+example is n a string or an INT this
+this is iterating over the range 0 to 9
+so the numbers 0 to 9 are being assigned
+to n and so that its numbers it's
+integers okay
+all right so next we have pickle pickle
+is a way to um I guess store and restore
+data structures right so let's say I
+make a list call it l l contains the
+number 1 two
+34 and let's say that I want to save it
+somewhere I would use the pickles dump
+method what does that do well you need
+to define a predefined uh pickle file um
+think the yeah I think it's like like
+whatever name.
+PK um right so once that's defined in
+whatever directory that you're in or
+whatever directory you want to save it
+in
+um you define it and then you run the
+pickle function how it works you say
+pickle. dump you pass the file name and
+then I think you pass the uh what you
+actually want to save right so for
+example let's say I have in my current
+directory I have a file called save. PK
+and I have a list called L and it
+contains numbers 1 2 3 4 if I want to
+save it I say pickle. dump and then in
+quotations I put I believe uh actually
+no I think you have to oh yeah sorry you
+have to uh do like a write first so you
+would say with open and then in
+quotation you put the file name pass in
+like a write operation so w um as file
+and then you dump it so I I'll actually
+just show you
+here here's an
+example right so here we're writing back
+to a file and we just write pickles.
+dump we pass in the data structure that
+we're trying to save and then the file
+itself right
+but you actually need to First go ahead
+and save your file in a in a variable
+call it file call it whatever you want
+does pickle. dump overwrite the file
+each time it is used I believe so I
+don't think you can save multiple things
+to the same pickle file unless you can
+he just hasn't taught us
+that
+okay and so now the use case of this is
+that okay I saved it in this file and
+let's say I make a whole new program and
+I no longer have the values of that data
+structure I want to be able to restore
+from that
+file right and so I would do the same
+thing with open numbers. pickle um and
+then read right as file and then from
+there let's say I want to store in a new
+list called restored list I would say
+restored list is equal to pickle. load
+right so that's the restore function
+load
+and then I would pass in the file as a
+parameter right so that looks something
+like
+this right where we just uh we loaded
+back in from the same file we just saved
+to and you can see that nums takes on
+the value 1 2 3 4 5 which is what was
+previously saved in
+numbers
+okay and that's all you really need to
+know for pickle it's the dump method and
+the load
+method or functions whatever you want to
+call it why you need a file open cuz
+you're working with the file
+like can't just like I don't believe you
+can just write in as a string the file
+name you have to actually like save
+whatever file you're working with and
+then work with
+it so it's used to prfs data over multi-
+instances multiple instances of the
+program yeah so so it's used to save and
+it's used to store and restore data
+structures or
+data
+there I'm pretty sure this works for
+like any type of data structure I think
+you can save like a dictionary I'm
+pretty sure you can save like a list a
+tuple um I don't know about strings I'm
+not too sure about that but I I I would
+assume so I would assume any kind but
+yeah
+uh okay so those are pickles uh that's
+all you need to know about it any other
+questions about
+pickle just know that you have to import
+pickle before working with it don't
+assume that it's already
+imported
+um okay wait so did he
+indicate like writing CSV so did he
+indicate
+that just assuming you
+should your mic is like very muff
+I'm saying do you think do you think
+file writing like file IO is we should
+expect like especially for csvs because
+like not sure
+if um I doubt csvs but he can maybe do
+it with files I don't know I haven't
+haven't taken this exam before oh yeah
+okay me NE thanks
+yeah uh okay so yeah again it's just two
+functions dump and load for dump you
+just pass in first the object and then
+the file and then load you pass in the
+file another one is Group by if you
+should
+know Group by basically does exactly
+what it says it groups um like
+consecutive elements together for
+example let's say I pass into oh sorry
+let's say I pass into Group by the list
+for
+4 4 3
+3
+2 three
+three and I pass it into Group
+by I'm going to get a similar data
+structure to this uh I don't remember if
+it's me just double
+check no okay so it's going to be like
+kind of like a list of tuples
+where the first element is going to be
+the key itself so let's say
+four and then the second is going to be
+like whatever that consecutive order was
+so here we have 444 so we're going to
+have
+444 for the next we have 3 three so the
+key is
+three and then the sequence is 3
+three next we have two
+two so that's just going to be I think
+[Music]
+22 and then next we have 3 three so
+that's going to be
+three that'll end off the list right it
+goes into sending order by default no
+it's just yeah I'm just going it just
+goes in the order that it
+shows should also note that again it's
+in consecutive order so right here there
+was a three right here there's a three
+it didn't say three comma Tuple 33 33
+right so if there's a break it's not
+going to be in the same
+dupal right so you're grouping things
+together by their similar uh by their
+equal values or equal Keys whatever you
+want to call
+it
+okay now I think you can also pass in an
+optional parameter I didn't look too
+much into it I think it's like a key and
+you can use that as a comparator to kind
+of check if two vales are equal like
+let's say you want 1 2 3 4 to be like uh
+group together I think you can I'm not
+entirely sure I didn't look too much
+into the documentation if someone could
+double check that but I don't I don't
+think that'll be
+tested same works for string right um
+like if you pass an string to group by I
+believe so because strings are iterable
+I don't know if someone could double
+check that I believe so though if not
+you could just like oh yeah I know that
+list I know strings are editable I just
+don't know if it would work on the group
+by function but for like a sanity check
+you can instead just put like group by
+and then run the method list and then
+pass the string to that to that um
+parameter or sorry to that list function
+and then just have that in the group P
+that also works so you're like 100% sure
+that it'll
+work
+okay all right so here's an
+example where's grp imported from it's
+imported from iter
+tools so from iter tools import Group by
+iter tools is short for like I think
+iteration tools it helps iterate I don't
+know I I have no
+clue but it's from iter tools so you
+import we have this list called Data it
+stores 1 one 222 3 3 33 and we pass in a
+call to group by which we pass data into
+a variable called groups and then we
+iterate through groups um by De by um
+breaking up that Tuple in the list by
+putting the first element into key and
+the second element that being another
+tupal into group and then we just say
+print the key and then the
+group so that gives us this right
+because oh wait sorry uh oh no yeah this
+is correct right where the key for the
+first one is one and the sequence or
+group is one one the key for the second
+one is two and the group is 222 and then
+finally the key for the third one is
+three and the group is 3 3 3
+3 is there list unsorted like the
+previous
+example uh I'm not too sure what you're
+asking it it in this case it it just
+shows up shorted because the original
+list was sorted there's not any sorting
+with the group by
+Method you can sort it if you want to if
+you like put the result in like a sorted
+method and then like put a key like
+indicate what you want to sort by
+okay uh all
+right s Group by any
+questions do we have to put uh something
+in the loop like uh right front of the
+for Loop uh I forget what was that
+in so e n something like that because he
+um comma group is is we we it's not
+going to work out I
+think why would key comma group not
+work let me let me find the keyword I'll
+I'll send you in the
+chat oh yeah this will
+work because each element of group is a
+tuple and then you're just breaking
+apart the Tuple so key goes into four
+goes into to key and the group itself
+goes into
+group yeah it's a list of two
+PS
+okay uh all right so that's pretty much
+it for part
+six I put like most of the important
+stuff in here I think there's some other
+stuff
+covered there's things like inverted
+index which that is not like an actual
+data structure or anything that's just
+like a coding problem no reason to like
+study that um I don't think he repeats
+questions from the notes on his
+exams but it's good it's good practice
+though so I do recommend doing those
+questions but that's pretty much it for
+part
+six okay any questions about anything we
+just did for part six
+good right so now if everyone could
+direct their attention to my
+screen do some coding
+practice all
+right
+so sorry let me this out the way
+how would you apply group ey what do you
+mean it just depends on the
+question part nine is not on the exam
+just part six part one
+to8 yeah it does work
+yeah when would you need to use it it
+depends on your use case I don't
+know
+okay
+so before jumping into part six stuff
+since files is covered in part five I
+just want to quickly do a quick review
+on fi files just reading from them if
+you want to learn how to write from them
+you can just read the notes I forgot so
+I'm not going to go over it but I'll
+show you how to write from them really
+quickly okay so let's say I
+have this file over here called bears.
+TX bear.
+txd contains
+these uh sentences over here and I want
+to print them I'm going to go over here
+and I'm going to open the file so I'm
+going to say with open oh wait why is
+it sorry about that okay there's two
+ways of doing this you can either say
+like file is equal to
+open uh and then like put the text or
+like the name of the file here what I
+like to do instead I say with open and
+then the file name is bar.txt
+as file and so basically the file
+variable will exist within the scope of
+this like withth statement here outside
+of it so if I like go over here file
+won't be existent it can't be like used
+it's only usable within the scope
+here if you do that you have to close
+the file manual the right right I think
+so but with this I don't think you
+do yeah the first way I think
+so okay
+so we have our
+lines in file there's two things that I
+can do I can either go like four line in
+file and then print the line than think
+that
+works right but you see oh
+look if I say like
+end is equal to
+that you'll see that we're
+still just do this we are still skipping
+lines even though we explicitly said not
+to right
+and that's
+because I don't know if there's a good
+way to show this but that's BEC oh yeah
+I can do this print filed out read
+lines that's because if I print this out
+you'll see that there's a
+sln when you print a string that
+contains sln it's going to skip a line
+automatically right so you need a way to
+trim off those slash ends so what you
+can do
+you can either
+um have it like this for line file and
+just say line is equal to line.
+strip I think that
+works right and so if I get if I do that
+now we see that there's no longer this
+slash end right and so if I get rid of
+this we should see that it should only
+go down
+once right as opposed to if I get rid of
+this
+goes down
+twice right so if they want a very
+specific output on the exam this is one
+way you can get rid of the slash
+ends line is equal to line.
+strip
+okay now if you have a very specific use
+case and you need to get rid of the
+slash ends before you start iterating
+you can also be like
+um you could have like lines is equal to
+line. read oh sorry file.
+Rines and then iterate so for line sorry
+uh I in range zero to L of
+lines lines of
+I STP all right so if that if it's like
+you needed to get rid of that stuff
+before even like working with
+it you'll see that it worked right but
+since we already did the function file.
+Rines file isn't going to contain those
+lines anymore they're no longer going to
+be iterable here that's why it doesn't
+print anything here so instead you need
+to say for line in lines is now that
+contains it and now we see that get
+printed
+okay all right so any questions about
+reading from files if you want to learn
+how to write from files
+do that on your own because I don't want
+to do
+that all right let me just check
+something really
+[Music]
+quickly I think if
+you yeah know it's supposed to be W
+right
+huh what what is it to like if you want
+to explicitly say that you want to oh
+sorry it's read sorry that's what me
+yeah I don't know I don't know why it
+doesn't work
+anyways
+oh oh I accidentally cleared bears.
+text okay
+hello my name is
+bear it's CU I accidentally put a a
+right back
+okay now this should be read back okay
+there we go what the why is there
+bees
+everywhere is that because of
+this huh I guess so all right
+anyways oh read by oh that yeah yeah so
+also yeah remember that when you're
+working with Pickles you have to include
+the B I forgot to say that too so it's
+RB and WB but if you're just reading
+from the file not using binary it's R
+and W sorry about that
+okay
+so close this
+okay so let's work with some
+dictionaries really quickly and then
+move on to part
+seven uh can anyone tell me what's the
+two ways to initialize a
+dictionary you can use the Constructor
+or you can just use the curly races yeah
+so you can say s is equal
+dict or you can say s is equal to these
+curly bra braces right if you want to do
+a list comprehension how do you do that
+uh a dict comprehension how do you do
+that uh it would be key colon value then
+um the iterable and then the condition
+am I
+correct yeah so if you wanted to do like
+um like if you wanted to put the current
+number mapped to its number squared for
+I in
+range 10 and if you only wanted to do it
+if n oh sorry n if you only wanted to do
+it if n was even you can say if
+n uh mod 2 equal
+Z okay and then if I print
+s right so we see 0 to 2 4 6 and 8 you
+want it to be
+odd 1 3 5 7
+9 all right and then if we wanted all of
+them we can get rid of the if because
+that's optional and then we have all of
+them okay those are
+dictionaries all
+right then we have uh counters let's say
+I have like C sorry C is equal to
+counter um got to import it so from
+collections import
+counter I pass
+in uh my
+name right and then I print
+C your import's wrong it's supposed to
+be from
+collection either one works it depends
+on your it depends on your uh version of
+python but you can also import it from
+there too um so if I print my name as
+Justin I'm going to get this but also
+know that if I put spaces
+we see that it also includes the spaces
+if you want to get rid of the spaces I
+think you do dot strip I don't remember
+actually no sorry you do a do
+split and then the space and then
+that'll get rid of the
+spaces
+okay so you'll see that that'll get rid
+of the spaces
+but you can see that that dot split will
+return a list where each portion am
+getting
+called each
+portion oh
+God okay sorry I had to Def in because
+my iPad undefined for some reason was
+about to start echoing uh
+okay so yeah if you see that my name is
+Justin it's going to return a list where
+each index is you have one for my one
+for name one for is one for Justin so it
+returns it like this
+right um and so if you didn't want to do
+that you would have to do a join on it
+as well so like dot
+join and then pass in this whole thing
+here and then now we get
+this
+okay okay so that's counter if you we
+have a default dict so D is equal to
+default dict just
+import Justin I have a question what's
+the second parameter or value or like
+argument in group ey like the first one
+is just like the the key but what's the
+second one like it returns like a
+grouper object it returns like an in
+tools grouper object
+like
+um on you're saying like uh for group ey
+yeah like you run like from it tools and
+for group ey you run it on like a list
+for a tuer or whatever and then you
+iterate over it and if you just print I
+it returns like the I value from the
+iterable and then the second argument or
+the second value is like this pointer to
+some group or object what is
+that um I only see two parameters one to
+pass in what you want to be grouped and
+then the second one is to like if you
+want to like group on some specific key
+I
+think or some specific value I don't
+know what group or object you're talking
+about like when you if you just like if
+I do gr if I do s 1 2 3 4 5 67 and then
+I do groups equals group i s and then I
+do for I and groups print I if you print
+that it prints like like the I value
+comma group or object like some pointer
+said grouper object like what's that
+what's grouper
+object oh I see I see what keep just
+said
+um oh that's
+weird shouldn't it
+print oh you have to turn into a list
+okay
+gotcha yeah because it doesn't return it
+as a as a uh it doesn't return it as a
+um a tuple it returns as a group by
+object so you have to convert it to to a
+list um and then from there that works I
+think you can also convert it to a tuple
+too I think there's a tuple function for
+that I don't
+remember uh but yeah
+okay yeah I'll correct that on my notes
+because I think I didn't convert it in
+my notes if I remember
+correctly I
+think I don't think he converted it in
+his either though let me
+check uh where am I
+[Music]
+counter oh so no yeah he did list group
+yeah that's my
+fault right so group will be an iterator
+where each element is a to tbal key and
+group so it's a group object and then
+you just convert the group to a
+list
+okay and yeah you're able to pass in a
+string
+too uh okay there's also default dict so
+again remember that the parameter for
+default dick must be a
+what a Lambda function or some type of
+function that specifies the default
+value or just any function in general
+right it just needs to be a function so
+you could put like Lambda if you wanted
+a list of uh if you want a default dict
+of empty uh list you can either do D is
+equal to default dict Lambda
+or you can do D is equal to default dict
+and then pass in the list method that
+works
+too okay um we also went over pickle so
+let's say here I
+think let me import pickle really
+quickly right so if I wanted to save a
+list let's say l is equal
+to 1 2 3 4 five if I wanted to save a
+list to my pickle I put with open the
+pickle name that I have saved here was
+numbers. PK write numbers.
+PK and this needs to be a right back
+with binary as
+file and then I'm going to say
+pickle.
+load uh I'm sorry.
+dump um I'm going to pass the object so
+L and then file right so if I run
+this obviously you can't see anything
+but it has been saved to numbers. pickle
+how can we check that well we can go
+again with
+open uh numbers. pickle and then
+readback or sorry read binary as file
+and then we say results is equal to
+pickle. load file and then I print the
+results
+see they get 1 two 3 four
+five
+okay all right so any questions about
+part six again this was pretty much all
+you needed to know dictionaries counters
+default dictionaries pickles Group by uh
+actually I didn't write Group by stuff
+but we pretty much went over it can I
+ask a question about pickles sure
+um it's always save to write with binary
+correct and then read from binary to
+open it I think you have to got
+you uh pickles only for INS no it could
+be for anything I
+think I do want to test something if I
+just save a number here see if that
+works yeah so if I just save a number I
+just save a
+string that works too so it can be for
+anything it looks like
+let's see if it could work for d by
+passing
+D yep saved the default
+dick
+okay all right so that's it for part six
+let me share my screen again on my iPad
+we're going to go over part seven
+all
+right
+[Music]
+so part seven is all about
+generators there's some other stuff in
+it as well like uh like the more
+advanced version of generators like uh I
+no sorry wait
+yeah no no yeah there's more advanced
+version generators like yield yield all
+async send things like that I doubt it's
+going to be on the exam though so I
+didn't even look at it I just looked at
+the regular generators with like the
+yield
+keyword uh but
+basically some examples of generators
+like I don't know if range is a
+considered an example generator I think
+so um but basically it does what it says
+it generates
+some list of values right and to make a
+generator you just have to use the yield
+keyword right so as I wrote here like
+factories that produce a sequence of
+values one at a time uh and created
+using a special type of function that
+uses the key the yield keyword to
+produce values on the
+Fly Right it keeps the state of the
+function between calls which means it's
+stateful and doesn't exit once it
+returns a value rather stays alive till
+all expected values have been generated
+what does that mean well once you run
+a generator um function it'll run as
+normal until it hits a yield keyword
+that is kind of treated as a I guess you
+can say return statement but instead of
+like just breaking out of the function
+it saves its position in the function so
+that when it's get when it gets called
+again it'll pick up from where it left
+off
+right and
+so here's an example of a generator here
+it says we want to make a generator that
+generates odd numbers 1 to
+n okay so here we have this function
+called odd and we pass in the value
+n and from here we have this variable
+called I we want to start at I and we
+say while I while I is less than or
+equal to n we want to yield I actually
+no sorry this should it should
+be oh yeah no sorry that works that
+works want to yield I and then just go
+forward by two once we're called it
+again we don't need to do a check for if
+it's odd because we're starting at one
+and then going forward by two every
+time okay and so basically how to work
+with these is when you're working with
+generator
+functions they come with I guess like
+the supporting function called Next
+which will basically give you the next
+value that gets generated within your
+function right so the first value in
+this case would be one so if I run odd
+and I run the next function on odd it's
+going to give me the value one if I do
+it again it's going to give me the value
+three if I do it again it's going to be
+the value uh five and so on up until the
+value n depending on what n is right but
+if you ever get to a point where you
+break out of this
+and there's no more values to yield for
+right and you hit next again you're
+going to get an
+error
+right and
+so since the function above uses the
+yeld keyword it is a generator and uh
+once we use the generator there's a
+bunch of different ways that we can work
+with it we can either a make a generator
+object so here we have a variable called
+odd gen and we set it equal to the
+generator odd and we pass the value 10
+and then we can use that to iterate so
+here again it makes it kind of like an
+iterable so we could say for Num in a
+gen it'll automatically run the next uh
+function on each Loop so one will go
+into num then three then five then seven
+then 10 um and then it'll stop on its
+own so we just print out each number and
+we see we get 1 3 5 7 9
+right another
+way is by just actually writing out the
+like function itself in the for Loop so
+you could just say for Num in odd 10
+that also works right because odd 10 is
+just going to return some
+iterable okay and then the for Loop
+automatically runs the next function on
+our values or on our
+iterable or you can um again set it
+equal to some object and then run the
+next values yourself but if you run the
+next values yourself you run the risk of
+going out of bounds of like whatever
+itable you're working with so let's say
+you finish the list but then you hit
+next again then you're going to get an
+error right so or you put odd 10 in some
+generator object
+and then let's say I want to get the
+first five
+numbers I would run this next function
+and the next function is going to return
+that value that was
+yielded right and so from here we get
+13579 that's the first five
+numbers right but then if I were to go
+outside the list and then say print next
+OD gen again I'm going to get an error
+okay uh all right you can also use the
+send method to send a value to the yield
+point that it's stopped at right so I
+won't go too deep into that but that's
+oh I think that's it here um but
+basically wherever you stopped if you
+saved the generator as in a generator
+object wherever you stopped that if
+let's say you stopped at X is equal to
+yield I right then what it's going to do
+is it's going to return the value of I
+and then it's going to wait for you to
+send some value back in and then that'll
+go into the value X how do you do that
+again let's say a genen contain that you
+could just say a gen. send and then in
+the parentheses you just put the value
+and then it can work with it
+okay so that's pretty much it for
+generators for what you need to know for
+the exam if everyone can quickly look at
+my desktop scen screen I'll share my
+screen
+again I we'll do some practice with
+generators all
+right so again let's write a
+generator and this generator I want it
+to let's see what do I want my generator
+to
+do I I want my generator
+to return the N the current number if it
+is a prime
+number right so before doing any of that
+we would need to write a prime function
+So Def Prime passing the value uh we'd
+also need to pass
+in uh from math import square
+root right flag is equal to actually no
+we don't need to do that uh for I in
+range 2 to square Ro t
+n if n mod 2 is equal to
+zero um return
+[Music]
+false and then outside of that return
+true and so from here we could say like
+have a generator called
+uh I guess I guess let's go with e
+actually no that doesn't work uh let's
+just go with uh prime numbers so Prime
+nums right so we want to print like
+whatever amount of prime numbers that
+the users requesting so we can start
+at I guess two
+right and we could say while
+true if the current number is prime and
+we yield
+I and then I plus equal 1 right so we go
+forward by
+one and this should work right so let's
+say um if I want to put myself in an
+infinite Loop and print all the prime
+numbers forever I could say for Num in
+uh Prime
+nums and then print num this should put
+me in an infinite Loop forever
+uh wait what did I
+do Prime float object cannot be inserted
+as an
+Inger oh wait hold
+on uh oh yeah sorry this should be
+I two and then this should be int it
+should be int yeah
+int
+okay um and so hold on why did it stop
+I think it's just breaking because into
+a loop hold on let me do
+instead let's just print like the first
+like three or four I guess right so
+for let's do
+um I in range five we need to make an
+object so I'll put num gen or sorry uh
+Prime gen is equal to Prime nums
+and then we can print
+next prime
+gen wait why am I getting an infinite n
+mod
+i n mod I where where is that instead of
+IM
+2 oh sorry
+yeah my fa there we go okay so 2 35 71
+right that prints the first five prime
+numbers okay
+all
+right and so if we wanted let's say the
+first
+10 that'll give us the first 10 if we
+want to get put in INF the
+loop we could say for
+prime prime
+[Music]
+nums this would like infinitely print
+all the prime
+numbers oh what happened
+in object is not
+callable um if I can ask wait so what's
+the
+stop what sorry what's the stop
+condition to prevent it from going in
+in uh there is no stop condition in this
+case you can create a stop condition if
+you wanted to but in this case there
+isn't yeah so once it reaches the
+conditional that's when the generator
+don't specify it'll go
+into you're m is cutting out oh um what
+I said is is basically if you don't
+specify a conditional then it's going to
+run infinitely but if you do once that
+conditional is met the generator
+stops yeah but then if you run the next
+function again after it stopped then
+you're going to get an
+error
+okay um now I don't know why this isn't
+working int object is not
+callable this should work I is equal to
+two
+if huh Ricky do you know why this isn't
+working if Prime I yield I this should
+work you're you you have a function
+called
+Prime right and you're also calling your
+actual like variable oh sorry yeah yeah
+my fault my
+fault
+Prime it's annoying
+okay right and then this puts us in an
+infinite Lo that prints all the prime
+numbers
+okay uh all right so let me put it back
+to its ritual state to get that
+long statement or sorry lot long
+print okay and then we get the first
+10 all right so that's pretty much it
+with generators we could try to think of
+another one
+um oh here's a good one
+uh print the first K Fibonacci numbers I
+think we did this one in class before
+but let's do print the first Fibonacci
+numbers that
+are uh that are
+even okay so we can call it def FIB
+even again we know the first one is
+zero second one is one
+right while
+true and now I we know to
+be already a Fibonacci number and it's
+even so we want it to we could just say
+yield I over here and then in this W
+true over here we could say the current
+number is I +
+J okay and then we say if
+Curr mod
+2 is
+zero yield
+curve and then we basically move it up
+by one so we would say I is equal to
+J and then J is oh wait sorry hold on
+uh J yeah J is equal to
+C
+okay uh and then from
+here we can say like if I want to print
+like the first 10 Fibonacci numbers that
+are even I could make a uh thing so I
+could say like FIB is equal to FIB even
+I'll call it like FIB
+gen viib
+generator and then 4 I in range
+10 so I'm wanting to print the first 10
+I would say print next fib
+gen and then this gets me the first 10
+even Fibonacci
+numbers
+okay right and then finally let's say
+that I want to get the first
+10 actually no that wouldn't work
+because all I was going to say the first
+10 factorial even numbers but any number
+multiplied by two would be even so that
+doesn't make
+sense okay but yeah that's pretty much
+it with generators I guess does anyone
+else have another idea that we can
+do I think that's pretty much
+it this
+m
+okay nothing all right I see some
+typing does anyone want to come up with
+a generator idea that we can go over
+together and then we can move on to part
+eight it
+method
+what wait I think I can answer this
+isn't I think
+I think he mentioned that the point of
+the iterator basically with the
+generator is if you want to
+make an iterator you can use a generator
+for it I might be wrong on that
+though what are you
+answering what someone in the chat
+mentioned like about the
+iterator
+oh
+okay all right no generator ideas
+okay so I'm just going to move on to
+part eight I
+think let's
+see uh all right let me share my screen
+again on my iPad I'll move on to part
+eight
+[Music]
+what are you guys talking about the name
+[Music]
+what you're taking in L on decorators
+well that's where we're about to go
+over all right so if everyone could look
+at my iPad screen
+now now it's time for decorators so
+decorators are pretty
+simple they're just a way of changing
+one others like function code without
+actually changing it or manipulating its
+code right so let's say you want to do
+something or you wanted something to
+happen before a function is ran without
+actually changing the function code you
+can wrap it with the decorator and then
+make sure it does that without actually
+changing the
+code
+okay so again a function that creates a
+wrapper around another function take
+makes another function and extends or
+modifies Its Behavior without modifying
+its code so here's an
+example and this is the general Syntax
+for it when you want to create a
+decorator you say def my decorator that
+could be whatever you want it to be
+called doesn't have to be called my
+decorator and you must pass it a
+function once you pass a function you're
+going to have an inner function called
+wrapper it doesn't have to be called
+wrapper you can call it whatever you
+want and in this wrapper function that's
+where you'll Define the functionality
+that should happen before and after the
+function gets called that's exactly why
+I say before and
+after okay and then in there somewhere
+you just must have you just have to
+somewhere run that function inside of
+wrapper and then finally you just have
+to return wrapper at the end of that my
+decorator function okay
+so here's an example here we did this
+one in class we have a function called
+say we all it does it prints wi and so
+let's say that I want to decorate it so
+that before printing wi I want it to
+print the word before and then I wanted
+to print the word
+after how can I do this I can decorate
+say
+we right by just setting say we equal to
+my decorator and passing in sewe as a
+function or as a parameter so here we
+have sewe is equal to my
+decorator and we just pass in the
+function
+Saye and then from there if we print it
+or sorry if we run it what it's going to
+do is it's going to run instead the
+wrapper within my decorator and my
+decorator will want will run the
+original say we function so instead once
+we run saywe it's going to print before
+we
+after
+right and now there are a bunch of
+different ways to initialize actually
+there's just one more other way to
+initialize decorator here's another
+example you can use the at
+symbol and so the at symbol basically
+what it does is it makes it so that you
+don't have to do the first Port portion
+here say we is equal to my decorator say
+we it will automatically do that part
+for you and then you can just run the
+seoe function so here is an example we
+have the same
+decorator right but before The Decorator
+sorry before the function that needs to
+get
+decorated you would just put above it at
+and then your decorator name so in this
+case it would be at my decorator and
+then under that would be the function
+say we so like
+this right and then this says my
+decorator will be
+decorated oh sorry my decorator will
+decorate
+sewe so then once we run SE we here
+it'll automatically print what's
+expected rather than having to go ahead
+and make or reassign saywe to a like a
+wrapped decorator whatever you want to
+call it and then running it so this
+one's a bit easier to work
+with I have a question so like when
+you're working with like ARs and bars
+the the name like The Decorator function
+itself it should only get the function
+as the parameter but if you wanted to
+get like keyword arguments and like like
+just like like args you would Define
+that for the rapper function right like
+you wouldn't put ARs and quars in the
+top level function right no the top
+level function you should only be
+passing the function itself unless you
+want to pass something else you
+can uh but you need to pass function to
+the top level uh def uh
+function so the wrapper gets ARs and
+quars right yeah like R like when I when
+when you run this let's say say we had
+some parameters if I pass it into here
+args and quars will get those parameters
+same if I do it over here I'm not going
+to put the parameters here when I write
+say we I'm going to put the parameters
+here and those will go into args and
+quars obviously you don't have to use
+args and quars you can use some other
+variables too like a
+BC um but then that means that you have
+to have three variables passed in if you
+want an infinite number of positional or
+keyword you would use ARs and
+Gars which pop quiz with args and quars
+what is args what is quars args is just
+a tuple of positional arguments and then
+quars is just a dictionary of keyword
+arguments and then what does the slash
+mean I actually don't remember slash
+means that anything to the left of the
+of like that divide that just means that
+everything to the left of it must be
+positional and then the star means that
+everything to the right of it must be
+keyword now what a ah hs12
+said slash means positional only to the
+left keywords to the right that's not
+exactly what that means right because
+anything to the right of the slash can
+still be positional it's just saying
+that anything to the left of the slash
+must be positional you can still have
+positional to the right of it right so
+you can have AB C slash
+D and then de can still be passed as
+positional or keyword
+the thing with the right is that with or
+the thing that you might be confused
+about with the right is the star or with
+the
+Stars
+um anything to the right of the stars
+must be keyword only but anything to the
+left of the Stars can be positional or
+keyword depending on how you have it set
+up okay
+uh all
+right so those are two ways to work with
+decorators any questions about these two
+different
+ways which was the second
+way using the at
+symbol okay and then the first doesn't
+use The annotation correct this first
+doesn't use The annotation but you must
+first reassign sewe to a call of my
+decorator where you pass the sewe
+function I see
+okay I haven't finished your midterm
+videos did you watch them for the
+midterm
+itself did my midterm videos go over
+closures um I don't remember talking
+about closures I don't know what that is
+closures could you quickly remind me
+what that is I'm not entirely sure quick
+question about the Slash and star can
+you have something like this
+yes cuz remember D isn't saying that it
+must be
+positional or yeah like that's just
+giving it a default value that's not
+saying that it must be
+keyword like when you set an equal sign
+the parameters that's just a default
+value no you didn't all right well good
+luck all
+right and so next page
+here again this is just going over the
+second way and tactically decorators are
+denoted using the special at symbol
+right so you put the at and then
+whatever decorator it is over what you
+want to be decorated and the code above
+is shorthand for exactly this right so
+this is this is the first way and then
+the at symbol is the second
+way
+okay now when a decorator is applied to
+a function the original functionality is
+loss right because when you decorate
+something anytime you call that function
+again it's going to be using
+whatever predefined functionality was
+defined or predefined and post- defined
+functionality was defined in the wrapper
+function within the
+decorator right so you can save the
+original function if you needed to as
+well within the decorator itself and
+then that'll allow you
+to use both the original functionality
+and the modified
+functionality how do you do this well
+before returning wrapper right within
+your decorator right you would write
+your wrapper function and then before
+returning it just assign a value to that
+wrapper function you could be like
+wrapper. original function or something
+set it equal to the function that was
+passed in and then that will allow you
+to access it so then when you let's say
+for example run saywe you're going to
+get the modified function but then when
+you run say we. original or whatever you
+called it it'll be the original
+functionality
+so here's an example
+here I have a decorator called my
+decorator and it has a wrapper function
+before returning wrapper I I say
+wrapper. original is equal to Funk that
+will store the original function the
+original function's functionality within
+a variable called Original within the
+wrapper object and so once I decorate my
+funk
+right the original functionality of my
+funk is lost so when I run my funk it's
+going to run it's going to print in
+wrapper new line
+hello
+right in wrapper hello but then if I
+run my funk.
+original it'll run the original code
+which is just
+hello okay
+and that's how you can save the original
+functionality any questions about
+this wait could you repeat that again or
+at least like
+so when you apply The annotation the
+original function the original
+functionality you
+had gets replaced by whatever
+The annotation has correct Yeah by
+whatever functionality is in the rapper
+class or sorry in the rapper method so
+you can save that uh original
+functionality in like a attribute of
+rapper Call It Whatever and just set it
+equal to the original
+function okay any other questions
+all right and then I also know that I
+didn't write this in my
+notes but this is also good to
+know I'll kind of explain it verbally
+and then we can walk through it in the
+code as well or in the Waxman notes but
+basically you can also assign multiple
+decorators to one
+function and you can do this in either
+way you can either do it without the out
+symbol or with it easiest way would be
+with it
+um you just need to know like how to
+read it if it's with the at
+symbols so basically let's
+say let me type this up
+instead everyone look at my desktop
+screen all right
+so let's say I'm going to make three
+decorators
+decorator one
+and I'm going to make two
+more and then I'm going to make some
+function that I want to get decorated
+called uh my
+function and we're going to say that it
+just prints hello
+hello
+from my
+function and so we're going to Triple
+decorate it so
+at decorator 1 at decorator 2 at decorat
+3 so you basically just stack them on
+top of one
+another and so what's going to happen is
+it's going to
+run The topmost Decorator first and it's
+going to pass the rest of this in and so
+decorator 3 is when it runs Funk it's
+going to run decorator 2 and when
+decorator 2 runs it's going to run Funk
+which runs decorator one and when
+decorator one runs it's going to run
+which which runs my
+function once my function
+runs um I think that'll be it uh CU I
+don't we think we call it again we could
+check what the output would be so if I
+my
+function right we should expect I think
+to see rapper three rapper 2 rapper
+1 um and then hello from my
+function and we
+do if we flip it around we should see
+rapper one wrapper two wrapper three
+hello from my
+function
+okay that's exact
+about using multiple
+decorators for one
+function good hold on why am I being
+spammed give me a second
+hold
+on people are spamming me to do
+a 211 interview who even are these
+people just watch my
+videos got spammed 10 times what
+the
+11 okay I'm I'm muting them
+anyways um
+okay where was I oh yeah uh decorator
+so um that's how you can use multiple
+decorators
+right now can someone walk me through
+I'll make another code base here can
+someone walk me through how to make a
+sandwich
+decorator does that mean like fun uh the
+first one is different from the second
+you do something like you like you do
+something before running the function
+and you do something after running the
+function could you give an example
+or like let's say I have a
+function uh called uh my function that
+just prints hello when I run it I want
+to print I want it to be I want the
+output to be before hello
+after before hello after okay so the
+hello function is the is the original
+correct yeah got you
+okay that's not possible if I mean it's
+not possible I could
+try Okay okay so uh first the original
+one we just going to name it decorator
+function yeah
+so okay it's going to pass function in
+it okay and then we're going to create
+wrapper def yeah wrapper and then we're
+just going to say like whatever like a
+print um before function yeah call
+function and print
+after and then return wrapper
+and then we just going to go down below
+and we're going to create the at the
+rate uh deor function decore function at
+theate yeah we're just going to create
+now say whatever like definition like
+yeah my function just going to say hello
+print
+hello
+um yeah it should work
+oh we have to call so yeah so how how do
+you want to call it like just my
+function my function
+and yeah that's it it should
+work there we go so that is a sandwich
+function
+okay
+um turn okay
+I don't know if this will work but let's
+see okay now let's say I wanted
+to hey uh is it if I request you to uh
+um like pass a word in it like use the
+ARG and correct if it's
+possible that works yeah why are people
+still spamming
+me I said no and they're saying please
+I do
+not leave me
+alone
+okay so yeah with ARs and
+quars star
+ARS star Star Wars
+and so we can pass that in here so star
+ARS star star
+quars but we also need to pass it in
+here so like let's say I wanted to
+print let's say I have like
+um
+a
+c so I wanted to print the values of a b
+and
+c I can say hello
+from
+Funk and that'll work right I can also
+pass it in so as a keyword function so C
+is equal to Funk does that work yeah
+that works I can also put in different
+way so a is equal to C is equal to and B
+is equal to that'll print Funk from
+Hello Funk from hello
+okay thank you so
+much all right and then finally let's
+say I wanted to do a
+uh let's
+see let's say that I wanted to have a
+function
+that let me think
+yeah let's say that I wanted to have a
+function that
+um like like just multiplies two numbers
+and I want can you post the midterm
+review yeah I can why are you sculling
+him I could do it yall not believe in
+me anyways
+um
+so again let's say that I wanted to
+create a function called like multiply
+or something that multiplies two numbers
+and then like let's say we have like
+some logger that like we want
+to print
+um let me think we want to print uh like
+every time we're about to initiate
+initiate like multiplying we can do
+something like that so let's say I have
+my
+logger um I'm just going to pass in
+args and so let's say here we
+print
+initiating
+multiply we could return the value of
+funk and then
+return
+wrapper and then we can
+decorate
+multiply we want to multiply Like A and
+B then we could say
+return a *
+B and so if I run multiply actually I'm
+going to put
+print multiply
+and I'm going to pass the values three
+and
+four see initiating multiply and it
+prints the number 12 because that is
+what actually got returned it got
+returned because I actually returned the
+value of the function within
+it
+right but now let's say okay I wanted to
+multiply an infinite
+number of values I can instead go like
+um slash
+args and then I can do
+um let me
+think actually that would work with some
+is there a built-in function that
+multiply the numbers in a
+list no right so then I could just do it
+manually I could just say for Num in
+args um res is equal to one res times
+equals
+num and then return
+res okay and then from here I would
+say like
+multiply uh let's say I pass in three 4
+5 6 7 8 9
+10 we get this long number and then I
+can even do like initi initiating
+multiply
+with Len of
+RGS
+numbers so initiating multiply with
+eight
+numbers that works
+too initiating funk. name you can do
+that too you can do
+like Funk dot
+name and that does it too if I like
+change the name of the function so
+multiple multiple initiating
+multiple that
+works um I would I would avoid doing
+that on the exam though just just
+because of the fact that I again that
+only really works with newer
+versions so
+yeah uh what did you send
+that's why I brought it up but then you
+said newer versions don't need the that
+wrap decorator anymore because he's
+using that no yeah he I he just taught
+that in class because like if anyone
+else is working with the older version
+but um I I I'd assume he's working with
+the version that that's up to
+date this is what I used to do the same
+thing sorry what
+what does the my logger function
+do uh it just prints and then runs the
+function my logger is just a it's just a
+it's just a
+decorator what do you mean no that sorry
+let me be more specific within the
+rapper itself what is Funk uh Dunder
+name
+this just name of the function
+function the function that's passed so
+that's like if you look at the print it
+puts multiply because that's the name of
+the function gotcha thank
+you oh yeah I just have a question so
+like let's say your one of your
+functions like multiple multiply or any
+other functions you make they don't all
+have to have ARS cars right like like
+they can only have args but the rapper
+function if you put args and quars it
+can handle both even if like your test
+function only has args defined like do
+you know what I'm saying yeah like like
+quars is meant to quars is meant to
+quars and args well first quars is meant
+to capture any excess keyword parameters
+and args is meant to capture any excess
+position arguments if you don't have if
+you have positional arguments and you
+don't have
+uh keyword arguments and key then quars
+would just contain nothing it's not
+gonna break your function okay so it
+still work okay so it it just general so
+basically you do RS cars so it like
+generalizes it so it can accept
+everything right yeah but like you don't
+have to you don't have to do that you
+want yeah like but even then like let's
+say I call the function and I pass no
+parameters if I put args and quars it's
+still going to run okay I meant that
+like like let's say you wrote another
+function like print string like print
+dictionary and then it's just quars but
+there's no ARS in it it's fine because
+your rapper function can handle
+both yes as long as the original
+function can handle cards it needs to
+have the it needs to have like the it
+needs to either have
+the um like same variable names or it
+needs to have quars need parameter cool
+thing yeah
+MH okay so any other questions about
+generators I'm sorry about
+decorators
+good uh all right I actually have one
+aside from the sandwich example and
+something like this like do you know any
+like what if you know like or suspect
+what are the types of problems you think
+he could give based on
+this I'm telling
+youon he's gonna I'm telling you right
+now he's probably gonna give you like a
+function that's decorated three times
+and he's gonna ask for the output like
+that's something he would
+do oh okay I mean that makes sense then
+I thought it was going to be something
+like like the you take his class before
+yeah I didn't take bro bro you took the
+class bro
+yeah I didn't take the
+final oh
+okay yeah uh but yeah I haven't taken it
+either so I couldn't tell
+you maybe it'd be like again it could
+either be
+like a a function decorated three times
+and ask the output it could be a
+function decorated once and it's to ask
+the output and ask you like explain the
+reasoning or why is the output this way
+something like that you have a pass Co
+final how the did you get that yeah
+so I have a final for 381 and it's it it
+was online so it was all on blackboard
+so I have a PDF and then I also have
+like all the answers if anyone wants it
+but like the questions are like they're
+like harder they're like way harder than
+like the current I don't know I guess he
+went crazy during Co or something
+because he's like okay everything's
+online so I'm just G to make everything
+that difficult but if you guys want I
+could send that over like like a Google
+Drive all right I'm just send it hold on
+hold on hold on before anyone sends
+anything I want to make something very
+there's someone not in the call right
+now but in the server who's actually a
+TA for Waxman so if you post anything in
+there now you're especially you know you
+sha it might make you like I don't know
+okay like wait till after you yeah
+someone in the TA you mean that kid that
+was going around proctoring
+right yeah but he's in the server so if
+you jump it in resources and like you
+know especially since your face is your
+profile pick it might not end well for
+you do that yeah I don't know what I'm
+talking about yeah bro just just say the
+link out loud letter by letter man yeah
+exactly no I I to be honest with you
+like I I also have from somewhere a copy
+of the final so I'm probably gonna like
+after the tomorrow let just stop talking
+about it let just stop talking
+about because I totally forgot that I
+remember that kid going around like
+during the test so you're totally
+right
+y uh yeah just be careful about sharing
+stuff um okay so I mean we
+basically just went over all of the new
+material I guess does anyone want me to
+go over any past material can you go
+over some Matrix questions like like
+like like Matrix questions from like
+past like I think you covered a bunch in
+your midterm review but
+like I don't know I just want to go over
+some Matrix questions if you have the
+time for
+it like you mean like just working with
+2D list yeah like 2D stuff and then
+he'll ask you to print out like the
+diagonal or he'll ask you to do like
+here let me let me actually have a
+question
+yeah so the person who just shared me
+this final point with anybody else so
+that's probably a good idea
+but
+but if you want to share it I could make
+him I could give him that prevents him
+from seeing that
+channel if people like like but I mean I
+don't
+know what if what is like everyone in
+the call want I'll make my decision
+based on that okay I have I have a
+question like something like something
+like this they like I fin that right now
+my Mac is just so
+slow Max R call something like that or
+like questions like that or like maybe
+he does a list comprehension and he
+makes you like calculate the diagonal
+using only list compreh I just wanted to
+go over some Matrix questions if that's
+possible um
+uh I mean I
+mean I can go over 2D stuff but I'm not
+going to go over like matrix
+multiplication and like
+that okay that's
+fine all right so Justin thoughts on
+robots
+path uh I think I did
+that yeah here's my answer I did it in
+class this was relatively
+simple what about robot's
+path is there a good repo to to these
+Jupiter notebooks somewhere like do you
+have them stor on a get repo somewhere
+or yes I do yeah if if you could
+possibly share then you
+should yeah after
+this if it'll show up I I doubt that
+he's going to ask this question that he
+already asked in class he can ask a
+question that's similar
+but I doubt he asked something he's
+already
+asked unless it was like from a day that
+like no one showed
+up um but yeah with this robot's path I
+mean this is a 2D question if you want
+to quickly go over my answer to this but
+basically
+[Music]
+um best number ways
+robot I
+I I forget what this question entails is
+it just
+[Music]
+a oh yeah it's wait what the
+yeah it starts at zero is it just
+I'm I'm a bit confused is it I think
+it's just
+going I think it's just the the amount
+of paths to get to the bottom right
+corner if I remember
+correctly which is
+70 yeah okay so basically what I
+did I use this as a whiteboard
+basically what I did is we have a 5x5
+list
+uh damn it okay give me a
+second okay so we have a 5x5 list um
+like so so z z
+zero 1 2 3 4 five one two 3 four five 2
+three four
+five
+okay um and so basically it's saying how
+many paths would it like are possible to
+get from the bottom left corner to the
+sorry top left corner at the bottom
+right
+corner um let me that okay and so
+basically I initialized this 2D list and
+I thought I started from
+0 and basically I just
+like calculated how many paths it would
+take you can only go right and down you
+can't go like diagonal or anything so
+basically I said okay one are we out of
+bounds if we ever do go out of bounds we
+just return
+zero are we at the bottom right corner
+if we do we return one because that's
+one successful path right and then from
+there we just say okay how many paths
+are there if we make if we like start
+from the point directly to our right and
+how many paths are there if we start
+from the point directly down
+right and so if we do so um
+yeah if we do so uh we basically just
+get those two those two amounts and then
+we just return their sum and then in the
+end just returns
+70 overall it's not too hard of a
+problem um yeah I think for his solution
+he makes it so that it like I think let
+me see a z I think he like replaces the
+numbers at like each point so it like
+makes it so that
+um how do I explain it it makes it so
+that
+uh you basically
+um how do I explain this basically each
+like index will contain like how many
+different ways you can get to a specific
+point rather than just the top left to
+the bottom right it's saying how many
+ways can I get from to this point right
+so basically to do that you can just
+like save like where you're currently at
+um and then increment it by one anytime
+you hit a specific point so like I think
+you can
+do um l i
+j plus equal 1 something like that and
+then at the end I think if you just
+print
+L
+yeah it's something like that I don't
+remember how to do it but yeah
+I don't see a 70 here though so I'm not
+entirely sure but
+okay um actually I think you have to
+increment it by one and then also add
+like the ones like directly to your left
+or above you I don't remember it's
+something like that but yeah okay
+anyways back to 2D
+stuff so
+let's for
+example um say I have some
+function called
+some uh diagonal or something like that
+we pass into some list we want to return
+the diagonal of an M byn
+Matrix S is equal to zero
+all yeah we want to turn the sum of the
+diagonal of M
+Matrix uh actually even better let's
+make it a bit more complicated say l is
+equal to Z we also want to return the
+diagonal
+itself so what we're going to do for ION
+range some
+diagonal I'm sorry L of some
+diagonal oh no sorry l l of L what the
+fck am I doing
+for J in range L of L of
+I and so basically I'm going to say if I
+is equal to J
+s+
+equals L
+of I of
+J l.
+append L of i j and then we can
+return uh like as a tuple the
+sum and the diagonal itself if we wanted
+to we'd like wouldn't even need to
+calculate the sum we could just do sum
+of L comma L but that's an extra o of n
+operation if we wanted to we can just do
+it in one thing rather than doing o of
+two o of 2 N but whatever it doesn't
+matter so then if why are you appending
+at the end why are you appending like
+you were calculating the sum why do you
+need to pend l i j what's that for I I
+changed the
+uh what's it called you don't need it
+for the some diagonal though right like
+you can take that out no I get I I just
+I just changed it up so that we return
+the sum and the diagonal itself oh okay
+all right and one last question um the
+reason why the second for Loops argument
+is oh wait hold on
+yeah you are right okay sorry about that
+all sorry what were you saying um the
+the the reason why the second argument
+the reason the second for Loop Len I Len
+l i it's that's that's the you're
+passing that in because that's the
+that's the length of the row right
+that's the length of the row the length
+yeah that's the length of the current
+row okay that's the only way you can get
+the length of the row there's no other
+way you can get the length of the row
+could you couldn't do length could you
+do length of um just the array like
+could you just do L Len of that would
+only work if there's equal rows equal
+columns oh okay yeah you're right this
+is M by
+n right so this works we can also do it
+with list comprehension so we can do
+like
+x uh we do like X is equal
+to um L of
+i j or J in
+range Len of
+l
+i or I in
+range uh oh wait hold on I'm messing
+something up
+here am I I I can't even tell hold on
+let me just check plan
+of
+uh hold on yeah something wrong here cuz
+this is going to make a
+two-dimensional one second let me just
+see what the output of this would be
+[Music]
+l i j for J and
+range yeah this is going to
+make I think I can just get rid of this
+no I
+can't
+H actually I think I could just
+do um from here x is equal to x l of x -
+one that should fix it
+okay uh and then from
+here we just print the
+sum of
+X okay so let's see if this works L is
+equal
+to 1 2 2 three
+4 I'll just do
+that more
+times think this should work but I don't
+remember actually I don't
+know yep one two 34 okay it
+works um but if I left this portion out
+it wouldn't have
+worked right because this would have
+made a two-dimensional list with like I
+guess kind of like sub arrays or sub
+list of like the actual diagonal list
+which we only want the final subl list
+which would be the list itself so that's
+how we get the
+diagonal
+um and
+yeah
+okay um all right oh I see NYC sent a
+solution I think that would only work if
+it's an N byn though
+right return X of I yeah that would only
+work if it's m byn but this one will
+work if it's m
+byn and this also covers n byn so it's
+fine it's like if I got rid of this it
+would be one two three would be
+six oh wait what the oh wa I didn't
+save it
+oh what is going on here one two three
+this should give one two three hold
+on ah why is it giving that that's
+weird think I'm mess something up here
+in
+my
+composition n Ln oh wait oh
+no oh I think I need to yeah if I is
+equal to
+J there we go okay but then that gives
+one two
+three um so I think we could just
+[Music]
+join I don't know if you can just do
+join like that
+though let's see yeah I don't think you
+can yeah you can um okay that's a bit
+weird yeah I don't know
+anyways just turn each element into a
+string
+true so that will give something like
+that what actually what the
+that
+gave uh um that doesn't really help I
+don't
+think yeah
+oh I
+see actually you would need to go one I
+think okay whatever I don't care
+anyways that's why I like the normal way
+F less
+comprehension okay there we go see yeah
+this
+works um okay
+let's try to think of another wait I
+just have one last question um so when
+you have like a let let so when you
+have said Loop show up first in the
+order like it's the first one that shows
+up then like the second nested Loop and
+then the topmost loop like that's how it
+works I don't know what you mean shows
+up first like I mean I mean I mean like
+when you're reading a for Loop like
+let's say you Rite a for Loop there's
+three Loops right and okay and you have
+list comprehension that does the same
+thing the last nested Loop it shows up
+right after like X for like for I and X
+do you know what I mean like like the
+last think think of it think of it like
+this if you have two four Loops you're
+going to have one in the outer portion
+be like four I in range whatever inside
+of that you have four J and range if we
+do a list comprehension
+the I would be the outermost and the J
+would be the innermost ah okay all right
+that's what I meant thanks and if it was
+three you can generalize that if it was
+like five nested Loops of the fifth one
+would show okay okay cool thanks well
+the fifth one would show up like in the
+innermost portion of the
+comprehension uh
+okay yeah I I feel like there isn't
+really
+much can go over with
+2D trying to
+think
+um okay I guess here's another
+one we
+can
+uh okay maybe I guess like
+print print
+even print all like the even values in
+the two dimensional
+list
+so like
+if Li i
+j mod 2 is equal to even print
+it that works
+too
+um oh yeah I got to rename this to X
+um yeah I I feel like there isn't really
+much to go over with two dimensional
+what is this a saddle point is it oh I'm
+not doing Saddle Point that
+I'm not doing
+that saddle points two Dimension Square
+table in an
+entry uh in the table whose value is
+minimum it's
+row oh yeah this is what I do for
+247 yeah this is basically you have to
+like like uh okay fine I'll do
+it
+so okay so basically what a saddle point
+is
+is you basically gather a
+list of each minimum
+value in all of the rows
+and you gather a list of all of the
+maximum values in all of the
+columns and then from the minimum values
+you grab the max value and from the max
+value you grab the Min
+values and if they're equal to each
+other that's a sadle point if they're
+not then it says just return not
+found
+right and so to do this
+let me see how we can do this so first
+we
+can work with the rows I'll do like
+separate ones because I don't care for
+ION range Len
+L we can create a list so
+mins I can make a su list so I can say
+like mins.
+aens uh Min of L of I so that'll get the
+minimum value in that specific
+list
+okay and then um for the columns how can
+we do the
+[Music]
+colums let me
+think okay for the columns we can just
+do four J in range
+L of L I'm going to assume that it's
+just n
+byn so zero actually I think this should
+still work with yeah this should still
+be fine uh for I in range Len of
+L uh again I just want to
+basically here I'll do this Maxes is
+equal to that I'll make a sub
+so this is going to
+be
+sub.
+append L
+of uh i
+j this work let me see I think so okay
+then we say
+Max's append Max
+sub okay so basically what this will do
+is it's going to iterate through each
+column my ears all right bro I had my
+airpods all the way Max bro my
+God uh leis you're unmuted oh my
+bad uh
+okay so again what this is going to do
+it's just going to iterate through each
+column
+and for each column it's going to
+iterate through each row and append its
+value to some subl list and then it's
+going to append the max value to it and
+then from there or sorry to some Max's
+list and then from there we're going to
+check
+okay um return we want to check if the
+max of the mens is equal to the men of
+the Maxes so the max of the mens is
+equal to the
+of the
+Maxes so if this is
+true we want to return the values so I'm
+just going to say Max of mens it could
+be either Max of men or mins of
+Maxes uh else we can just return n and
+that'll be that should work for the
+sadle point
+problem okay so those are some 2D list
+problems
+okay anything else anyone wants me to go
+over doesn't have to be just part one to
+five stuff it could be like part six to8
+as well just not part nine because I
+didn't look at
+it someone's typing
+um the time problem of part eight uh I'm
+not doing
+time I don't think that'll be on it you
+can study it yourself if you want
+to but time I think you just use like
+the time.time method that'll give you
+like the current time or
+something I doubt time will be on the
+exam
+though yeah time that time
+sorting like actual sorting algorithms
+or just sorting in
+general yeah they're
+sorted you could pass in sorting
+algorithms I'm not doing that that's not
+going to be on it
+I doubt that's on it if it is you should
+at least remember bubble sort that's
+that's all I can really
+[Music]
+say uh Sam your mic is
+unmuted how do you delete from
+dictionaries you said it you use the
+exact keyword
+Dell you do dell dictionary and then you
+pass in as a in the brackets the actual
+key yeah d d
+key I can quickly go over like sorted
+function if you want to but I'm not
+going to go over the algorithms
+anything
+else
+good all right so it looks like everyone
+should get 100
+then so I think that should be it for
+was anyone recording this

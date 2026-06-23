@@ -1,0 +1,30 @@
+Examples
+Using `time.time()`:
+import time
+start = time.time()
+# Your code to time
+end = time.time()
+print(f"Duration: {end start} seconds")
+Using `timeit.timeit()`:
+import timeit
+duration = timeit.timeit('code_to_time()', setup='from __main__ import code_to_time',
+number=1000)
+print(f"Total duration for 1000 runs: {duration} seconds")
+So, ingeneral, use `time.time()` for general-purpose timing and longer running processes, and
+`timeit.timeit()` for more accurate timing of short code snippets, especially when conducting
+performance tests or benchmarks.
+Example:
+import time
+def my_function():
+time.sleep(2) # simulate a 2 second delay
+return "Hello, world!"
+start_time = time.time()
+result = my_function()
+end_time = time.time()
+duration = end_time - start_time
+print(f"Result: {result}")
+print(f"Duration: {duration} seconds")
+When I run this code I get:
+Result: Hello, world!
+Duration: 2.0110862255096436 seconds
+15

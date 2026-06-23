@@ -1,0 +1,44 @@
+{
+    "editor.inlineSuggest.enabled": false,
+    "editor.inlineSuggest.showToolbar": "never",
+    "editor.quickSuggestions": {
+        "other": "off",
+        "comments": "off",
+        "strings": "off"
+    },
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.parameterHints.enabled": false,
+    "editor.wordBasedSuggestions": "off",
+    "editor.suggest.enabled": false,
+    "editor.suggest.showWords": false,
+    "editor.suggest.showSnippets": false,
+    "editor.hover.enabled": "on",
+    "editor.tabCompletion": "off",
+    "editor.snippetSuggestions": "none",
+    "github.copilot.enable": {
+        "*": false,
+        "python": false
+    },
+    "github.copilot.editor.enableAutoCompletions": false,
+    "antigravity.inlineSuggest.enabled": false,
+    "antigravity.codeCompletions.enabled": false,
+    "antigravity.enable": false,
+    "gemini.inlineSuggest.enabled": false,
+    "gemini.codeCompletions.enabled": false,
+    "gemini.enable": false,
+    "cursor.cpp.enable": false,
+    "[python]": {
+        "editor.inlineSuggest.enabled": false,
+        "editor.suggest.enabled": false,
+        "editor.quickSuggestions": {
+            "other": "off",
+            "comments": "off",
+            "strings": "off"
+        },
+        "editor.parameterHints.enabled": false,
+        "editor.wordBasedSuggestions": "off",
+        "editor.suggestOnTriggerCharacters": false,
+        "editor.snippetSuggestions": "none"
+    }
+}

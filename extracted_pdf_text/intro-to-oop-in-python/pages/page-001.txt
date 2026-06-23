@@ -1,0 +1,43 @@
+OOP in Python - Introduction
+Here is a C++ class implementing rational numbers:
+#include <iostream>
+using namespace std;
+class Rat {
+private:
+int n, d;
+public:
+// Constructors
+Rat() : n(0), d(1) {}
+Rat(int i, int j) : n(i), d(j) {}
+Rat(int i) : n(i), d(1) {}
+// Accessor functions
+int getN() { return n; }
+int getD() { return d; }
+void setN(int i) { n = i; }
+void setD(int i) { d = i; }
+// Arithmetic operators
+Rat operator+(const Rat& r) {
+return Rat(n * r.d + d * r.n, d * r.d);
+}
+Rat operator-(const Rat& r) {
+return Rat(n * r.d - d * r.n, d * r.d);
+}
+Rat operator*(const Rat& r) {
+return Rat(n * r.n, d * r.d);
+}
+Rat operator/(const Rat& r) {
+return Rat(n * r.d, d * r.n);
+// Overloading operators for Rat and int combinations
+friend Rat operator+(int lhs, const Rat& rhs) {
+return Rat(lhs) + rhs;
+}
+friend Rat operator-(int lhs, const Rat& rhs) {
+return Rat(lhs) - rhs;
+}
+friend Rat operator*(int lhs, const Rat& rhs) {
+return Rat(lhs) * rhs;
+}
+friend Rat operator/(int lhs, const Rat& rhs) {
+return Rat(lhs) / rhs;
+}
+1

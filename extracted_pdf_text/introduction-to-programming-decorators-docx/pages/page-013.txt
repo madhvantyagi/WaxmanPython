@@ -1,0 +1,31 @@
+def countcalls(calldict):
+def decorator(func):
+def wrapper(*args, **kwargs):
+# Increment the count for this function in calldict
+calldict[func.__name__] = calldict.get(func.__name__, 0) + 1
+# Call the original function
+return func(*args, **kwargs)
+return wrapper
+return decorator
+When we run the program:
+calldict = {}
+@countcalls(calldict)
+def add(x, y):
+return x + y
+@countcalls(calldict)
+def mult(x, y):
+return x * y
+# Testing the functions and printing calldict
+z = add(2, 3)
+print(calldict) # Output: {'add': 1}
+z = add(2, 3)
+print(calldict) # Output: {'add': 2}
+z = mult(2, 3)
+print(calldict) # Output: {'add': 2, 'mult': 1}
+Another example. A decorator to return the runtime of the decorated functions.
+Some background.
+Python has extensive libraries for dealing with dates and times.
+The time library in Python provides various time-related functions. It allows you to measure
+time intervals in seconds, determine the current time, and perform conversions between different
+time formats. There is also timeit.
+13

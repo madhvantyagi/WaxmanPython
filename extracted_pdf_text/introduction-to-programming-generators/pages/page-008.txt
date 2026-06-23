@@ -1,0 +1,32 @@
+Write a generator sensor_monitor(states)that monitors a device that periodically sends either a 1 or a
+0. The generator keeps track of the number of zeros between receiving a 1. They call that number the
+gap. Each time a value is received the generator yields the gap.
+For example, say the received sequence is:
+runs=[1,1,0,1,1,0,0,0,1,1,1,1,0,1,0,0,1]
+and when we call sensor_monitor(runs)
+then the generator will output:
+[0, 0, 1, 0, 3, 0, 0, 0, 1, 2, 0]
+Answer
+# Sequence of received states
+runs = [1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1]
+# Function to create a generator that monitors gaps
+def sensor_monitor(states):
+gap = 0
+for state in states:
+if state == 1:
+yield gap
+gap = 0
+else:
+gap += 1
+# Creating the generator
+monitor = sensor_monitor(runs)
+# Using the generator to get the outputs
+output = list(monitor)
+print(output)
+How does this work?
+This program initializes the sensor_monitor generator with the list runs. The sensor_monitor function
+iterates through each item in runs. It yields the gap (the number of zeros) each time a 1 is encountered
+and resets the gap counter. After creating the generator monitor, the script collects all outputs into a list
+and prints it. The output will be [0, 0, 1, 0, 3, 0, 0, 0, 1, 2, 0], as each number represents the number of
+zeros since the last 1.
+8

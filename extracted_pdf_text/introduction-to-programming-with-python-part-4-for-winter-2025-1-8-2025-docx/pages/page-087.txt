@@ -1,0 +1,40 @@
+We can write our own simple versions of copy and deepcopy:
+If you want to write a custom function to shallow copy a list in Python, you can do so by creating a new
+list and adding all elements from the original list to it. This can be done in several ways, such as using a
+loop, list comprehension, or the list() constructor. Here's an example using list comprehension, which
+def shallow_copy(lst):
+# Create a new list with the same elements as 'lst'
+copied_list = []
+for item in lst:
+copied_list.append(item)
+return copied_list
+This function creates a shallow copy of the list, meaning that if the list contains nested lists or other
+mutable objects, those nested objects will not be copied; instead, both the original and copied lists will
+reference the same nested objects.
+For a deep copy function that can handle nested lists you can use recursion:
+def deep_copy(lst):
+copied_list = []
+for item in lst:
+# If the item is a list, recursively call deep_copy
+if isinstance(item, list):
+copied_list.append(deep_copy(item))
+else:
+copied_list.append(item)
+return copied_list
+original_list = [1, [2, 3], 4, [5, [6, 7]]]
+copied_list = deep_copy(original_list)
+print("Original List:", original_list)
+print("Copied List:", copied_list)
+To check that in fact a deepcopy has been made, change an element in the copied list and compare it to the
+original one.
+copied_list[1][0] = 'X'
+print("Modified Copied List:", copied_list)
+print("Original List After Modification:", original_list)
+print("Original List After Modification:", original_list)
+This deep_copy function checks each item in the input list: if the item is a list itself, it recursively copies
+that list; otherwise, it simply appends the item to the new list. This way, you get a new list that's a deep
+copy of the original, including all nested lists.
+This function is specifically designed to handle nested lists, and it will not correctly handle other mutable
+types like dictionaries or sets. The function checks if an item is a list (isinstance(item, list)) and only then
+does it perform a recursive deep copy. For other types, it simply appends the item to the new list, which
+159

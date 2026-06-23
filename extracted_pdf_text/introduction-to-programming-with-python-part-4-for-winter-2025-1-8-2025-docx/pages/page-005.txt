@@ -1,0 +1,33 @@
+3. Return Values
+Functions in Python can return values using the `return` statement. If no `return` statement is
+present or if `return` is called without a value, the function will return `None`.
+def add(a, b):
+return a + b
+4. Scope and Namespaces
+In Python, every function creates its own scope, which is the context in which its variables are
+defined and accessed. Variables defined inside a function are local to that function and not
+accessible outside of it. Python uses namespaces to keep track of all the variables and their scopes.
+Local scope: Refers to variables defined within a function.
+Global scope: Refers to variables defined at the top level of a module or declared global using the
+`global` keyword within a function.
+Enclosing scope: Refers to the scope of any enclosing functions, relevant in the context of nested
+functions.
+5. First-Class Objects
+In Python, functions are first-class objects, meaning they can be passed around and used as
+arguments or return values in other functions. This allows for higher-order functions and
+functional programming patterns.
+def shout(text):
+return text.upper()
+def whisper(text):
+return text.lower()
+def greet(func):
+greeting = func("Hello, I am a function")
+print(greeting)
+greet(shout) # Output: "HELLO, I AM A FUNCTION"
+greet(whisper) # Output: "hello, i am a function"
+6. Closures
+A closure in Python is a function object that remembers values in enclosing scopes even if they
+are not present in memory. It is a record that stores a function together with an environment: a
+mapping associating each free variable of the function with the value or reference to which the
+name was bound when the closure was created.
+77

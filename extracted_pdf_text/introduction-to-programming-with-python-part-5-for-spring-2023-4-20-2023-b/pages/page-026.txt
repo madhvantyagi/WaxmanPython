@@ -1,0 +1,25 @@
+Problem:
+Write a function that reverses a string. Remember, a string is not mutable! Do it two ways: using slicing,
+and using a loop.
+Answer:
+Another way:
+The `reversed()` function is a built-in Python function used to reverse the elements of a sequence, such
+as a list, tuple, or string. When applied to a string, it returns an iterator that produces the characters of
+the string in reverse order.
+result = reversed("Hello, World!")
+For example, `reversed("Hello, World!")` returns an iterator that will produce the characters of the string
+`"Hello, World!"` in reverse order when iterated over.
+So,
+def reverse_string(s):
+return ''.join(reversed(s))
+- `reversed(s)` creates a reverse iterator of the string `s`.
+- `''.join(reversed(s))` takes this iterator and joins its items (characters of the string `s`) together into a
+new string, effectively reversing the string.
+The `reversed()` function is useful when you want to iterate over the items of a sequence in reverse
+order without actually creating a reversed copy of the sequence.
+Problem:
+Write a function one_upper(s) which returns True if exactly one character in string s is capitalized, and
+False otherwise. You can assume that the string s contains only alphabetic characters and no blanks. You
+might want to consider other string functions from the documentation.
+Answer:
+134

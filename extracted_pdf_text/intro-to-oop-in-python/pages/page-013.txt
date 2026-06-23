@@ -1,0 +1,18 @@
+4. Enforcing Business Logic: Sometimes, the deletion of a property might need to adhere to
+certain business rules or logic. For example, you might want to check if certain conditions are
+met before allowing a property to be deleted.
+5. Logging and Auditing: If you need to keep track of when properties are deleted (for
+debugging, logging, or auditing purposes), a deleter can be used to log these deletions.
+6. Control and Validation: Similar to getters and setters, deleters give you more control over
+how properties are managed. You can validate if a property should be deletable at a given point
+in time or under certain conditions.
+While there are valid reasons to delete an attribute, it's essential to do so judiciously because:
+- It can lead to inconsistent object states within the same class, potentially causing errors if other
+parts of the codebase expect the attribute to be present.
+- It can make the code harder to understand and maintain, as the dynamic structure of objects is
+less predictable.
+In many cases, it might be better to set the attribute to `None` or some other sentinel value to indicate
+that it's not currently valid or in use, rather than deleting it outright. This approach maintains the
+consistency of the object's structure while still conveying that the attribute is in a kind of "not set" or
+"not applicable" state.
+13

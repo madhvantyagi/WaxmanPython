@@ -1,0 +1,11 @@
+Problem:
+Modify the above program so that it writes the result to a file called averages.
+Answer:
+Problem:
+In the following example bnames.txt is a file with students first name followed by last name followed by midterm
+score and final score and writes to an output file the first and last names, followed by the midterm and final grades,
+calculates the average and the student’s deviation from the class average.
+Notice that the output file is sorted by last name and then by first within last.
+But notice the output is not in the order expected (and the names are different ..). How do we get the
+correct order?
+19

@@ -1,0 +1,26 @@
+Writing to files.
+To make the output of a program go to a file, supply a file argument to the print()
+function:
+with open('out.txt', 'wt') as out:
+while year <= numyears:
+principal = principal * (1 + rate)
+print(f'{year:>3d} {principal:0.2f}', file=out)
+year += 1
+In addition, file objects support a write() method that can be used to write string
+data.
+For example, the print() function in the previous example could have been written this way:
+out.write(f'{year:3d} {principal:0.2f}\n')
+Problem:
+Create this file (bears.txt) in your python directory:
+Once upon a time
+there were
+three bears,
+a poppa, a momma,
+and a little baby bear!
+Read the file line by line and print it out.
+Answer:
+f=open('bears.txt')
+for i in f:
+print(i)
+produces: Why the spaces between the lines?
+126

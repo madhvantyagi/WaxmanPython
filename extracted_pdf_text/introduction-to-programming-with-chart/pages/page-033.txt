@@ -1,0 +1,32 @@
+Purpose: Setting the figure size is important for a couple of reasons. First, it helps ensure that your plot
+has the right aspect ratio and size for your analysis or presentation needs. Second, if you're saving the plot
+to a file, it helps control the size and resolution of the output file.
+The takeaway:
+plt.figure(figsize=(8, 4)) in Matplotlib is used to initialize a new plotting area or figure with a width of 8
+inches and a height of 4 inches. This allows for more control over the size and aspect ratio of the plots you
+create.
+We can redo the interval count function using groupby from itertools.
+def count_numbers_in_intervals(grades):
+# Initialize all intervals with zero count
+interval_counts = {f"{i}-{i + 9}": 0 for i in range(1, 101, 10)}
+# inner function to determine the interval for a grade
+def interval_key(grade):
+return f"{int((grade - 1) // 10) * 10 + 1}-{int((grade - 1) // 10) * 10 + 10}"
+for key, group in groupby(sorted(grades), interval_key):
+interval_counts[key] = len(list(group))
+return interval_counts
+Here is how it works:
+This function takes a list of grades, determines the interval each grade belongs to, and counts the number
+of grades in each of these intervals, returning a dictionary that maps intervals to their respective grade
+counts.
+1. Initialization of `interval_counts`dictionary:
+interval_counts = {f"{i}-{i + 9}": 0 for i in range(1, 101, 10)}
+This line initializes a dictionary named `interval_counts` where each key is a string representing a 10-
+point interval (e.g., "1-10", "11-20", ..., "91-100"). Each value is initialized to 0. This setup ensures that all
+intervals are accounted for, even if no grades fall into some intervals.
+2. Definition of `interval_key` function:
+def interval_key(grade):
+return f"{int((grade - 1) // 10) * 10 + 1}-{int((grade - 1) // 10) * 10 + 10}"
+This is an inner function that takes a single grade and calculates the interval it belongs to. The calculation
+`int((grade - 1) // 10) * 10 + 1` finds the lower bound of the interval. For example, if `grade` is 35, `(35 -
+161

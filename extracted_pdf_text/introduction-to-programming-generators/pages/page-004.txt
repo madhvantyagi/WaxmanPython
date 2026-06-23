@@ -1,0 +1,31 @@
+returns a value, it rather stays “alive” till all the expected values have been generated and returned to
+the caller.
+Generator functions are like normal functions in most respects, and in fact are coded with
+normal def statements. When a generator function is called, it doesn’t return a value, rather it returns a
+generator object that can be iterated over, just like a list, but it generates values only when requested.
+This makes generators very efficient, as they generate values only when needed, and they can be used
+to generate large sequences of values that cannot fit into memory at once. A simple example of a
+generator function is one that generates a sequence of even numbers.
+For example:
+def even_numbers(n):
+i = 0
+while i < n:
+yield i
+i += 2
+The function above is a generator function, it uses the “yield” keyword.
+even_gen = even_numbers(10)
+even_gen is a generator object and it can be iterated over like any other iterable.
+for num in even_gen:
+print(num)
+Another example:
+def countdown(n):
+print('Counting down from', n)
+while n > 0:
+yield n
+n -= 1
+for x in countdown(10):
+print('T-minus', x)
+If you call this function, you will find that none of its code starts executing. For example:
+>>> c = countdown(10)
+>>> c
+4

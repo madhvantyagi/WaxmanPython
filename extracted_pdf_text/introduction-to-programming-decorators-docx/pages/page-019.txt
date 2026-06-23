@@ -1,0 +1,32 @@
+# Generate test data
+data_size = 10000 # Increase the data size to get more accurate results
+test_data = [random.randint(1, 10000) for _ in range(data_size)]
+# Dictionary to hold the results
+times = {}
+# Run each sorting algorithm and store the results
+times['Bubble Sort'], _ = bubble_sort(test_data.copy())
+times['Selection Sort'], _ = selection_sort(test_data.copy())
+times['Merge Sort'], _ = merge_sort(test_data.copy())
+times['Quick Sort'], _ = quick_sort(test_data.copy())
+print("Runtimes")
+print('Bubble Sort:',times['Bubble Sort'])
+print('Selection Sort:',times['Selection Sort'])
+print('Merge Sort:',times['Merge Sort'])
+print('Quick Sort:',times['Quick Sort'])
+# Plotting the results
+plt.bar(times.keys(), times.values(), color=['red', 'green', 'blue', 'cyan'])
+plt.ylabel('Time (seconds)')
+plt.xlabel('Sorting Algorithm')
+plt.title('Sorting Algorithm Performance')
+plt.show()
+# Plotting the results with a logarithmic scale
+plt.bar(times.keys(), times.values(), color=['red', 'green', 'blue', 'cyan'])
+plt.yscale('log') # Set the y-axis to a logarithmic scale
+plt.ylabel('Time (seconds)')
+plt.xlabel('Sorting Algorithm')
+plt.title('Sorting Algorithm Performance')
+plt.show()
+Finally, let’s make sure that we understand the flow of control when decorators are used.
+The following example is from:
+https://www.geeksforgeeks.org/decorators-in-python/#
+19

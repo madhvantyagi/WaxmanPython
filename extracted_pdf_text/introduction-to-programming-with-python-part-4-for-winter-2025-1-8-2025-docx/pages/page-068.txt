@@ -1,0 +1,10 @@
+Slicing lists
+What is a slice of a list?
+x[a:b]
+If x is a list then the slice is the “sub-list” of the elements of the elements of a from index
+position a up to but not including index position b.
+If we want to indicate that the slice starts at the beginning of the list, we can leave out the start value:
+If we want to indicate that the slice goes all the way to the end of the list, we can leave out the end
+value:
+Leaving out both the start and end indexes is the same as saying the whole list. So:
+140

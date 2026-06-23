@@ -1,0 +1,19 @@
+1) // 10` equals 3, then `3 * 10 + 1` equals 31, so the interval starts at 31. Similarly, the upper bound is
+calculated to be `31-40`.
+3. Grouping Grades by Intervals and Counting:
+for key, group in groupby(sorted(grades), interval_key):
+interval_counts[key] = len(list(group))
+groupby(sorted(grades), interval_key)`: This line sorts the grades and then groups them using the
+`groupby` function from the `itertools` module. As we saw above, the `groupby` function requires the data
+to be sorted by the same key that is used for grouping. Here, it groups the grades based on the intervals
+determined by the `interval_key` function.
+`for key, group in ...`: This is a loop over the groups created by `groupby`. Each group is a tuple where
+`key` is the interval (e.g., "31-40"), and `group` is an iterator of grades that fall into that interval.
+`interval_counts[key] = len(list(group))`: For each group, it converts the `group` iterator to a list to
+count how many grades fall into this interval, and then updates the corresponding count in the
+`interval_counts` dictionary.
+4. Return Statement:
+return interval_counts
+Finally, the function returns the `interval_counts` dictionary containing the counts of grades in each
+interval.
+162

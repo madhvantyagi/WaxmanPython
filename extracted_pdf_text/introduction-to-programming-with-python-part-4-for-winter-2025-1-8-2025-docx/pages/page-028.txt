@@ -1,0 +1,39 @@
+It is common for the first statement of a function to be a documentation string describing its usage.
+For example:
+def factorial(n):
+'''
+Computes n factorial. For example:
+>>> factorial(6)
+120
+>>>
+'''
+if n <= 1:
+return 1
+else:
+return n*factorial(n-1)
+The documentation string is stored in the __doc__ attribute of the function. It’s often accessed by IDEs to
+provide interactive help.
+We can then write: factorial.__doc__, or help(factorial)
+Functions can also be annotated with type hints. For example:
+def factorial(n: int) -> int:
+if n <= 1:
+return 1
+else:
+return n * factorial(n - 1)
+The type hints don’t change anything about how the function evaluates. That is, the presence of hints
+provides no performance benefits or extra runtime error checking. The hints are merely stored in the
+__annotations__ attribute of the function which is a dictionary mapping argument names to the supplied
+hints. Third-party tools such as IDEs and code checkers might use the hints for various purposes.
+Sometimes you will see type hints attached to local variables within a function. For example:
+def factorial(n:int) -> int:
+result: int = 1 # Type hinted local variable
+while n > 1:
+result *= n
+n -= 1
+return result
+Such hints are completely ignored by the interpreter. They’re not checked, stored, or even evaluated.
+Again, the purpose of the hints is to help third-party code-checking tools.
+Adding type hints to functions is not advised unless you are actively using code-checking tools that make
+use of them. It is easy to specify type hints incorrectly—and, unless you’re using a tool that checks them,
+errors will go undiscovered until someone else decides to run a type-checking tool on your code.
+100

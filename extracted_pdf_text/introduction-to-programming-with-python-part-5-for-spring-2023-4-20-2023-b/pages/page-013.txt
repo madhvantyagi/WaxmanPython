@@ -1,0 +1,15 @@
+Problem:
+Remember the Eight Queens Problem? Using the code above, we can generate all 88 configurations and
+print only those that have neither a row nor a diagonal conflict.
+The algorithm
+The row test (its trivial in Python)
+The diagonal test
+Problem:
+What does the following code do? (and how?)
+from itertools import permutations
+col=[0,1,2,3,4,5,6,7]
+for vec in permutations(col):
+if (8==len(set(vec[i]+i for i in col))
+== len(set(vec[i]-i for i in col))):
+print(vec)
+121

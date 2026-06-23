@@ -1,0 +1,13 @@
+Nested loops and two-dimensional lists
+Even though a list is “really” is a list of lists, when we program its useful to think of it as a two
+dimensional table.
+So, for the list a above, we can consider it a table with three rows and three columns. The rows and
+columns are each indexed starting at 0. We will say that he position with entry 500 is at row 1 and
+column 1.
+We saw how lists and loops are “made for each other.” The same is true with two dimensional lists (we
+will sometimes refer to the as two dimensional “arrays”. This is what they are called in many other
+programming languages (though they are implemented differently).
+Problem:
+Print list a above so that each “row” of it prints a separate row.
+And formatted …
+162

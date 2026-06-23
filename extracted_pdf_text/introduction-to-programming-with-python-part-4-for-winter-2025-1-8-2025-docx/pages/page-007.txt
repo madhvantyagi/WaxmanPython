@@ -1,0 +1,18 @@
+IMPORTANT: Terminology: The x any above are called parameters, the 3 and 4 are called
+arguments. The arguments can be constants as in the above example, or variables as in the examples
+below.
+Here is the syntax.
+def function_name( parameter list): # the parameter list could be empty – but still need ().
+code block
+And the semantics:
+1. A function needs to be defined, using the “def” construction above, before it is used. Otherwise
+Python will issue an error like this:
+2. The parameter list is a list of variables that will refer to local copies of the arguments “passed” from
+the calling code. For example:
+local
+Notice1: The variables in the parameter list are . This means that any changes that you make to
+them in the function do not affect the values in the corresponding arguments in the main program. What
+happens in Vegas ….
+Notice2: The actual story is a bit subtler than Notice1. We have passed in simple types. Stay tuned for
+what happens later on when we pass mutable objects.
+79

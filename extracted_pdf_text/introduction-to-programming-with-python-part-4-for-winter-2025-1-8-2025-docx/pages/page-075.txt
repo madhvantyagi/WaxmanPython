@@ -1,0 +1,42 @@
+Insertion sort can be made more efficient by using a binary search to find the insertion point for the new
+element.
+def binary_search(arr, val, start, end):
+"""Find index to insert val within arr[start:end] via binary search."""
+while start < end:
+mid = (start + end) // 2
+if arr[mid] < val:
+start = mid + 1
+else:
+end = mid
+return start
+def binary_insertion_sort(arr):
+for i in range(1, len(arr)):
+val = arr[i]
+# Find the position to insert the current element
+pos = binary_search(arr, val, 0, i)
+# Shift elements to the right to make space for the current element
+arr[pos+1:i+1] = arr[pos:i]
+# Insert the current element into its correct position
+arr[pos] = val
+return arr
+# Example usage
+arr = [37, 23, 0, 17, 12, 72, 31, 46, 100, 88, 54]
+sorted_arr = binary_insertion_sort(arr)
+print(sorted_arr)
+Then, of course, there is merge sort.
+Merge Sort is a classic divide-and-conquer algorithm that divides the array into halves, recursively sorts
+each half, and then merges the sorted halves back together.
+1. Divide: Split the array into two halves.
+2. Conquer: Recursively sort each half.
+3. Combine: Merge the sorted halves to produce a single sorted array.
+Key Properties:
+Divide-and-Conquer: Merge Sort divides the problem into subproblems, solves them independently, and
+combines their solutions.
+Stable: It does not change the relative order of elements with equal keys.
+Not In-Place: In its typical implementation, it requires additional space proportional to the array being
+sorted.
+Time Complexity: O(n log n) in all cases (best, average, and worst).
+Merge Sort is particularly well-suited for large datasets and performs consistently well due to its O(n log
+n) time complexity. Its main drawback is the need for additional space, making it less space-efficient
+compared to some in-place sorting algorithms.
+147

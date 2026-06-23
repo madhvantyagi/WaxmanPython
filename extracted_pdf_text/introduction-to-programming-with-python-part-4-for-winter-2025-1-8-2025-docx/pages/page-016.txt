@@ -1,0 +1,33 @@
+What is the difference between a nonocal reference of an inner function and a
+closure?
+When you define an inner function within an outer function, the inner function can access variables from
+the outer function's scope. These accessed variables are known as "nonlocal" to the inner function because
+they are not defined within the inner function's local scope nor are they global. They lie in the enclosing
+function's scope.
+Nonlocal References in Inner Functions
+Here's a simple example:
+def outer():
+x = "outer x"
+def inner():
+print(x) # Accessing the nonlocal variable x from the outer function
+inner()
+outer()
+When we run this we get: RUN IT!
+Closures
+A closure occurs when an inner function remembers and has access to variables from its enclosing scope
+even after the outer function has finished executing. The key point is that the inner function has "closed
+over" the variables from its enclosing scope.
+This "closing over" behavior enables the inner function to retain the state of its environment even when
+called outside its original context. For a function to be a closure, it must satisfy three conditions:
+1. It must be a nested function.
+2. It must access variables from an enclosing scope.
+3. The inner function must be returned or passed out of its enclosing function.
+Here's an example that demonstrates a closure (without the nonlocal we used above):
+def outer_function(x):
+y = 5
+def inner_function(z):
+return x + y + z # Accesses x and y from the outer scope
+return inner_function # Returns inner_function itself, not a value
+# Creation of a closure
+closure = outer_function(10)
+88

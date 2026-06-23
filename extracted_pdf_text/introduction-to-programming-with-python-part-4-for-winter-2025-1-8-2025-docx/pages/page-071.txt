@@ -1,0 +1,30 @@
+Sorting
+Sorting is an operation on a list that orders the list elements in a specific order.
+For example:
+1. A list of names may be sorted in “lexical” =dictionary=alphabetical order.
+Here is a formal definition of lexical order from Wikipedia:
+The name of the lexicographic order comes from its generalizing the order given to words in
+a dictionary: a sequence of letters (that is, a word)
+a1a2 ... ak
+appears in a dictionary before a sequence
+b1b2 ... bk
+if and only if at the first i where ai and bi differ, ai comes before bi in the alphabet.
+That comparison assumes both sequences are the same length. To ensure they are the same length, the
+shorter sequence is usually padded at the end with enough "blanks" (a special symbol that is treated as
+coming before any other symbol).
+Note that we can order the names in reverse order, from latest to earliest. In this case the words still are
+in lexicographic order, but from the last element to the first.
+2. A list of integers may be listed in either from smallest to largest or vice versa.
+Why sort?
+It turns out that sorting is one of the most important operations that programs perform. Two examples.
+1. Searching a list. In order to find a specific element in a list we often sort it first. A sorted list can be
+searched much more quickly than one that is unsorted. Imagine looking up a phone number in a phone
+book (list) with a million entries. If the list is unsorted, we might need to look at 1,000,000 entries. If it
+is sorted, we don’t need more than 20.
+2. A Scrabble dictionary. We might want to bring all the words with the same letters next to each
+other in the list. So if we got the letters ‘opts’ we would like to have stop, pots, and tops all next to one
+another. Imagine that we had a function called “signature()” that transforms each of stop, tops and post
+➔ opts. Then if D is the list of dictionary words then
+D.sort(key=signature)
+would do this for us. We will actually do this later on.
+143

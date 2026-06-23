@@ -1,0 +1,11 @@
+Problem:
+Write a generator that will yield the “next” leap year each time that it’s called.
+Problem:
+Using a generator, create a dictionary such that d[i] is mapped to the ith prime number.
+Can you also do this with a dictionary comprehension?
+i.e. make this work:
+def prime_dict(n):
+prime_generator = gen_primes()
+return {i: next(prime_generator) for i in range(1, n + 1)}
+Problem:
+6

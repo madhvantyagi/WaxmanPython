@@ -1,0 +1,29 @@
+9.Return Values
+The return statement returns a value from a function. If no value is specified or you omit
+the return statement, None is returned.
+Argument unpacking when returning values.
+To return multiple values, place them in a tuple:
+def parse_value(text):
+'''
+Split text of the form name=val into (name, val)
+'''
+parts = text.split('=', 1)
+return (parts[0].strip(), parts[1].strip())
+Values returned in a tuple can be unpacked to individual variables:
+name, value = parse_value('url=http://www.python.org')
+Sometimes Named Tuples Are Used as an Alternative
+In some cases, when you return multiple values from a function, you might use a regular
+tuple. For example:
+return (parts[0].strip(), parts[1].strip())
+In this case, `parts[0]` refers to the first part of the string (the "name") and `parts[1]` refers
+to the second part (the "value"). However, this approach can be unclear when reading the
+code because you have to remember what `parts[0]` and `parts[1]` represent.
+Wouldn't it be better if we could write something more readable, like this?
+return (name.strip(), value.strip())
+This makes it much clearer what each of parts[0] And parts[1] represents.
+Well, we can’t to this exactly, but we can make it such that we can say name and value in
+the calling scope. How?
+Enter Named Tuples
+Named tuples give us the clarity of assigning names to the values we're returning, while
+maintaining the tuple-like behavior. Here’s how you can define a named tuple:
+103

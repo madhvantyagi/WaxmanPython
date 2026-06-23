@@ -1,0 +1,24 @@
+In the context of parallel assignment, the * prefix can be applied to exactly one variable, but it can appear
+in any position:
+>>> a, *body, c, d = range(5)
+>>> a, body, c, d
+(0, [1, 2], 3, 4)
+>>> *head, b, c, d = range(5)
+>>> head, b, c, d
+([0, 1], 2, 3, 4)
+Unpacking with * in Function Calls and Sequence Literals
+In function calls, we can use * multiple times:
+>>> def fun(a, b, c, d, *rest):
+... return a, b, c, d, rest
+...
+>>> fun(*[1, 2], 3, *range(4, 7))
+(1, 2, 3, 4, (5, 6))
+Notice the 5 and 6 are put into a tuple because of the * in the function header.
+The * can also be used when defining list, tuple, or set literals, as shown in the following examples.
+>>> *range(4), 4
+(0, 1, 2, 3, 4) # all got unpacked into a tuple by default
+>>> [*range(4), 4]
+[0, 1, 2, 3, 4] # unpacked into a list because …
+>>> {*range(4), 4, *(5, 6, 7)}
+{0, 1, 2, 3, 4, 5, 6, 7} # and to a set because …
+125

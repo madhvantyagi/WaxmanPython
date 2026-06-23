@@ -1,0 +1,26 @@
+What is going on?
+The `if __name__ == "__main__":` statement in Python serves a crucial purpose when it comes to writing
+Python modules that can be run as scripts or imported into other modules.
+Script vs. Module: Python files can act both as reusable modules and as standalone scripts.
+`if __name__ == "__main__":` allows a Python file to distinguish between these two use cases, executing
+some code only when the file is run as a script and not when it's imported as a module.
+Encapsulation: This statement encapsulates the "executable" part of the code, making it clear which part
+of the module is meant to execute as a script. This is especially useful for readability and maintainability.
+How It Works
+`__name__` Variable: When a Python file is executed, Python sets several special variables, and
+`__name__` is one of them. If the file is being run as a script, `__name__` is set to `"__main__"`. If the
+file is being imported as a module into another file, `__name__` is set to the name of the file/module.
+Use Cases
+1. Running Tests: You can include a test suite within the `if __name__ == "__main__":` block of a
+module, allowing you to run tests only when the module is executed directly.
+2. Demonstration and Documentation: For modules that define functions, classes, or other components,
+you can include examples of how to use these components within the `if __name__ == "__main__":`
+block. This serves both as a demonstration of functionality and as basic usage documentation.
+3. Utility Scripts: When creating utility scripts that can also be imported as modules, use this block to
+contain the script logic, allowing the script to be both directly executable and importable for use in other
+modules.
+4. Application Entry Point: In larger applications, the `if __name__ == "__main__":` block can be used
+in the main application file as the entry point to the application, invoking the main function or starting the
+main application loop.
+Sometimes this idiom might look like this:
+118

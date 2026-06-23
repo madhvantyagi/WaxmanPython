@@ -1,0 +1,20 @@
+Example:
+Write a function get_col(x,i) which takes a square matrix (=table=list of lists) and returns a list
+containing the items in the ith column of matrix X.
+def get_col(x,i):
+return [ x[j][i] for j in range(len(x)) ]
+Problem:
+Write a function sum_col(x,i) which takes a square matrix (=table=list of lists) and the sum of the
+items in the ith column of matrix X. Use a list comprehension.
+Problem:
+Write a function diag_diff(x,i) which takes a square matrix (=table=list of lists) and the difference of
+two main diagonals of matrix X. In other words, let d1 be the diagonal of X from upper left to bottom
+right, and d2 to be the diagonal from upper right to lower left. The function returns d1-d2. Use list
+comprehensions.
+Problem:
+Early versions of Python distinguished between int and long. ints were represented natively on the
+hardware and longs were lists of integers. From version 3.0 and on all integer types are represented as
+longs.
+Write a function make_int (x: str) -> list:
+that takes a string of digits and returns a list of those digits. Use a list comprehension.
+118

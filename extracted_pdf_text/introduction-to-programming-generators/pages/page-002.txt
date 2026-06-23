@@ -1,0 +1,29 @@
+Summary:
+- The first example explicitly creates a list, which is simple and very clear but less memory-efficient for
+large data.
+- The second and third examples are more memory-efficient and suitable for large data sets or where
+memory usage is a concern. They generate numbers as needed without storing them all at once.
+- The third example, using a generator expression, is particularly versatile for more complex data
+processing needs before the summation step, allowing for easy incorporation of additional operations
+on the elements.
+Here is a problem.
+Write a function f with the following behavior: each time f is called it returns the next positive even
+integer less than 10. So, the first time it is called it returns 2, the next time 4 and so on.
+Answer:
+Problem
+Now do it without global variables.
+Review of iterators: What is an iterable and what is an iterator?
+The terms "iterable" and "iterator" in Python are closely related but serve different roles in the process
+of iteration:
+Definition: An iterable is any Python object that can return its members one at a time, permitting it to
+be iterated over in a loop. Common examples include lists, tuples, sets, dictionaries, strings, and even
+file objects. We will later when we build our own classes that we can create iterables as well.
+You typically interact with iterables when you use loops (like a `for` loop) or other functions that
+expect something they can iterate over (like `sum()`, etc.).
+Definition: The iterable implements its “one at a time” behavior via an associated iterator. An iterator
+is an object that represents a stream of data. It produces successive items when you call its `next()`
+method on it. Once the items are exhausted, further calls to `next()` raise a `StopIteration` exception.
+Under the hood
+For the iterable, the key method that it must implement is `__iter__()`. This method is called to obtain
+an iterator from it.
+2

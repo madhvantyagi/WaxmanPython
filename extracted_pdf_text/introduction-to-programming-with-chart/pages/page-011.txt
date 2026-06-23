@@ -1,0 +1,12 @@
+The “keys()” function is an example of a view.
+In Python, a "view" refers to a special object that provides a dynamic view on the entries of
+a dictionary-like object (such as a standard dict or a collections.Counter). It is continuously
+updated so that when the keys() function is called it doesn’t recalculate it rather reflects the
+current view as opposed to:
+which will recreate the list of keys each time it is called.
+These views are dynamic in the sense that they reflect changes made to the underlying
+dictionary.
+There are three primary types of views available in Python dictionaries:
+Keys View:
+Obtained using the .keys() method on a dictionary.
+139

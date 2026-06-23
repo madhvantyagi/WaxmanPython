@@ -1,0 +1,25 @@
+exec() example:
+# Define a string representing a block of Python code
+code_str = """
+def calculate_area(length, width):
+return length * width
+def print_greeting(name):
+if name:
+greeting = f"Hello, {name}!"
+else:
+greeting = "Hello, stranger!"
+print(greeting)
+"""
+# Dynamically compile and execute the code block
+exec(code_str)
+# Now, the functions 'calculate_area' and 'print_greeting' are defined and can be called
+area = calculate_area(10, 5) # Calling the dynamically defined function
+print(f"Area: {area}")
+print_greeting("Alice") # Calling another dynamically defined function
+eval() example:
+# Define an arithmetic expression as a string
+expression = "(3 + 5) * 2 / (4 - 2)"
+# Use eval() to evaluate the expression
+result = eval(expression)
+print(f"The result of the expression {expression} is: {result}")
+116

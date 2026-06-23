@@ -1,0 +1,22 @@
+How does this work?
+Its just like the example above, but since this operation of using dicts to tabulate is quite
+common, a separate class was added for it. The counter is an iterable where each element
+consists of a key and a count.
+1. The Counter is a subclass of dict specialized for counting hashable objects. It's a
+collection where elements are stored as dictionary keys, and their counts are stored
+as dictionary values.
+2. Initializing total_shares as a Counter. This will be used to keep track of the total
+number of shares for each stock.
+3. This loop iterates over portfolio, which is presumably a list of tuples. Each tuple in
+portfolio represents a stock, with its elements being the stock's name, the number of
+shares, and a third unspecified value (ignored with _).
+name, shares, _: This is tuple unpacking. name gets the name of the stock, shares
+•
+gets the number of shares, and _ is a placeholder for the third element in the tuple
+(which is not used in this code).
+total_shares[name] += shares: For each stock, this line adds the number of shares to
+•
+the count of that stock in total_shares. If the stock name (name) isn't already in
+total_shares, it's added with a count of 0, and then the shares are added to it.
+Let’s expand a bit on the Counter class.
+134

@@ -1,0 +1,21 @@
+Make sure the example above is absolutely clear!
+del and .clear
+Say we have a=[1,2,3]
+a.clear()
+If we write then a will be [].
+del a
+But if we write we get:
+Remember in Python everything is an object and names are really pointers to objects. And an object may be pointed
+to many times.
+Each object has a reference count and you can check the reference count of an object using the
+getrefcount() function from the sys module.
+>>> import sys
+This function returns the reference count of the object passed to it. It's important to note that getrefcount()
+itself adds a temporary reference to the object, so the count returned will be one higher than the number of
+references you might expect.
+Notice that del b didn’t delete the list. When you use the del statement in Python, such as with del i, it
+unbinds the name i from the object it references. Essentially, del removes the binding of a name from the
+local or global namespace, depending on where the name was defined. It does not directly delete the
+object itself; rather, it just removes one reference to the object.
+When the reference count of an object goes to zero, its marked eligible for garbage collection.
+126

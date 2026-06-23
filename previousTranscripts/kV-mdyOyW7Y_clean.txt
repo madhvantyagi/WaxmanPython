@@ -1,0 +1,1296 @@
+so that's it just make sure you have python downloaded you're going to start
+programming pretty much right away who has another question that's it no
+questions okay all right I have a question so just again with your hands raised
+for who is this the um the final class before you graduate and if uh again raise
+your hand so I can see all right the problem is let me just come over we just
+check this one [Music] second um just two two people for this final class in
+other words this is not the clar thing need to graduate all right the reason I'm
+asking the question is because um even though python has the reputation of being
+a very simple language in some sense if you use the simple parts of it it is
+very simple language um the concepts later on are quite New U some of the more
+advanced features are really as they say more advanced we're going to spend time
+looking behind the scenes it's not just about programming in Python it's about
+what makes python work um not everybody I don't want to say this too harshly but
+not everybody ends up passing um specifically if you don't put any of the work
+in you ain't G to you're going to pass right especially in compressed format of
+a winter class or summer class there's really a lot of material um I think
+python is a great language I think it's a lot of fun but if you have to be here
+um I got an impression that some of you are doing something else at the time you
+other words some of you might be working the class is is it was listed as
+synchronous which means that it's supposed to be here you're not supposed to be
+assuming that there's going to be um uh videos that I posted I will try to post
+videos you can go over the stuff however I can't for how good they're going to
+turn out I gave for example I just in the cs211 class last semester I had a um I
+had a uh the very end we had a review session and it was about close to two
+hours and I had the I had the camera on and I and zoom was supposedly recording
+but then it recorded about 13 seconds then it gave up so um I can't guarantee
+that all of these things are going to go the way they're supposed to go um part
+of it an important part is the by being here you can you can ask questions you
+can respond to questions you can show you know um if you have another job if you
+have a job at the same time uh I don't know not the greatest idea that wasn't
+the idea it's like if you have if you have a class that meets in the classroom
+uh I'm not going to take attendants but um you know if you don't show up and you
+expect just to learn it from the videos I'm not sure how good that's going to be
+but the reason that I asked about who is um expecting to graduate right away I
+can't guarantee that if you don't put the work in you're going to be able to
+graduate if you do um I mean I gave python this last semester they were a few
+didn't make it through there were a lot of A's couple a pluses but uh there's
+some of the other side of the spectrum also and those are people that didn't
+show pretty much you know they assume it's trivial stuff in the beginning it's
+sort of fooling you because in the beginning it is sort of very trivial right
+the Assumption also is that you know how to program if you don't know how to
+program if manag to go through you know up to here and I had people didn't know
+how to write Loops I mean if you can't program this is not the right class you
+know so I just want to make sure that's clear up front I think it's beautiful
+material I like this stuff I think people who pay attention also like this stuff
+who learn some NE things but I you know I want to make sure that you don't end
+up in the end you know saying that you know my dog is going to leave me or
+they're going to deport me and so you don't pass me I can't guarantee but if you
+don't put the work in you know okay any other questions now that I've laid that
+out okay so um there will be class notes um online um they're going to probably
+be revised as we go along uh there is no textbook um there's tremendous number
+of resources out there uh for python I mean all kinds of free stuff some of it
+is good some of it is very very good some of it is terrible um but because we
+have a specific you know way of looking at this there's no book that does it
+exactly what we're doing over here it's going to be really interactive going to
+be working on stuff in class trying to find interesting problems to work on so I
+don't have a textbook but I have a very extensive set of notes that we'll go
+through and they're all online and going to you know sort of give it to you as
+we go along um that said as I said you know there's there's a very good python
+course at MIT in in the open courseware that's also free I think stefen has one
+and then the stuff on YouTube um a fantastic a fantastic resource is chat GPT I
+don't know how many of you um you know the free one which is 3.5 uh that's good
+enough I mean the problem there is it hallucinates so you're not always sure
+there's Tang of the truth you know but um but it's very good so if you have
+stuff that we're talking about and it's not uh it's not clear just ask chat ask
+me if you come to class you can ask me um but chat is a fantastic resource um
+the uh the system there going very slow see here's the meeting chat all right so
+what we're going to ask you to do now because it could be that um the the zoom
+for this class is not able to take care of the capacity I have a a g I have a
+gigabit line here so this should be going pretty fast uh some applications are
+Comm in so let's at this point everybody just close the close the videos close
+your videos let me see that that gives a little capacity here just turn I'm
+going to ask you to turn them on as we go along but right now just shut the
+videos so the so the load on the system is less so I'm not sure if you're
+getting what I'm talking about shake your heads can you hear me yeah okay so
+people are logging out don't log out just all right so I'm gonna also close my
+video fine okay uh everybody please all right good low system resources okay
+that's not good okay so um as I said I'm going to try to record but I don't
+guarantee the outcome and I will let you know when um when things are available
+so the first thing I need you to do is let's go to the notes let me actually
+start the recording I'm going to record to the cloud here we go recording in
+progress I see all right okay it is recorded okay so the first thing I'm going
+to do is we're going to go going to try to share my screen you not to see what
+you're supposed to be seeing let me know can you all see the class notes no no
+not it no no we should be sharing okay let me try go back here how about now
+like loading up right now loading yeah so this there's a probably yeah we see it
+we see it now you good okay they can shoot the screen very good all right so
+this is the these are the class notes Let me just get rid of this for a second
+okay where where are these notes so they are uh right over you can see see this
+over here so they're at Venus CS the Waxman cs90 uh please bring them up give
+you a minute to do that I'll go through all of these things over here but um let
+me tell you what the class is not and then I'll tell you what the class is so
+for example if you're taking the class because you're interested in doing data
+science right in other words it's just a whole thing out there you can make a
+lot of money if you know what you're doing in data science and so to use data
+science there are a bunch of libraries that are available I will not really be
+concentrating pretty much on any libraries except the system library and just a
+few other ones that are gerain to the language itself so um if you want data
+science if you want to do natural Lang natural language processing NLP if you
+want to use um if you want to use Python specifically for doing AI projects and
+so on so there are a lot of there are a lot of libraries out there um that allow
+you to you know hook into these libraries and get stuff done very quickly in
+those areas I would not that's that's not what we're doing over here in other
+words I'm not going to really cover any of that stuff what I'm going to do is
+I'm going to I'm going to treat uh python as a programming language which it is
+and I'm G to so by the time you're finished you will hopefully know a lot of
+python and we'll talk about things being pythonic as we go along certain ways to
+do things python once you do that and then you need to do data science you'll
+know Python and then just you'll get into those libraries that you know problem
+at all right but if you don't know the basic python then your understanding of
+what's going on your ability to work with is very limited so we're going to be
+looking at python core python um and that's that's going to be the focus of this
+thing um uh if you want the other stuff if you want to do for example natural
+language programming in Python so there is a course in the department I think uh
+Allah gives the course um Ros of skaya and she gives an NLP class and she covers
+a little bit of of python in that class enough to use the libraries right and
+the there the the focus is going to be on the libraries and how do you do NLP in
+Python that's not what's going on here it's going to be how do you do python
+right and then you can use the other stuff when you when you need it right all
+right so uh I hope that's clear let's just um let's take a look at the class
+notes so this will go down to like probably 10 9 10 as we go along I want to
+start here in part one and then we're going to go back to do some problems here
+in Python and then we're going to keep going so let's see what we have over here
+if something is not clear if the screen goes blank which is very possible if uh
+you know whatever it is it goes too slow you just let me know and I'll try to um
+we'll try to see what we can do to fix it first of all as I said uh there you
+can any any python you want there's a lot of stuff out there there's an online
+python uh anything you want this fine um so but meanwhile this is the one I'm
+going to be using probably in the class that's the standard implementation
+that's a cpython um so make sure you have that going on let's see there are
+other versions we're going to use the cpython version there are other versions
+oh let me just just point this out python is actually I think you probably know
+that's why I takeing the class if you look at the most in demand languages right
+now um python is pretty much up there it's usually not between Python and Java
+JavaScript is usually up there also um but uh python is really U really very
+popular part of the reasons for the popularity is that it is very easy for
+beginners to learn right so if you um if you don't know how to program and you
+need to do data science right you just take a little bit of python and then they
+teach you how to use the libraries um so that's one of the reasons for the um
+you know for the popularity but it's also in stuff that as we go along we'll see
+stuff that you need to do let's say in C++ um that will take you like uh you
+know 3 hours to write U it's really built into python or if it's not you can do
+it in in five minutes it's very very easy to write python um uh even even the
+more advanced stuff once you understand the concepts what's going on it's
+generally much easier to write in Python than in other languages the this
+advantages uh are also there but for the most part whoever is using this don't
+have those disadvantages in in C++ you have complete control of pretty much
+complete control of the whole system when you write your programs your programs
+are actually running on the ACT the metal itself your programs you know if you
+declare an integer in C++ it's sitting there in the memory and it fits into you
+know one word of memory um it's directly it's directly uh uh supported by the
+hardware that's not the case in C++ when you're I mean in Python in Python it's
+like Java in the sense you're running in background is a virtual machine that
+you're running so you're not when when you think you're writing a Python program
+you're writing a program for a simulator and uh the simulator wres the program
+and you have real you generally you have no actual ability to control the real
+computer you can control the virtual machine and the virtual machine then
+controls it because of that you get a lot of flexibility in Python but things
+take much more time it's also being interpreted is there any other difference
+between an interpreter and a um and a compiler just raise your hand if you don't
+well just speak out actually it's probably easier because I don't want to bring
+up too many resources because going slow things down does does anybody not know
+the difference between interpreter and compiler speak up a very important
+principle in the class is that there's no stupid questions it's just it's pretty
+dumb if you don't if you don't know something and you don't ask everybody know
+I'm GNA assume nobody speaks up everybody knows okay yes right so so The
+Interpreter slows things down obviously right um though there are there are
+cases of you know tries to optimize things for you by sort of doing stuff that
+we'll see as we go along but that um I know somebody was was writing um they
+were already they doing their research for the PHD and it was an application in
+NLP natural language processing without exaggeration it took almost a month to
+run an experiment it was a very large experiment uh it took almost a month
+because of the issues in in um using The Interpreter um uh and and finally it
+was just not things weren't working I mean they wer they were working but but
+they just you can't you know you can't take that long to run a program they
+rewrote the whole thing in C++ and what took a month ran virtually I mean almost
+it took an hour to do all that work I mean it was much more difficult to code in
+C++ but the program ran thousand times faster so that's the that's the but but
+for many many things speed is not of the essence right and text processing
+things like this python is really up there so that's that's an important that's
+an important thing to to note as really very powerful you have question just
+speak up just yes sir I have a question um JavaScript has an interpreter and a
+compiler they call it just in time compiling does python have anything like that
+yeah but it's not it's not as much as you imagine right there is a compiler but
+uh even with the compiler the compiler is just in time comp but that means that
+it's as it's running the reason it's a good point it does have but it doesn't
+have a compile like a C++ compiler in other words when you compile it it
+compiles the things that it needs as it's running what does it mean just in time
+it means if you don't use it it doesn't compile right but then as it's running
+uh it'll compile it actually to the real machine so in that sense um in that
+sense it's going to have some access but many times adjustment compilers just
+they they just in time compile it instead of normally if you load a whole
+program the whole thing we'll see as we get to talk about things like the um you
+know functions and so on um but if if you never use anything it's um it's not
+going to get compiled the just in time compile it compiles it as you're going
+along most of the time the reason you want to compile version of python is not
+so much for the speed even after you compile it it does not in any way in any
+way approach the speed of a real compile language like C or C++ there's no
+comparison right what they do the compiling for this actually very interesting
+is because you want to be able to to secure the source so for example um if I
+invest like a $3 million or $100 million the the program I don't I I want to
+keep that program I don't want people to steal my intellectual property I don't
+want them to read the code if you have if you do this thing in Python so if I
+send you my Python program you have an interpreter there and and I send you the
+actual code right and you run the code on your machine so if I if I expect to
+have a business based on this and I send you the code the source code you just
+go steal the source code if you're you know that kind of person and there are
+unfortunately that kind of people out there so then there isn't there's a
+there's a possibility of compiling but but what but that the problem with
+compiling then you get Enterprise I've seen this actually in the last couple of
+weeks when you when you compile it so um the kind the compilers that are being
+used for python are the same they they use a compiler that that's used
+unfortunately by the people who are building who are building um malware and so
+if you try to send it if you try to store it let's say on uh on Google Docs it
+won't it won't uh it won't won't be stored Google doc says I recognize this
+thing as a as a virus signature because of the the the uh you know the compilers
+the compilers are using the same kind of technology that the virus writers are
+writing so um you won't be able to sell send it for example uh using the the
+college you know the college's Mail system uh because Outlook not only the
+college Outlook will check to see if he Distributing viruses and the python
+programs unfortunately because the compilers look like so it's not such a
+trivial thing um the big companies who have their own network set up they're
+able to do this it's it's an interesting thing but I I don't want to get into
+this now we can talk about it offline um even you do there are compos but they
+nothing near what um what the real real compile language are um there's one
+other example one second I'll take question a second um for example in in in C
+plusus I think I mentioned there's an integer type it fits in the machine right
+um in Python there is no integer type everything is simulated I think those of
+you who took C++ with me we actually saw this when we looked at the difference
+between um we on I think the Fibonacci thing uh when you tried running Fibonacci
+in C++ it was super fast once you used memorization but it got the wrong answers
+right the python took longer but you got the right answers because it was
+simulated but you know the time it took was nothing was compared to the C+ took
+a long long time okay who had a question no all right all right so here are
+various versions the one we're using this is the standard is the cpython is
+compiled what's really running is the virtual machine is is in C um then there's
+piie which they rewrote the thing uh in uh in uh it's compiled using using uh uh
+uh python itself it speeds stuff up right because it does what who Yer somebody
+spoke earlier it has this J time compiling so it speeds up the execution because
+it it compiles it once and it doesn't keep doing it again and again it's faster
+but does not compare to real um to real um you know to real compile languages
+and there's the other ones here there's Jon which you can actually you can you
+can when you write in Jon you can the stuff you write you can directly access
+from java ion python runs on net uh what is net who knows what that is anybody
+excuse me mic it's like the Microsoft uh framework right it's exactly right it's
+the Microsoft framework and what happens it it it's gives you the it gives you a
+framework a background to run many many languages um and what it does
+essentially creates for you a virtual machine in the background that let you you
+can run you can run its version of C++ it's version of java and so on it has a
+python in here also and they're interchangeable once you're running in there you
+can use the pieces from one to the other that's pretty good and then there's uh
+all these other ones uh but we're going to use as I said I'm going to use this
+one over here this this sort of a standard all right so I'm assuming now
+everybody has a copy of it as I said you can use any interpreter that you want
+for it um all right we're going to using the Shell use the um use going to run
+the programs and ah we're going to use this emulator this is a really cool thing
+what's the emulator so let's go back to the beginning the front page so this
+thing over here it says there's a pipe on it later let's click for the amulet we
+are going to use this in class occasionally this is an interesting project there
+used to be uh I think Microsoft and then Google they gave they gave the people
+their employees they gave them um 20% of the time that they were working which
+is one day a week they gave them one day a week to work on whatever projects
+they wanted I don't know if they still do this but it's a really cool thing so
+this came out of I think of I think it was either Microsoft or Google and this
+guy wrote this uh um U this emulator uh and it works in Python Java and so on
+and so forth and what happens is we're going to put the program in here and you
+can watch the program run it's very good for debugging because you're assuming
+this thing is happening and really something else so what will happen is you
+will run the programs and you sort of Click through this thing next next next
+next and you'll see exactly what What's happen what the memory looks like what
+what you know you assume that X is going to happen and then it's all of a sudden
+something's completely different and this is a very very nice uh way of
+debugging your Cod so we're going to look at this as we go along so that's the
+EM R here all right so um I think let's just go back here part one [Music] um uh
+oh okay so we're going to get back to this later we take a quick uh look at that
+later on let's come out of this go back to this thing that says the Ty of python
+the classes are pretty long so we're going to stop we're going to take breaks
+approximately every 50 minutes we'll take two 10minute breaks as we go along the
+first one because it's going to be around 11:30 and the next one we'll take a
+10-minute break and then we'll have a 12:30 break and then we'll go to the end
+all right so let's take a look what's going on here and there a taste of Pyon um
+let's go every just do go to the notes with me please okay and make sure the p
+and your python interpreter is up so you should see something along these lines
+right if you're going with the one that I'm using which is the C python one and
+um what's going to happen is the in this is interface uh called idle and it
+gives you the ability to write and run these programs easily so um we're going
+to start we'll have this thing over here and um we're going to enter the program
+we're going to do it by uh actually writing the program within um in a text
+editor and we go over here where it says file and it'll bring up this text
+editor okay so everybody do that right so go to take your Python and and you
+want to bring up a you want to bring up a file the text editor so we can
+actually run a program and please raise your hands so I know that you are up
+with us soon as you get it running bring up Python and and we we'll do this
+together don't forget I want to move on once I see we have most of the people
+doing so please just raise your hand just don't can you see on the screen the
+list of participants that I have here we not seeing that somebody talk to me no
+we can't sir you cannot okay so raise your hand raise your hand as soon as it's
+done so far six people have their hand raised I only have 17 responses and we
+have 4 people here please assume soon as you get it done raise your hand is
+anybody having trouble doing this because I'm only seeing 23 if you have trouble
+just speak out um Professor uh could you please uh over the steps again I'm
+sorry I got it on my poers shell but I'm not sure if that's what you're looking
+say it again um sir could you uh show me uh how to open this I opened it in
+Powershell is that you've downloaded python right have you downloaded python yes
+I have Python and I have it open on Powershell why why do you have open
+Powershell it should it runs in its own environment just click on it and you
+should see this you see this at well this how do I get to this when you download
+a python you just click on the little icon there's a little icon like this that
+comes up this thing should come up on what what machine are you using uh Windows
+yeah so when you downloaded it from python.org this icon becomes available and
+you just or you can just search for Python and there'll be two there will be a
+python runtime that comes up and then there'll be this that takes you to the to
+the Shelf to the guey when you that's where you want to be when you click on
+that this should come up okay okay only only 26 hands are up I mean I'm going to
+move along I really need you to let me know what's going on because this we're
+not in a classroom I can't see people all right let's assume that you have it
+and you're just not participating so what I want you to do is once it comes up
+you're clicking on file that'll open up a window that lets you um actually input
+stuff in you're going to type this right type this thing over here and then
+you're going to type this thing over here and it will run it but first let's
+just get those two things than soon okay so um let's just see what's going on
+over here let me just bring up the python for a [Music] second share for a
+second stopped okay let's check out what is happening all right so um can you
+see my screen again everything good yes yes no file I'm going to say new file
+okay and what do I have to do here the first thing I'm going to do is let's
+check this out you have to say something like uh name input what is your name so
+let's do that um name now watch what's going on over here see so I'm typing this
+obviously this looks like some kind of assignment statement right so U I'm G to
+this is a function which go through in a moment um but um this this is this is
+purple here and that's part the inter that's the interactive show the this is
+the the The Interpreter is going to like put this up in color it's going to tell
+me this is something python knows about this this is some kind of function
+that's part of core python U now this is a straight again and but look what what
+happens here as soon as I'm trying to type this input is a function name it
+tells me over here what the what the function does it reads A String from the
+standard input which is what the which is the um which is the keyboard and um
+and then I'm going to close this up and notice what happens it Grays out which
+means it's not it's not angry at me it's fine and then I'm going to say print
+again notice the purple color over here and what I want to print what does it
+say I want to print I want to say hello name so let's see I want to print hello
+and then name okay and let's see what happens and then great that everything is
+fine right so let's go through this in detail first of all and then how do I run
+this thing right so I click run um and F5 will work as well right let's run the
+module these are called modules and I run the module and I give it a name right
+it says the source must be saved it's okay to save and I say it's okay to save
+it I'm going to give it a name and let's call it hello right and save it as a p
+as a as a py file which is a python source file save it exist when replace it I
+say yes okay now it's ready to run right now The Interpreter is picking this
+thing up and it says what's your name notice there's no space or anything over
+there my name is Bob um and then I continue on right because it's waiting and um
+well let's go back to the program check it out and then then we'll run it so um
+this as we say it's a function right how do I know it's a function because it
+has these parentheses over here and this function is taking some argument and in
+this case the argument is um um is a string so what's going to happen is it's
+sitting there waiting if you notice it says what's your name it didn't didn't do
+anything except it ran this prompt um if I want to put the prompt there I can if
+I don't it doesn't require me to put the prompt over there um but um once I once
+I hit enter over here it's G to it's going to go to the very next um to the very
+next uh line uh and then I say then I go I says next one is print print is also
+function you can see it's a function because and it's a built-in function right
+because it's in purple and it has these parentheses and it's taking two
+arguments and I say my name is Bob and I get this it's running except it wasn't
+happy somehow with me right why wasn't it happy ready to go it wasn't happy it
+gave me some kind of error message this is a standard error message says Trace
+back there's a call stack that's happening over here and it says uh in this
+Waxman blah blah blah blah blah this whole function here line two this is line
+two it says there's a name error the name hello is not defined right did I mean
+help so it's try to be helpful over here it's not really very helpful but what
+is it what is it um what is what's going on over here so what what's the problem
+what I wanted to do is I wanted to print the word hello but what but I didn't
+put it in in um you know in in uh quotes So what does it assume that hello is
+just just talk to me guys what does assume hello is at this point so hello a
+variable it assum it's a variable right and there's no variable called hello so
+if I go back over here and I make it into a string now I tell it's a string in
+one of two ways e or three ways actually I can use single quotes or whatever I
+start with I have to end with I can use double quotes I can use triple quotes
+triple quotes is usually reserved for a documentation which we'll see so let's
+see if I run this thing now so F5 will let it run I sort save it again The
+Interpreter picks it up and says what's my name my name is still Bob um but now
+now it's going to say hello right it actually works now um that's trivial stuff
+but you should know that um that's the what happens over here is what many of
+the functions the built-in functions as you're using them they have like helpful
+hints right um likewise the print also should have uh hints let's see if I can
+do that again and show you what the hints are should have showed me as I was
+writing it so now I'm going to say print open it up and there are the there are
+the the hints right so this tells you what it expl what it expects over here
+right it's a function it prints the values to the stream in this case if I don't
+tell where to print it um what does the word stream mean anybody know why is it
+called the stream you remember see anybody remember his C++ at all right in C+
+if you wanted to print stuff you had to pound include what IO stream IAM right
+because theide there is there's a certain model of what's happening right so it
+sort of looks like in C++ it sort of sort of looks like this um let me get to
+here it sort of looks like this right you have you have like a stream here right
+here's a stream streams usually okay and over the stream you know there's like
+here's a bridge not really the greatest artist but here's a bridge and you can
+stand here on this bridge and let's say the stream is flowing in this direction
+the water is going out there if you want to put let's say into the stream you
+you take it and you drop it into the stream and it takes it out so if you have
+see out what's again I have to apologize my handwriting is not this bad usually
+it's terrible but not this bad um but I'm writing on the the thing is upright
+I'm going to move it soon when I say C out let's say I so um see out is an
+object right it's an object and it's an object of the O stream class o stream
+means it's the output string and this sort of flowing into something to this CR
+object and in the CR object there's a buffer which is a b sort of big array and
+that buffer gets filled up or filled up but eventually it's going to go and
+print to wherever SE out you usually SE out is attached to the screen so that's
+that's mean by a stream you have you know sort of something it's you imagine the
+the output is Flowing to some object this see out object which is attached to
+some that's the same sort of thing that's happening over here right so um so um
+that was the idea so we're back here we want to do this one right where is the
+program right so we're saying print okay so um prints the values to the stream
+it's one in this case it's the one we don't tell it with stream because it we it
+could be any file or the whole file system has the same uh notion of you're
+filling some buffer associated with it some file handle object we'll talk about
+files in detail um but these are all stream objects like we just the way they
+use it in C++ if you don't tell which one so I'm not telling you where to print
+it it by default it's going to print to the standard output which is the screen
+right um we'll see this this star args what that means but basically means this
+can take any number of arguments to print so um and see if I so we'll see we'll
+get this in detail but I can say print A and B and C and D all in one and that's
+what's going to happen over here what is SE equals um SE SE means a separator
+which means that when I print it out what's it going to end up looking like if I
+print one comma two comma three I don't want one two three printed out you know
+one you know glob together I don't want to concatenate the one two and three if
+if one two and three are a separate object separate values I want them to be
+separated by something I can say separate by what so this is a this is an
+argument that's accepted to the by the print function um and this tells me that
+I can set this separately independently but if I don't it's going to use this
+defa right so the I can have like theault variables to find here so if I don't
+say what I want to be separated by it's going to separate one one one output
+from the other by a by a single space if I want for example to separated by a
+star I would simply say print and then say stop equal SE equals and put it's a
+string over here star and it's going to say one star two star three star and so
+on what happens right to make sense to everybody what happens when I finish
+printing so I can tell her what to do I can tell her just stay there because I
+want to continue to the next print from where I'm starting but if I don't tell
+it by default it's going to do this what is this what does this tell me to do
+this standard what is this this is the new line character right so if I don't
+tell her what to do what's it finish the printing it's going to automatically uh
+since the since the uh standard output is a screen it's going to go to the next
+line in the screen right that's the output I can tell where to print it so um by
+default it's going to go to the standard output I can tell it though it's very
+nice way of printing to a file I can files equal to and this says I'm not
+specifying something here so um it's not it's going to print to the standard
+output but if I want to print it to some file say my output file it say file
+equals be my output and it's going to print to to that file what does flush
+equal mean well flush you can do this in C++ also does it mean you want to flush
+the buffer every time you print something right do you want to or you want to
+wait till the buffer to fill up it fills up pretty quickly flush equals force
+means it's not going to not going to flush right away right so these are all
+these are all arguments that I can specify and if I don't specify them they use
+the defaults I can do this when I Define my own functions as well I can have
+variables and I can give the variables default of arguments very powerful be
+able to do this because then the same function could be used in multiple
+multiple instances and um it works nice and we'll see we spend a lot of time
+this later on is that clear so when I say print I want to print hello and I want
+to print that as a string and then I want to print a name which I'm getting from
+over here and so that's going to be name the variable name and then I close it
+up and it's happy right does that make sense to everybody yeah good all right
+now this seems to be a um and when I run it it says hello uh hello uh Bob now
+why when we saw the output the output was over here right why do I have a why do
+I have a space between hello and Bob the separator was the space separator is
+equal to the space right why why is it now at the next line because when it's
+finished to the print function by default said what do I do now and I set the
+default be uh go to the new line I didn't set it it was there right the default
+was go to the new line if I would have put a empty string over there it would
+have just it would said hello Bob and then sort of sitting over here and I would
+do that if I wanted to be able to have more stuff on the same line and um you
+know when I want to print like a bunch of things with with separate print
+statements does that make sense that clear everybody yes all right so now um
+this assignment statements are actually very interesting things this says name
+is equal to input um so the um the way that we sort of think about it in normal
+programming language like in Java and C++ and so on is that is that uh variable
+names name is clear variable name the variable names um represent places in
+memory uh and then what I what input is going to do is in input is going to give
+me you know take the name is going to store it someplace memory uh this point
+we're going to come back to this point a number of times because they really
+important that's not what really goes on here in um in in Python so basically
+you know like um if you took 211 if you took any any any programming class in
+general um you sort of have the following idea get some more room here here the
+following idea what really happens in your program so you have basically Ram
+right here's and RAM sort of looks like I use analogy in 21 of mailboxes right
+so when I say um you know integer I in um you know equal 10 in C++ what happens
+is during through compile time and so on various tables get set up and it has a
+particular location right this is and this guy's going to be called be called I
+right so I this guy is called I and there's a three in here and and um each one
+of these things has an address right well so there's a three over here and it's
+called I so so there is a location specifically 32 bits 64 bits whatever the
+machine is and then it stores the value there that is not what's going on in
+Python right in Python if I say I is equal to 10 first of all you'll notice that
+there is no Declarations of the variables right we go back over here um and we
+simply say name is equal to I don't tell you what name is at all tell what data
+type it is does that mean there are no data types in Python of course there are
+data types right you can't have language there are certainly data types and we
+can go through those extensively but it's not the same in C++ C++ if I declare I
+to be an integer variable I can't decide later on in the program you know I
+really looks like it should be a float you know and start you know or string and
+plus put strings into something I declare to be an integer right I DEC to be an
+integer at for the life of that program I is an integer not the case in in
+Python right in Python here I say name is equal to whatever what what comes it's
+going to be a string why is it a string because right because um because input
+returns a string right but but if I later on in the program say name is equal to
+47 which is clean out a string uh it's it's an integer type of some kind that's
+no problem at all which in other languages you know it's it will be a real
+problem right so what happens in Python is that there's like sort of two there's
+two parts to it easier so in Python I have I have one part which are the names
+this like a it's like a it's a it's a runtime stack of variable names and so and
+then here is is going to be where the where the actual objects are so when I say
+I is equal to 10 so here is going to be I the value over in here is going to be
+10 right there's going to be some object an integer object 10 and in this this
+location this thing called I on this runtime stack what it's really going to
+have is the address of where this guy is going to be so it's not like the
+picture over here there's not a location called I in that location is the value
+um I have separate like a runtime stack of variable names and this is the
+pointer to where the object is stored right so so for example that's why and C++
+it sort of works like that in special cases but that's why this thing can be as
+big as I want it doesn't have if this is an integer object the integer is not
+stored in the you know in the location itself but it's rather this this thing is
+a really big object if you remember back when you took 2 11 if you did with me
+um when we saw Fibonacci work we had giant numbers and the reason is because
+they didn't have to they didn't have to fit into this location this was really
+simulated by a string like object and all the arithmetic was done by simulation
+which is why it took so long compared to the c+s c+s was instantaneous if you
+remember but it got the but it got wrong right it was fast but wrong and the
+reason it was wrong is because you had overflow here but you don't have any
+overflow here because it's all it's all simulated right but it's important to
+know that variable names are not are not uh uh you're not storing the variable
+variable are really pointers to where the objects are located right so in this
+case over here name input so this this is um going to run the function the
+function turn a string and the string will be living you know someplace you know
+like the string over here um is going to say Bob right here's here's the the
+string object Bob right and this is a very complicated object and name is going
+to be living over here so here is name again the apology is there and it's going
+to be pointing to Bob that's what's really happening over here okay good any
+questions about this so far all right so it's now almost it's 11:30 uh let's
+take a 10 minute anybody have any questions before we take a break no questions
+let so come back in 10 minutes okay we'll pick up from you all right guys
+everybody come back please turn on the um turn on the cameras on your face wave
+say hello all right everybody let's see we got here okay PR page is good Kevin
+are you here Olivia here Olivia where's Olivia Olivia is here very good and we
+have everybody okay um but utong utong I don't see you I see a fish and Hussein
+you there okay good Yong samin Khan and aru aravo all right we're gonna move on
+okay turn off the turn off the screen so apparently there was just too much very
+good also somebody uh I'm generally not uh I'm not going to be reading the
+comments during the class because too much is happening um I have the screen is
+the machine that I'm using the screen is pretty small so um there's not enough
+real estate to put everything up at the same time so if you have a question or a
+comment like somebody pointed out correctly that I stop I paused the recording
+um and I didn't turn it back on let me know shout out right or if something is
+like really not working I'm doing something idiotic let me know don't don't send
+the message and then I'll see it like you know three years later let me know
+right away all right so we're going to pick up where we were uh I took the
+similar class as this Python program not sure this is the same course previous
+wasn't all right talk to me who's setting this thing talk to me after class okay
+talk me after class um this is we got stuff that we didn't do there uh talk to
+me after class okay all right we're going to get started I will unpause the
+recording one second where were we all right we're over here let me unpa the
+recording First Recording in progress can you see my screen every with me see
+where I am yes yes any questions about what we did is that pretty clear all
+right so we're goingon to skip this we're going to do this in a few minutes on
+the other on the other slide in the other uh part of the lecture so we're going
+to skip this for now uh we're GNA go down over here on page five and um we saw
+assignment statements of course every language gives you the ability to Loop
+right so how do I Loop in Python so write this right just take what you did
+before and uh just enter this over here and then see what happens and this is
+what should happen right let's everybody do that and make sure that's what
+happens okay just raise your hand when you are done very good keep going keep
+going 14 out of 39 going okay 17 keep going go go go this should be very fast
+all right 24 25 let's see all right they sort of stall here but I'm gonna assume
+everybody's doing so watch so I want to write this program um but notice the
+four it's also built in and has nice color to it and so on um but um I don't
+want to do this also I want I want to use the same file I don't have to keep
+going the same file but what I can do is I can I can comment this out how do I
+comment it out I put you know three three quotes now it can be single quotes
+double quotes triple quotes but whatever I started with these are single quotes
+I have to end it with so I want to want this whole thing to be a comment I start
+before what I had before and then another three and notice this guy back in the
+color when to say now four are in range say five now watch what happens this
+tells me again this nice this nice help thing here um so it tells me what what
+what's what's going to happen over here so range it sort of looks like a
+function right because it has a name and these are the arguments right um I have
+to tell it a start right so this five is the start I have to tell it where to
+stop so when I say I in range five we'll see what happens over here um and then
+then a stop um and then there's this bracket over here what does a bracket
+usually mean optional option right right and so if I want it I I can have a
+start and a stop and then optionally a a step and we'll see that in detail but
+basically I say start at this and end at this and step by steps of two and what
+happens is when it when it runs this thing I'm going to get back something
+called a range object right range object is in iterable and that's going to be a
+very important idea in Python does everybody know what an iterator is again you
+have to say let's do it the other way does somebody who does not know what an
+iterator is everybody knows right you have them in Java you have C plus so so
+inator is something that iterates right in other words uh it goes through I have
+some kind of collection and it goes through that collection one by one and
+essentially you can imagine being some kind of pointer or some pointer like
+thing that goes and says okay this one and then the next one the next one it
+iterates through and the thing it iterates through is something called an
+iterable so this creates a range object which lets me iterate through it I'm
+going to be able to say it's going to be the next one the next one the next one
+and so on um so now um I'm going to close this thing now I'm going to go like
+this it it it's not it has no problem right and then I put a colon right and now
+when I go when I hit enter it automatically is going to indent for me and I can
+change that in the interface how much it indents and then and then I want to say
+print hello right so print we saw what the print function does and it tells me
+the same we saw before blah blah blah right and I want to say I want to print to
+up it's a string and close it up it's happy now when I run this um let's run it
+right so remember it's the same things before F5 will run it for me and I want
+to save it let me save it and it runs hello hello hello hello hello so not a big
+not a big surprise here but what is going on right this sort of looks like a for
+Loop right looks like a for Loop but a for Loop let's say language like for like
+um like all those languages like uh C++ even Fortran there a for Lo Fortran and
+Java and so on but really what's happening there is you have this pointer going
+through and and pointing at the next element sort of like an iterator um but
+what's Happening Here is this range object it's happening and this basic when I
+use it like this this range object is allowing me to count so in the background
+it's sort of counting for me and uh each time this gets to the next value in the
+range object it's going to it's going to do in the you know over here so this
+this is really a block Noti if I keep if I go to the next one you know um if I
+print if I press enter again notice I'm still within the indentation and then if
+I say print you know by right it's all in the same block right so when I run
+this what happens is let's see it's Trace back what's the problem print has not
+what I do wrong uh print W you uppercased it yeah uppercased it right so it
+tells me right did I did I mean this this is actually new this I'm using 3.13
+this if you use any of the early ones this sort of new stuff they they have much
+better error so I use notice also that it didn't didn't go purple right so I use
+an uppercase that's not the name of the function and that looks better right and
+if I go you know F5 again and it gives me Hello by Hello by hello so let's let's
+look at this thing you know what's what's what's going on so Prince Hello right
+and um notice it every time I every time I sort of counting in the background so
+um it's going to do these things in the block so what do you notice about this
+block over here as opposed to like in C++ or in Java there I have to den denote
+the Black by braces of some kind brackets of curly braces or something right
+depending on the language here just the very fact that they're still indented so
+that's the way you indicate the Block in Python right so what's GNA happen it's
+going to do the it's going to print hello and then um it's gonna it's GNA come
+down and then do the next thing which is it prints by notice it's one after the
+other right why did it go to we saw earlier why you go to the next line because
+the new line characteristics it's hello and bu hello and bu hello and bu um um
+it's going to be five point everybody see that that makes sense clear let's go
+back here and change this what happens I say I and I'm printing two things so
+the question is is this just a counter in the background or can I use the I as
+well right so what do you think now if I say use the I as well what do you
+expect to be printed don't run it yet what do you expect to be printed over here
+it's good the first time the second time the third time fourth time fifth time
+you expect it to be what um the first time should be zero and it should go to
+four now why do you expect it to be a zero um because we start from zero right I
+mean that is a choice I me that's not not your choice right but that you could
+have imagined that they didn't design it like that but you uh but you're right
+right so the the and that's because that's the range function Works unless I
+tell it otherwise we'll see later on we look in detail at this I could say go
+start at 100 and go to 196 and then it's going to start at 100 and go to
+whatever it goes right but by default if I don't tell it it's going to start at
+zero so if I run this now I'm gonna get must be save okay save it and notice
+he's right 0 0 1 one 2 two 3 4 five make sense everybody okay with this so I so
+and actually not only is it counting the background it's using I to go through
+this object the range object and and we'll see in detail what happens to the
+range object is this every object every function for example everything
+everything everything in Python is an object so what does it mean to say that
+it's an object think about an object in in in in Java right so an object has
+internal state it has variables that tell you what's happening there intern
+internally and also has various member functions or or or methods right it's
+like like why the same things happens over here right so um what are the
+internal so I is internal to that object and every time you go through it's
+going to it's by default it starts at being a zero that's all part of this um
+that's all part of this um Range object that's created by calling the range
+function okay makes sort of sense all right all right so let's go further any
+questions no no questions all right um Professor the in is an operator right uh
+yeah yeah yeah yeah and we'll get to that a very good point right in is an
+operator right and is not is also we can say in is not in okay let's go where's
+the class notes okay very good all right so now let's um let's show we're g to
+do some some some graphics and then we're going to go back into this computation
+so in Python there is a it's python uh a little bit of the history over here the
+first really uh programming language available for non professionals I mean when
+they started sort of programming during World War II they were programming by
+plugging things into a into into into boards can you hear me that they're
+working here s of next door can you hear me as I speak is it yes okay yes yeah
+can't tell um then then Along Came Assembly Language right they were writing
+actual machine language um there was a distinction between the programmer and
+the coders right so they write these programs in machine language the code the
+Cod the coders would end up typing them in and so on um that became very very
+tedious so then the next step was something called um Assembly Language which
+you learn I think in the 240 class the assembler is very very close to the
+machine language itself that became tedious to so then they started to uh they
+Pro they provided um higher level languages the first really commercially
+successful programming language after assembler was something called Fortran
+which is still in use today mostly in engineering using for a very powerful
+language um and it's still around it came that that was I think in the early 70s
+was fortunate late 60s early 70s um and uh the history there is interesting
+because uh it used to be that if you had an engineering firm and so on um what
+would happen is the the the engineers would the the um the uh uh you know the
+scientists mathematicians they would give you an algorithm and then they would
+write up that algorithm but then they needed to to to get that to work on the
+machine it had to be in machine language in Assembly Language so they didn't
+know Assembly Language right so they depended on programmers who knew who were
+able to translate the algorithm to assembler it was a very tedious and very very
+uh uh you know labor intensive thing so you had something you want to run and
+had to go to the the coders and things took a very long time to get turned
+around right so Along Came IBM had a great idea I I M came around and said you
+know what uh we're going to develop a language that's going to obviate the need
+for programmers we're going to no programs needed at all this is the late 60s
+early 7 get rid of the whole craft of programming now how do you do that you're
+going to make a language is very very close to engineering notation or
+mathematical notation and this way the engineers will be able to write the
+programs themselves they won't need programmers right uh of course it didn't
+work out like that and but they they this language well Fortran um I'm sure I'm
+sure you you heard of Fortran right Fortran stands for what anybody know let's
+think about the word Fortran what does it sound like formula translation formula
+translation and what it did was it took this high level notation and and
+essentially it it it brought it down the earlier compilers brought it down into
+assembler and then they already had built-in assemblers which took it to to
+machine language right so but not only did it not get rid of programming it made
+it possible to actually have a whole craft of many many many many many
+programmers so that was that was Fortran for was but basically it was not easy
+for non you know mathematicians or scientists to really use so then uh in the
+early 70s they at MIT I think they developed this language called basic which
+I'm sure you've heard of also and um there was a language that anybody could use
+children and so on right it was a nice language it's very basic and you could do
+things with it um you could actually early basic people are writing complete uh
+you know Software System for for accounting and so on but then they also wanted
+to teach children to program this also came out of MIT and so they they added on
+to this basic programming language something called logo I think it was called
+and um what it was it was a way of of they had a a mechanical turtle and um the
+turtle would they put on a big piece of paper and the turtle had a pen attached
+to it and you could and in this sort of sublanguage within basic you could
+actually let Turtle you know get it to do something logo took on a a life of its
+own and it's been incorporated into python right uh here it's called I don't
+know Turtle Graphics right and so we're going to do some programming in Turtle
+graphics and this Turtle Graphics sort of came historically it started at MIT in
+the early in the early' 70s so here there but it's you could do really cool
+stuff with it so here is some of the turtle commands again we're going to
+imagine a turtle um we're not going to write it on paper but so the turtle sort
+of looks like this let me get a pen this okay let's say the turtle sort of looks
+like this right here's the turtle um as you can see I'm a great artist right
+what does a turtle look like I guess Turtle has feet and so on right get some
+feet to the turtle but we going imagine our Turtle also has a pen right and the
+pen could be retracted or now if the turtle has the pen down and the turtle
+moves then whatever whichever direction the turtle moves is going to be traced
+over here right but if I say retract then the turtle the pen will be retracted
+into the turtle you won't see it anymore and then if the turtle moves with the
+pen retracted uh you know he'll move from here to here let's say with the pen in
+in retracted and you won't see anything at all right so that's how it works so
+here are some turtle commands I can I can say pen up the turtle sort of absorbs
+the pen and not going to make a trace I put the pen down and or if I if I want
+to trace what's going on the turtle has to pen down I can tell to move forward
+back right and left so forward is going to move the forward and imagine and sort
+of pixels and positions on the on the paper I can have it move backwards and uh
+forward and backwards depending on the orientation of the you know if he's if
+he's sort of facing in the up Direction Four is going to move in that direction
+facing you know down Direction and so on back is going to move in back right so
+these are sort of positions like pixels imagine this is going to be degrees so I
+can tell the turtle to rotate and degrees clockwise or or and degrees
+counterclockwise okay that's the basic idea so now uh without running this thing
+yet write on paper just take a piece of paper and write what you think will
+happen assuming that the turtle is available to you and then we'll actually run
+it and see what happens right so you say I in range 10 so uh you're going to do
+the following so notice this is all one block of code so when I is zero and
+you're not even using I you're using our's accounting variable it's going to do
+this it's going to do this 10 times all right so on a piece of paper what do you
+expect going to happen and then when you're finished with your you know with
+your prediction just raise your hand do we say the answer yeah I went there was
+only seven hands raised let's give it a let's give it a second you're not
+running it yet right just just you know go through the code and with a piece of
+paper and pencil just what you think is going to happen over here everybody
+should do it this is sort of very important to participate here actually doing
+stuff first of all you want to get your hands and your brain used to thinking in
+Python all right who has a prediction who thinks they know what's going to
+happen just call out but just announce yourself who wants to speak I can try sir
+yes sir yes sir okay what do you think's going to happen so I think it will have
+uh 10 uh lines of 15 pixel uh like broken lines so so is it going to be is it
+going to be one under the other one next to the other no it's going to be one in
+front of the other so line uh then a jump of 15 and the line of 15 jump right
+right in other words you say it's going to be something why uh something like
+this it's going to start here right and it's it's it starts out get rid of this
+it starts out moving in the direction to the right okay so it's over here and
+it's going to start moving and the pen is down right and this is going to be how
+long is that going to be that's going to be 15 and then the pen goes up and so
+it's also going to move 15 and it's going to start over here again and it's
+going to give you this kind of is that what you claim something like that yes
+sir and we will have 10 of these uh lines pieces right so the 10 is going to be
+from the range function that 10 yeah that like uh empty and the line 10 of those
+double things yeah third yeah how many of you agree with this I agree with it
+that's I let should code it right go open the you know go back to the python and
+run it and see what happens e okay again raise your hand once it's once you've
+done it okay 13 as soon as you get it just click on that good okay did you get
+what was expected yes right cuz he's right that's was correct right so what
+happens is you put the pen down you move and you move forward what is for mean
+since the mouse starts you know in that direction so it's going to it's going to
+walk 15 pixels right but he's going to drag along the pen because he put the pen
+down then he picks the pen up and he's also walks come you'll see there won't be
+anything there but he's going to be position 15 from the first is there any way
+that I could could I for example put the pen down on the outside of the four
+because here is pretty the pen down each time can I put it over here maybe if we
+do that we will not get the same answer because once we up we're not putting it
+back right because you have to be able to pick it up put it down and so on
+within the loop okay does did anybody have any trouble running this thing right
+in order to get it to work you have to import this Library the turle LI Turtle
+Library so it says from Turtle right which is the which is a built-in it's a
+module it's a library that built in with python import what do you want import
+what does the star mean everything right later on we'll see that you can import
+specific you know uh things you know objects from there get just specific
+functions or or objects and so on but this is going to bring everything and dump
+it into the into the Nam space we will go into detail with the import and so on
+when we we need to but this is just an example all right it works okay let's
+write a Python program that we want to draw a square with each side of length
+100 we going to do that square with each side of L hey as soon as you've done it
+I clear this from before as soon as you done it please raise your hand okay
+don't forget to raise your hand so far Seven 8 n this we good it's still only a
+third of the people 16 participants rais their hand okay I'm going up pting okay
+all right so uh um let's see who wants to show their screen you should be able
+to show your screen who wants to do this I who who's that uh yes sir who who's
+talking here Professor this is yes sir yes sir okay now let me just say
+something here um the stuff that we're doing in the beginning is really very
+straightforward if you have a background if you some people have taken a python
+course before I'd rather at least at the beginning to those people who have
+never this is brand new to them right I'd like to know those things before yaser
+uh show your screen you know know how to share share your screen I just
+Professor I cannot share while you are sharing all right thank you that is
+absolutely true so let me unshare in a second let me stop my share okay go good
+so what you want to do is show yeah good all right so show the code okay so um
+this is the code for my Square so I am don't show the rest of the stuff get rid
+of the rest of get rid of circle right now okay good all right do you have a
+background at all yaser in this you've done this before um I actually worked
+with logo when I was in grade six in another country it was fun I at this point
+I really want those that have never done this before so show explain what's
+going on over here yes so over here um we are moving forward 100 steps and then
+we are turning right so in other words which way when he starts he's exactly
+right right run the code and then we'll talk through run the code yes sir all
+right see what happened right start can now can you see my mouse also no
+Professor you don't see my I can trace your uh if you want to talk right okay so
+um is that strange oh because I'm not sh I'm not sharing right so um right so he
+starts facing in the right direction right facing in the right direction and he
+he moves 100 right so he goes from The Little Triangle there goes to the very
+end of the first line and then what happens what did you say next what did you
+say next then uh I said right 90 I turn right 90 degrees so from this corner
+right so you're facing to the right and when you turn right 90 then there a 90
+degree angle now you're facing down I'm facing down but as it's facing you
+notice you don't you'll see it actually when he runs it you'll see the little
+guy moving but here is just the trace that you see he's facing down he then
+again walks 100 to the bottom again he turns 90 which has him go to the left and
+then uh it traces because it penes down and then um and then he goes up okay
+very very good all right let's go back to the program now um it's interesting uh
+how many you got it to run anybody have any trouble with this this is pretty
+straightforward um generally if you don't put what's surprising here is this
+thing ran even though he doesn't say um um pen down right um I'm surprised it
+works maybe later version usually we have to say no no don't put right if you do
+this leave you do it is it gonna work professor professor um on default every
+Turtle object has its pen down on default because it didn't used to didn't used
+to you had to it would not work if you didn't have the pen down right so so now
+let's look at this program as he has it here right um the problem is this is
+he's going to run this pen down each time right so if you if you're running an
+environment the older environment is not you had to say pen down it wouldn't
+work if you put it on the outside right it would happen one time and then right
+that would be better idea okay very good let's try the next one thank you yes
+sir give me back my screen but um get the screen back here um okay all right
+let's try the next one we want to do a triangle here guys starting over here you
+want to go like this like that and like that okay profor uh we cannot see your
+screen I I know cuz you're working okay um who's done raise your hands if you're
+done okay let me share again okay so this is pretty straightforward right
+because we want to draw a triangle um and so we're going to go this is this is
+sort of equilateral triangle right so in other words it looks like this right
+it's going to go it's going to go and then it's going to go and then it's going
+to go back up right and so in a triangle this is 60° and that is 60° and again I
+apologizing that's 60° right so we're going to go and go and go and then we're
+going to turn 60° and we're going to go and go and turn 60° so the program is
+very very simple it says like go forward uh do it three times right this way and
+then uh and then right and so on right is this going to work right in other
+words go forward 100 make a right turn and you're gonna go 60 Dees and then and
+do it you know three times right forward and you're going to get a 60 de angle
+forward 60 for 60 angle and you get a beautiful triangle like that of course
+nicer than the one I drew that's clear right so let just run it make sure and
+there we go and there we have it right have we got it here we have a train any
+questions about this we have to take the outside angle what um Professor we have
+to take the outside angle 180 minus 6 you don't like my triangle yeah I did I
+did a 120 right right 120 you don't like my triangle right it doesn't close it's
+like half of a hexagon I think it's pretty good it's a good triangle especially
+because I'm the one giving the grades right so it's definitely a good triangle
+so why why is this not working what's the problem over here right so the problem
+is that you have to imagine you're the turtle right so if you're the turtle you
+walk and the end up over here so if you go straight what you really want is that
+you've got to turn in such a way that that when you keep walking you're going to
+get an interior of 60 right so you're facing in this direction to your right has
+to be 60 the whole thing is 100 what how much a straight line is what 180 this
+180 then this to be 60 you have to turn what this to be 120 right so will that
+work better if I make the thing 120 yes right so instead of there's be 120 let's
+see let's see if that's going to work okay let's run it uh there it goes looks
+much better okay let's try the next one let's try the next guy try this one and
+then this one then we'll do the circle L let's try this one and that one
+remember you're starting over here but and you're going to move a 100 but then
+you're going to go up right you still need 60 over here that means you know um
+we're going to start moving faster you know in a while so if you're not getting
+it in the time that we have to work on it just take a screenshot of the solution
+right then you can you know you can save it look at it later on okay who wants
+to show who wants to show their [Music] stuff nobody oh oh okay n okay show
+yourself I'm using two different um I'm do two different uh U machines I just
+realized that I'm not I'm not um you do it later Matthew you want to show you
+Matthew just take over uh that's me yep uh sure okay all right let's see if I
+can com remember we wanted to go we want to let's see run it let's see this
+we're going upwards upwards all right everybody see that there good question
+about it no question okay very good all right let's go back and see the next
+thing what's next we want to do a hexagon I'm going try to run this Okay who
+wants to uh let's see raising your hand raise hand uh Nicholas farkash let's see
+what you program okay so explain what's going on so put the pen down right could
+right and then what happens you're moving forward right and you're going to make
+it right so why is this 360 over 6 what's happening why where'd you get that my
+microphone working okay uh so the 360 over 6 comes from the hexagon so there's
+uh six uh angles in the hexagon there's six uh sides so when you divide it by
+360 divided by six gives you the angle for each of those angles so you just uh
+it's just an automatic computation for it so first of all you see that that the
+dividing dividing works if I wanted to draw a TR it worked right so you got it
+if I wanted to make a if I wanted to make a Circle not a circle if I wanted to
+make a um uh what do you call if I wanted to make a triangle what would I see
+over here uh you would just change it to a three right and what happens you
+divide 360 by three what do you get uh uh 120 that's right and that's we had
+before right be clear about this any questions about this it works okay thank
+you let's go back and do uh how many more we're going to do two more let's do
+the circle again once it's done raise your hand please I just clear the feedback
+so all right raise your hand good going guys only 11 raise your hand as soon as
+you have soon as you have an answer all right 13 let's let's check this out so
+in um you know when we s if we' be sitting in class in a real room then I would
+have sort of a a dramatic have a dramatic presentation over here so for example
+here's a question right here is the Earth right here's the Earth let's make it
+green is's the earth oh we can't see your screen right now you can't I'm sharing
+my screen why can't you see the screen because I stopped sharing let's see
+what's happening oh I don't but you should be able to see okay right can you see
+it now nice green earth yes we can see it it's good now and here is the this is
+the this is the sun there the Earth right and here is um here is the moon here
+is the moon now um there's the moon now the the when I was a kid right they used
+to told us that there was living on the um living on the moon they told us for
+example there was it was there was a side of they even told us that in school
+that there was a side of the moon that you would never see and that's where the
+monsters hung out and the babayaga hung out over there so is that really true
+right let's say here's like a monster over there right living and and it's going
+around it's going around the the this is the Earth right and there's the this is
+the moon is there really a side of the moon that you never see is that really
+true many people I believe so yeah you believe that yes sir yes because the Moon
+is tidally locked in its orbit here's here's a counter argument right is the is
+the is the is the Earth moving I could actually if there people in Cass I could
+actually demonstrate this is sort of moving around right this this is moving
+around now the Earth is the this the Moon is also moving right so as the moon as
+the Moon Turns this guy over here at one point is going to end up over here
+right there he is right he's over here now so even if the Earth is turning at
+one point somebody in the earth will see this guy even though he start out
+living on the side of the moon that extensively nobody ever sees he's going to
+be visible so there can't be any Dark Side of the Moon because the moon
+everything in the universe turns right it's all all rotating right so there is
+no Dark Side everybody understand that that clear but uh the U the Revolution
+and the rotation are the same so it canc saying that there is a dark side yes
+even know the Moon is spinning yes because uh if it spins suppose uh 90 degrees
+the moon will have gone around the earth 90 degrees so the dark side stays on
+the same darts how could that be um because uh suppose uh you know the man is
+over there on the uh right hand side of the on the other side so on the right
+hand side of the page uh by the time the man comes uh yeah so by the time the
+moon goes all the way up to the page so the Moon is above the Earth like if I'm
+looking for the from this angle so and then the man would be um yeah so if the
+moon goes in another Direction the moon will rotate but it will also go around
+the earth by the same amount does everybody agree with him that make sense so
+let's say let's say it's really true let's say it's really true that that the
+moon really rotates but this guy over here will never be visible let's say I
+think what you're saying is it goes around let's say it goes around um let's say
+to here right so it's going to move up move up move up it's going to be over
+here so what's it going to look like at this Point what's it going to look like
+well it so it has moved uh yeah it has moved uh 90 degree anticlockwise so it
+will have rotated a 90 degree clock um 90 degree anticlockwise itself so the
+that canel out so those saying in other words even if this this this yellow
+thing right is always facing the Earth always facing the Earth by the time it
+gets here has it has it rotated has the moon rotated yes absolutely right
+because in the beginning this it was facing in that direction now it's facing in
+this direction so it actually did move 90 degrees and when it moves around some
+more right even though the yellow part is still right is still over here but now
+it's moved 180 degrees right and it keeps going around and so on so they
+definitely is I mean believe it or not even know it's rotating so what does have
+to do with anything at all right because you can Envision the situation in the
+following following way as it goes around it makes the circle right it's going
+to make go around the earth it's called a month right what happens is you can
+Vision this thing in the following way it takes one step but it rotates it takes
+another step and it rotates by rotating it's always keeping this yellow pointing
+towards the Earth but it's rotated by the times it gets to this position over
+here it's the 90° so by taking the step and taking a and and and moving and
+rotating to the left um also one degree so take a step of size one and a rotate
+of size one you can actually draw a circle does that make sense to everybody yes
+no clear not clear let's see some code who wants to share the wants to share the
+screen let's go over here back here who's going to share the screen I'm going to
+stop sharing who who has not done before who's drawing the circle that wants to
+share the screen besides the guys that showed already uh I can share my screen
+who you talking to is Rohan have you and you haven't done it before so show us
+your show us your program okay so this is what we saw before for Mr farash Right
+but basically the same thing so um what what's happening how many how what do
+you put as number of sides 360 right so so 360 divided 360 is how much I think
+it's one right so you're moving forward one and you're moving right one you're
+moving forward one you're moving right one and then um and then uh you get the
+picture so I'm going to ask the following thing very good so um you have a
+background in Python already hello who am I talking yeah I do you do right so I
+I request the following don't use stuff if you even if you have a python
+background don't use stuff that we haven't gotten to yet in class because
+there's a sizable majority in the class that hasn't seen these things and when
+they see this kind of stuff this doesn't really I want to you know I'm building
+this thing up piece by piece so this kind of even though it's correct with you
+is very nice the program is very nice um you what you're doing you'll confuse
+the people who haven't seen this before so I just want to go sort of bare bones
+only using the toys that we have till now right so what he did was he find
+function which is very nice but he has the pen down over here um and he's doing
+forward one right one forward one right one and let's say run the code and see
+what happens there we go it's pretty slow right you can actually yeah right no
+it's not you it's the programing slow because right but there is built in within
+the turtle package you can actually build a circle build very fast but that's
+the idea right let's try what time is it now let us do uh let's let's take a
+break come back in 10 minutes and then we'll pick up the last one and then
+actually move to the real stuff but this is a way of of beginning to think
+what's going on in the C so we'll we'll come back in 10 minutes any questions
+before we we go or so I have one question and that is beforehand I turned off
+the recording uh while people were working the reason I did it is because this
+to be useful if uh since we're all working on stuff in the middle when you it's
+when it plays back it's it gets annoying you have to find where the where the
+where the uh class you know picked up so I what I like to do is as you're
+working on the programs or right now for example I want to be able to turn off
+the recording but I need somebody to remind me to turn it back on right I think
+because otherwise it gets very annoying to watch the things so I'm going to turn
+it off now and just remind me that I got to turn it back on right all right
+let's take 10 minutes recording stopped all right we the middle of this stuff
+here we're going to finish one more example let us do this okay we want to make
+that five-pointed St can you see my screen yes draw oh I cannot share my screen
+while you're sharing right can you see my screen Professor I see your screen
+here is my code okay and there we go excellent right everybody sees this now
+explain it how did you get this oh yeah CZ the oh where's the PDF oh here uh so
+um the sum of all this five corners will be n minus 2 * um 180 180 degrees so we
+have five here five sze 1 2 3 4 five 5 minus 2 would be three 3 * 180 should be
+540 Dees in total so Each corner is this that make sense to everybody so can I
+type here yeah right okay anybody yeah right very good you should have the
+ability to write can you draw two I will try later M minus 2 [Music] Time Time 1
+80 is the formula to calculate the sum of the um this shape I another C is sorry
+so because we got the internal angle of a pentagon thank you so much yeah so it
+will be 5 - 2 * 180 3 * 180 is should be 540 let me double check yes so the sum
+it would be 540 if you would like to get Each corner of it because it's um
+fairly distributed so it be 540 divided by five would be 108 so each this corner
+will be 108 since this one the whole thing this ah can I draw here draw draw you
+have the pen looking thing okay there we go this one is coral one oh this one is
+Corner two so right so what's 1 + two yeah so 1+ 2 would be 180 so 180 divided
+by uh 180 divided you want to subtract something right oh subtract sorry yes
+substract 180 divided by 180 oh subtract 108 be uh 72 so which angle is 72 so uh
+so one angle one A1 is uh 10 a and A2 is um 72 so now since we have 72 here now
+we we need to calculate this one angle three so for okay angle 3 equals to 180
+because the sum of a triangle the inner coin of triangle will be the sum is 180
+so minus 2 * 72 will be 180 minus 144 equals to uh 36 and since we need to
+calculate uh when we rotate it we need to get the uh outer Corner outer angle so
+will be 180 minus our A3 = to [Music] 180- 36 = to 144 that's how I got here
+very good everybody understand what's going on there so you have this you have
+this formula in there anybody have a different way very good thank you very much
+Olivia any of you have a different way of looking at this every everybody did it
+exactly the same way that she did it I came about um 144 by taking 720 and
+dividing that by five us so show us the can you I think you should be able to
+draw if you guys can draw I think I've given everybody the ability to draw I did
+it by try on until I got it what could you draw uh yes I can draw it okay so
+show us show what you got who's talking here okay show us what you going yeah we
+got the code but we want you to talk oh sorry I sh the wrong screen my all right
+yeah yeah but yeah so how how did you get to 144 uh so I was just looking at the
+angle so it was between 90 and 180 I started at 150 and then by Tri and ER I
+down to one draw a cir can you draw draw a circle around that whole figure sure
+no no no no no I mean on the picture on the picture no no no no can you draw the
+picture yeah there we go all right keep going keep going okay let's take the top
+the top angle right so um what's happening is the if you look at the if you look
+at the Circle it's being it's being uh broken into five into five uh congruent
+pieces right every piece is the same length right so the top angle the uh the
+number the number of the the circle total circle around is 360 de right so
+there's some theorem back from when in this 10th grade I think that um that
+relates the uh Ang that relates the angle to the arc that it cuts right so the
+whole thing is 360 how much is 360 divided by 5 what was 360 divided by five
+anybody got calculator 72 72 right so that that's 72 that angle is is is um uh
+is um cutting an arc of 72 but there's a it is a theorem that says that the
+angle is half of the arc that it cuts what's 72 / two a the like that how much
+is that 36 36 right so what does that tell me because the interior angle is 36
+so the exterior but you have to go around the the opposite side which is 180
+minus 36 is how much anybody so that's how we got 144 144 right so that's
+another way to look at it right just we look at the the angle cut off the arc
+and this just a theorem back from you know dric geometry that the the uh the
+angle over there is half of the size of the arc that it cuts off okay very good
+so that's fine let's go back to um I am not sharing so let me get back here
+share you're not sharing okay hold on a second can you see my screen or not you
+see the screen here uh no we cannot see it right now over here then uh all right
+all right so let's just take a look at this one and again what you want to do is
+we want to um look at it you want to predict what it's going to do and then run
+it to validate your prediction it all right two okay you have a prediction then
+run it make sure you validate your prediction 7 okay go in here everybody should
+be trying it even you're not sure about it put down something argue for it and
+then run it and see if you got it right okay another 30 seconds and we'll see
+what it really show Abdul you with us yeah here I'm trying to find the screen to
+share uh this is what it prints out so R it there we go okay can you explain why
+I think you all got the same thing right did you you this did you think you able
+to predict this from looking at it I didn't predict exact this but I kind of
+expected like a bunch of triangles because the code itself looks like um like it
+just looks like the triangle code kind of excellent right hold that up there for
+a second very good right see what he's saying over here like we saw this right
+120 before right that's giving the outside of the triangle leaving a 60 in the
+middle but how this is different than before is every time you come in the
+forward when it says forward the 10 Time 5 what's happening is the length of the
+sides gets longer each time right so basically what's happening as you go along
+you're embedding the triangle inside of a triangle inside of a triangle and
+that's why you get that shape but it's really interesting it's a very bring back
+the output please show us what you got there again there go it is a very nice
+shape it looks like it's very cool right uh and yet the the program that
+produced this is is really trivial right it's a very very straight depending how
+you look at the angle it's either coming out like a pyramid either coming out or
+it's going in it's like it's very very interesting thing it turns out that many
+things in nature are like this like for example after a if you look at uh after
+a storm and the Ants are sort of they make this you know this mound they have
+this like they build this little mountain um because what they're doing is that
+they're you know their their nest has been flooded right so they're taking out
+all the debris taking out the garbage but what happens is the algorithm it looks
+like it's a very complicated thing that they're doing and in fact the algorithm
+is Trivial the algori must pick up a grain of sand and just come out of the hole
+and put it to the closest place that doesn't have a grain of sand right so many
+things that look very complicated in in internally they really very
+straightforward very good all thank you let's take a look at the next thing here
+so so far let me share second okay so here what we got right we've seen um we
+got some of the things we've seen let's just take take a look at this over here
+let's try we just do this quickly we have to pick up the pace a bit write this
+program right you want to write a program that is going to add two numbers right
+so please enter the first number enter the second number and then and then it's
+going to give you the sub okay try to do this in less than two hands all right
+let's keep going we only have 10 hello uh you guys got to stick around you can't
+just disappear in the middle class Garrett you here yeah I'm still working on
+I'm also still working on it why should be look even I got it look here here's
+how to do can you see my screen am I sharing I'm not sharing you're not sharing
+oh okay let me share again it's they can see it's trivial right first qu I call
+First and call A B and C right so first input right I'm saying first right then
+I say input second so this is going to get say a three and then a five and I add
+three and five because I assume I can do arithmetic it's called the answer and I
+can print the answer that's it it's trivial problem I I think the problem was we
+were trying to do F string right is this clear to everybody let's run this to
+make sure let's run this this all right so um first let's say it's three right
+let's say second what's second going to be five how much is 3 + 5 it's eight
+right and then it prints out 3+ 5 it says 35 right so it's trivial and it works
+nicely any questions concat but sir 35 is not eight who says I think he's right
+right 35 but what I mean what's going on what what is the 35 doing sh
+contamination why excellent why is it doing contamination rather than arithmetic
+right so when I say input so I get I get um what do I get what is input let's
+try over here if I say you know Z is equal to input so um so this is reading a
+string from standard input right um so when I say three it treats three as a
+what kind of object not as an integer object but a string object and and
+likewise when I I input a second I got a five it's a string object so what so we
+have an overloaded plus operator and what happens when you have a string on the
+left and the string on the right it's going to concatenate and that's why I got
+a 35 right does that make sense because as he pointed out correctly 3 plus 5 is
+not 35 but it is concatenation so the reason it's happening is because you're
+typing what you think is numbers because this is a smart program right I mean
+python has used all over the place why to get it wrong get it wrong because it
+didn't get it wrong it's what happens right so what I want to do is what is
+input what is input going to going to Output this this is this is the parameter
+here this is the argument passing in but this is going to give me what it's
+going to take in the three as a string and return the string so first is going
+to be so what can I do what do I want to do I want to I want to make that into
+an integer if I say int over here uh and I say int over here let's see if that's
+going to work you think that's going to work now let's try it I can Cur you C
+that it might work right I say three I say five in fact it works so what is
+happening over here what's happening so the input is a function because it's a
+function right um how do I know this function has a name and has parentheses
+right so I'm going to get a value out of this the value is going to be the
+string three but what I'm doing over here is I'm feeding into this function int
+give me a fancy name for INT integer integer what fancy I want a fancy name it
+is a conversion Constructor right remember everything every this there an
+important Point here everybody makes it's going it's it's everything is an
+object there's no integers like you have Raw in C and in C++ right likewise in
+um in Java you have the integer class right unless you don't get the raw
+integers directly so what's happening over here is I have to convert I have to
+create an integer object and I do that by calling this converion Constructor so
+it's constructing an integer object so then this is an integer object and then
+plus it says I have an integer on the left and right so I'm going to use the the
+the the plus operator but it's not the raw plus that you haven't se it's not the
+plus that's running directly on on the hardware right there was a plus the adder
+there's an Adder that adds two binary numbers that's not this this is the
+overloaded plus that belongs to the integer class does that make sense everybody
+so this gives me an integer back an integer object and then it's going to print
+that integer object so the object itself has a type right but I'm not describing
+as the object If This Were this was C++ so this will three and five as integers
+what would be the type of this variable over here that would be an integer
+variable right but that's not what's happening in Python it's having python is
+this just regular pointer and the pointer it's not pointing at an integer it's
+pointing at an object the object carries with itself it's it's its type right
+what it knows what type it is the object has a type it has a descriptor
+internally this doesn't have there's no type associated with the answer it's
+just a pointer pointing to an object does that make sense so we had to do we
+have to feed it into these to these conversion Constructors and that is what is
+happening here okay good everybody clear any questions about that all right so
+um let's just make sense of this and then we'll call it a day so let's say I
+want to write a program to um you know like a sum program so let's see what
+happens over here everybody look at this for two minutes we'll go over it
+together is as you raise your hand uh when you got us you know you know what's
+happening okay it's simple you know you know if you know program you all
+straightforward but every you look at it so far six out of 40 eight out of 40 10
+out of 4 e all right let's see what's going on um I think I got some U let's
+just see this so here's how it works right we're printing wel the is program
+what's going to happen after this right away it's going to go to the next line
+because it'll default what to do when you finish print go to the next line and
+print you can enter the values for x and y and I will calculate next line and
+display the sum now what's going to happen over here so if this go goes to the
+next line but when I say print with nothing in here this is important it's
+what's it going to do it says it's going to print a blank line why is it going
+to print a blank line because it's going to print everything that's in here and
+then when it hits but there's nothing in there right and then what does it do
+when it finishes the print it's gonna it's going to go to the next line right so
+therefore I'm GNA look on the screen if there's a Brank blank line over not
+because I'm printing blank it's because it's go to the next line because of a
+new line character so that makes sense to everybody and here is typically how we
+would have a loop right so I say give me a value for x and then I'm going to
+loop around and add as we did in the previous example and it says entering the
+the string D NE is going to terminate the program right so what is the type of x
+x is a string right um but um so now but but so if I type a three so that's
+going to be that's going to be the string three so I comment the Y Loop we have
+the this is the this is the black that's determined by the by the by the by the
+indentation right so while X is not equal to done if I type the three X is not
+equal to done so now I want to make it into an integer so x i I create the
+integer by the conversion Constructor now I say give me a y say Y is equal to
+five I'm going to get a five out of this right I'm going to again convert it to
+an integer object so now the plus is the Plus of the integer class so I'm going
+to get 3 I'm going to get eight I'm going to print it out and to get to the next
+line right I'm going to skip a line from each one and I'm going to get another X
+so I'm going to get another X over here and if you put a five I'm going to back
+over here five the string five because it's an input not been converted why
+don't I convert it because I want to be able to you know I want to get done in
+here also so I don't do the conversion over here do the conversion on the inside
+so if you if you put like a five over here five is not equal to done I'm going
+to go through the whole thing again but let's say you get sick and tired of
+playing this game and you type over here done d o n so while X is not equal to
+done but if you put in D NE this is going to be false I'm going to print a blank
+line and say thanks for trying recr this make sense to everybody uh yes good all
+right so uh we'll pick up the real stuff we'll start tomorrow this is just a
+little bit you know getting used to things um again I um where are we here I uh
+the recording was paused and nobody told me to turn on please I'm gonna I'm
+depending on you guys right so I'm G to I'm going to put up the recording it's
+it's cooking now in Zoom site hopefully they didn't mess it up completely uh
+when I get it back I I should get a message from Zoom I'll try to put it back
+you know put it up by later on today maybe in the evening and I'll send um I
+I'll tell you how to find where they are maybe I'll put it up on something um
+anybody have any questions because I have a question yeah again identify
+yourself who's talking please yes sir uh my name is yesir uh my question is uh
+um where do I find the syllabus uh would you be uploading it on gr space I don't
+see any the syllabus the syllabus is basically be the class notes so if you look
+at the first it should be let's just go over here for a second I was thinking
+about the exam dates oh the exam dates that's a very good question so um this is
+a very short semester so the exam it's about three and a half weeks right just
+uh on Monday the 20th there is no class I think it's Martin Luther King Day
+right so there's no class on that Monday um I'm going to try to have the exam
+sort of in the middle of the semester right I have to see how fast we can move
+I'll let you know a couple of days beforehand but since it's such a thank you
+for the question since it's such a small it's such a short period you really
+really really got to keep up you can't like decide I'm going to study a week
+before because now it's probably a week before right so please keep up with the
+stuff that's that's number one in terms of the grading I I put it in it's in the
+class notes once you look at the class notes there really know where you saw it
+today right make sure that's where this stuff is going to be growing and so the
+syllabus is on there it's going basically everything that's in the class notes
+that's what it is but we're going to go through much of you know intermediate
+python right the beginning this is really just very basic baby stuff over here
+just to get used to the language but we'll get into stuff like generators and
+and and all kinds of very neat things the python provides that you might not
+have seen elsewhere um there'll be just two exams the midterm and a final um I
+will um I will count the higher of the two grades 60% and the lower of the two
+grades 40% so if you mess up the midterm that will cause that will be 40% to the
+final grade if you do better on the final whatever you do better on that's
+what's going to count more um I will also try to post as we go along there some
+practice problems but the best thing to do in terms of practice um especially if
+you want to actually get a job right is to uh you most of you are at least
+Juniors I would assume right to get into the class just take the problems that
+you did in previous classes specifically algorithm problems and just rewrite
+those things in Python using the specific P python has some very very neat
+Construction that you didn't have elsewhere that's the best way to do this right
+things that you've solved before did the those you did 211 some of the things
+were difficult 21 become absolutely trivial in Python you know to try to just
+rewrite this stuff in the beginning it's going to be difficult because we
+haven't we won't the first couple of days as I said we're not g to get into real
+you know the the good stuff in Python so we're still trying to you know to build
+up speed but that's I think the best thing to do all right all right so let's
+call it a day we'll meet again tomorrow at 10:30 zahav are you still here he yes
+so stick around the end I need to ask you something okay guys we're we're done
+see you tomorrow thank you Professor bye bye yeah where's a question no
+questions right hello y um so I have a question so um you were speaking about
+the attendance earlier I didn't catch it um so is attendance mandatory who here
+Jah j in the sense do I take attendance I'm not going to take attendance but my
+experience has been that if you don't show up if you just depend on I mean I'm
+not gonna I'm not going to penalize you from not coming however um if you're
+here you can ask questions you can hear explanations um as opposed to you know
+being on the uh just trying to look at the the um videos as you see right now it
+only did about a third of the videos I mean because because I forgot to turn it
+back on I you know or it could be messed up on Zoom site which has happened so
+the idea is if you it's a very short thing is are three and a half weeks so it's
+highly highly suggested that you show up and you participate in class because
+you know I've done this numerous times both in in in real life and on zoom and
+my experience simply has been that um there's a correlation between showing up
+participating and just you know depending on either the notes or or the videos
+and so on right so that's basically it yes I understand I was just asking
+because I was relating to uh where my work schedule figure something out
+somebody was it you that wrote to me somebody wrote to me I think about this
+right try to organize it so that uh you know that doesn't interfere because the
+exams are not online right the exams are in the real world in Queen's college at
+the same time as the class oh exactly are on campus right pencil and paper right
+understood all right okay very good thank you have BL done I just need to talk
+to somebody so if you're not the one I'm G to talk to please just go

@@ -1,0 +1,40 @@
+`2 LOAD_FAST 0 (a)`: Following that, the value of the local variable `a` (at index 0) is loaded onto the
+stack, above the previously loaded value of `b`.
+`4 ROT_TWO`: This instruction rotates the top two stack items. After this operation, the value of `a`
+(which was loaded second) is now below the value of `b` on the stack, effectively swapping their positions
+in the stack without using a temporary variable.
+`6 STORE_FAST 0 (a)`: The top value on the stack (which is now the original value of `b` due to the
+`ROT_TWO` operation) is popped off the stack and stored in the local variable `a` (at index 0).
+`8 STORE_FAST 1 (b)`: Similarly, the next value on the stack (which is now the original value of `a`) is
+popped off and stored in the local variable `b` (at index 1). At this point, the values of `a` and `b` have
+been swapped.
+Line 5
+`10 LOAD_FAST 0 (a)`: The value of `a` is loaded onto the stack again. Note that `a` now holds the
+original value of `b` due to the swap.
+`12 LOAD_FAST 1 (b)`: The value of `b` is loaded onto the stack, above the value of `a`. Remember, `b`
+now holds the original value of `a`.
+`14 BUILD_TUPLE 2`: This instruction pops the top two values from the stack (the values of `a` and `b`)
+and builds a tuple from them. This tuple is then pushed onto the stack.
+`16 RETURN_VALUE`: Finally, the top value on the stack (which is now the tuple containing the
+swapped values) is returned from the function.
+Note:
+The designation "Line 4" in the bytecode disassembly output corresponds to the line number in the
+original Python source code from which the bytecode was generated. It does not indicate the fourth
+line of the bytecode itself but rather that the bytecode instructions starting from that point correspond to
+the fourth line of the source Python code.
+The numbers preceding the instructions in the bytecode disassembly, such as the 4 in 4 ROT_TWO,
+represent the byte offset of each instruction within the bytecode sequence. This offset indicates the
+position of the instruction in the bytecode and is used by the Python Virtual Machine (PVM) to navigate
+through the bytecode as it executes the program.
+Here's a breakdown of what these numbers mean:
+Byte Offset: The number is essentially an address within the bytecode sequence. It tells the PVM where
+each instruction starts. In the example, `4 ROT_TWO` means that the `ROT_TWO` instruction starts at
+byte offset 4 in the bytecode.
+Sequential Execution: The Python interpreter reads and executes bytecode instructions sequentially,
+unless an instruction explicitly alters the flow of execution (e.g., through a loop or conditional jump). The
+byte offset helps the interpreter keep track of its position in the bytecode sequence.
+Jump Targets: For control flow instructions that involve jumps (like `FOR_LOOP`,
+`JUMP_FORWARD`, or conditional jumps), the byte offset provides a target address to jump to. For
+example, if there's a jump instruction that says to jump forward by 6 bytes, the interpreter would move to
+the instruction 6 bytes ahead of the current instruction's byte offset.
+111

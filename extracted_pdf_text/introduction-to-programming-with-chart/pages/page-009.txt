@@ -1,0 +1,21 @@
+o You need guaranteed ordering based on insertion (instead, consider OrderedDict).
+o Your keys must hold mutable/unhashable objects (since keys must be hashable).
+o You require floating-point or non-integer arithmetic directly within the collection.
+Performance Considerations
+Counters perform extremely well in typical scenarios. Construction from an iterable is linear (O(N)), and
+most other operations are fast dictionary lookups (O(1) on average per element). Memory overhead is
+minimal, similar to standard dictionaries.
+Edge Cases and Gotchas
+• Negative counts:
+Counters allow negative values after subtraction. If undesirable, quickly discard them:
+• c = Counter(a=1)
+• c.subtract(['a', 'a']) # Counter({'a': -1})
+• c = +c # now empty Counter
+• Nonexistent keys:
+Unlike normal dicts, accessing nonexistent keys returns 0, not a KeyError.
+Summary (TL;DR)
+The collections.Counter class provides a clean, intuitive, and powerful way to tally and manipulate
+item frequencies in Python. With built-in support for common operations, arithmetic, and convenience
+methods, it should be the default go-to structure whenever your Python code needs to keep track of "how
+many times" something happens or appears.
+137

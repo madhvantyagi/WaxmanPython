@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lambda & One-Liner Masterclass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #0a0c10;
+            --glass-bg: rgba(20, 24, 32, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --accent-cyan: #00f2fe;
+            --accent-violet: #4facfe;
+            --accent-pink: #f093fb;
+            --accent-green: #00e676;
+            --accent-orange: #ffab40;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --code-bg: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 2rem 1rem;
+            background-image: radial-gradient(circle at top left, rgba(79, 172, 254, 0.1), transparent 40%),
+                radial-gradient(circle at bottom right, rgba(240, 147, 251, 0.1), transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            text-align: center;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 48px 0 rgba(0, 242, 254, 0.1);
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--glass-border);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            color: var(--accent-violet);
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        h4 {
+            color: var(--accent-cyan);
+            margin-top: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        p,
+        ul,
+        ol {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-text {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        .warn-text {
+            color: var(--accent-orange);
+            font-weight: 600;
+        }
+
+        .good-text {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        code {
+            font-family: 'Fira Code', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent-pink);
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            border: 1px solid var(--glass-border);
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: #cdd6f4;
+            font-size: 0.95em;
+        }
+
+        .strategy-box {
+            background: rgba(79, 172, 254, 0.05);
+            border-left: 4px solid var(--accent-violet);
+            padding: 1rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box {
+            background: rgba(255, 171, 64, 0.06);
+            border-left: 4px solid var(--accent-orange);
+            padding: 1rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.5rem 0;
+        }
+
+        .problem {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--accent-pink);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .problem-tag {
+            display: inline-block;
+            padding: 0.15rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .tag-easy {
+            background: rgba(0, 230, 118, 0.15);
+            color: var(--accent-green);
+        }
+
+        .tag-medium {
+            background: rgba(79, 172, 254, 0.15);
+            color: var(--accent-violet);
+        }
+
+        .tag-hard {
+            background: rgba(240, 147, 251, 0.15);
+            color: var(--accent-pink);
+        }
+
+        .toggle-btn {
+            background: linear-gradient(135deg, var(--accent-violet), var(--accent-cyan));
+            border: none;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            margin-top: 1rem;
+        }
+
+        .toggle-btn:hover {
+            opacity: 0.85;
+        }
+
+        .solution-content {
+            display: none;
+            margin-top: 1rem;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .solution-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .anatomy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .anatomy-table th,
+        .anatomy-table td {
+            text-align: left;
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .anatomy-table th {
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .anatomy-table td {
+            color: var(--text-secondary);
+        }
+
+        .toc {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc li {
+            padding: 0.3rem 0;
+        }
+
+        .toc a {
+            color: var(--accent-violet);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .toc a:hover {
+            color: var(--accent-cyan);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>The Ultimate Cheat Sheet</h1>
+        <div class="subtitle">Mastering Lambdas, One-Liner Comprehensions & Sorting Keys</div>
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="card">
+            <h2>📑 Table of Contents</h2>
+            <ol class="toc">
+                <li><a href="#sec1">Lambda Syntax & Rules</a></li>
+                <li><a href="#sec2">Sorting with <code>key=lambda</code> (Midterm Q4 & Q8)</a></li>
+                <li><a href="#sec3">List Comprehension Deep Dive</a></li>
+                <li><a href="#sec4">Nested Comprehensions — The Hard Stuff</a></li>
+                <li><a href="#sec5">Generator Expressions Inside Functions</a></li>
+                <li><a href="#sec6">The Late Binding Gotcha (Q2)</a></li>
+                <li><a href="#sec7">Practice Arena — 12 Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- ================================================ -->
+        <!-- SECTION 1: LAMBDA SYNTAX -->
+        <!-- ================================================ -->
+        <div class="card" id="sec1">
+            <h2>1. Lambda Syntax & Rules</h2>
+            <p>A lambda is a tiny anonymous function you write in a single expression.</p>
+
+            <h3>The Golden Rules</h3>
+            <table class="anatomy-table">
+                <tr>
+                    <th>Rule</th>
+                    <th>Detail</th>
+                </tr>
+                <tr>
+                    <td>Syntax</td>
+                    <td><code>lambda arguments: expression</code></td>
+                </tr>
+                <tr>
+                    <td>No <code>return</code></td>
+                    <td>The expression is automatically returned.</td>
+                </tr>
+                <tr>
+                    <td>One expression only</td>
+                    <td>No <code>=</code> assignments, no <code>for/while</code>, no <code>if/else</code> blocks (but
+                        ternary <code>a if cond else b</code> is OK).</td>
+                </tr>
+                <tr>
+                    <td>Multiple args</td>
+                    <td><code>lambda a, b: a + b</code></td>
+                </tr>
+                <tr>
+                    <td>Default args</td>
+                    <td><code>lambda a, b=10: a + b</code> — evaluated at creation time!</td>
+                </tr>
+            </table>
+
+            <pre><code># Assigning to a variable (just like def)
+square = lambda x: x ** 2
+print(square(5))   # 25
+
+# With a ternary expression (allowed!)
+classify = lambda x: "even" if x % 2 == 0 else "odd"
+print(classify(7))  # "odd"
+
+# Multiple arguments
+add = lambda a, b: a + b
+print(add(3, 4))    # 7</code></pre>
+        </div>
+
+        <!-- ================================================ -->
+        <!-- SECTION 2: SORTING -->
+        <!-- ================================================ -->
+        <div class="card" id="sec2">
+            <h2>2. Sorting with <code>key=lambda</code></h2>
+            <p>Your midterm (Q4 and Q8) always asks: <em>"Write a function whose body is just 1 line that returns a
+                    sorted list."</em> The answer is always <code>sorted()</code> + a lambda key.</p>
+
+            <div class="strategy-box">
+                <h3 style="margin-top:0">🎯 3-Step Strategy</h3>
+                <ol>
+                    <li><strong>Ask:</strong> What is each <em>item</em> in the list? (a sub-list? a tuple? a string?)
+                    </li>
+                    <li><strong>Ask:</strong> What <em>property</em> do I sort by? (average? length? last element?)</li>
+                    <li><strong>Write:</strong> <code>sorted(data, key=lambda x: &lt;property of x&gt;)</code></li>
+                </ol>
+            </div>
+
+            <h3>Sorting a list of lists by average (Midterm Q4)</h3>
+            <pre><code># x = one inner list like [3, 5, 7]
+# property = average = sum(x) / len(x)
+sorted(input_list, key=lambda x: sum(x) / len(x))</code></pre>
+
+            <h3>Sorting tuples by average (Midterm Q8)</h3>
+            <pre><code># x = one tuple like (2, 9, 4)
+# property = average = sum(x) / len(x)
+sorted(tuples_list, key=lambda x: sum(x) / len(x))</code></pre>
+
+            <h3>More key= patterns you must know</h3>
+            <pre><code># Sort strings by LAST character
+sorted(["hello", "world", "abc"], key=lambda s: s[-1])
+
+# Sort by second element of tuple
+sorted([(1,5), (3,1), (2,8)], key=lambda t: t[1])
+
+# Sort by absolute value (descending) — use reverse=True
+sorted([-5, 3, -1, 8], key=lambda x: abs(x), reverse=True)
+
+# Sort dicts by a key
+students = [{"name": "Ali", "gpa": 3.5}, {"name": "Bo", "gpa": 3.9}]
+sorted(students, key=lambda d: d["gpa"])</code></pre>
+        </div>
+
+        <!-- ================================================ -->
+        <!-- SECTION 3: COMPREHENSION DEEP DIVE -->
+        <!-- ================================================ -->
+        <div class="card" id="sec3">
+            <h2>3. List Comprehension — Deep Dive</h2>
+            <p>This is the <span class="highlight-text">most important section</span>. The midterm constantly asks you
+                to condense logic into a single line. You must be able to read and write these instantly.</p>
+
+            <h3>The Anatomy (4 Levels of Difficulty)</h3>
+
+            <h4>Level 1: Basic Filter</h4>
+            <pre><code># Template:  [value  for item in iterable  if condition]
+# English:   "Give me every item from the list WHERE condition is true"
+
+# Example: Even numbers from 1 to 10
+[x for x in range(1, 11) if x % 2 == 0]
+# → [2, 4, 6, 8, 10]</code></pre>
+
+            <h4>Level 2: Transform + Filter</h4>
+            <pre><code># Template:  [transform(item)  for item in iterable  if condition]
+# English:   "Give me the TRANSFORMED version of each item WHERE condition"
+
+# Example: Squares of odd numbers only
+[x**2 for x in range(1, 11) if x % 2 != 0]
+# → [1, 9, 25, 49, 81]</code></pre>
+
+            <h4>Level 3: Ternary (if-else) Inside the Expression</h4>
+            <div class="warning-box">
+                <p><span class="warn-text">⚠️ WATCH OUT:</span> When <code>if-else</code> is in the
+                    <strong>expression</strong> part (before <code>for</code>), it's a ternary — it runs on EVERY item.
+                    When <code>if</code> is <strong>after</strong> the <code>for</code>, it's a filter.</p>
+            </div>
+            <pre><code># Template:  [A if condition else B   for item in iterable]
+# English:   "For EVERY item, give me A if true, otherwise B"
+
+# Example: Replace negatives with 0
+nums = [3, -1, 5, -7, 2]
+[x if x > 0 else 0 for x in nums]
+# → [3, 0, 5, 0, 2]
+
+# COMBINING both ternary AND filter:
+# [A if cond1 else B  for x in iterable  if cond2]
+["big" if x > 5 else "small" for x in range(1,11) if x % 2 == 0]
+# → ["small", "small", "big", "big", "big"]
+# Only even numbers pass the filter, then each gets labeled</code></pre>
+
+            <h4>Level 4: Nested Comprehension (Comprehension INSIDE Comprehension)</h4>
+            <p>This is the hardest pattern — and it's exactly what makes the Perfect Numbers question (Q5) so tricky.
+            </p>
+            <pre><code># Template:
+# [outer_expr  for outer in range(...)  if outer_cond(INNER_COMP)]
+#
+# where INNER_COMP is itself a comprehension or generator:
+#   sum(inner for inner in range(...) if inner_cond)
+
+# The key insight: The INNER part produces a value
+# (like a sum), and the OUTER part uses that value
+# to decide whether to keep the item.</code></pre>
+
+            <div class="strategy-box">
+                <h3 style="margin-top:0">🧠 How to Build a Nested One-Liner (Step by Step)</h3>
+                <p>When you see a hard question, don't try to write it all at once. Build it in layers:</p>
+                <ol>
+                    <li><strong>Step 1 — The Outer Shell:</strong> What are you looping over? Write
+                        <code>[x for x in range(...)]</code></li>
+                    <li><strong>Step 2 — The Condition:</strong> What must be true? Add <code>if x == something</code>
+                    </li>
+                    <li><strong>Step 3 — The "Something":</strong> If "something" requires its own loop, write a
+                        generator expression: <code>sum(i for i in range(...) if ...)</code></li>
+                    <li><strong>Step 4 — Plug it in:</strong> Replace "something" with the generator from Step 3.</li>
+                </ol>
+            </div>
+
+            <h3>Worked Example: Perfect Numbers (Midterm Q5)</h3>
+            <pre><code># GOAL: All numbers 1..n where number == sum of its divisors
+
+# Step 1 — Outer shell: check every number
+# [x for x in range(1, n+1)]
+
+# Step 2 — Condition: x must equal sum of divisors
+# [x for x in range(1, n+1) if x == sum_of_divisors]
+
+# Step 3 — sum_of_divisors needs its own loop:
+# sum(i for i in range(1, x) if x % i == 0)
+# This loops 1 to x-1, keeps only numbers that divide x evenly
+
+# Step 4 — Plug it all together:
+[x for x in range(1, n+1) if x == sum(i for i in range(1, x) if x % i == 0)]
+
+# For n=30 → [6, 28]</code></pre>
+
+            <h3>Worked Example: Primes (Classic Exam Question)</h3>
+            <pre><code># GOAL: All prime numbers from 2 to n
+
+# A prime has NO divisors between 2 and itself.
+# Step 1: [x for x in range(2, n+1)]
+# Step 2: if x is prime — meaning no number 2..x-1 divides it
+# Step 3: "no number divides it" = all(x % i != 0 for i in range(2, x))
+
+[x for x in range(2, n+1) if all(x % i != 0 for i in range(2, x))]
+
+# For n=20 → [2, 3, 5, 7, 11, 13, 17, 19]</code></pre>
+        </div>
+
+        <!-- ================================================ -->
+        <!-- SECTION 4: NESTED COMPREHENSIONS -->
+        <!-- ================================================ -->
+        <div class="card" id="sec4">
+            <h2>4. Nested Comprehensions — Flattening & 2D Loops</h2>
+            <p>Sometimes the midterm gives you a 2D list and asks you to flatten it or do a double loop. The reading
+                order is: <span class="highlight-text">left to right = outer to inner</span>.</p>
+
+            <h3>Flattening a 2D List</h3>
+            <pre><code>matrix = [[1, 2, 3], [4, 5], [6, 7, 8, 9]]
+
+# Multi-line equivalent:
+# result = []
+# for row in matrix:        ← OUTER loop (written first)
+#     for val in row:        ← INNER loop (written second)
+#         result.append(val)
+
+# One-liner:
+[val for row in matrix for val in row]
+# → [1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+
+            <div class="warning-box">
+                <p><span class="warn-text">⚠️ Reading Order Rule:</span> In a nested comprehension, the <code>for</code>
+                    loops are written in the <strong>same order as you would write them normally</strong> (outer first,
+                    inner second). The expression goes at the very front.</p>
+            </div>
+
+            <h3>2D List with Condition</h3>
+            <pre><code># Get all even numbers from a 2D list
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+[val for row in matrix for val in row if val % 2 == 0]
+# → [2, 4, 6, 8]</code></pre>
+
+            <h3>Building a 2D List (List of Lists)</h3>
+            <pre><code># Create a 3x3 multiplication table
+[[i * j for j in range(1, 4)] for i in range(1, 4)]
+# → [[1, 2, 3], [2, 4, 6], [3, 6, 9]]
+
+# Here the OUTER comprehension makes rows,
+# and the INNER comprehension makes columns.</code></pre>
+        </div>
+
+        <!-- ================================================ -->
+        <!-- SECTION 5: GENERATORS INSIDE FUNCTIONS -->
+        <!-- ================================================ -->
+        <div class="card" id="sec5">
+            <h2>5. Generator Expressions Inside <code>sum()</code>, <code>all()</code>, <code>any()</code></h2>
+            <p>This is the secret weapon for midterm one-liners. You can put a <strong>generator expression</strong>
+                (looks just like a comprehension but without square brackets) directly inside built-in functions.</p>
+
+            <table class="anatomy-table">
+                <tr>
+                    <th>Function</th>
+                    <th>What it does</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td><code>sum(...)</code></td>
+                    <td>Adds up all values</td>
+                    <td><code>sum(x for x in range(5))</code> → 10</td>
+                </tr>
+                <tr>
+                    <td><code>all(...)</code></td>
+                    <td>True if ALL are True</td>
+                    <td><code>all(x > 0 for x in [1,2,3])</code> → True</td>
+                </tr>
+                <tr>
+                    <td><code>any(...)</code></td>
+                    <td>True if ANY is True</td>
+                    <td><code>any(x > 5 for x in [1,2,9])</code> → True</td>
+                </tr>
+                <tr>
+                    <td><code>max(...)</code></td>
+                    <td>Largest value</td>
+                    <td><code>max(len(w) for w in ["hi","hello"])</code> → 5</td>
+                </tr>
+                <tr>
+                    <td><code>min(...)</code></td>
+                    <td>Smallest value</td>
+                    <td><code>min(x**2 for x in [-3,1,2])</code> → 1</td>
+                </tr>
+            </table>
+
+            <pre><code># WHY THIS MATTERS:
+# When the midterm says "return if a number's divisors sum to itself"
+# you NEED sum() with a generator inside it:
+
+sum(i for i in range(1, x) if x % i == 0)
+#    ↑ generator expression — no brackets needed inside sum()
+
+# When it says "check if a number is prime"
+# you NEED all() with a generator:
+
+all(x % i != 0 for i in range(2, x))
+# "True if x is NOT divisible by ANY number from 2 to x-1"</code></pre>
+        </div>
+
+        <!-- ================================================ -->
+        <!-- SECTION 6: LATE BINDING -->
+        <!-- ================================================ -->
+        <div class="card" id="sec6">
+            <h2>6. The Late Binding Gotcha (Q2)</h2>
+            <p><strong>When lambdas are created inside a loop, they do NOT capture the value of the loop variable. They
+                    only remember the variable's NAME and look it up later.</strong></p>
+
+            <pre><code># ❌ THE TRAP:
+p = [lambda: i for i in range(5)]
+# By the time the loop ends, i = 4
+print([f() for f in p])
+# OUTPUT: [4, 4, 4, 4, 4]
+
+# ✅ THE FIX: Default argument captures value at creation time
+p = [lambda j=i: j for i in range(5)]
+print([f() for f in p])
+# OUTPUT: [0, 1, 2, 3, 4]</code></pre>
+            <p><span class="highlight-text">Rule:</span> Body variables → looked up at <strong>call time</strong>.
+                Default arguments → evaluated at <strong>creation time</strong>.</p>
+        </div>
+
+        <!-- ================================================ -->
+        <!-- SECTION 7: PRACTICE ARENA -->
+        <!-- ================================================ -->
+        <div class="card" id="sec7">
+            <h2>7. 🏟️ Practice Arena — 12 Problems</h2>
+            <p>Try each one on paper first, then reveal the answer. Problems are tagged by difficulty.</p>
+
+            <!-- P1 -->
+            <div class="problem">
+                <div class="problem-title">Problem 1: Sort by Length <span class="problem-tag tag-easy">Easy</span>
+                </div>
+                <p>Sort <code>words = ["apple", "bat", "banana", "cat"]</code> by length (shortest first). One line.</p>
+                <button class="toggle-btn" onclick="toggleSolution('s1')">Show Answer</button>
+                <div id="s1" class="solution-content">
+                    <pre><code>sorted(words, key=lambda x: len(x))
+# → ['bat', 'cat', 'apple', 'banana']</code></pre>
+                </div>
+            </div>
+
+            <!-- P2 -->
+            <div class="problem">
+                <div class="problem-title">Problem 2: Sort Tuples by Sum <span class="problem-tag tag-easy">Easy</span>
+                </div>
+                <p>Sort <code>points = [(2,9), (1,15), (5,4)]</code> by the sum of coordinates.</p>
+                <button class="toggle-btn" onclick="toggleSolution('s2')">Show Answer</button>
+                <div id="s2" class="solution-content">
+                    <pre><code>sorted(points, key=lambda t: sum(t))
+# → [(5,4), (2,9), (1,15)]   (sums: 9, 11, 16)</code></pre>
+                </div>
+            </div>
+
+            <!-- P3 -->
+            <div class="problem">
+                <div class="problem-title">Problem 3: Squares of Evens <span class="problem-tag tag-easy">Easy</span>
+                </div>
+                <p>Write a one-liner that returns the squares of all even numbers from 1 to 15.</p>
+                <button class="toggle-btn" onclick="toggleSolution('s3')">Show Answer</button>
+                <div id="s3" class="solution-content">
+                    <pre><code>[x**2 for x in range(1, 16) if x % 2 == 0]
+# → [4, 16, 36, 64, 100, 144, 196]</code></pre>
+                </div>
+            </div>
+
+            <!-- P4 -->
+            <div class="problem">
+                <div class="problem-title">Problem 4: Flatten a 2D List <span
+                        class="problem-tag tag-medium">Medium</span></div>
+                <p>Given <code>matrix = [[1,2],[3,4],[5,6]]</code>, write a one-liner that flattens it to
+                    <code>[1,2,3,4,5,6]</code>.</p>
+                <button class="toggle-btn" onclick="toggleSolution('s4')">Show Answer</button>
+                <div id="s4" class="solution-content">
+                    <pre><code>[val for row in matrix for val in row]
+# → [1, 2, 3, 4, 5, 6]
+# Reading order: outer for first, inner for second</code></pre>
+                </div>
+            </div>
+
+            <!-- P5 -->
+            <div class="problem">
+                <div class="problem-title">Problem 5: Late Binding — What's the Output? <span
+                        class="problem-tag tag-medium">Medium</span></div>
+                <pre><code>funcs = [lambda: x * 10 for x in [1, 2, 3]]
+print([f() for f in funcs])</code></pre>
+                <button class="toggle-btn" onclick="toggleSolution('s5')">Show Answer</button>
+                <div id="s5" class="solution-content">
+                    <p><strong>Output:</strong> <code>[30, 30, 30]</code></p>
+                    <p>No default arg → all lambdas see final value of <code>x</code> which is <code>3</code>. So
+                        <code>3 * 10 = 30</code> for all.</p>
+                </div>
+            </div>
+
+            <!-- P6 -->
+            <div class="problem">
+                <div class="problem-title">Problem 6: Late Binding — Fixed Version <span
+                        class="problem-tag tag-medium">Medium</span></div>
+                <pre><code>funcs = [lambda val=x: val * 10 for x in [1, 2, 3]]
+print([f() for f in funcs])</code></pre>
+                <button class="toggle-btn" onclick="toggleSolution('s6')">Show Answer</button>
+                <div id="s6" class="solution-content">
+                    <p><strong>Output:</strong> <code>[10, 20, 30]</code></p>
+                    <p>Default arg <code>val=x</code> captures value at creation time. Each lambda locks in 1, 2, 3.</p>
+                </div>
+            </div>
+
+            <!-- P7 -->
+            <div class="problem">
+                <div class="problem-title">Problem 7: Sort Strings by Last Character <span
+                        class="problem-tag tag-medium">Medium</span></div>
+                <p>Sort <code>names = ["Alice", "Bob", "Charlie", "Dave"]</code> by the <strong>last letter</strong> of
+                    each name.</p>
+                <button class="toggle-btn" onclick="toggleSolution('s7')">Show Answer</button>
+                <div id="s7" class="solution-content">
+                    <pre><code>sorted(names, key=lambda s: s[-1])
+# → ['Bob', 'Charlie', 'Dave', 'Alice']
+# Last chars: b, e, e, e → sorted: b, e, e, e
+# (Python's sort is stable, so ties keep original order)</code></pre>
+                </div>
+            </div>
+
+            <!-- P8 -->
+            <div class="problem">
+                <div class="problem-title">Problem 8: One-Liner Primes <span class="problem-tag tag-hard">Hard</span>
+                </div>
+                <p>Write a one-liner function <code>func_primes(n)</code> that returns all prime numbers from 2 to
+                    <code>n</code>. Body must be one line. No helper functions.</p>
+                <button class="toggle-btn" onclick="toggleSolution('s8')">Show Answer</button>
+                <div id="s8" class="solution-content">
+                    <pre><code>def func_primes(n):
+    return [x for x in range(2, n+1) if all(x % i != 0 for i in range(2, x))]
+
+# func_primes(20) → [2, 3, 5, 7, 11, 13, 17, 19]
+
+# Breakdown:
+# Outer: x goes from 2 to n
+# Condition: all(x % i != 0 ...) — TRUE only if NO number divides x
+# Inner generator: checks divisibility for i from 2 to x-1</code></pre>
+                </div>
+            </div>
+
+            <!-- P9 -->
+            <div class="problem">
+                <div class="problem-title">Problem 9: Flatten + Filter <span class="problem-tag tag-hard">Hard</span>
+                </div>
+                <p>Given <code>data = [[1,-2,3],[-4,5],[6,-7,8,-9]]</code>, write a one-liner that returns all
+                    <strong>positive</strong> numbers from the entire 2D list.</p>
+                <button class="toggle-btn" onclick="toggleSolution('s9')">Show Answer</button>
+                <div id="s9" class="solution-content">
+                    <pre><code>[val for row in data for val in row if val > 0]
+# → [1, 3, 5, 6, 8]
+
+# outer loop: each row (sub-list)
+# inner loop: each val in that row
+# filter: only keep positives</code></pre>
+                </div>
+            </div>
+
+            <!-- P10 -->
+            <div class="problem">
+                <div class="problem-title">Problem 10: Custom Zip One-Liner <span
+                        class="problem-tag tag-hard">Hard</span></div>
+                <p>Given <code>data = [[1,2,3],[4,5,6],[7,8]]</code>, write a one-liner that zips them (truncating to
+                    shortest). Expected: <code>[(1,4,7),(2,5,8)]</code>. Hint: use <code>min()</code> and
+                    <code>len()</code>.</p>
+                <button class="toggle-btn" onclick="toggleSolution('s10')">Show Answer</button>
+                <div id="s10" class="solution-content">
+                    <pre><code>data = [[1,2,3],[4,5,6],[7,8]]
+
+[tuple(lst[i] for lst in data) for i in range(min(len(lst) for lst in data))]
+# → [(1, 4, 7), (2, 5, 8)]
+
+# Breakdown:
+# min(len(lst) for lst in data) → finds shortest list length (2)
+# for i in range(2) → i = 0, then i = 1
+# tuple(lst[i] for lst in data) → grabs index i from EVERY sub-list</code></pre>
+                </div>
+            </div>
+
+            <!-- P11 -->
+            <div class="problem">
+                <div class="problem-title">Problem 11: Max Difference Tuple <span
+                        class="problem-tag tag-hard">Hard</span></div>
+                <p>Write a lambda <code>max_diff</code> that takes a list of tuples (each with 2 ints) and returns the
+                    tuple with the greatest absolute difference. One line, no helpers.</p>
+                <button class="toggle-btn" onclick="toggleSolution('s11')">Show Answer</button>
+                <div id="s11" class="solution-content">
+                    <pre><code>max_diff = lambda lst: max(lst, key=lambda t: abs(t[0] - t[1]))
+
+# max_diff([(1,2), (5,9), (10,2)]) → (10, 2)
+# abs(10-2) = 8, which is the biggest difference</code></pre>
+                </div>
+            </div>
+
+            <!-- P12 -->
+            <div class="problem">
+                <div class="problem-title">Problem 12: Perfect Numbers (Midterm Q5 Exact) <span
+                        class="problem-tag tag-hard">Hard</span></div>
+                <p>Write <code>func_perfect(n)</code> — returns all perfect numbers from 1 to n. Body is one line. A
+                    perfect number equals the sum of its proper divisors (excluding itself).</p>
+                <button class="toggle-btn" onclick="toggleSolution('s12')">Show Answer</button>
+                <div id="s12" class="solution-content">
+                    <pre><code>def func_perfect(n):
+    return [x for x in range(1, n+1) if x == sum(i for i in range(1, x) if x % i == 0)]
+
+# func_perfect(30) → [6, 28]
+
+# Build process:
+# 1. Outer: [x for x in range(1, n+1) ...]      → check each number
+# 2. Condition: if x == sum(...)                  → equals sum of divisors?
+# 3. Inner: sum(i for i in range(1,x) if x%i==0) → add up all divisors of x</code></pre>
+                </div>
+            </div>
+
+        </div><!-- end practice arena -->
+
+    </div><!-- end container -->
+
+    <script>
+        function toggleSolution(id) {
+            const el = document.getElementById(id);
+            const btn = el.previousElementSibling;
+            if (el.classList.contains('active')) {
+                el.classList.remove('active');
+                btn.textContent = 'Show Answer';
+            } else {
+                el.classList.add('active');
+                btn.textContent = 'Hide Answer';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+Example:
+del obj.my_property # Deletes the property
+# Output: Property is being deleted
+Does a deleter change the definition of the class
+Python does not change the definition of the class itself. Instead, it provides a specific mechanism for
+handling the deletion of a property within the class. The class definition remains the same, but the
+deleter adds functionality that is executed when the property is deleted.
+1. Class Definition: When you define a class in Python, you typically include attributes
+(variables) and methods (functions). The class definition outlines the structure and behavior of
+objects that will be created from the class.
+2. Adding a Deleter: When you add a deleter to a class, you are essentially defining how a
+specific property should be handled when it is deleted. This does not alter the overall structure
+of the class; rather, it extends the functionality of the property within the class.
+3. Deleter Functionality: The deleter is a method that gets called when you delete a property. It
+can be used to perform cleanup actions, logging, or any other necessary operations before the
+property is removed. The syntax for a deleter uses the @property_name.deleter decorator:
+In this example, when del obj.my_property is called, the deleter method is invoked, printing a
+message and deleting the attribute.
+4. Effect on Instances: Deleting a property using its deleter affects instances of the class, not the
+class definition itself. When you delete a property from an instance, the property is removed
+from that specific instance. Other instances of the class are unaffected, and the class definition
+remains the same.
+In summary, a deleter modifies the behavior of a property in terms of how it is deleted from instances of
+the class, but it does not change the underlying class definition. It's part of the broader concept of
+properties in Python, which are used to control access to data in an object-oriented manner.
+Using a deleter in Python is a way to manage the deletion of a property in a controlled and safe manner.
+It's part of the property mechanism that allows you to define custom behavior for getting, setting, and
+deleting an attribute of a class. Here are several reasons why you might use a deleter:
+1. Cleanup Operations: If the property being deleted is linked to external resources (like file
+handles, network connections, or memory allocations), the deleter can be used to ensure that
+these resources are properly released or closed.
+2. Preventing Memory Leaks: In some cases, especially when dealing with large data structures
+or external resources, you may want to explicitly manage memory usage. A deleter can help
+ensure that memory is freed when a property is no longer needed.
+3. Maintaining State Consistency: If your class maintains an internal state that depends on its
+properties, deleting a property might require recalculating or adjusting this state. A deleter can
+handle these adjustments to keep the object's state consistent.
+12

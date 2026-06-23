@@ -1,0 +1,33 @@
+Constructors
+In Python, the concept of "multiple constructors" as found in languages like C++ or Java isn't directly
+supported because Python only allows one __init__ method per class. However, there are several ways
+to achieve functionality similar to having multiple constructors in Python:
+1. The __init__ method in Python is equivalent to the constructor in C++, and we've combined all
+three C++ constructors into one Python constructor with default arguments.
+Default Arguments in __init__ Method: Using default arguments in the __init__ method is the most
+straightforward way to simulate multiple constructors. This approach allows a single constructor to
+handle different scenarios based on the arguments passed to it. This illustrated in the Rat class above.
+def __init__(self, n=0, d=1):
+self.n = n
+self.d = d
+“self” is “this”, but must be explicitly passed. Any variable name is fine (not necessarily self).
+2, Class methods also allow for multiple constructors.
+@classmethod
+def from_string(cls, string):
+parts = string.split('/')
+if len(parts) != 2:
+raise ValueError("String must be in the format 'numerator/denominator'")
+n, d = int(parts[0]), int(parts[1])
+return cls(n, d)
+When you use cls in a class method in Python, it automatically refers to the class on which the method
+is called, not necessarily the class where the method is defined. This distinction is key, especially when
+dealing with inheritance.
+In the context of the Rat class:
+• When you define a class method in the Rat class and use cls within that method, cls refers to
+Rat.
+• If you later create a subclass of Rat, say SubRat, and call that class method on SubRat, then
+within that method, cls will refer to SubRat, not Rat.
+This behavior is what makes class methods particularly powerful for inheritance, as it allows the
+method to correctly instantiate objects of the subclass, rather than always creating instances of the base
+class.
+5

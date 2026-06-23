@@ -1,0 +1,7 @@
+def __iter__(self):
+n = self.start
+while n > 0:
+yield n
+n -= 1
+This works because each time you iterate, a fresh generator is created by __iter__().
+14

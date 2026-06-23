@@ -1,0 +1,6 @@
+Make sure that you can explain each of the following:
+The first example:
+The second example:
+The third example:
+The fourth example (below). Does this produce the same result as third example above?
+164

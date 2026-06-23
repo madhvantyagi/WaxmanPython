@@ -1,0 +1,34 @@
+@my_decorator
+def my_function(x,y):
+""" my func"""
+return x+y
+z=my_function(2,3)
+print(z,my_function.__name__)
+print(z,my_function.__doc__)
+When I run this, I expect the function name to be “my_function” and the doc string to be """ my
+func""". But here is what I get:
+Before the function is called.
+After the function is called.
+5 wrapper Wrong function name
+5 wrapper Wrong doc string
+>>>
+The solution
+from functools import wraps
+The @wraps() decorator copies various function metadata to the replacement function. In this
+case, metadata from the given function func() is copied to the returned wrapper function call().
+So now we have:
+import functools
+def my_decorator(func):
+@functools.wraps(func)
+def wrapper(*args, **kwargs):
+""" wrapper"""
+print("Before the function is called.")
+result = func(*args, **kwargs)
+print("After the function is called.")
+return result
+return wrapper
+@my_decorator
+def my_function(x,y):
+""" my func"""
+return x+y
+5

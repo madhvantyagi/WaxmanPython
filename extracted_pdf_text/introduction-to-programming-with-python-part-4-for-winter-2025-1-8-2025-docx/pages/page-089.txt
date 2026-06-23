@@ -1,0 +1,12 @@
+Two dimensional lists
+Many important applications use data that is represented in a 2-dimensional table.
+How do we represent this in Python?
+We simply use a list of lists.
+a=[ [10,20,30],[40,50,60],[70,80,90] ]
+Notice that the length of list a is 3 (len(a)==3), but it’s made up of three lists, each one of length 3.
+Problem:
+Change element with a 50 to 500.
+Solution:
+The 50 is the second element of the second list. Recalling that lists are indexed starting with 0, we
+write:
+161

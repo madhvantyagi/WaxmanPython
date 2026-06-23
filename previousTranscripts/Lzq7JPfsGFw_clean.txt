@@ -1,0 +1,1043 @@
+okay so we were here I'm not sharing let me you are you finding the recordings
+helpful may you listening to them not yet okay yes you are good okay but I'm in
+class so what no it helps the people are not here yeah I'm not sure I think what
+it does it hinders the people are not here because had they been here they
+actually get stuff if they plan to listen to the recording before the exam
+they're going to be in trouble but that's why in general I don't like the idea
+of recording this thing I record to the cloud yes recording in progress so can
+you all see the screen here yes so we did this we did the leap year program um
+and we went through WR as a function to tell if it's a leap year think we did
+this um if even if you don't throw some of these in class just try all of them
+right better function to determine if something is prime or not right um all you
+do is you package what we did before right and you write it as a function so
+we're not going to do this but it's very useful because I asked to write a let's
+actually do this let's do this write a function called is prime that should take
+nothing assuming you've done what we did before in other words take all the fun
+we we have the code to determine if something is prime put it into function tool
+is prime after you've done that then do this when to write a program to ask the
+user for two integers first and last and want to write a program to print out
+all the Primes between first and last inclusive and five values per line okay so
+first we want the function then of course all you do is start generating the
+integers and for each one you call the function as Prime so let's try that let's
+do this fast because presumably you all have code for Prime screen yep um so I
+just reuse the same function we have for check Prime right and I just create
+this so input first as an integer first number um then the second number and
+then just see here a loop so for each number in this range just uh uh if it's
+true then print the number in this range okay let's run it from one to 100 to
+100 MH okay so let's just go back this looks these are all primes I assume right
+but let's go back to the uh to the class notes can you show them side by side
+yeah U let me share the screen right so for yeah I see right okay so in general
+I keep making this point because the thing could be completely right but you
+deliver it to the to the end user and they they don't pay you right because you
+have to Mo up to the contract okay who did it five per line thank you very much
+it's nice program who did it who did it five to line I got five to a line okay
+show us all right so I just added some extra logic around I have a counter and I
+increment the counter here uh and at the end of every line I'm adding a tab
+space to um make it bigger so let's pick numbers 10 and 100 m there we go so
+let's talk us through the let's talk us through the printing part right the
+first part is basically right the Prime function that we saw the last time MH
+right okay and uh so how does the print go what's the idea so let's go from 11
+through 29 the idea is we want to get five on a line so this counter is going to
+keep track of how many we've printed on the line um and the execute that's going
+to do the real print is this where we print our number um where we print our
+number we're going to call is prime here in the if statement when this number is
+prime we're going to execute inside of it um this if counter is equal to five is
+going to reset and print our new line with this blank print statement and then
+we're going to reset the counter when we do that then we're gonna um so uh so
+once we get to 23 uh we're going to increment counter will be equal to four then
+we increment counter to five and then we increment x and x is going to approach
+y and X is what we're checking for very good now look leave this stuff on the
+screen so if you look at the first thing that he did um it doesn't really look
+too cool right because the first two lines are not really spread out
+appropriately so you solve that problem by doing what what did you do Matthew
+how do you get it nicely uh spaced like that um with the toab separator right so
+this is the there's a couple um specific things like you might know no sln mhm
+uh this would be the new line character there's SLT which is a tab space
+character in the console that's going to be the equivalent of eight spaces one
+two three four five six seven eight um so it's just going to push on the cursor
+to the next um eight all right so you see it looks much much nicer so every time
+he prints then he he um then he moves over it's very nice um they used this I
+think it's the Bell character is aski s very correctly so back in the day when
+we wanted to drive people crazy when they were working on the terminal we would
+keep we would write a program that kept ringing the bell and they didn't know
+what was going on so you can one of these tap characters also it's the Bell
+character you dealing with you know um you didn't have very fancy um uh
+computers that we're working on today it was basically a teletype and the in the
+old days uh it was an interesting thing to see okay great let's go to the next
+one let's see what the next one is all right so um we know how to do this some
+of digits just package it into a function you can all do that let's try this one
+this is interesting um just like there are conversions that Constructors for
+integer float and string there's a function called bin which gives me the binary
+value of a base 10 number so if I say what's the binary of six it's going to
+give me 110 because this is this is six and binary but it's going to um it's
+going to prepend it with a zero B what I want you to do is I want you to write a
+program called my bin which is going to take a integer number in base 10 and
+convert it to a string uh representation of the binary for n but you want to
+leave out the zero B and you're going to return a string um the same the same
+string entially essentially what's going to be returned by binary okay so let's
+try that you're going to put in a six and you're going to turn to string one
+one0 okay everybody try that think about it for a moment then we'll talk about
+it does everybody have an algorithm if you don't have if you don't know how to
+approach this please just raise your hand okay and we'll we'll see we'll just
+shout out how do I approach a problem like this how do I okay do not have an
+alph so let's take a look see how this thing might work okay so let me just get
+to the other hope this going to work this time okay the people who have their
+hands raised are those who want to know how to approach I guess let's yeah clear
+this okay all right so basically the idea is the following binary is also a uh
+is also a um number system that's positional right so for example we saw hope
+this drawing is going to work today we saw that if I write 135 in base 10 right
+this is 135 because this is really one right there all they're all multiples of
+powers of 10 right so this is five * 10 0 and this is plus and this is 3 * 10 1
+and this is u 1 * 10 squ right so the positional values are 1 powers of 10 and
+then 10 and then 100 and so on right now same thing with binary right if I write
+let's say one one right 1 1 0 0 what number is that in binary anybody know
+binary right so this is the two to the zero this is the one's column in binary
+this is the two's column it goes up in powers of two right this is this is one
+right this is 2 to the 0 2 to the 1 2 squ this is the fourth column and this is
+the eight so really what this is is one of the eights right and then one of the
+fours that's 12 and none of the twos and none of the ones so this is 12 right
+it's an 8 plus a 4 is 12 everybody understands that but it really is is 1 * 2
+cubed plus um 1 * 2^ 2 right plus 0 * 2 the 1 plus um 0 * 2 0 right so these are
+these are basic units this is the eight and this is the four and this is the one
+right now just like we pulled out the digits um in the number 135 by dividing by
+by doing mod uh 10 and then dividing by 10 what happens if I take this number
+this is 12 this is 12 we saw right if I take this number and I divide this
+number by two divide by two what happens so each one of the components gets
+divided by two right and since these are all powers of two what it's going to do
+is it's going to it's going to it's going to decrement the the power of two here
+so this two to the zero is become two to the minus1 and this is going to become
+2 to the 0o and this is going to become 2 to the 1 and that's going to become
+2^2 right just like where we had 135 when I divide it by the base value which is
+10 it essentially decrements the powers this does the same right so what comes
+out when I divide by two um the remainder is going to be the rightmost digit and
+what's left right the the integer divide part is going to be the original number
+Stripped by the last digit does that make sense so the same process that we did
+to take the digits off of a number uh list listed in um in base 10 if we take
+the base if we if I have if I have the number let's say 12 so the number 12 in
+binary is going to look like this I I input a 12 right but the binary value is
+going to look like this so when I when I when I when I take the mod two it's
+going to basically give me the rightmost digit even though I put in a base 10
+number when I divide it by when I do a mod of two it's going to give me the
+remainder of dividing by two which is going to be no matter what the base is
+this is the number that's going to come out when I divide by two so then I'm
+going to get this guy over here so I do the same process right the same process
+except modding by two dividing by two and that's going to give me the digits
+base two they're going to come out that's what I'm I'm pulling them out one by
+one right the the the mod function pulls out the digits and then the divide by
+two is going to give me what's left and it's the same exact process does that
+make sense to everybody that idea yes thank you okay so then let's work on it
+okay got five people with hand four people hands raised are those questions or
+answers three people with hands raised I uh for me I don't know if I
+misunderstood The Prompt uh sorry Quant here but uh I basically used the binary
+function and then I just Li I want you to write let's say you're part of the
+chord development team for the python and they ask you to write a you know a
+conversion you're going to be given a base 10 number and you have to produce
+that's what you want to do not of course okay right again we talked about this
+many times if you're writing a program are you going to write your own are going
+to use the built-ins of course you'll use the built-in functions right but we
+want to do is we want to see you know we want you to get a job at python doing
+core development and you'll have to be able to produce that binary function so
+that's what we want to do now I don't want you to take a string and then strip
+off the first two digits right does everybody see the process the same process
+we use to get the digits in base 10 modding by two and dividing an integer
+divide by two will pull off the digits from the right just as it did with the
+base 10 representation right so you want to reuse that code except you're going
+to use twos instead of tens and then you're going to be constructing number
+backwards we saw how to do that as well all right so how does this work let's
+show what's going on uhuh good okay so first I initialize and uh my variable bin
+num to an empty string right then in my while loop I'll I'll uh construct the
+binary number into this string so I'll be uh concatenating num mod 2 convert it
+to a string to the left of my bin num in each iteration right and then why is he
+doing it to the left because he wants the the the number he wants to do what why
+to the left because you get zero if get one Z zero uh if the numberers let's say
+is the numberb is like four right it's going to come out as 0 01 right because
+you're pulling the digits out from left to from right to left you want to have
+them from right to from left to right so youate them to the right okay good
+everybody got that all right question so when we were doing the integers with
+the base 10 weren't we doing from uh left to right no if you had 123 right so
+what you did was three came out first and you you had a sum right so then you
+multiplied the sum by 10 which moved everything over one position to the left oh
+I see I see I see right but he's doing it with strings he couldn't okay we'll
+talk about that again good question and then I just do floor division by two at
+the end each time and then I'll just return the constructed binary so uh in the
+example I think 6 was 110 uh yeah there it is so good very good everybody
+understand what's going on let's see the convert where where's the convert
+function what's the convert I didn't I didn't finish convert okay I just one
+second I want to just leave everything on the screen so um in his his convert
+function right has while a greater than zero he says pass right we haven't seen
+pass what does pass do what does pass do pass is a noop empty line so it just in
+this situation um the while loop uh needs to have something in the middle or
+we're going to get an error we have that print statement on the next line
+because the while expects the indentation to the place where pass is so pass is
+just an easy way to write the while Loop um and have an empty middle part when
+have the rest of the functions have the rest of the code still actually execute
+right so pass is a placeholder essentially and um and it's there for satisfying
+syntactic requirements so for example we working if then else right I said if
+something is true then you expect something there but you don't know yet what
+that's going to be put a pass in and still have the else and the and The
+Interpreter is going to be happy with that P's an important thing to know about
+now uh answer asked a good question could I have done uh this the same way we
+did the previous problem in other words instead of making it a string could we
+have multiplied the whole thing by 10 and then adding adding uh the next digit
+would that have worked also anybody do it like that you know what I'm asking
+right this is fine what is very good right he converts it to a string um but
+could we have done it purely arithmetically because remember how we did it with
+the with the um the base 10 conversion we didn't uh we didn't do it with strings
+if we wanted to return an integer all he'd have to do is return he would take a
+return bin number and and and you know feed it into the integer Constructor but
+could we have done the whole thing because the bin num equals string n that
+thing over there in that line could it have been done arithmetically I believe
+so because I think I did it that way who did it that way uh me mat Matel show us
+your screen this is very nice thank you very much okay I think I did that way
+because I was by there by multiplying by power of 10 so first uh you get like
+similar to we like they show like using an empty string it first start like
+doing zero and then the position they want so it's the first from the like the
+right most number so it's going to be the one and since we're going to be
+dividing the number by two and getting there until we get to zero so this is the
+way I check the number is less than zero the first the remainder dividing by
+number the number by two so I did it with six so the first number it's um the
+remainder will be zero and this binary number is going to be this first like
+empty string plus the remainder in this case is zero times the position which is
+one so our first number is going to be zero then we do the floor division so
+we're going to get a three and then we move the position but to the next um so
+first where units then we move to the 10 so that's we're going to have 10 here
+and again we go to the loop now we're going to have a three which is greater
+than zero okay good right this basically did the same thing right and that works
+right what he's doing is constructing the number as an integer so this is fine
+it works nicely but what's the problem it's the same problem we right what's the
+issue the issue is that we were asked to do what to return right right converts
+an integer to a string right so you would do what just change it one little
+thing here return instead of binary number what was it yeah I'm line 14 you want
+to return a string rather than rather than a number you're going to returning an
+integer for six you'd return 110 right so yeah so but you want to return the
+string one one0 so you would return what you just use the S strr here the string
+Constructor right and L 14 string of this yeah would that work let's try it yeah
+same thing yeah MH right you have to make sure you fulfill the contract you be
+the smartest person in the world but if you ring the wrong you know they say
+give me this and you give them that they're not going to be too happy okay very
+good everybody I'm not sure I Tred to do the same thing for the convert but I'm
+I'm not sure about this I just uh has the base here did you finish that I thanks
+I'm not sure I I was trying to F around with this but I what I did here is
+actually like hard kill do divide by two right and in this case it P I'm not
+sure if this yeah something like that would work so let's give it a little bit
+long however the convert function is supposed to have how many arguments I say
+it was three that was the part the sure right and yours has how many two yeah I
+wanted two to explain a good start so let's say we take another five minutes and
+we've seen what what what's been done here right so let's take that and
+generalize it like uh he just tried who was that roh showed us who showed us
+this right now who just showed it Mato who was just up AO I think right so just
+take what he did you want and you want to just generalize that either what Rohan
+did just Ro you just you know you're going to base B just generalize what we did
+earlier I don't want to say too much think okay guys let's try that I just
+wanted to ask if it's coming from base a going to base B should we are we
+required to go through base 10 or okay it's good question good question do it as
+you want and we'll talk about it very good question than screen all [Music] okay
+so stop let's just let's see can you show my screen yeah but do an example first
+and then we'll talk through why it works let's say go from uh let's go to go
+from base 10 let's say all right so um seven and let's go six and then give us
+the binary sorry my uh my computer audio is down all right I can hear you now
+okay right so just a simple case I go go from a base 10 of of of a six and let's
+see the binary output all right so you said six yeah and got a base two right
+very good looks good very good all right let's go from let's put a six and do it
+in base three it's a six is going from base 10 to to base three is that right uh
+yes because because um three divides into six evenly so there should be two of
+two of them in the uh in a two's position right so it's three to the zero and if
+we're going to base three is 3 to the one right so it's three so that so it's
+the second position right is the first Power right right you're saying take two
+of those two of the threes and that's that's gives you a six okay so let's talk
+through and see how it works all right so um first what I do is I convert it to
+base 10 actually first I checked that that the base that I want to convert to
+isn't the same not the one I'm receiving so if they are I just return the same
+thing good then I then I try to convert it to base 10 and then from there I just
+converted to base B which is this part right so let's how do you go to base 10
+uh I I chip off every last integer value and I convert it by it um by the value
+that it that it represents for example the first integer is going to represent
+uh 10 to the 0o and I and I then multiply that by the let's say I give you let's
+say I give you I'm going from binary I'm going from binary to base 10 right so I
+give you a 11 one that's the binary so what are you going to do with that um
+well first I chip off the uh the first one right and then I multiply that by I'm
+saying I tell you I tell you it's base two right tiip off do you have to divide
+by 10 or divide by two I'll just divide by 10 but yeah so you divide by 10 what
+do you get well I I'm I do modulus 10 and I get one okay and what do you do with
+that I so with that one I multiply that by two to the zeroth okay and then and
+then I move on to the next integer by reducing the number by dividing it by 10
+okay in other words you're taking the number in not as a string but you're
+taking in as a representation of a a base 10 number right and you're chipping
+off the digits from right to left dividing by 10 that's okay but then you're
+raising it to the power that you're supposed to be going to is that the idea or
+you coming from I raise it to the power that I'm no I I just raise it to the
+power of 10 uh to a sorry I I use a base 10 and raise that to the power that the
+of the position that the number was shipped off was shipped off from right but
+notice right but you you it's it's the base a right it's powers of the of the if
+you look at line 23 right so if let's say you you input one one one all right
+sorry so you want to raise and you say it's a base two number so it's it's going
+to be two to the 0o two to the one and so on right yeah right and and then you
+you you accumulate that in the Y Loop right so you have you have what number do
+you have then you have the base 10 equivalent right and then in the second part
+you take the base 10 number as you did before and what are you going to do
+you're going to modify it by the base you're going to right does that make sense
+yeah okay everybody sees this this correct yes I have a question yeah I'm does
+does everybody think that this is correct yes anybody else right so the the idea
+is take the if you have 111 was supposed to be um which is supposed to be a
+seven because you coming from base two just treat it as 111 but that's no
+problem you just pull off the digits but what you're going to do is you multiply
+by the positional value of the base you're coming from right when you get that
+you're going to get the value the the B base 10 value the decimal value of
+whatever the original number was in the original base and then the last piece
+here he's going to take what he has a base 10 number and convert it to the to
+the base that he's going to by doing with saw before right he's going to divide
+it by the base you going to and uh string that and to the result that we saw
+earlier and returns that okay question yaser I have a question yeah um sir I did
+not line 23 is my question so line what 23 so where base 10 number plus equals a
+mod 10 times base a to the power exponent so why are we doing mod 10 I did not
+good I got stuck there sorry okay mauricea you want to explain that um the
+reason I did it is because um actually I because I figured base 10 is going to
+be the highest base we're going to get anyway so regardless that'll always give
+off the right number that we want to chip off um okay I think there's another
+thing going on here in other words let's say it's a binary let's say you're
+going to a binary number right let's say the number seven right so what is the
+number seven going to look like in binary it's going to be 11 one right uhuh now
+what you want to do is you want to get get the base 10 equivalent of 111 so you
+can treat 111 as a base 10 number you could treat it as 111 but not because the
+number you want to go to is 111 is because you know how to take a decimal number
+and pull off the digits right I see see I see so he doesn't make a difference at
+he's treating as as a base 10 number he's just doing that so when he divides and
+mods by when he when he mods by 10 he's pulling the digits off right and then
+for each digit he's um and the same thing with shrinking the number he's
+basically pulling off the digits but he makes sure to multiply it by the base
+that he's coming from in this case base a would be two so he's multiplying by
+two to the 0 two to the one and so on and so in base 10 number he's going to get
+the equivalent of the original one the fact that it was binary doesn't make a
+difference that that comes into play on line 23 when he takes the base which is
+two in this case and and uh and um you know and and multiplies it by the
+appropriate U positional value right two to the 0 2 to the one and so on so the
+a mod 10 gives him what the digit was and then but then he's multiplying that by
+the positional value of let's say base two in this case does that make sense I
+see thank you so much Professor uh the mod by 10 is just a tool to fill off the
+number right right he's treating as a base 10 number not because it's B number
+he's treating it just to get the digits out but saw before anybody do it
+significantly differently no so this is a good idea thank you very much Mario
+let us take a 10minute break and we'll pick it up from there all right so uh
+just before we get going here I still have the U recording pause so let me uh
+remind me to turn on in one moment we have set tentatively we've set the um we
+have set the exam for Monday right um I it's tentative because I I we have to
+get through the material on on uh functions and on um and on uh uh lists before
+the exam so uh we have the end of today and we have tomorrow so we'll see how
+far we get otherwise we'll put it off right so if you spoken to your you know to
+if you have a jobs whatever so you know make sure that you understand and I
+understand that we're talking tentatively here all right so let's see what's
+happening um close this I'm having trouble with my mouse I'm not sure why okay
+I'm going start sharing again and we are uh we did this one and let's see okay
+now we're going to we're going to go a little bit further on we're going to
+start with functions in great detail oh wait resume Professor can you start
+recording recording in progress okay thank you all right so uh variable scoping
+is be important uh in general it's important but everybody does everybody know
+what a scope is everybody knows what a scope is just don't don't be shy right if
+you don't know exactly what is a scope okay so let's see let's try to figure out
+what it means so scoping you have is an all programming languages the scope of
+the variable is where the variable is known right so the term scoping refers to
+the visibility of names right variables and all other names what kind of names
+do we have well we have names of data structures we have names of functions
+right so those are known within a particular scope um so there's a global scope
+and there a scope within a function um so the question is what are the various
+how does how does how does python figure out when you use a name what when the
+name refers to right so it has these Notions of scoping it looks to the Scopes
+so there's there's a local scope right what's a local scope so if you're in a
+variable it's the same thing in in C++ if I have a if I have a variable declared
+in a function the the name uh is local to the function and as soon as I exit the
+function in C++ that that name goes away right the mechanism is that there's a
+uh every function you know puts the name onto a u onto a stack onto the runtime
+stack and when you exit the function the runtime stack shrinks with all the
+local names that are defined in that scope right they go away remember anybody
+remember how to keep a name uh in a function that you don't want to go away so
+you want to you want to count how many times you enter a particular function so
+you can't have a variable in the function called count you know because then it
+would go away as soon as the function ends what's the mechanism in C++ that we
+keep huh this is I have an idea we could use a variable in the Heap and pass the
+pointer around uh you you go closer to the microphone because you're going in
+and a fading I'm sorry can you hear me now Professor yeah so we use a pointer to
+a variable in the Heap because the Heap variable we control when it's deleted
+right right but the wait one second one second however the pointer itself the
+name of the pointer will disappear right let me just take that for a second let
+me go oh that would be passed into the function from outside right let me just
+make sure this I'm not sure what's going on with my mouse but um let's see so if
+I have a function right if I have some function f see one right so some function
+f right and it takes whatever it takes and um returns an integer and so if I
+would say something like instar you know a is equal to new blah blah blah so
+this thing is on the Heap right however the way it looks in C++ is an important
+idea is the Heap value right the actual number a the think you're pointing to is
+going to be on the Heap that's true right but a itself that the pointer is on
+the runtime stack so as soon as you exert the function f even though the value
+this location over here that's in the Heap does not disappear a disappears so
+you lose the pointer to the to the number in the stack right it's not you see
+that yes is that clear so that's is that's not going to help um one one obvious
+solution is to have the def find the variable outside the scope you know outside
+of f right so if you have an integer called a outside so e it doesn't it doesn't
+uh disappear when the scope of f is closed but there's a spe a special mechanism
+that's made specifically for that remember that I can Define varibles to be
+static right right so just like the socks stick together you know because of the
+static when you put them in the washing machine so likewise over here this
+variable sort of sticks to the function and whenever you come back it's the list
+so if I want to maintain a counter I would say static you know int let's say
+counter starts out at zero and then I would say you know count Plus+ and what
+that does is instead of storing it on the runtime stack in C++ it gets stored
+someplace else so it does not disappear right so that's that's we handle it over
+here um so um let's go back to our example here um so that's that's local scope
+that would happen here as well if I have local scope for a function everything
+disappears when the um when you exit that function so that's that's the first
+that's the first step right the local scope and then you have if so if I'm using
+some name uh and python wants to know what that name is it's going to check the
+local scope um if it doesn't find it in the local scope it's going to look at
+the enclosing scope so we saw this this has this uh uh speaks to the situation
+we have a function defined the side of a function right we saw that yesterday so
+if I if I'm on the inside function and I don't find a name that Associates with
+something on the locals of the in function I look at the scope of the enclosing
+function um if it can't find it there it looks to the global scope right which
+is where the main is where you're running from and if it doesn't find it there
+it looks to a bunch of built-ins right so this this this this um this algorithm
+for trying to locate names is UN I mean everybody knows about this in Python and
+it's called lb local en closing Global and buils right that's the order in which
+it looks for Stuff um let's see important consideration keep in mind find
+function um okay all right so let's so we saw this before right um so we saw
+that if I have a variable you have to be careful because all these all these
+variables are really pointers so we saw this if I have a function then if I have
+any place if I if I have sum is equal to zero so this a variable it's going to
+break the connection to the to the built-in function because it's all pointers
+that's going to not going to work anymore right because I'm going to get the
+same ER we saw this yesterday an INT object is not callable right so why is it
+an N object because I changed the pointer pointer the sum originally pointed to
+the function right but then I changed it over here now in fact you can actually
+see and that's how python does it you can see what the local variables are and
+what the global variables are so there's a function called locals right so if I
+say locals as a function call and and if I'm in some function this is going to
+give me um a dictionary like object of all the local variables um in the you
+should try it later I'm not going to do it now but you try it it's going to give
+you a dictionary like thing and it's going to tell you for every object if I
+have X is equal to 5 that's going to say x is a point it's going you have X and
+then it'll say five which what the dictionary entries look like um the same
+thing with globals there's a function called globals that shows you what globals
+are in effect again let this dictionary sort of object that you see there um and
+it those it's useful in certain context to see what's you know what's going on
+right what's what's available to you and what's not okay um so let's see so
+local variables uh function parameters like in C++ have local scope so and we
+saw this yesterday as well right so it's basically accept for um data structures
+that are mutable if you p in integers and floats and booleans and so on they
+they get passed in essentially by value even though it's all in inside the
+everything's happening you're passing the values you're passing are essentially
+points but it's treated as a values so for example if I have x 100 outside the
+function Fu so this gets happening right 100 an object an integer object 100
+gets created X is pointing to it then The Interpreter sees Fu it goes in there
+it does what we saw yesterday um it creates a function object and has Fu
+pointing for the function object it does not run Fu and when I print X I print
+the 100 then I'm going to run Fu so it goes to Fu and it actually starts doing
+this so X is now 200 it prints 200 but that 200 over here is a local variable so
+when I come back and I print X again it's going to print 100 because these are
+two different entities right this is local and this is in the global scope right
+that's what you'd expect so here's a diagram that shows what's going on there's
+really two x's this is the X in Fu and this is the X the global X and has 100
+all right um clear nothing complicated here all right so uh what if from in the
+function though I want to change the global variable right so in other words I
+want within when I say 200 I don't want X to be local I want to out go go
+outside and grab the global one so within F I declare X to be a global variable
+so even though if I didn't have this it would create a new X as we saw earlier
+in the in the Nam space in the in the um in the scope of the who function this
+lets me reach out and change this so when I run this I'm going to print 100 I'm
+going to come here actually become 200 and when I come out again and I print it
+again it's going to be 200 because of the global State okay question no
+questions happens um excuse me we'll see what happens if I have things are
+mutablelist or by U reference if it's not um right here's here's an example okay
+so we'll see this when we get to it all right what about if I have as we saw
+yesterday um um these I Define functions then the functions so here is a
+function and and I have things that are defined globally right so what's defined
+globally the name FU is defined globally but then I have a name here and and X
+where's X well X is a x is local Fu and and then I have another name bar which
+is local to Fu and then I have Y and Y is local to bar right so the how does it
+figure out what's going on so let's see what's going to happen if I say FU of 10
+and then I print F then I print and I call F of 20 right so that's F over here
+and it does stuff so without reading further just look at it and predict what's
+going to happen what's going to happen over here when I run the program okay
+raise your hand as soon as you think you have an answer everybody should look at
+this it should not be a difficult thing okay Nicholas talk us through this so
+when f equals who of 10 is called it's going to make that function call up to
+the function definition and it's going to store uh in the x is going to store
+the the value of 10 slow slow slow so comes up to Fu right yes at the point that
+of the co what what's the status of Fu before it starts executing fu fu is a
+function object that has some locals in here including this one here right so it
+passes in X and X is local to Fu so in the locals dictionary in the fu object X
+will be right X is going to be in there right okay now what happens now uh so it
+doesn't execute uh bar it just adds that uh function definition into its object
+right and then it returns bar so that function object is going to be returned
+into the variable F at the bottom okay and so now f is f is what f is a pointer
+to what it's appointed to the function objects for bar where it has the variable
+X in can right and does it have a y uh it doesn't have a y it has a y in terms
+of the function definition but y doesn't have a value yet okay and then it goes
+to the print F of 20 so f is being called when F calls it's not calling Fu it's
+calling B right so at that point what happens the 20 goes into what the 20 goes
+into the variable y right and X it has from the what does it have the X from
+from the definition here right so then it returns x * 10 * 20 and it returns a
+200 very good thank you everybody get that does that make sense all right so
+what do we call the fact that um it does that even though bar doesn't have X X
+is not local right um X isn't the closure right but it has access to it does
+this make any sense in terms of lb could we figure out what's going on here so
+python when when when it's running it looks for X locally then looks for the
+enclosing scope and so on and so forth looks at the global level and it actually
+does it it works just like we suggested okay read through this let's try another
+example what's going to happen when we run this what does the nonlocal keyword
+do yeah yeah oh did we talk about we didn't talk about on local oh let's I'm
+sorry we should have done this okay let's go through this so what we know about
+we have we know that we go through that levels goes from the local to the
+closing scope to the to the global scope and then to the built-ins um and we
+know that we could talk we can get from any function anywhere we can grab the
+guy on the very very top which is global but let's say um I want to get a I want
+um I want it I'm in the an enclosing function I'm in an enclosed function right
+and I want to get access to the enclosing function right so we saw that that
+gives me a not that gives us non local um so let's see how this thing works um
+here we have Fu and we here we have bar so um bar so uh call counter is declared
+to be non-local right because that means I want to be able to to reach from bar
+to the one on the uh one one level up right that's what non-local does for me
+now do I have I mean but generally because we have this uh this lookup right lb
+I should I should have automatically it should have access to whatever is in the
+enclosing scope why do I have to use nonlocal right it's closing scope what's
+what's the difference why don't what what is what's gained by non-local I should
+ask automatically because it's in the enclosing scope and that's the way it
+works in other programming languages so who wants to suggest what's going on
+Matthew you have an idea what do I gain by by declaring something non-local as
+to just having it there and then using it we get sort of This Global variable
+access without polluting our Global name space yeah but something technical in
+terms of using things when do I have to declare something non-local as opposed
+to just using it that's enclosed it's being enclosed here when you're assigning
+it to a new value when you're assig change it right right I want to change it
+right so the idea is that just by virtue of it being an enclosing scope I do
+have I should have access to this um however um um from ponon 3 we have the not
+key this keyword tells you that any assignment we do to the iable should go to
+the outside function not to a new local variable so if I would just say if I
+would just access call counter over here I would have two values of call counter
+right I would have this one over here which is the one one level up but then by
+not declaring this I'm using the same name and because of the rules of lookup
+there'll be two different two different variables there'll be an outside call
+counter which is local to Fu but this has been hiding it in the inner scope so
+if I want to change it I have to say that it's non local if I want to just
+access it I don't need it to be non-local right what if I have like five levels
+of um you know function define side of function side of function so um so Global
+gives me access to the one on the very outside right uh non-local gives me one
+up just one up how do I go two up or three up is non-local does does nonlocal
+look up through scopes the answer is no right non-local only work one level of
+the enclosing scope so how do I do that how do I access variables or values in
+in closing Scopes that are not not where I am in that one level up that's an
+interesting trick we have to we'll see that later on but basically what you do
+is use mutable data structures to do that or something like a list of some we'll
+we'll see that later on but non-local gen only works to one level up okay so
+everybody what the claim is that when I run this I'm going to get this right so
+let's take two minutes or three minutes whatever is read the code and see if
+this actually Mak sense can I ask a question so uh the non-local call counter
+that we do here when we do call counter equals zero can we do a non-local over
+there so that's so so let's let's read the code and the claim is this is the
+output and we'll see if that answers your question okay thank you claim is that
+when you read when you do this this is what you get raise your hand when you
+think this makes sense okay Le everybody try going through this right the exam
+question or typical interview question is here's some code talk us through right
+so we could we could use your screen if that's going to be easier then you can
+point to things as you go along you want to do that or you want to work through
+here uh I'll just work off your screen okay so where do we start all right so
+I'm starting on uh let's start over here so what happens it sees F oh so there's
+a function object Fu uh that has a local variable call counter which initialized
+to zero um and then it has a function it's not gonna it's not going to do this
+right away it's going to recognize it's not going to do it's not going to ass
+zero there it's just going to say okay I got a variable oh yeah and then it's
+going to get another local which is called bar which is this in there yeah it's
+just a function it just recognizes it and then um doesn't return it it just
+knows okay yeah now comes down here then uh we have a variable B which equals to
+uh a function called of Fu right so what's that going to do um it just creates
+like a a a reference to dysfunction object but it runs it right it's when it's
+now f is being run right yeah so what happens when fu is running so fu fu runs
+and then call counter then gets initialized at zero right and and then we are
+returning bar but what happens to it recognizes yeah it recognizes bar so like
+we Define bar now and and bar becomes a pointer to a we're not running bar this
+point right we're just defining bar right pointer to the function object that's
+in here right then we return bar so B is now a pointer to the function object
+bar which has not run yet okay yeah right so now so at this point right so
+there's a variable called call counter and and um and there's another uh quot C
+once we start running bar that's going to be local that's going to be non-local
+so it's going to have access to the guy on the outside right now here's an
+important point when we when we when we're going to call we're going to actually
+run B right we're going to run you know we're going to call B on I um so
+remember B is pointing to Bar does the is the function Fu what happened to the
+function fu is function Fu still around Is it alive or it like disappeared off
+the is is is be around anymore I mean is Fu around yeah it's it's still around
+no no no no because once it closes it closes it ran once it ran over here and
+then it returned what it returned and it goes away right when you have a
+function call when the function call finishes it goes away however however so so
+what about call counter right cor counter was local to Fu right so cor counter
+should have also gone away but since you know this is over here pointing to that
+well let's see let's see if that makes any sense so what's happening here so now
+we're going to run we're going to say we're going to have b b sub B sub every
+value in I so we didn't do this in detail but this is I think everybody knows
+this B so the range function starts at 10 goes up to with not including 100 and
+it does it in steps of 10 so it's going to go it's going to go 10 uh 20 30 all
+the way up to 90 all right so let's let's talk through what happens um so the
+when B is call when B is being called with I passed into it um the value of I
+like let's say it's 10 first then that value is um placed in basically like in
+in your y for bar like in the function bar right um and then we're incrementing
+the call counter variable that the one that's like for Fu right and it lives
+even though Fu went away right yeah still there because it was referenced okay
+yeah and then we're just uh we're doing this um basically up until the range of
+the for Loop and we're just printing out uh the Y value and then the call gouner
+which would just be one two all the way up to nine right so the Y is what's
+being passed in all the time and the Y is 10 20 30 and so on the call counter
+which is started here is part of the closure of uh of bar right but even though
+the the the function which was defined no longer is around this gets saved by
+python because it's part of the closure of the inter function okay does that
+make sense I have a question yep um Professor the question is so that we are
+using nonlocal because we need to change the value right because normally by
+closure the value would be preserved but we would not be able to change it is
+that the case right if you wouldn't use if you wouldn't use non-local here
+internally there'd be two separate things right this this would be this would be
+a um this would be a variable def find on the outside but nothing to do with
+this it be two things call call counter in the source code but internally they
+be points to two other objects but we can still print it if we want to just not
+change what are you going to call it I'm going to say print call counter would
+that work no and where will you print it the function food no long exists no
+inside bar because I'm thinking we would maintain access no no because inside
+bar call counter would be local you'd be printing the the local one you know it
+wouldn't have access to the outside anymore how are you going to get to it um I
+was thinking I would comment out the whole non-local call counter so that I I
+try that a good question but the idea is that these will be two totally
+different objects and if you want to access that one right you have to declare
+this thing to be to be non-local right because that would be but that only would
+make sense within Fu right and fu is no longer around so see see do the
+experiment and then let us know all right so this is what's the difference
+between a non-local reference and the inner function and a closure so this is
+what we're talking right now uh when you define an inner function within the
+outer function the inner function can access variables from the outer function
+scope right we saw those are non-local and if you don't and if um and if you
+don't if you don't come non-local then you can't get them when the outside
+function disappears okay um okay this is the stuff we did all right now let's
+see what actually happens what happens under the hood right with this non-local
+and the scoping and so on so here's a code right so uh here's Fu and here's bar
+um X is local to Fu um um and then and then there's bar bar has y but but when
+the when the object gets created um it has access to this because it's going to
+be part of the closure so we've done this again again let's see what what really
+is going on so first of all you get the definition of food there's definition so
+f x is a function that takes a single argument X it goes in there and X is going
+to be Lo because we saw all all all parameters are local to the function inside
+Fu there's another function bar so the name bar is local to Fu bar y takes an
+argument Y and then Returns the product of X and Y and f of x returns bar right
+this we've seen again and again now what happens when you call Fu when Fu of 10
+is called so um X is set to 10 just go through detail what we just talked about
+and it remembers the value of x which is 10 even after Fu finishes execution
+right the reason the way that it does it is that that's called a closure now we
+assign bar to F so f equals F of 10 that Returns the bar function to the VAR to
+to the to the variable F we just did that but then the 10 is bound right the the
+function takes one argument and Y becomes 10 right so then we call F of 20 and
+then it does what we saw and we print the result now what's going on here so we
+saw there's a closure and the UN function retains the value to X even afterwards
+even fix when it fix execution it goes away right the outside function away how
+does it work where is X stored right we said that X is available even though
+food disappears so the mechanism is something called is a cell object which is
+something that we haven't seen before and something that you really don't
+generally don't need any access to right this this is inter internal mechanism
+what how how how python takes makes it happen the variable X is not stored in
+the global scope or the local scope of bar what does that mean it means that
+after the outside function after Fu goes away so it's not going to be it's not
+going to be local to Fu anymore because fu is not there Fu went home right it's
+not going to be in the global scope because it was never in the global scope
+right so where is it where is it so it's made a special thing that that is's a
+special data structure called the cell object which is um which python takes
+care to create and the function itself right the function not food the function
+bar has various attributes and one of the attributes is called closure and this
+closure has access to the cell objects that are storing the the um the variables
+in this case X that's part of the closure so this will ensure the X accessible
+even though Fu has gone away can you look at the cell object you can see this by
+looking at closure it's an attribute so here's far here's F here's bar so if I
+want to inspect the closure I can print F what's f f is this guy right over here
+right this is the this is the one that's going to be calling bar so F has a
+closure attribute and if I print it it's going to print the closure that's
+what's in here and it's going to tell me that this closure has a cell at this
+particular um um um address and if I say and it's it's a it's a it's an iterable
+so I can say what's in there so then it's going to give me 10 you try it at home
+right but that's so this it's not a global it's not a local it's a special a
+special container that that python has created in order to make all this magic
+work okay so the cell object is a container for X it uses this thing to maintain
+references to the closure variables okay good make sense it's pretty cool all
+right um here's something really really strange any questions what we just
+talked about it's really very nice and but this is this is this is a crazy the
+next thing we're going to look at and that is that um objects just least over
+here right this is um right the closure is an attribute of f right so um
+everyone knows what the word attribute means right but you can take any object
+almost any object and assign attributes to them even though they don't have them
+right so we'll see when we talk about classes I make a class and there are local
+variables in the class right I have the I have the class class objects the data
+the data uh members that belong to a class right so those are attributes of the
+class right so for example I have have a point class so one attribute of the
+point class would be the x coordinate and another attribute will be the
+y-coordinate but those are those are normal because they they're part of the
+class object right part of the but can I define a uh an attribute for a class
+that's not internal to the object but it's sort of hanging on on the outside
+right like got I got this whale of an object and like I got these little fish
+that are sort of attaching themselves to the whale they don't they're not part
+of the whale but they're sort of swimming around with it and I can I can sort of
+I can interrogate those little fish right so the answer is so the the idea being
+I can attach things on the outside of objects some objects so here is a function
+called do something uh it returns it and and whatever right so but look at this
+look at this what's what happens when python let me make this a little bit
+bigger a little bit bigger so let's let's see what The Interpreter is doing so
+it's it it recognized that there is a um there's a function being defined it
+goes in here it does all the other things that it did and now do thing is now a
+pointer to an object right so there's an a function object so there's a function
+object called do thing and do things really appointed to that object now if you
+look in here are there any any local variables in here nothing right all that
+happens you go in here and you come right out there's nothing inside do thing
+but I can take do thing that object that's been created that function object
+created and I can just glom onto it this thing called whatever right so whatever
+becomes an attribute but it's an attribute hanging on on the outside right and
+then I can say hi right so when I print this I say take do thing object and then
+dot whatever which is hanging out on the outside of it and it's going to print
+height does that sort of make sense I mean that that will work right that will
+actually work can I do it to all objects I can't do it to built-ins right so um
+if the string is a built-in I can't attach anything to that but I can Don it to
+things that aren't built-in types okay um so let's say say U I have a variable
+um and uh pointing to stringy string right and then I take variable which is
+pointing a string object and then I try to attach an object to it right we saw
+that when I Define the function object I could hang things off of it right but
+this is a string right it's pointing to the string thing and I say I want attach
+on the side I want to attach like you know this this this this um this attribute
+and then it's not going to let me do this right it's going to saying string
+object has no attributes on data because it's a buil-in even though they're both
+objects right I can't do it um so for example if I try this both are going to be
+true but it still doesn't let me do it so how does this work how does this work
+we didn't see what's going on over here I can attach things on the outside of
+objects and it's going to be useful in some we'll see an example where it's
+going to be useful um because the inside these these objects even though they
+look like nothing like this function of has nothing inside of it or does says
+return it's a complicated thing it is an object with a whole bunch it has for
+example has locals right has the locals that's what globals are accessible has
+all these things has a dock string all these things that a normal object would
+have um they're all empty because nothing's happening but those those those
+Direct Tories I mean those um those dictionaries are still in there right so so
+when I do this there's a dictionary that handles failed attribute looks up
+lookups what does this mean remember we have we know how it looks for for for
+for um you know how does it look for it goes to it goes to locals and then to
+the enclosing scope and so on so um every object has another every object has a
+dictionary associated with it that hands failed attribute looks up in other
+words um it's going to if if I have nondefault attributes those those belonging
+to it so you can access replace in a dictionary there's a there's there's a dict
+we'll see this later on we'll build our own thing so I can track does that make
+sense in other words if it doesn't find something um some name it's going to
+look when I say some if I say function this function over here that we had
+earlier do something where is it going to look for that name right so it's going
+to look locally the name is not local it's look at the closing scope doesn't
+find this so then it looks to the original object and there's a dictionary
+Associated object with all those things that are not part of it they're not the
+they're not the um data members of the particular object right they're hanging
+on on the outside so there's a dictionary in there that has all of these these
+lookups that's how it finds it's a dictionary which mean has the name of the
+attribute like for example over here you know what was the attribute called you
+know what whatever right who's hanging on to do thing do thing it in it's
+internals it doesn't there's no no do thing variable name in there there's no do
+thing function pointer in there right it's hang out on the outside so when the
+lookup can't find it it looks in that dictionary to see there something hanging
+on to this object so let's see this example right take a look at it now we'll
+talk about it together Matthew what's going on okay so from top to bottom we
+first Define a function and we can ignore that for now then we set Funk n calls
+to zero this would be the um inside the object called Funk we uh set the
+property end calls equal to zero the object right but Funk end calls mhm are you
+running the fun you're not running the function yet are you no we're not running
+the function yet and it's a good thing we're not running the function yet
+because if we run the function before we said Funk end calls to anything it will
+R I think it will print an error right so end calls is hanging out on the
+outside of the object it's like right do that make sense it's not a local
+variable that it's in that dictionary but it doesn't it's not one of the local
+variables okay see you set on the outside and now what happens then we call the
+function one time it returns a number that we we don't care about we call it
+another time in a return something and then we print Funk end calls and every
+okay then we're going to go back to when we do the functions when we do the
+function call one comma 2 we're going to increment end calls which is a part of
+funk then we do it again we're going to increment it a second time so when we
+print funk.  end calls we're going to print the value two right the important
+thing to recognize that the end is not local it's not local it's not Global sort
+of hanging on the outside for dear life okay it becomes an object and what you
+see here is at runtime you can make up new new attributes and hang them on to
+functions even though they have nothing whatsoever to do with the with the
+function definition or what the function was even meant to do let's try the
+other one right here's this we want to see this one here do Mark yeah so so what
+you want to do here is look look at it and then run it and see what happens so
+we're gonna Define here is the here's the run right got it everybody do this so
+first we're going to Define dog wait everybody looks at it and then run this
+thing and see if your expectations were fulfilled by the run right every let's
+take some time off okay everybody looks at it and then when you have a solution
+when you think it works so this is what we're running over here right so here's
+the definition of dog function you really want to look at it and then run it
+right every should run it's very small you can type it up and then let's see
+what happens when you're raising your hand once you got it okay we have two
+people raised hands Nicholas let's see the screen explain what's going on you
+want to bring I'll bring you I'll bring talk your way to it so uh what gets run
+is so there's the definition of the dog function which itself contains the
+definition of the bark function and the bark function just prints out a single
+line and then there's that line dog.  bark equals bark and what that does is it
+assigns uh that bark function to that that newly created attribute for the dog
+function object so if dog.  bark is called it's going to call that bark function
+right it's none of the none of the assignments right all that happens is when
+dog is is is uh um um when dog is uh noticed on on the as The Interpreter is
+going through the program it says okay got this object have to create an object
+have this name over here it's going to be appointed to something here it doesn't
+do this it doesn't do this but it returns dog so when you call dog it Returns
+what what does it return it returns does does it return bark returns dog uh when
+you call uh when you call dog it Returns the dog object and that dog object is
+the function object is going to contain the dog.  bark attribute which contains
+that uh bark function right right okay so let's now so what happens when you run
+bark we said what we know what's going to when you R bark when you finally run
+it's going to print bark bark what happens when you run dog.  bark uh dog do
+Park is going to do the uh dog do Park is going [Music] to uh I actually didn't
+look at that one but I think just looking at it uh if you call dog.  Bark uh
+since the first why does it have parentheses here because that's aun function
+call right so in other words it's it knows that bark is a function right yes and
+over here you're going to you can call dog.  Bark like that can you because bark
+would be a function call and to make sure it's callable you need that
+parenthesis right so yeah so the only way that that could realistically work is
+if dog itself was called first because otherwise that attribute doesn't exist
+all right let's see let's see what happens when you do this and do this did did
+everybody run this who ran this nich you three people ran it okay so let's see
+what do you what do you claims when I say spot is equal to dog what's GNA happen
+so when uh spot is equal to dog is called what's G to happen is it's going to
+call that uh dog function and because dog getss it's going to run through that
+function uh nothing is going to print out because it's not calling bark but what
+it's going to do is it's going to add an attribute onto the dog function object
+called dog.  bark and it's going to uh reference that bark function so it's not
+going to actually print anything but it's just going to say dog.  bark is going
+to refer to that function spot refers to the to the uh function object called
+Dog right yes okay and then when we say spot.  bark what's going to happen it's
+going to go to that dog object that was just called before and it's going to
+call the bark it's going to call the bark attribute in there uh so where it says
+dog.  bark equals bark it's going to since spot is now that dog it's going to
+print bark bark it's going to print bark bark did everybody get that when they
+ran it yes good everyone understand what's happening okay what if I had done
+this very good what if I had done this here's a new definition and is that the
+same as what we had before the fine bark the fine bark return dog um what's the
+difference between this one and that one this uh dog and the Fly bark and the
+prince bark bark and I have dog.  bark is bark return dog and here I call dog
+but I'm before before I had spot was the dog here I just call dog itself and
+have dog that bu how does the output of this differ from the output of this the
+outputs are the same are the outputs the same what happens when you run them did
+you get the same output print spark bark yeah why because when that dog object
+when the dog function is called it's uh what does it return it Returns the dog
+object which contains this dog.  bark uh equals bark and so dog.  bark is going
+to refer to that function call that's bark bark right so bark exists right
+because when you call it so there's a bark over here right and that exists this
+function is is exists right so when you do this the dog object bark bark is
+going to be running this and it's going to give you bark bark okay all right
+let's take five minutes and then we'll pick up from there we can't hear you if
+you're speak all right thank you am I recording I'm still recording very yes all
+right so we're going to look at what happens uh when in what's what's going on
+with functions we can do more stuff than we saw before going to go to these
+these ideas so we saw functions take arguments and you have to know because you
+can do stuff with this this understanding that arguments are fully evaluated
+left to right before executing the function body right so in other words if you
+have if your arguments in here and say the fun say the function itself doesn't
+use those arguments it doesn't make a difference The Interpreter is going to
+interpret all the arguments it's going to fill up the point is do whatever is in
+there um whether or not use it internally and it's going to go from left to
+right so if I if I have ADD and I say add X and Y so before I even call this
+function so it's gonna and and I say and I call it 1 plus two and 2 plus two
+it's going to get 1+ one it's going to get me some value it's going to have a
+pointer to that and same thing with 2 plus two and um it's going to reduce it to
+this and then it's going to call the function applicative evaluation or it
+applies it and it goes from left to right now the the reason that is important
+is that this will actually work too right other here's X and Y and I do this
+let's say I say a is equal to one and I call add of a and a plus one that's
+going to work right because you go left to right it will have an A it'll take
+the A and use the a to evaluate A+ one right so that will work because of this
+this rule that's number one okay number two I can have default arguments some of
+these things we've seen already I can have default arguments and we saw them in
+the print function so um if I have a function called split line for example and
+it's going to take some value line and I say the limiter is equal to the comma
+so I can just call split line and pass it a line um and if in that line things
+are separated by commas I don't have to say that the limiter is equal I just
+call it with one with one uh one argument right even though if you look at the
+definition there's there's two arguments right but I can have default arguments
+and that's the way we do them as we saw we saw them earlier so when a function
+defines a parameter with a default value is important rule the parameter and all
+parameters follow it are optional right and we're going to see later on that the
+parameters have to have the values also it's not possible to specify a parameter
+with no default value after a parameter of the fo so once I do this once I said
+the the limiter is equal to whatever and I and say there were more arguments I I
+I couldn't have an argument called X Y and Z right after this one um I'd have to
+have they'd have to be um they have to have values to them I have to we saw in
+the print statement once I have the first one that that has an argument assigned
+to it right then everything afterwards has to have an assignment I can't specify
+positional arguments with with without parameters why those rules well if you
+think about it for a moment the rules make sense right because you wouldn't know
+if you had positional arguments you wouldn't know what goes to what right you
+wouldn't know if the positional arguments are meant to go with the with the one
+with a default parameter or meant to go afterwards right so by making the rule
+that once you have an argument with the defa parameter they all have to have the
+four parameters you're not going to end up with that with that uh confusion
+right here's the here's the here's the the possible ambiguity and we'll see this
+later on this is very important Point any questions till now there's an
+important point is that if I have to four parameters they're evaluated once and
+the once they're evaluated is the time the function is first defined so if I
+call it again and again and again it's not going to re for the second call the
+third call it's not going to say oh wait I got this default argument the default
+is set to zero it's not going to be the case if I if the default the first time
+it's called is nine the next time I call it that default is going to be uh is
+going to be in place so let's see just read this read read the code over here
+and make sure it makes sense and then we'll talk to it the function a function
+called f and f takes two arguments an X and list this is a list and just let me
+explain what happens we didn't do list yet but a list is a list right but I can
+append things I can add stuff to the end of the list and this is a list um is
+one of the functions in a list so if items is a list I can say do append X and
+whatever X is it's going to be appended to the list all right so that's all you
+need to know about that it's going to return items return the list so make sure
+this makes sense and then we'll we'll talk it out sense okay good this everybody
+should look at this this is not rocket science here right just raise if it makes
+sense I'm not asking you to explain it I'll explain it I just want to know who's
+got it and enough people got it there are 31 people here and there are seven
+hands that are up a20 very good keep going just look at it good all right so
+let's talk through it so what happens is I have a function and we saw what
+happens it's going to when python encounters it it gets it creates a function
+object so the default parameter here's the default items is the is the uh is the
+argument and it gets I mean it's the it's the parameter and it gets assigned uh
+this to four so when does it get assigned the default once when the function is
+first defined not when it's called so part of the process of making this thing
+into into a function object is it says okay got a function object it does all
+the internals that we saw it notes that it has a local variable items comes in
+as an argument a parameter and it makes this a it makes this right when it's
+first defined not when it's called all right so now I call F1 what happens I
+call F1 so F1 comes in here items is this right and it depends X it appends the
+one to items and it returns items it returns this right a list with one with one
+with one in there why because it was appended right but now let's I'm calling F
+again right I'm calling F again so it's running this function but and but in the
+function it's seems to say that items you know has a default and I'm not passing
+it when I'm calling F2 it only has I'm only passing one argument over here so
+I'm not passing an argument for items so I would imagine that would use the
+default one would imagine and that items again is going to be reset to the empty
+list to the empty but it's not right because that that happens only this this
+this thing happens only one time at the time that the the function is defined
+right so when I when I so this is not going to happen and it's going to put a
+two and put a three everybody understands any question about that that's
+important because people you know when you look at the first time you encounter
+this and you don't remember that this is the rule then it behaves in a crazy way
+what's going on over here why when I call the function I have this default why
+isn't theault working right you start like yelling at the terminal but it's not
+working because it only happens one time when it's defined so if I want if I but
+every if I do want the the uh um you know sort of the assume behavior that I get
+a new empty list each time then here's one way to do this right I say I is equal
+to none and then every time I come in um uh so um so none is going to be none
+right and and so um so then if items is none right then items is equal to the
+empty list and I append it in returns why does this work why does this work why
+doesn't it have the same behavior as this because none is mutable none is what
+uh mutable or we can change none is not no none is not mutable you can't change
+none none is a single ter object can't change that because we um the uh list
+where in items is not defined in the uh function definition it's defined two
+lines below that when uh no no items is passed in as an override what happens
+right so what happens with um but but but items so every time you come back
+what's the value in what's the value in items every time you call again it's
+none right in other words at the time the function is defined it sees that I
+have this default argument set and forever and ever uh that default is going to
+be in place items going to be none when it come in here items will be none every
+time I quot and so this is appointed to non object but of course I change it
+with an assignment statement right so in here I can keep putting stuff in items
+no problem originally it was pointing to none because that was the fa that got
+set at the time of definition and I could keep changing and changing and
+changing when I come out of here um what's going to happen is um whatever I
+could use it I could print it I could do whatever I want with it but next time I
+call it so um um whatever the original at the time of definition whatever the
+value was it's going to be none so it's going to force a new local a new local
+um list okay so that yep is it possible to ever have the items be not none
+because you said when the function is defined it is none say is it possible for
+what the items to be something else can it be five instead of none yeah yeah
+yeah yeah yeah I have to pass it in always be right in other words right but in
+this example you wanted to make sure that you get a new list each time
+understand but you want to make sure this isn't this is not a mutable you don't
+want to have a mutable over here the problem there before was that items are
+mutable and you could keep changing and changing changing you can't change five
+you can't change none so that's going to work so never use a mutable value like
+a dictionary or what that is number two right these are important things that
+you have in Python that sort of different than you see in other languages about
+using defining and using functions then you have varic Vari adic arguments means
+a variable number of arguments we saw that one can do this if we have time I'll
+show you the the C++ it's it's it got much much better as C++ matured but it's
+still nothing compared to the way that you do it in Python right so um so I can
+write a function uh here's how this thing works so um the star over here maybody
+have a question before we move on the star over here is not a multiplier it
+simply says that this variable uh args it doesn't have to be called args go you
+know anything I want args is usually what people use though that's sort of the
+term of art but it's not doesn't have to be args and it says that um this um
+this this function called Product is going to take I must have this I must have
+first because that's a that's that's called a definition of the function but
+then I can have any other are there any um uh um any more arguments that I want
+any more arguments that I want so um I could have none or as many as I want and
+what's going to happen is first will be first right so locally I say result is
+equal to first and then args what's going to happen to args so we took memory s
+tuples right the tuples are simply a tupal like in math a tupal is like a list
+in the sense and we're going to do this formally later but just understand the
+example a tuple is a um it's a list like a list with with values one two three
+you know comma is between them um but a tuple is not mutable I can't change it
+once I have a tuple that's it it was born with certain values it's basically for
+a lookup I can't I can use the values I can iterate through it it's in iterable
+but I can't change it I can just look at it right so what's going to happen and
+use use the values in the tub so what's going to happen is if I say you know my
+sum let's do this write a program called my sum a function called my sum and
+then I should be able to and I I'm going to pass in values and just the r if I
+pass in you know 1 two 3 4 five you know uh it'll it and I say my it'll sum up
+those if I say it'll sum up all the values 1 2 3 four five if I say you know my
+sum of two it's going to just give me back a two right let's read this first and
+then we'll try to write that that that simple function so here what's going to
+happen is uh um I need at least one because this is required by by the
+definition of the function product and a bunch of other numbers so what first is
+going to be the beginning result and then since it is in iterable right it's
+this in iterable it is a it's a tupo if I say what is it it's a tupo r is a tupo
+and a tupo is iterable so what does it mean that is zable I can say give me the
+next one give me the next one give me the next one so I can use the for Loop to
+get all values in arcs so I can say 4X in ARS right which is this two pole I'm
+going to multiply it by uh whatever result is be starting value in x times the
+result and X time result and then return result so if I say product of 10 and 20
+it's going to be 200 right if I say product of two three four and five two gets
+the value goes into uh into uh that's first goes into result and then I'm going
+to multiply that by three by four and by five so let's take three minutes and
+write some a function called my sum and sort of do this right and you're going
+to say my sum and you're going to try it on you know any any numbers that you
+need okay question before we do this okay do that right now right my got all
+right Ana let's see what you got let's I'm going to you share your screen okay
+can start my share this is what I have so um function is called my sum you pass
+in your first number and then your iterable um parameter nums and then you
+initialize sum to be the first number and then you're going to iterate through
+your variable parameter and then you're add whatever you see in there to your
+sum and you're going to return that so if I run this I get three and 15 good now
+could we get away let's go to the definition on line one could I just say my sum
+and get rid of num work should change this then to what NS or or not just delete
+this I no no no but you need to sum it someplace oh right so I could set it to
+zero okay and then yeah that works right okay so in other words you don't need
+to have that first thing you can now here's another question so sum has been set
+to zero is that going to mask the pointer of sum to the global function sum is
+that going to break the the pointer before you do this do everybody understand
+what's happening is this clear so that's a very very very powerful idea that you
+can have any number of arguments come in and they go into a two- pole and you
+can simply iterate through and uh it's really and as I said have a chance I'll
+show you the C++ version compared to this is like crazy okay now let's go put
+another line in here and use a sum function let's say print you make a line nine
+right and say print and then call the sum function not your some not your s the
+Bas the built-in yeah and then make a make a list so say one two three put a
+square bracket right right and close it up and let's see if that runs did not
+break it right Why didn't it break it why didn't the sum function break it why
+didn't the sum F why didn't why didn't your your sum on line two Why didn't it
+break the pointer to the global sum function uh it's only called in this
+function yeah because it's what's the fancy term because it is local local all
+right nice everybody understand this so again I'm not sure we have to a lot of
+stuff we have to do tomorrow's Friday um and as I said I want to make sure that
+I get through a bunch of stuff namely all of the things on functions and then uh
+at least some of the basic things that we can do with lists before we have the
+exam so we'll be able to decide on um tomorrow on on Friday um you know will be
+exam be on Monday or on Tuesday okay any questions before we go uh yeah the exam
+is in person yeah yeah yeah yeah all right and it's the class that the classroom
+that should be on the uh listed on the schedule thing I asked I I have to check
+I I'll send you out a point to where the classroom is right all right thank you
+and it'll start the class time pretty much right the same time is which is 10
+all right okay guys see you guys tomorrow Professor yeah uh for the exam are we
+going to have like similar questions like we do in the class so we going to see
+yeah but not the same ones right you have to know Python and yeah it'll be yeah
+yeah but it's I'm it'll be testing the concepts right yeah you have to if I say
+give me a fun write me a function to you know for for a leap year you should be
+able to write that or right but then more stuff than that because we'll be
+having more stuff tomorrow and possibly in Monday I see are we GNA have like a
+multiple choice or like I don't think so maybe maybe for I have to think about
+it I'll let you know on um I'm curious yeah yeah have to make it up

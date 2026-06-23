@@ -1,0 +1,1422 @@
+okay where were we exactly yesterday think we did we finished this we did the
+dog barking and we did we did this actually also we went how far I think we went
+up to uh four four ah we didn't do this yet did we no no sir we'll continue from
+here let's do this page page 97 okay the whole the whole idea here is that you
+see how powerful in terms of the the um the ability to do all kinds of stuff
+trivially almost trivially in Python it's it's extremely um easy to get stuff
+done here as opposed to other language which you have you know you have to do
+many more things to get the same thing so we know what VAR what does vartic mean
+this is about vartic keyword arguments we saw using the star args that allows us
+to do um the regular arguments the um so there we did a my sum I think it was
+the last thing we did over here you can input as many you can in my sum you can
+put as many uh values as you want and it all goes into some Tuple then you can
+since a tuple isn't iterable you take a for Loop and you can sum them up so it's
+a very powerful idea so this is an extension of it to the keyword arguments
+what's a keyword argument keyword arguments so when we have the name of the
+variable include and then equal some value um so um you want to do this well
+let's see the example comes clear what what happens in uh in many systems is you
+have some configuration files uh or you have at startup which means that you
+know how big should my buffer be uh where are my database which which are the
+database connections that I'm using now which files are available for this
+particular run um and what you need to do is configure the environment so that
+the program has those things available so there are many ways to do this um one
+possible way is to uh at the beginning of the run of the program you have some
+kind of information that you put in there and then then the rest of the program
+follows from that so here's an example something like that I want to make a
+table and um I'm going to put the this data into the table and I'm going to pass
+various parameters to the to the thing so for example what should be the
+foreground color of the table when I display it what should be the background
+color what's the width going to be various things um and I can change them and
+it's going to look differently depending on which are doents I pass in now for
+some uh some runs of the program you need some of these for other runs you don't
+need some for some you're going to have uh you're going to depend on the default
+arguments and so on so here's how you might do this so let's say for example I'm
+going to be able I'm going to have to determine what the foreground color is
+what the background color is what the width is and I want to pass that in as
+some parameters so uh in params here's an example right I want to the T the data
+is going to be items and the foreground color is black the background color is
+white the border is one various various things over here that I pass in now
+sometimes why would I pass them in I would pass them in if I don't want to if I
+want to uh don't want to depend on the fs I want to depend on the Falls I don't
+need to pass them in so this gives me a very nice way of configuring a very a
+specific run of the of the program does that make sense the the concept here so
+so when I call this make table uh I will specify the ones that I want uh and I
+won't specify the other ones so for example what happens over here is um this is
+this is oh one further point so when I when I put in these um these keyword
+arguments it's a little bit different than when I put in the star args the star
+args go into a tupo the keyword arguments go into a dictionary and and uh in the
+dictionary the variable is the key to I me we haven't covered dictionaries in
+detail but you understand what those are right so the the variable um will be f
+for foreground color that will be the key and that's going to have some value so
+um so here I've got the ones that I want to pass in and what this thing say and
+then pop is a uh is a uh method in the dictionary so what the pop method of
+dictionary gives me it removes an item from the dictionary um and returns a
+possible default value uh if it doesn't Define so for example um I'm going to
+pop the foreground color right and if I if I find the foreground color um I'm
+going to use whatever you passed in here but if not I'm going to use the default
+value and so on right so I go through this this is already in the program now it
+turns out that what happens if somebody passes this thing in um with with
+parameters not part of the configuration then after I finish going through these
+are the standard ones so I'm going to pop them pop them those I'm going to take
+them out of the dictionary and then what I'm going to do is I'm going to check
+to see um if Palms what I pass in over here uh is a dictionary right it comes in
+as a dictionary if that dictionary is um is not empty in other words Palms is
+true the dictionary is not empty means somebody passed stuff in here that
+doesn't belong and I'm going to raise a type error right but that's simply an
+example of a usefulness of being able to pass in an arbitrary number of keyword
+arguments so that's just an example understand what's going on right so you can
+see hopefully that this is it's an interesting and useful concept now if I want
+to have a function that accepts all inputs right very um you know very very
+general so I could Define a function and it takes a star AR STAR quarks but what
+is ARG stand for I mean obvious right arguments and these the keyword arguments
+args and quarks and I don't have to use these names that we pointed out
+yesterday I call it star a and star star B but these are the standard names that
+I used so and we saw that AR is a tuple of positional arguments and quark's a
+dictionary of keyword arguments and the use the combined use uh lets me gives me
+a tremendous amount of flexibility when I want to write stuff we'll see this we
+we spoke a little bit about decorators are right we know what decorators are
+that you can interfere with the function you can add stuff to the function uh
+like we saw put timers in there without doing any surgery on the function itself
+um because what happens is the function name you call me function f and the
+decoration basically changes the pointer from the original function f to the
+decorated version of f but of course you want to run that function as well the
+original function has to get run but stuff has to get run before and stuff has
+to run afterwards so you need some facility to call The Decorator where you pass
+in an arbitrary number of arguments and an arbitrary number of keyword arguments
+these can be empty right and so therefore this this is you'll find this um many
+times in when when when the name when you're using some decorator function your
+decorator will have things like this right because the function that The
+Decorator will end up calling you have no idea what the positional arguments are
+or how many there are or what the keyword arguments are so this is a way of
+getting a general function that can you know you pass in specific things and it
+can pass it along to the function the real function that's being called does
+that make sense to everybody any questions it's clear 100% clear everybody
+somebody say hello I don't know if you're hearing me even I do have a question
+though Professor yes um n yeah what's um right under um right under except
+variable number can the position be switched like the um the double star in the
+front and the other star in the back okay yeah yeah yeah okay well yes or no yes
+or no the point well we'll see we saw yesterday the answer is no right because
+So Yesterday Once you have keyword arguments you can't have positional arguments
+after that so the functions that accept this you have to have all of the all of
+the positional arguments first because once you have a keyword argument remember
+they're going to be defaults right so in order to make sure that you don't mess
+stuff up once you have one keyword argument you can't have any ugs after it so
+if you switch the switch this around that's going to mess up the inter whether
+The Interpreter is going to catch it or not I don't know but but generally we
+saw yesterday that when you use this the first keyword argument that you use
+can't have any uh positional argument so let's say the answer is no okay Yasir
+question um Professor I have a question about the arbitrary number of clear B
+don't do it the answer is no thank you yes sir Professor my question is um I
+understand how we would Traverse an arbitrary number of um uh positional
+arguments with the four uh for Loop right but for the keyword arguments don't we
+have to know what kind of keywords are going to be passed because we're
+accessing them by um the name not the for Loop well the answer is not really
+because what we people get to dictionaries because you see a dictionary is also
+in iterable so you can simply over all keys but this but this is an example here
+where you know which ones you're accepting right other this table dat you
+doesn't make any sense to does it swim for example right okay fair enough you
+find if you find that if that comes somebody puts that in when the function is
+called like down here um you haven't you haven't done this you haven't these po
+them off right and it pops it off parms and parms is the paramor that comes in
+so if if what you've passed in are legitimate so then youve you popped them and
+when you come here the dictionary will be empty but if you have stuff that it
+didn't find in there the dictionary you know that that was created from the
+parms it won't be empty and that's going to be an error but generally no the
+answer is it's in iterable so you can go through them you can actually print
+them you can we'll see we'll get to dictionaries in detail okay sobody see the
+usefulness of this okay we we'll see it in really much more detail when we get
+back to decorators but the idea is a decorator has to be able to accommodate any
+kind of function so you don't know what's going to be passed to that function so
+if the decorator you know the outside guy um uh you know accepts this now this
+can be empty right the ARs and quads can be empty so um this is very general and
+very useful um okay let's see an example yes this is example here is suppose you
+want to make special special case function you have a function called par lines
+right so you have some file um and um let's say lines is the file right and what
+you want to do is you want to you want to go through do something for every line
+in lines right and then you specify how does it know what's the separator
+various information you need what this doesn't make any difference here but but
+notice that the keyword arguments come after the positional arguments so you're
+going to do that and um and then you you have some some statements some some
+functionality that you do on every line that comes in so now it says you want to
+generalize you want to use this same function um but for paring that stuff that
+you get from a file right so here's an example where you have something called
+parse file uh and parse file um there you want to you want to but you don't know
+what the variables are going to be when you call parse lines right you want a
+general thing you want make make a special case function that passes data from a
+file using the parse lines which was a specific one you want because you going
+to get the lines from the file and then you want to do something to them right
+what do you do well that depends you want to pass in various arguments and
+keyword arguments and you want to pass them along to the actual the program we
+had over here right so it could be you're going to change this you going to
+leave that out you're going to put other stuff in and so on right so uh this
+will do it for you since you don't know how many positional arguments there are
+by saying star ARS you can put as many as you want right same thing with the
+keyword arguments so if the keyword arguments that you pass on for a file are
+are um are are different ones right so then that will be taken care of by the
+star quarks now and we'll see in more detail this is sort of contrived example
+we'll see them really decorators where this thing makes sense um he points out
+the benefit of the approach is you don't need to know anything about the
+arguments for p line for part lines you can just whatever you pass in here will
+be passed along that's what this does okay so it just it just shows you the
+flexibility of the things you can do with this um all right now sometimes you
+want to have you want to force things to happen right as you want to write a
+program and you want to make sure that the user you want to write a function
+let's say and you want to make sure that the user of the function uh aderes to a
+certain protocol let's say the protocol might be that you only want to have uh
+you only want to accept positional arguments right or you only want to accept
+keyword arguments and and and if they if the function is called with anything
+else you want to have The Interpreter reject it so there's a little notation
+that python uses to enforce that idea right so many of Python's built-in
+functions only accept arguments by position so what does that mean by position
+you know you have to there's no keywords allowed and so how do how does The
+Interpreter see that that's what you want so there's a slash in the calling
+signature of the function right so here is the function it's called Funk and
+this says X and Y and then this means uh that you'll only accept it only accept
+arguments um by by position right all the arguments appearing before the slash
+can only be specified by position that means you can call it as two and three
+right two goes into X and three goes into y but and we could if you didn't have
+the slash you could actually do I don't know if we spoke about this but you
+could you can you can actually say x equal to 2 and Y equals 3 right if you
+didn't have the slash over there there's no reason why not as a matter of fact
+even though the function definition has an X and A Y once I use this notation
+right I can then say I can put yal 3 and xal I switch it around right with the
+keyword arguments right um that will work however if I don't want you to do that
+I then then I put a slash over here at anything before here must be U must be
+positional and can't use keywords okay does that make sense just piece of
+notation so therefore if I do this I can write one and two and or I but I can't
+run I can't do this even though it's still going to be two and it's still why
+but I can't write it I can't use it why not because that um that notation means
+can't do it okay clear here's an example um this example is a little bit
+complicated and can try imagine easier examples but here's here's here's the
+let's read this thing so um I have a function called after and basically what's
+going to happen is I want to figure out how much time I want something to sleep
+right have a function Funk and I'm saying after a certain number of function a
+certain number of seconds that that this is going to sleep for then run the
+function and then return right so um so how this how you do this so let's let's
+just read the the thing over here so seconds seconds is what seconds and Funk
+are positional arguments right and they have to be positional arguments because
+of this and you can't say for example seconds equal when you pull the function
+just you have to put some value here and some value here and then over here I
+have the ARs and the quars as many args I need perhaps none and as many qus I
+need right perhaps none um so that's the after function and um so um and then
+and then there's duration right so uh this says after five duration seconds
+equals 2 and so on and so forth does this call satisfy the the signature of of
+uh of after well after takes seconds which is a keyword argument right so that's
+five um duration I guess is a function right that's okay that's a keyword
+argument and then and that has to be specified with with positional arguments
+and then I have if I want args and quars so this says seconds is 20 minutes is
+three hours is two right that's what's happening here so um what's the issue
+what is he trying to show you over here that that um I have seconds here and I
+have seconds here so here seconds is the first argument and here seconds is the
+second argument right and what is we talk about the star what does this star
+mean remember this we talked about this I'm sorry I don't think we did Professor
+we did miss that okay so these two things are sort of friends right this means
+that everything before has to be positional and this means everything after has
+to be keyword right so here seconds is going to be passed as a as a position
+argument a value can't say seconds equals five but this you have to say seconds
+equals something because it comes after the star so that means it has to be
+keyword argument and so he he's trying to demonstrate that there can't be any
+confusion over here because this cannot be a keyword argument and this must be a
+keyword argument question one second I want to make sure everybody heard what I
+said right right so these things sort of they're sort of complimentary right
+everything here must be so I can't use the term seconds right and here I must
+use the term seconds so there's no confusion yeah who's asking a question uh
+Matthew M so seconds minutes and hours these are keyword arguments with no
+default um but they must be specified as keyword arguments in the calling yes
+yes okay thanks um all right so um what did you I I may understand the question
+what do you mean no default um usually when I'm thinking of default uh keyword
+arguments it'd be like seconds equals none and then that's how I would make a
+keyword argument and then a user has to supply a keyword argument or this the
+call right this is a call right absolutely okay all right now next thing sorry
+Professor so the after so that would run at the last um the function call of
+after yeah oh right here oh the function Co right yeah right this goes into the
+these two are keyword these things are positional arguments so I can't use what
+he's trying to show you here is by using the star and the slash you're not going
+to confuse even though originally this guy and after this guy's gold seconds and
+duration this guy's gold seconds there won't be any confusion right because this
+seconds must be called by keyword right because that's what the star means
+everything after he must be a keyword argument and what this means is everything
+before must be a positional argument so you can't use the word seconds over here
+you can't you won't confuse which seconds is which um yes or no just say it
+again when you see that here's here's the definition of the function right so
+this is seconds and then this is the function name that I'm um it says you know
+after such and such seconds function and I'm going to sleep and I'm going to
+evaluate the function I'm going to return the value of that function right so in
+other words don't run it right away run it after some delay that's what this
+thing is now but the call when I call after I can't say seconds equals 5 I can't
+when I call after because I want to run that function after right a certain
+amount of time um I can't use I can't say second equals 5 why not because the
+definition over here right this is running the function after so seconds and and
+and the function name there's a slash here that means everything before must be
+positional right so here I cannot say seconds equals 5 five however um uh over
+here in the duration right so there's a star before seconds right so that means
+I cannot just use seconds as a position argument I must say seconds equal right
+so because of that I can't say seconds equals 5 and seconds equal 20 which would
+confuse The Interpreter I can't use seconds both places because this forces it
+to be a keyword argument and this I mean a a positional argument and this one
+forces it uh this the star over here in duration that forces it to be a you know
+a keyword argument okay yeah I understand and and the reason why you're able to
+call it after because of Duran after five correct yeah yeah yeah but the idea
+the ideas that you see by forcing things to be keywords or forcing things to be
+positional you end up not confusing The Interpreter by saying seconds over here
+and seconds over here right if if I didn't have if I didn't have the slash over
+here then for a regular function qu in Python if I defined a function to be you
+know some function I'm passing in like two values X and Y right and say they're
+integers so I can I can say F of three and five or I can say F of xal 3 yal 5
+right I can do that right but I can't do that if there's a slash in the function
+definition because that tells me I can't do that that tells me everything before
+I just have to provide the values I can't use the name I can't use it as a
+keyword argument right so therefore this they can't be there can't be any
+confusion here because I can't use that notation of of seconds equals 5 because
+of this yeah yes sir um Professor so just to clarify on Matthew's question so uh
+if we do not say anything if we do not use these operators to force it to be
+anything can we use a past in variable as however we like for example if we have
+ADD XY can we use XY as either positional or a keyword like I thought to make it
+a keyword we have to put it equal to some default so we don't have to put a sort
+of right hold on a second um I think we're confusing two things here let me to
+me keyword and default conf give me a second so let's have some function f right
+and f as X and Y right and i' I've defined this function right and so I can call
+F by saying F of one and two right that will work I could also call f f of um x
+= 1 y = too right I could do that too um but this is but this is not what we
+mean by default arguments if I by default arguments means that when I when I
+give you the definition of X I would say xal 100 y = 17 these are the default
+arguments this is not a default you know and I call it you know F of xal 1 and y
+equals 2 this is not default arguments this just I can call them by using the
+names right this is not what we talked about we talked about default it's very
+it sort of confuses the two concepts right but both will work right but this the
+ability to say this does is not the same as the ability in the definition of the
+function to give the variables default values does that make sense I understand
+thank you that clears the confusion of Professor now once with this notation
+here I can actually say F of Y is equal to 2 and X is equal to what right I can
+change the orders around because I'm I'm EXP itly using the names of the
+parameters right but that's not the same idea as giving default values to the
+arents okay good all right let's see what's next um okay names doc strings typ
+pins and so on right so let's see what this is about function uh yeah just a
+little bit of you know terms of Art if you have something that's an internal
+variable not to be used so you just put an underscore before it that's okay that
+you'll see it's not important okay so if a function is not used to be directly
+but it's a helper so have underscore helper it's not required by the language um
+the name of a function right this this we'll see later on when a function is
+running I can have it broadcast its name or I could find out what what the name
+of a particular uh function is right right because there's attributes that
+attached to it and um and by saying the function name Dot and the name attribute
+it's going to tell me what its name is now why would I want to use that I see
+you've seen many people when they in class here when they've shown us their code
+you have things think like if name equals main remember you've seen that in many
+cases we'll talk about in detail um but that's very very useful right be able to
+query the name of the module name of the program and so on in many cases it's
+very useful so see that but you can just this points out that there is a there
+is a an attribute that let you query the name of the function um now can you
+have doc strings in um in Python yeah says yes of course and so that has to be
+the first thing after the definition of the headitor of the function right so if
+have a factorial function um I would say I would start the doct string with
+three uh with with a with a triple quote and I'd end it with a triple quote so
+this says computes and factorial for example and it just shows you what R and so
+on it ends it now could you do it with single quotes or double Quotes no that's
+not going to that that will that will work for the doctoring but that will only
+work for single lines if I want to have multiple lines I have to use a triple
+quote now a triple quote of what that's actually interesting a triple quote of
+single characters you know quote quote quote quote quote quote or I can have a
+double quote so that is quote quote quote quote quot quote that also allow me to
+have multiple lines in a um as as a um comment right we've seen this I think
+I've been running the programs okay um how about so where does it store the doc
+string there's a bunch remember we talked about that these everything here is an
+object functions are object everything's objects so there's a whole bunch of
+attributes so we saw over here we have the attribute that tells me the name and
+there's another attribute that stores the doc string and that's the attribute
+uncore doc so if I have some function called factorial and I want to know what's
+the doc string for that it would be Dot and then this you know the attribute and
+also we saw this yesterday I think that I can call the help on the name of the
+function and it also give me the same so what the help does is the help looks
+for the contents of the dock string variable and how does the doc string
+variable gets its value over here right when when The Interpreter is um parsing
+the program um it's going to put the doc string in the doc uh attribute okay
+interesting things to know um they're actually quite useful okay also functions
+to be annotated with typ hits right we know that pyth every okay this clear yes
+no any questions just I have no idea if you're here or not so people here still
+good no question okay all right so I can also you know the python does not
+require type declarations does that mean there are no types quite the opposite
+everything's a type right everything's that um but the variables everything is
+pointers so the type is kept with the object itself right so the variables don't
+have types other language the variables are typed right because then The
+Interpreter knows what the compiler knows what to do with them and so on here
+because the dynamic nature of the Python the variables are not typed right but
+what they point has a type so therefore you don't have If This Were C++ I would
+say intn right and I would say returns an INT but you don't do that in Python
+but if you want to to help out the guy that's going to read the program you can
+actually put these type hints in there so I can write something like n colon in
+and I can say arrow in right what happens when you do this absolutely nothing
+okay but it's nice to be nice and so that's nice if you want to do this also
+there are third party you know there are debuggers that you can buy and the
+debuggers uh will use you know if you want if you want to put these Ty pants in
+the debuggers will look for them and they'll they're us going to do things but
+this doesn't change anything at all um you can do it like this also here's
+result I want to I want to sign one to result I can say result colon equals in I
+mean colon in nothing changes it's the it's the same thing okay function
+application and parameter pcing by the way these are things to know right I mean
+it's I'm going fast through here because it's very boring but you have to know
+these things so if an exam I can ask questions about this right and the
+assumption is that you've read it over again I know what's going on um function
+application what do that mean when a function is called we we spoke about this
+in detail that um that local the parameters are local names and they get bound
+to the input being passed right python passes the object as is without any
+copying right in other words it's a it's a pass by um it's a it's it acts like
+it's it acts like pass by value if it's a built-in and pass by reference if it's
+a mutable care is required if mutable objects list diction pass let's see the
+example over here it says if changes are made those changes are reflected
+outside because it's pointers read this thing let's see if it makes any sense
+okay is this clear to everybody what's going on clear to me who's me that's a
+everybody else okay who else some I only see even though I have three p Ah there
+we go okay all right so let's let's go through this very oh quick oh that's nice
+five six all right so let's let's just read this together it's simple so squares
+I want to create a a list again we didn't know really what lists are yet but I
+think you have an intuitive notion it's enough for this example so you're
+passing in items here a is equal to this list with five items and when I call
+Square I want it to I want to change um I want to change everything in the list
+uh to its square right now notice there's no return in here there's no return in
+here right it's what it's doing is I'm passing in items and items are going to
+get changed and the items that get changed is the one on the outside right how
+does it work so um so I call for I call enumerate items and then for I and X
+numerate items I'm going to change items like this what does this mean enumerate
+who knows who knows what enumerate means who who knows just I know enumerate
+Matthew green explain explain what a numerate is a numerate will take a list or
+any any sort of iterable and it'll create a list of tles where every element uh
+you get it just uh lists every element essentially so when you have items you're
+going to get um a list of items and you're going to get the output being the
+zeroth item is this the first item is this the second item is this very good
+right everybody hear that right so that's what a numer means means count it
+right give me in an eneration since generally start with zero um why do we start
+a generally Computing with zero let me know I mean when you count fruits you
+know and the you want like buy three fruits in the three three apples in the
+grocery store you don't say okay this is fruit zero that's fruit one that's
+fruit two then you end up with three but you said two right why in Computing do
+we start with zero this comes back to uh the original days where we're all
+working with offsets of an array the first item in the in Array would be the
+item with zero offset all right and then the next item in the array you would
+offset it by the length of one that's one example right but but in general
+that's true that's a good application but but the point is like this if you have
+everything's in bits here right so if you have um if you have like say three
+bits how many possibilities are there is eight right because it's you know 2 to
+the 3 so if you're going to use you're going to count anything why waste one
+configuration right 0 00 0 is a valid configuration right so that's why I mean
+what what Matthew said is also the case right because if you want to use as an
+offset right it's an offset of zero right but in general you just have a
+configuration you don't want to waste so when you start the enumerations it
+starts at zero and so what when you get out of enumerating items items is 1 two
+3 it's really a so what you get out numerating is you get 0 1 zero 1 two 2 3 3 4
+four five and so um that you're going to use as you're going to use the first so
+this comes out as a twole so so the Tuple is going to be I which is the
+enumerator and X which is the actual item from the list and so so in item Sub
+Zero you're going to get the X associated with it so and it's going to modify
+them uh in place but that means it's not going to make a copy right just a
+pointer to this thing on the outside right local names get Bound To The Past
+input uh they get Bound To The Past input object right there is one thing here
+is that when you end up trying to change IM mutable which you can't it's going
+to create a new one we'll see this later on in lists but here mutable objects um
+it Chang the uh the parameter um and the outside the outside scope okay um it's
+important to make a distinction between modifying an object and reassigning a
+variable okay is that clear just what just think what that means in a sec right
+for a moment have if I have some object and X is pointing to it right this is
+some object a and here's an object B right so if I say if x is pointing to a I
+can do two things over here I can use this pointer X to change a to change this
+object in some sense imagine that it's a list of some kind I change something in
+here right so I'm using that to change something but if if I say x gets the
+value of B so all I'm doing is reassigning right I'm not changing a a is still
+the same a as it was right it's say it's right it's now pointing to B right if I
+say like this if I say x is equal to five let's say um in in C++ regular I say
+that x equal to 3 so it's actually changing X right it's not reassigning
+anything here with the point is things are getting reassigned right so let's go
+back and look at the example that it has over here um right so if I hit sum I
+want to sum the squares right so um I have something called items we know how
+items comes in right how does items come in items comes in as we saw before as a
+pointer to items on the outside um and and this is just a notation that we'll
+see which very powerful notation uh called the list comprehension but it's doing
+is it's using the values that it's getting from items and it's creating another
+list so every one of the items this new list that's being created is uh is a
+square of the original one and it says items is equal to that right but here's a
+case that items was appointed to something on the outside this item is a local
+variable that's pointing to the newly create constructed list so it's not
+changing the thing on the outside right it's a local variable pointing to to the
+one that's being created by this this comprehension so it's an important
+distinction to make [Music] um we'll see later on this we'll skip this for now
+okay what about return values we spoke of that also the return statement returns
+a value from the function if no no value is specified none is returned so we
+know that um all right let's see what this is no name tubes I think uh we'll see
+that later on I want to make sure that by Tuesday we cover the more essential
+things name name toes are powerful uh if we have time on Monday afternoon maybe
+on Monday morning we look at these also but I want to make sure the basic things
+what does unpacking mean so um I think we saw a hint of this if I have a
+function and and I can return um can I return multiple values right so in a
+language like C++ and so on you can't return multiple values right um I can't
+say something like I have a function you know I can't say have some function f
+that's doing whatever it's doing and I can say x comma y y comma Z is equal to F
+of this and it's going to turn values that it's going to put in X X Y and Z in
+C+ it doesn't let me do this right I can have I can create an object um
+something called a pair or a tle in C++ that um I can you know pass back that
+Tuple but I can't use this kind of notation which is a natural notation if I say
+return a b and c when the function and in in Python right so it's going to it's
+going to do that a whatever a is going to to X and Y and so on so forth um so I
+can have multiple multiple things so let's see how that actually works over here
+and again we'll see this in detail so uh I have a function called parse I might
+pass in some text and how does this thing work so what this is going to do it
+says split the text of the form name is equal to V into name and V right so how
+do how does this thing work what does he want to do take a look at this let's
+we'll talk about it what's what's going on in this example he wants to show this
+an example of argument unpacking what's happening here okay just raise your hand
+once you got here so uh when this function gets called it's taking the text
+that's passed in and it splits it with The delim Eliminator of the equal sign so
+when we pass in url equals and then the URL uh it splits it based on that equal
+sign and so we get uh two different uh objects we have the the string that
+contains URL and then the string that contains the actual URL so HTTP python.org
+and those get stored in a list called parts and what we return is uh the two
+parts of that so part Subzero is going to be URL and part sub one is going to be
+HTTP python.org and those are returned back into name and value I remember
+correctly I think it's going into a into a tuple a tupal yeah sorry M right
+right so here so what it does is this we'll see this later we look at the tech
+at the string class so split we'll split it we'll split everything the text and
+looking for this particular delimiter right so if I have if I if it finds text
+it says name is equal to Value it's going to give me back a tupo that has the
+name over here and the value over here right and it gives you um and what does
+it return uh Parts Sub Zero and parts sub one so Parts sub Z we'll see strip
+we'll see what strip does what any know what strip does strip will take any
+white space character off the front or the end both actually right there's a
+Right strip and a left strip and a strip does both we'll see again this part of
+the stream class so it's going to give you in this case the name and the value
+and um Parts is a tupo so it's going to take uh parts of zero is going to be the
+name in this case and parts of one is going to be the value so this have a
+function over here that returns two things a tupo with two things how do I know
+it's a tupo because it looks like a tuple right a tupo looks like that it has a
+parentheses over here and a parentheses over here now I can use that right if I
+call Par value and I give it some string so I can what we saw before I can have
+it's going to take it's going to take the name and put the name in the name
+variable but as it gets returned from the function and then I can take whatever
+comes out as the value it's going to put it in the value it's very it's a cool
+thing to be able to do right to P multiple values back from a function and then
+use them so what's happening over here is this is the string it finds it finds
+uh the equal s the assignment to equal operator here and so name is going to be
+uh URL and uh and then this will actually be the URL name tuples we'll we'll po
+up for later um okay this is really cool I again hopefully we'll get if I have
+time at the end of the semester which is in a week and a half we'll go into this
+in detail but we' spoken about what happens when functions are encountered by
+the by The Interpreter what happens we saw that it creates creates a function
+object there stuff in the function object very local names are created GL a
+table a dictionary of local names and Global names we get codes gets get gets
+created and so on let's see a little bit more detail and it's really cool you
+can actually try the examples and here they work um but so what does python do
+when it counil first thing it passes the function definition it creates an AB
+does that how many of you have taken the compiler class anybody this by show of
+hands Olivia Yer Tak yeser there's principles of programming languages but yeah
+tell about sytax trees yeah okay uh all right so let's see so you know what
+those things are so it first parses this is when the function first gets
+encountered right when the when the function objects is being created so it
+creates an abstract syntax to tree it compiles it into bite code right what is
+bite code bite code is the Assembly Language for The Interpreter right and then
+it does this and it creates the function object once the bite code is ready
+python creates the object it puts it into a code attribute in in the function
+object what's in the function object the code object is there the global
+references are there and the closure we know what this is the code object is the
+bite codes the global references are variables that are used by the function
+that live outside the scope of the function and the closure are those variables
+that are located in the in the enclosing function right and so the closure is
+there as well and we saw how the closure is actually handled we saw this
+yesterday there were the cell objects right that are in one of the attributes in
+the function object and so once that happens once the function object is created
+it's assigned to the name of the function fun bound to the function's name so
+it's all pointers right and that's it's ready to go when it's called so here's
+an example right again I I I'd love to go through this detail but we have to F
+we have to make sure we you know this is the dessert you got to get the me
+potatoes first right so that function called add so here's a function name
+here's the function arguments is what happens inside the function and then is
+what gets returned so the syntax tree looks something like this um it says
+here's the the definition part so you have a definition and you have a body and
+what gets returned by the operations so the name of the function is ADD it's
+tagged the arguments are A and B and what gets returned is applying the binary
+operator hold up in this case it's a and what's on the left and what's on the
+right um you can actually see uh a human readable um representation by just do
+this you can do this at home you can import the abstract Le ASD which is which
+the library you put the code into this variable and then um and then you you on
+on the as Library you say parse and then you pass in that string and it will
+produce a very nice thing right so uh the body the function definition the
+return and so on and so forth um okay um the bite code is what you've seen
+you've all taken the 240 right is that the course so it looks pretty much like
+an Assembly Language um I'm not going to go through this it's an assembly
+language for The Interpreter again hopefully we get back to it when we at the
+end of the semester but we have to move quickly here so um if I if I want to
+here's an example of um the swap we saw the swap um so if I if this is the
+function I put a was B if I put that in there um what happens how does it get
+how does it get parsed this is what happens this is what happens you actually
+see it you can you can ask it to um disassemble it um like this this this is a
+disassemble library and you call this on this and you pass and Swap and it's
+going to give you the code what's interesting here what happens when you swap a
+and b basically you're going to put it on the runtime stack inside The
+Interpreter you're going to rotate them and then so that's what happens over
+here it's going to put this the values A and B back on the stack of b and a and
+then it's going to down over here it's going to create the Tuple and it's going
+to return the Tuple Tuple is the value that's going to get pasted the
+interesting thing in here is this rotate to it seems to be like a onestep
+rotation how does it do it so if when we write a program right this with the
+swap fact happens and it's swapping stuff on the runtime stack what it really
+does is it creates two local variables right one is pointing to a the other is
+pointing to B and uh which I places on the stack and then it just it just says b
+points to a a points to B the still on the stack and that and that that's the
+way rotate happens very fast um and you can read through this it shows you how
+it works what's really really interesting is that you can modify functions at
+runtime I this is crazy stuff right um so here's an example I can go into the
+bite code this stuff right that's been that's been The Interpreter creates the
+bite code and I can I can modify function in real time now we saw one way to do
+this right that's using decorators that's that's you know but but if you really
+want to be crazy you can actually change the Bode here how it works let's say I
+have a function the add function returns a ANS those are my two arguments and so
+um what I want to be able to do is in order to change it I have to be able to
+modify it so um if I import these libraries right and I import types can't go
+into this now but this this will work if you actually do this will work um so
+then I can do surgery on the on the bite code and then I can recompile it so uh
+first step would be convert the functions code to mutable object so here's the
+here's the bite code and this bite code comes back it's mutable right how do I
+get the bite code well f is the function name and it has a code attribute as we
+saw the code attribute gets created and the code the bite code gets created um
+during when the function is first encountered by The Interpreter and it's stored
+it's it's accessible via this attribute the code attribute and so what this is
+going to do is it's going to create mutable by code from this right these are
+all part of the library the B code library and then what we want to do is you
+want to change the plus to the times so you're going to look through the
+instructions in bite code right and if the instruction you find is equal to
+instruction right and the name of the instruction is binary add then you're
+going to change it you're going to set in that instruction the binary ad you're
+going to change it to multiply and then you take the code back into code and you
+do this and you do that and it actually prints six does it work you should try
+it um it depends also oops work my MK give me a second it depends on the version
+of uh of of python you're running I think after version after two the 3.8 or
+something or maybe three I don't remember anymore but instead of binary it's
+called um sort of um binary app maybe I'll look it up later on like binary app
+it doesn't it might if it doesn't work just Google what this has to be changed
+to and the later versions um but it will work you can try it it's really it's
+really spooky so you can take you have functions defined in your program and
+without you know you have to change you can change it real in real time right in
+other words you're running the program first it does one thing and then right in
+the middle you CER change you want to do multiply and it'll do the multiply so
+this stuff is sort of way out this is way out but there's ways to do this in a
+more normal kind of programming environment and that's by the two these two
+functions called EXA and eval so we saw eval already and we'll look at exec let
+us take a 10-minute break and come back and we'll do all this stuff everything
+we talked about before is clear enough we didn't do any of the details but the
+concepts saw concepts are clear clear clear enough yes okay good so let's take
+10 and we'll come back and we'll look at this stuff I'm going to turn off the
+recording right so please be REM so um there's so we're not going to go in
+generally on a day-to-day basis and you know change the code at runtime there
+are things that are very helpful and very useful and people use all the time and
+that's executive vow so I think we've seen a vow earlier right the very very
+beginning we uh we when we notice that when you input when you use the U input
+when you're reading something it's going to come in as a um as a as a string and
+you want to maybe want it to be numbers so you have to transform them somehow so
+the standard way to do this is to just feed them into the appropriate conversion
+Constructor right if you expect an integer integer and so on but another way to
+do it is to call eval um so let's let's go see what these things are so eval is
+used to evaluate valid python Expressions right like 1+ three or or 16.9 it
+evaluates it it knows what they are because it's smart it knows what to do so so
+Val is uh python Expressions contained in a single string and return the the uh
+expression right so when input returns a string that's 1.5 so it knows it looks
+at 1.5 so I know what this is this is a floating Point number so that it makes
+it a floating Point number it calls the interpret it calls the uh Constructor
+calling the Constructor directly is probably more efficient because doesn't have
+to go through the whole mechanism that that eval uses but eval will work as we
+saw it's also more General because you know it'll evaluate anything you pass in
+there what is exac so exac allows you to say read in code from a file or to get
+to get code emailed to you in a running program and then incorporate in the
+program as it's running it's strange stuff and it can be very be dangerous
+because you you you can say give me some code and the code can be like uh you
+know some malicious stuff you do you have a problem with code injection you're
+running you don't know what you're running right but that will works let's see
+example so it says what exec does is more more General this works on a single
+string a single expression including function calls but what exec does you can
+give it give it a whole whole block of code exec is used to dynamically to
+execute dynamically generated python code so you can actually you can you can
+create code yourself in other words you can have your program create a function
+you know can write a function as a string and then pass it on to exec and exec
+will execute it for you at runtime dynamically um so it can it can the The Poon
+the python code exec will um will will dynamically execute a single statement a
+block or even a string representing a whole script script is a program it
+doesn't return what except does just executes it doesn't return a value Val will
+return a value uh it only executes the code within the argument um it can be
+used for executing Dynamic code including loop it's really you can just execute
+it can be a whole program as we'll see in a moment um so here is an example
+right um here's a string representing a block of python code right so code
+string um let's see it's all this right why triple Quotes no it's triple quotes
+or double quotes is because it's a long string the string goes along a couple of
+lines right so whatever you want to have a couple of lines in a in a string you
+have to use the triple quotes so here's defining a function calculate area and
+it gives you a greeting if you pass it a name it's going to say hello name
+otherwise going to say hello stranger but it's this is code this is not when the
+when the interpreter sees this code sees this it's just seeing a string it
+doesn't see any it doesn't see any code at all just a string now I can
+dynamically compile this thing with exec right it's going to it's going to
+compile it at runtime and execute it so now once it does this what's happened it
+now knows it now has put into the Nam space the Val the two new function names
+it's it's it's when you ex when you execute this thing so calcul will be a
+pointer to the object to the to the the to the calculator area object and print
+will be to this print greeting will be to this thing and it's a regular code
+object except you did it dynamically as your program is running and this was not
+part of the original script right it was just it was just before you did this it
+was just a a character string and now once you have that it knows about it knows
+about calculate area and it knows about print greeting and it will work The Vow
+on the other hand is much simpler here's a string of an expression it's going to
+evaluate the expression it gives you back the expression and you can print the
+value so these are ways right so you can what what's how does this fit into the
+flow of what we're talking about so we talk about changing functions one radical
+way is to change functions by going into the bite code and changing the bite
+code another one is to have stuff that you know that dynamically you not the the
+original program doesn't have let's say these functions you might decide that
+you need these functions so you're going to convert them from strings into uh
+into code as you're as you're running the program also you can read these things
+in from databases you can read them something could email it to you can have an
+email call from your python code and you get the string by email as your program
+is running and then you you can exec that code it's really crazy but it really
+it's really very very powerful all right any questions about this okay and uh
+finally we'll finish this and we'll start talking about um about some data
+structures namely the the lists so um so a um a distinction is made between
+something called a script and a module so we talked about python programs but
+usually they call scripts scripts are main programs in Python like applications
+that are meant to run so this is sort of a derogatory term the right in C++ it
+runs as real code those are programs right but this is just a script you know
+but these are meant by complete programs right modules are like uh like include
+files in other languages right so um but sometime right so far so that's the
+distinction that's and that distinction is used um module both so Mo both
+modules and uh and scripts um when you write them up you write them and and and
+the file type will be a py file both are going to be executable by The
+Interpreter normally a module just like a an include file in other languages a
+module is collection of things I pound include iio stream for example in in C++
+what do I get I get all the iio functions I get all constants I get the
+definitions of objects and so on and that gets brought into my program right um
+so likewise when I write a module the module many times a collection of
+functions that I want to be able to use like the math module right the math
+module had a collection of functions and there's ways to use them I Port I
+import the module we saw how to get at the stuff in a module so um this name
+this if name equals main thing is um is almost ubiquitous and we've seen some
+examples some of our our classmates have actually used this so what does it mean
+so what it means is remember we saw that code objects have as a code object
+anything with py file has objects in general have a name associated with them
+this is the name attribute so I can ask is the name I can ask what's the name of
+the thing that I'm running so if I run something at the top level I write some
+script then the name so so the name of that module that I'm running is going to
+be the python interpreter makes it to me underscore main un is Dunder Dunder
+main Dunder right so if name if I when I check the name the name attribute of
+what I'm running and if that's equal to main then I know I'm running the main
+module otherwise the name will be a different module so how do I how do I what's
+going on let's see in Practical terms and the Reon let me just upfront the
+reason I do this is because I want to be able to use modules imagine a situ
+ation where I wrote a program and I have like 20 different functions in there um
+that the main program runs so I have one module and 20 definitions of functions
+and then I have the actual code for the application that I'm running right and
+so I just run it everything is fine right because by the time the program runs
+all these functions have been encountered the names are are known the function
+objects have been created and so on then my program runs fine but imagine that I
+have a situation that those are are really cool functions that I wrote and I
+want to be a them to uh I want to be able to use them in other context as well
+right so one possibility is to Simply put them someplace else make a special
+module of those functions like the math module for example and then include
+those an every program including the program that I'm running right that I run
+here but another way to do it is to Simply take the take the main this the whole
+this whole application that I wrote this whole script and then import that and
+however put the part that's the actual application um put it you know someplace
+warding it off so that I'm only going to run it that part of it um on the upper
+level right let me just draw a little diagram because a really simple idea as
+very useful I want to get messed up in the details here right so here's a
+situation I have a module um right and whole bunch of definitions all these
+functions are being defined defined defined all way down here and then I have
+the program logic you know like if something and then you know and then whatever
+it is this is the actual program that runs that I originally wrote this thing
+and uses all these guys but so when I when I when I run my when I run this
+function as a script when I run this this py file as a script I I'm GNA want the
+I want to run the whole thing from top to bottom I want all these definitions to
+be available I want the logic of my main program to run right everything's fine
+however I might want to I want might want to import this thing without you know
+taking all this stuff and bringing it someplace else I might want to import this
+file just to give me access to the definitions but I don't want this part to run
+right does that make sense if I'm just importing it to get a hold of the
+definitions I don't want this to run I only want this to run if if it's sort of
+my quote unquote main program right I'm running it you know as the application
+but if I if I import this I only want it to I only want this part to be
+available so it Imports it it's going to do these defin the importing is going
+to do these definitions it's going to create this function this function
+function objects but I want to hide this right so that's the that's the that's
+the uh use case of if if name equals name right so if I do this for example I
+have a module called Fu and this is print function Fu from module.  py just
+string and then um I have if name equals main so this block of cods going to run
+only when the module is executed directly not when it's imported into another
+file right because what's going to happen is I put this into The Interpreter and
+The Interpreter says okay I'm going to make you this you ask me for this and
+then it's going to say if name equals m so it's going to check to see what value
+is currently in the name attribute so if this was run from the top level the
+name is going to be Main and then it's going to actually run all the code over
+here however if this module.  pii was imported into a different one so the name
+the name uh uh that that we'll find in the attribute name is going to be the
+name of that that uh uh that py file not the it's going to be it's going to be
+module.  py it's not going to be Main and so when I import it all the
+definitions that I have will be created but this so right that's what happens
+when you import it it it runs the definition to make the function object but
+when it comes down here it says if name is equal to name it says not equal to
+name so none of this stuff is going to be run and that's the basic idea right so
+it allows for reuse of of of modules where I just need some stuff to happen when
+it runs directly or if I don't need that I just need to get the definition right
+or constants so on I use this name equals name and these are the examples you
+can try this any questions it's a pretty straightforward concept a question many
+programs yeah um Professor so this uh Dunder m is that the name uh that The
+Interpreter assigns to whatever program you start yeah yeah yeah so if you start
+this if you run this if I if I is that the program I run right I say run module.
+py that's the top level so so then when I say let me look at the name attribute
+the name attribute is going to be made however if if if if this if I have a
+program that running right or a function that's running and in that I import
+something then the name of what gets the name modu the name attribute is not
+going to be main because it was imported right the name is going to be the
+module name so then when it when it f when it executes if name is equal to main
+it's not right so it's it's not going to put the stuff this like it's it's it's
+an if it's essentially an if right so it's not going to do the stuff underneath
+thank you okay and here's the examples but any other questions is is the use
+Clear why we want to do this and when you want to do this right so this gives me
+an opportunity to use one one script just to you know to get at the definitions
+and constants in there without having to run the the the main thing so when I so
+therefore if I want to have it like this um I have to make sure to hide all the
+main function stuff under as a block under the name it was men there's an
+example over here let's see um okay right so this is you I think you've seen
+this right so let's just make sure this is this is a typical example so here you
+have F this this is the this is the um this is the program that's being run
+right this is what interpreter gets a hold of this here's a definition of
+function called greet here's some more function how much are these things now as
+it's as The Interpreter is executing this it's creating all these function
+objects and assigning the pointer to the code and now now you come down and and
+you have a function called uh called main right and call the greed function with
+a name it's going to call greed Alice right the name will be Alice and more
+stuff happens over here and then we have if name is equal to main so when is so
+this is just a regular function you have a function over here a function over
+here and a function called Main and so if you want to call function main you
+have an if name equals main it's being run at the top level so then you simply
+call the main function this is different than C++ I mean it sort of looks like
+C++ but all this simply says is check the check the attribute the name attribute
+and see if the name attribute is main which means this is the top level that I'm
+running then execute the function called main the main function is but this is
+not in C++ the main function is this is the entry point to the the machine
+language version of the program that's being run that's not what's happening
+over here right the entry point in Python is this whole file right but it sort
+of mimics it right and so you have all this stuff that you need and then the
+logic to run if it's run on the top level it's your main program you put
+everything in the main program you put into your function called Main and then
+it'll do it so this it's nicely partitioned right bunch of functions and the the
+main function is the is the actual application it'll only be run if it's on the
+top Lev okay questions okay all right so I this is a sort of boring let's let's
+here's the here's the good stuff let's talk about string list strings Tes and
+other sequences um we're going to get back to doing some programming which was
+nice all right so um sequences are fundamental in uh in many languages and of
+course in Python so sequence is an ordered set of object indexed by non-
+negative integers right so if you can index into it that's called a sequence and
+what are examples of sequences strings lists tal so if I have a string S I can
+talk about s sub3 right I can index it by integers those are those are those are
+cool sequences python objects um uh okay strings and tupal are mutable as we saw
+lists allow insertion deletion substitution those are all examples of sequences
+now um if if anytime you have a sequence of any kind a tuple or a string
+modifiable unmodifiable you can do all of these operations on that you can say
+Give me the give me the give me the um the I element of of this uh sequence give
+me a slice right give me we'll see what that means but all the elements from
+position I to position J give me give me this this um the extended slice that
+means is started I um and go up to I think up including J and with a certain
+stride that was add three add three add three add three what's the length I
+think that's the length of the sequence I can find the smallest element to find
+what it's in the sequence I can get the maximum element and so on all sequence
+uh will allow me to do this if it's mutable I can do additional stuff right not
+only can I do this I can do additional things like I can assign I can assign to
+a slice I can assign to a strice to to a slice that's been extended with a
+stride I can delete an element um I can delete a slice and I can delete an
+extended slice we'll see all this in detail so lists are sequences of arbitrary
+objects let's actually go work here now lists are a special list are uh list we
+do this in detail but list important to know lists are special speci specific
+kind of um of of a sequence so they have their own methods right I have a
+Constructor so whatever s is if s is the appropriate thing that construct to a
+list I can like list of s um if s is a list I can add something to it I can
+extend the list I can count how many times x appears in the list I can I can
+create I can find the index right the smallest index for S appears in the list
+don't worry we go in detail to these things just a quick overview I can insert
+at a particular part I can I can pop um a list at position I um um if I if
+there's no if I don't say it all is it gets rid of the the last on the list I
+can remove X if it's if it's there I can reverse a list in place and we'll see
+all these and I can sort a list in various ways let's get going so here's a list
+you can do all those things we mentioned so look at first of all look at a list
+so here's here's a list it's like an array but on steroids and you know when you
+when you when you look at when you look at um you look at vectors say right or
+or so vectors are like this but with much more functionality right I can put
+stuff in certain arbitrary plac into a vector in in C++ let's say I can get at
+the front I can get at the back right of the list I can I can um I can uh change
+sizes of the lists and so on and so forth can't do that with a you can't do that
+of a of a vector you can't do that with a regular array so it really pumps up
+what you can do with you know we need array like object in C++ python is much
+more than that because if I have a vector in C++ even has all those magic
+qualities that we just listed there the the the the vector is still going to be
+homogeneous I can't have a vector where you know the vector v subz is a is a I
+don't know an integer and V sub one is a you know is a float I have to they they
+have to be homogeneous all the objects are the same type not so in um in Python
+and The Reason Not So should be obvious right because since everything with the
+what the list has in it is pointers right so for example if I have this list
+over here um what does the list have in it it has an integer one has an integer
+23 it has a string hello and it has a subl list of three and four and there's no
+way you can do this easily in um in C++ right so X the name of the list and has
+these elements and it looks like this in memory so on the global frame you have
+the name and that's a point to the list element itself the list itself the list
+is indexed starting at zero and these are all pointers to the objects in the
+list right so the first is a appointed to the integer one and the second list of
+sub one is appointed to this integer this one is appointed to the string and the
+final one is a pointer to the sublist right the sublist what's in the sublist
+the sublist has two and three so um it's a point to the two and to the three
+okay is that clear this is what it looks like all right so we create an empty
+list in one of two ways right X is and I put the bra say I know it's a list and
+then or I can call the list Constructor this gives me an empty list as well are
+there differences does make a difference which one you use we'll check we'll see
+um um okay now how do we access individuals of a list that everybody knows we
+use an index into the list because it's a sequence starting at zero so if my
+list is this over here and I say print x sub zero is going to give me one right
+if and this say zero it has 1 2 3 4 elements if I say print x sub four it's
+going to tell me I can't do that because the list index out of range because
+even though there are four elements the indexing starts at zero okay clear how
+do we change the elements of a list you do what you expect to do right X of Z is
+now Bob so now the list has Bob right what's the length of X it it's four what
+does it mean to say it's mutable I can change it um what happens that's
+interesting what here here's the list a right what is this this and this and why
+let's try that just write down what you think it's going to be and then run it
+and see if your predictions are correct other words what happens if I make a
+list of a or a list of a list of a or a list of the of uh I have the list in
+parentheses over there see see what happens here just run this after you figure
+it out run it see what's going on thing okay all right let's see what's going on
+so Dio yes stop my share Okay second so um I figured out when I ran this code
+that it doesn't make any changes so this is with the the nested list right so
+why not right why not know it does make a list of the list it's saying I'm going
+to create I want to make something into a list so if it's a list itself it
+doesn't make it into a list right that sort of makes sense that was a designed
+decision right because you imagine you could have a list of a list right but
+that is okay now what about the other example what about the second part we
+using the brackets um there's a second you know the second part of that thing
+wait I got to take a look back at it just bring up bring up the best Nots yeah
+is that is that going to be different than calling the Constructor that's the
+question because we saw there's really two ways to create lists so what happens
+when you run that when you run this what's oh so it wraps it with um with with
+another list like the next one right so there's a difference between there two
+ways to create lists one is with the you know just say x equals the empty list
+and the other one constructive course see is really a difference I see okay very
+good thank you yeah thank you all right let's go so now you know what's going on
+here and why why is obvious right because this is taking thing and just putting
+it in a list it's wrapping in a list wrapping and wrapping wrapping into the
+list whereas over here this this is just a Constructor call says you give me
+something I'm going make it into a list if it's a list that's it I'm not going
+to bother all right how can we add elements to the list see to something called
+a pend and extend so what a pen does is it adds something to the end of a list
+and extend only works with sequences and it take goes into the sequence and
+extends the list by the elements in the sequence let's see what this means so
+here's my list a it has one two three if I say take the list a and append is a
+member function of this list class right so a.  append four it's going to take
+the four right and it's going to add that the something is now the four it's
+going to add it to the end of the list and now when I say show me a it's gonna
+it's going to um you know it's going to give me one two 3 four if I say now take
+a and append let take that something something's now a string and append it like
+an appendix right add it on it's going to have the 1 2 3 four and hello okay now
+what happens if I have B is a list 5 six 7 and I say a which is now this list
+over here and I say append B so the something is now this list so it's going to
+pick up the thing itself which is this list and it's going to glom it on to the
+end of list a pen means whatever it is just add it as a new element to the list
+does that make sense that's what a pen means extend is different extend says it
+only work with see append the the the thing you're adding onto the list does not
+have to be a sequence right one is not a sequence three is not you know four is
+not a sequence it's just a it's an integer so I can append anything I can only
+extend by a sequence so what's an example of a sequence a list is a sequence but
+a t a sequence so on so what it's going to do is it's going to go into the
+sequence take the sequence apart and extend the list by adding all the elements
+in the sequence so when I appended B it appended B is the object 567 but if I
+then take this list and I know extended by B right so that I can do that because
+B is a sequence and it goes into B and it takes the elements of B five six and
+seven and one by one it extends the list by that okay cool now let's say I say
+take a and extend it by an eight that is not going to work why because I can
+only extend sequences I have to go into the sequence and take them one by one
+and add them into the list but but you know this is not a sequence I mean eight
+is not a sequence but if I say extended by an eight well there's a list and a
+list is a sequence I go in there open it up pull out the eight and I add it to
+the endend that's a pendant extend and they're very very they're all over the
+place okay they are absolutely clear good um now I want to clear I can clear out
+lists right I can get rid of stuff so if I have a list a is equal to 1 two3 I
+clear it out it's G to just be empty right um but what do I do a delete on a so
+um I didn't get an error message right at least looks then it says what does it
+say I can delete it right clear cleared it out and then I said show me a then it
+shows me the empty list when I delete it what is the leite G to do what do you
+think why do I get an error message over here remove the pointer and just who
+was the pointer so it's the more than that when it says it's not defined it's
+not it's as if it took it out of the name space completely right okay remember
+in Python everything's an object named a point is an object may be point to many
+times this is actually very interesting do you know what a reference count who
+does not know what a reference count is just by a show of hands let me see this
+show of hands reference counting all right so reference count is an interesting
+it's an interesting technique so let's just talk about it let's say let's say
+I'm C++ right I have a I have I have some string s right and string s is um
+let's say hello so here is a string hello it's a you know hello and has the no
+counter these the old counters and S is pointing to this so let's say I have now
+y say let's say let's say a string T and T is also going to be the same string
+it's going to be hello right same thing I have 20 of these things right so this
+is a waste of space right a better idea would be um if you could somehow have
+only one so like this T is s is pointing to the string and this is pointing to
+another copy of the same string be much better if what you could do is something
+like this have only one object you know hello was there one time and what you do
+is instead of s pointing to the string is it points to sort of a compound object
+points to something called a reference count and the reference count has two
+pieces one piece is going to be appointed to the string itself and this is going
+to tell me this this is the reference field the reference will tell me how many
+strings are actually pointing to hello right so this case going to be two and S
+is not going to be pointing to the string itself s will be a pointer to the
+reference count object and T will also be a pointer to the reference object and
+so therefore just by adding this little guy here in the front I this string can
+be very very long I save a lot of space and um you know and it's a very nice
+idea so is this is this used in C++ reference counting for Strings uh not really
+but it's used for more complicated objects I do every couple of semesters I give
+a class in advanced C++ that's a really nice class haven't done that in a couple
+semesters because we really trying to get p on off the ground here in the
+department but there we there we really go in all the constructions how does C++
+do the magic that it does right so here we're doing partially right because here
+we're learning python as well there we're assuming you know C++ and then we
+really talk about implementation ideas so this is a good idea but it has a back
+it has a it has a floor in the sense that if they're all pointing to the same
+place if I decide if if I want to say if I want to say this is this is going to
+be uh this string here Sub 0 sub 1 sub two and so so forth if I want to say S
+Sub 2 or S Sub one is now going to be the character like five it's going to
+change the the this to S Sub Zero S Sub One S Sub S Sub one now be five then
+every every string that's pointing every point that is pointing at string is uh
+is going to be a five I don't want to do that it's going to universally change
+everything so what you do is you if it turns out if you're going to change
+something in a shared object you peel off its own copy and it's a pretty
+technology so it's used in certain places in C++ it's used extensively in Python
+this idea of sharing objects through through um reference counting is really
+used a lot so objects have pointers are point is to the reference count and the
+reference count points to the object um remember python everything's an object
+and these a pointer is every object has a reference count and you can check the
+reference counts of an object using the get ref count function from the CIS
+module so I import CIS these are these are things that you know operating system
+level stuff and it says um cy.  get reference count of a and it tells me two why
+two there only one of them and then if I say B is pointing to a it it adds one
+when I delete B it goes back two why is there an additional one why is there a
+one so this function Returns the reference count but note that ref count itself
+if I'm referring to something then the function ref count is referring to it
+right so it adds another reference does that make sense to everybody at this
+point only a is pointing to this when I say get reference count this creates an
+object that's pointing to this thing so the reference count goes up by one so
+it's iling one more than the than the real things that are pointing to now Mak
+sense now when I say delete B so uh Delete B um what it does is it unbinds the
+name I from the object it references right it it's it closes it it breaks I
+think as Yer said it it breaks the pointer it's no longer pointing there Del
+removes The Binding of a name from the local or Global name space The Binding
+means the association of a name to an object right depending on where the name
+was defin it doesn't directly delete the object itself so what happens when I
+say when I was deleting over there um when I when I say delete a so we saw that
+it said the name is not defined because because it was only a was only pointing
+to one thing so when we we do a delete a the reference G goes down to zero if
+that's count to zero the thing doesn't doesn't exist anymore right but the
+object itself is still sitting there in memory and it's waiting to be what he's
+waiting to be garbage collected does that make sense right so delete doesn't
+delete the object didn't delete the list list is floating in there it broke the
+pointer okay but if it was three things pointing to there delete won't delete it
+either but it's going to right A B and C are pointing to some list and I say
+delete a the list still there and the reference count goes down by one because a
+is no longer pointing at that object but when the reference again goes to zero
+it goes away goes away means really goes away right gets garbage collected and
+that sort of thing what about clear so a is 1 B is 2 C is three get count of a
+it's two right why two because a is poed to this and get count created this
+temporary object that's also pointing to it and get the count to B count to C
+and so on now let's say d is a b and c d is a and c and now I so now so now I
+say get the reference count of a so it says three right why does it say three a
+what's the reference count of a by itself a by itself was was one because I was
+pointing to this and then and get reference count made it two um but what I say
+now after I put into a list why does the reference count go up to three what's
+what's the implementation that makes the reference count go up do you have an
+idea Professor yep yeah so I think uh it is extra one so it's two so two is
+because a is pointing to the uh one list in memory and then D also has a pointer
+uh to the a uh to the one list through a um if I think I understand let's go
+back here we talked about so so if if if if a if if the subl list a that list a
+is in there so the list is not going to have a in here it's going to have a
+pointer to a so if this is my list D over here so a was point the name a is
+pointing to it the check get reference is pointed to it and then the way the
+list is implemented if it's a subl list of this this is going to be a pointer to
+that's why we got to count is that what you were saying I think that's what you
+meant uh yes sir right so that's what's going very good all right and then what
+happens when I clear when I say um so this is d The Ref is three when I say
+clear it and it's going to be still pointing to something it's going to be
+pointing to the empty list right but what what happens when I say the get
+reference counts of a when I clear the list didn't it clear out everything the
+list d A and C in it right so why does it now say two do if I clear the list
+doesn't it get rid of everything in there no it just breaks it breaks pointers
+right so therefore you would imagine if you look at the list Z nothing's there
+and it had three things in it right now those three things should be gone but
+they're not really because they're still being pointed to their reference count
+is greater than um you know is greater it's one because of this pointer a
+pointing you know to that sub list and since gu reference counts also is
+pointing so goes down to two even though D has been cleared makees sense okay
+all right let's try this let's say A B and C are above right so here's a b and c
+and there's D so you're going to look at this right and you're going to write
+down what you think the if I print D what's going to happen and then you'll
+explain why and then you'll run it and see what's going on let me just give let
+me just see one thing over here okay um give me one more second let's see who's
+here so um okay areli is that the way you pronounce your name yeah that's how
+you pronounce it okay you want to show us your stuff yeah stop my share okay
+this is what I got after I run the code all right so other words so you have
+where's a printing so and I'm printing a in for a i and D delete a delete I
+right and then what is what's it get printing what's get some printing here yeah
+I'm confused about that I don't know why it's printing it in two more two more
+rows I thought maybe it print this because I think because one second one second
+second one second did everybody get the same results no I got I got one line I
+got one line of one two three I got one line too you got one line yeah I think
+because the her print statement is inside the for Loop and and in the problem
+print statement is outside the for Loop so what happens when you have the
+outside what happens now oh okay it's okay is that expected but you've deleted
+everything in the list I have no idea I mean it is surprising right you have a A
+and C right and but AB andc are lists right so when you say somebody want to
+explain this uh can I guess it yeah Olivia is speaking um I was thinking that
+for I and D it feels like little I is like we delete the index but we didn't
+delete like the uh SC where bracket I so we didn't delete the thing the element
+actually in the list but what's I in here what's I is the index I'm not sure I'm
+guessing like0 one two well I mean it's an index yeah but but what is it really
+uh if you would like to delete uh if you would like to delete the element in the
+list we should the right direction sure when I have a list and have sub list
+right so so I have a big list on the bottom and each this D Sub 0 d sub 1 D sub2
+are Pointers right so when you delete I you're not deleting the thing itself
+right I is D subi is a pointer to the element so what it's doing is it's
+breaking the connection of that pointer to the right to the list to the object
+itself but the object is still there right does that make sense to everybody you
+say delete I I is a pointer right so the pointer I gets that gets broken off but
+the nothing ends up deleting from the list itself that nothing happens there
+this very surprising Behavior you're not saying delete you're not saying delete
+uh uh um a sub d subi right that you're not saying that you're saying delete I
+so when I'm when I so I is an iterator so what you're doing is you're breaking
+the connection between the iterator and the and the and the list itself right
+try take the same code and see what happens say delete um what delete um so
+let's say delete um say for I in range length of d right right so that's going
+to go that range is going to be three right so that's going to be 0 one two okay
+and now say delete D subi don't run it yet to right so now we're doing it by the
+index right do D survive and we're going to run that and print D what what
+should be happening here run it and see what happens ah what what's going on
+this is very strange right should we in range length of D Professor L of D is
+three right so I was zero one and two so you and and and d d sub Z is a d sub B
+is two d sub one is B and so C right so but so now we're deleting them but it
+says what it says uh no it has to be uh range length of what dides she have of
+there L you have length of what happened range of D the um bring it bring your
+screen back up one second you were also doing a subscript uh no no length of D
+length of D range length of D I should she had that over there length of D
+brackets why is the square brackets there we want it to be the range function
+and the range function is going to get the length it's going to I want I to be 0
+1 2 so so so say range right range length Len of d right put it in parentheses
+length is a function length of right I think the same applies for the range to
+range is the function all right is that correct I can't see it's too small I
+really can't see what's going on change the square brackets in the range to
+Circular brackets please thank you there we go all right so let's see what
+happens now I'm guessing this also different eror before before because before
+you said I didn't I didn't notice because I couldn't see that it was too small
+now it says that the list assignment index is out of range how could it be out
+of range D has how many elements three right the range the length of D is three
+so um that should be I go 012 how could you end up with ideas it looks like
+what's going on is because we set the range is equal to the length of D at the
+beginning that gets evaluated once so we get is range of three in this specific
+run and then what we do is we get uh I is equal to zero then I is equal to 1
+then I is equal to two uh it doesn't tell us what i is equal to but what's
+happening is we're changing the length of D every time we delete something from
+D so by the time we get to the end of the list the list is a lot shorter than it
+used to be so then we get this index out of range error go back to the program
+um are so you still with us go program um I can't the program's out of the frame
+bring the program back in here thisr to the right yeah um let's print um uh
+let's say after the four right um before delete D subi say print d sub subz yeah
+but it's a print statement so put parenthesis oh yeah sorry okay let's see what
+happens H oh I actually printed something what did it two let's why don't we
+print all of D before we do the delete statement each time in the loop but when
+wait wait before we do that so the first time I in the range so it prints d subz
+d subz what does D subz have so it's one right that's makes sense because D has
+a b and c so it had one then it deletes it the next time when you go through it
+prints it prints two right d sub Z is two what does that mean it means
+everything got shifted the length of the list changes okay I think that's what
+Matthew was getting out let's let's go back to the class notes and see what we
+have here let's see let's see what's going on so um oh I want you to do one
+other thing uh before we get to this was let me just show you something else
+here so um uh import CIS okay got to do it correctly and I say a is equal to one
+so to say get reference count of a I say you're not sure ah thank you all right
+let's take a look at this then we'll go back and look at what happens with
+delete so um I import sis I say a is equal to one I say get reference down how
+many how many poters are there to this integer one right but then I say what's
+the reference count of a and it says 686 this is a pretty short this is this is
+that the at the level of the shell how could I have that so this has to do with
+with toet reference counting is um is is one an in is one one's an integer right
+but is an integer an object yes it is so one appears all over the place in The
+Interpreter in in in the modules in the and all the objects that are all the
+helper object so one appears only once but there is but but there's pointers to
+it it maintains a reference count right and the reference count is going to be
+686 now this that's it just happens to be you can run another time with more
+stuff happening you get a different reference count so this is strange this is
+strange but strange but true as they say all right I'll take questions in a
+second let's go back to this so we saw we got very unexpected Behavior so why do
+we get the behavior so um what H so what happens is we saw because when we say
+delete the um delete the purpose of elite is to delete objects in Python of used
+remove individual items from a list so when I'm pointing to that list and there
+was list a b and c in there um it it we saw that the list itself a B and C are
+still over there because it breaks the pointers when I say for I in I is an
+iterator right so what's happening is the delete of I in the for Loop all that
+does is it breaks the connection between the iterator iterator and this context
+is a generalized pointer so it breaks the connection so I is no longer pointing
+to it however um however the list doesn't get changed at all but when I say d
+subz d subz is the is the actual element the list element itself so when I say d
+sub Z as we saw I thought I haven't here uh yeah so what happens when I say d
+subz uh on the list several internal steps are involved first of all the removal
+of the element the first element D subz is removed what happens is this
+operation decreases the reference count of D subz because d subz as we saw it's
+implemented as pointers that gets decremented if this was the only reference to
+that object then no other reference exist then the object becomes garbage
+collected or eligible but the reason we saw the the one going to a two is
+because there's a shifting of subsequent elements to maintain the contiguous
+nature of the list you saw what the list looks like right it's an array of
+pointers in order to maintain that you have to shift everything over to the left
+and maintain the size correctly that happens behind the scenes so um so removing
+element D1 and D2 and so on each one each everything left in the list is shifted
+to the left this means that the element was at D1 now becomes d0 so we printed
+d0 each time we had the D2 that's why that showed up and back in the back
+there's size adjustment and all kinds of stuff right does that make sense to
+everybody I have a question how we printed it it was it was one then two twice
+yeah good question so why was it two again who who had the program up think it B
+yeah show it again yeah no problem okay let's see if we can figure that why is
+it printed twice so let's see the program right next to this so what is what's
+happening here it says you're going to print d0 and and what was the remember
+what what was the error at the bottom the error was that the index is out of
+range so let's see why why are you going to get index out of range why would
+that happen because what do we say what is delete doing delete is shrinking the
+list right everything moves to the left but you're shrinking the list so there
+is no when you're going to try to get D Sub 0 d sub 1 D sub2 those three things
+when you end up there's not going to be any D sub2 because the list has shrunken
+and so there is no such it's not pointing anything so you get so the index is
+out of range because it's going to be two and there is no two anymore because
+everything shifted over and the list size change so that's why you got this
+error but what about one one two one we understand right because that's the
+first thing let's see the move the code a little bit over can you see it or am I
+do it on my scen I'm moving can you see what I'm doing here no right no no so I
+can see I can see the code you want to move the code a little bit so you pred d
+sub Z that gave you one and then um and then and then you delete uh so I is zero
+deleting d sub Z come back on the top um the length of D um as you said is be
+the same as it was in the beginning length of the is three but now um so should
+give you 0 one2 but now the list is smaller by one it's shifted over so now it
+says print d sub Z well the two moved into that position so that's going to be a
+two then you delete what's a d sub Z so the two is not there anymore right uh
+you come back up here what's the value of I is I still in the range of the
+length so what's the value of I I is is going to be it was Zero it's one right
+was Zero work then it's shrank now you have uh but the length is change right so
+then so D subz now when you delete when you're printing d sub z d Subzero um is
+what what is the Subzero it's the two right why is it the two and not the three
+that's the question anybody can I guess yeah yeah cuz uh the first time when um
+I equals to zero we print the uh D of Z which is one first and then we delete di
+I which is D of zero so we deleted one successfully and then since one is
+deleted so now D what's the value of I the next time through I is uh uh Y is one
+but now D1 is actually three so the next time when we delete actually we deleted
+the uh index of one which is three successfully so when we print D of zero we
+still get uh two and the the third time when D equals to um two because the
+length of D is three uh we print D of zero which is the second two we still get
+two because uh is still there but when we try to delete D of um index two uh it
+the error occurs because uh there is no two anymore uh in the D uh now in the D
+is there is just one element which is uh the which is two yeah on D of zero so
+two is on the index zero this is my guess is she guessing right I believe so um
+I think it'll be more clear if we print the whole list D inside the for Loop
+Professor that's try that so print just print D instead of d sub Z print D let's
+see what happens print I and exactly she m soia is Right very good okay so at
+the last time uh when I is two there is no D sub2 because the list has shrunk so
+you see that's what's happening but so there's a difference between in the for
+Loop deleting I because that you're deleting the the connection between the
+iterator and the object the D subi is the actual essentially it's the actual
+object itself it's even though it's a pointer internally you're not break you're
+just taking that object you're getting it you're getting that object out not
+just breaking Go in all right very nice so that's what's going on and it is
+surprising so you have to make sure anything what's going on that is this okay
+now it turns out that even though we say that everything is a pointer and so on
+um oh let's let's do this let's take time is it now let's take a five minute
+break and we'll continue on okay back everybody here okay okay let's see what's
+going on so um we saw all this stuff we saw it shifts and G that's what gave us
+the strange behavior let's say I want to write my own version of clear so here's
+my version of clear did we talk about the range function what the range function
+uh all the attributes of the rain function I don't think we formally discussed
+it but I think we've started petering into some of it uh all right we we we do
+this we do that new Range can someone else confirm uh I think I think weef disc
+discuss in detail no we did not do this no sir not indeed we'll come back to it
+so let's we'll come back remind me we'll come back to that I I want to make sure
+you understand how the range function works I thought I did it earlier in the
+range maybe I have a different version of the notes okay so there's something
+called interned objects and that's um as we saw when I asked which is very Str
+when I asked about one right and I and I let the reference count of one and the
+program simply said a equals 1 and I said what's the refence count of a it told
+me like 600 and something about it and and we said that's because many um many
+uh many things in The Interpreter in the environment NE a one and this this
+object this one object and they're all pointing to it um so that so these what
+happens is small objects um are intern means they put internally and they're
+basically Singletons so for example if I say I is equal to 693 and then later on
+in the program I say you know J is equal to 633 it's not guaranteed that both I
+and J are um appointing to the same object right it's not it depends on The
+Interpreter it depends on a lot of things that are going on when your program
+runs um because they aren't singl objects they created um when when you when you
+use them and um python is not required to search around to see if this very
+strange large integer is um you know is is is uh existing earlier and then
+increase the reference count and have a point to point to the one that used
+before but there are certain numbers that python will do that for and these are
+the interned objects what are interned objects they're small objects in this
+range between minus5 and 256 so what happens is python will will in the
+beginning when it first loads up it's going to create these objects because
+apparently they're very widely used this just they figure this out by doing
+statistical analysis programs that are running and so on so what they do is when
+the program runs you know U is booted up uh and not when the program The
+Interpreter is booted up these get created and they are reference counted for
+sure it's not like you know and so if I ask if I ask um later on if I want to
+compare identity if I have if I say something is one equal to you know equality
+if it's the same as right is is it equal to one the answer is going to be true
+if I say is one one right the answer is going to be true but if I have integers
+that are not these small values like some very large integers not guaranteed
+that The Interpreter searched its name space to find did I use this string
+before so it's not not the case if I say like nine you know that same large
+integer if I ask is that going to be the same as that right it's not going to do
+an identity check it might come out to be false even though they the same large
+integer right because it only it only does the reference counter for what it
+thinks to be the most commonly used one so it save space and so on and it
+doesn't create multiple copies of the number six there's only one of them and
+all all um references to six in your program are pointed to the same place we
+saw one there's 6 600 references to a one right because there's actually we
+check and it UPS the reference count um that's the story here okay any questions
+those are Co those are called um intern values and they're Singleton what does
+Singleton mean it's only going to create one of them at the time The Interpreter
+mots up all right loops and lists and Loops make sure you understand this stuff
+with delete and clear oh now we want to do this this we want to write a function
+called my clear oh we want to we don't know the range okay we we'll get to that
+again then um lists and Loops will we do that today or uh Monday I want to make
+sure I get we're gonna have an exam on Tuesday so I will if not today we'll do
+it on Monday thank so um but remind me if I don't do it you know today we'll do
+it on T on Monday no problem list I thought all right so list and Loops are made
+for each other um in an obvious way right you want to iterate through the list
+so for I in that range um I say take s 10 I right um people who are sort of new
+to a language like python they will tend to go through a list using assuming the
+list really looks like an array saying like in C++ or in Java and they'll try to
+access the elements of a list you know you know using the I we say we did before
+right for I in range the length of the list and uh but that's not sort of that's
+not what really happens most of the time you're not using it like that most of
+the time you have an iterable and you can iterate through and that's the point
+we'll see we'll see how that's implemented later on in terms of the functions
+internally what the dunders are like to iterate through objects because we can
+create objects with our own and they'll be iterable but we have to do something
+in the internals and we'll see what those are but so so if you have iterables
+it's iterating through it's not using the index value right so so here so here
+that's what I is not it's not there's no range integer for example right there's
+no there's not an integer array what's happening is I is a pointed to subsequent
+values that are produced by range the range is very um very efficient because it
+produces values on the fly in the earlier versions of python 2 in the earlier
+versions of python um the range if I say Iron Range uh you know like a thousand
+in the background would actually create to me like an array likee structure
+structure with the values 1 to 1,000 in there or 0 to 1,00 to 999 and that was
+very it was was not very efficient right so now in you know three and so on and
+so forth now this is on the Fly each time you is an x value it produces it right
+so it's going to print the obvious things print one to two let's say we want to
+write um we're not going to do this you can do at home you want to write uh
+using the loop adding up all the elements of the list and printing them is
+thinks they can't do that right prog creates a list with the integers 1 to 10
+and then let's do this right write a program that creates a list with the
+integers 1 to 10 using a for Loop and then add up the elements of the list that
+are even and then print to some let's try that it so it creates a new list it
+adds all the numbers from one to 10 because 11 isn't included and it appends it
+to the list uh prints out the list and then we sum over the numbers uh adding
+them to the running sum and then it prints the sum you have to check for oh the
+even number oh uh so if n mod 2 is zero then we add it there we and hear you if
+you're speaking Yeah Nicholas how do you change this if it's I want the odd ones
+not the even ones then you could just change this to one or not equals so do it
+let's see okay right um how would I change it if I want all the elements that
+are on the even positions uh then you could change this uh for Loop to be for I
+in range length of the list that would give you the actual uh indexes for each
+number and then you could do if uh you said you want the even ones yep so if the
+index is even then we would add L sub index may run it which is the same because
+at the uh sorry even indexes uh 1 three yeah that's all right zero even or odd
+uh Zero's even right so it's 1 three five seven nine which would be those
+positions very good okay any question about this very good thank you let's go
+back to the notes we'll try one other one let's try so we did all these the that
+are even in even positions and so on uh even and odd and even positions let's
+try this we want to delete that even position so here's X the list of inages so
+when we want to delete it even position I'm going to run that and then we're
+going to print D and this says you're going to get 13597 let's see if we can get
+that to work this is the list you're starting with okay so write this muted oh
+can you can you hear me now oh sorry I was muted yes thank you um so I put B
+here one to 10 and since we have to delete all the even uh elements here so uh I
+do if uh I I make a new list to contain the uh what is that called uh the odd
+elements so uh I iterate the all the index from zero to uh n if it's uh if it's
+not an even element I append it to my answer list and then I return my answer
+list it even positions even positions oh so we yeah because I I saw this we get
+right it just happens to be those are the even positions but we want to delete
+those it could be 99377 in even position not necessarily not the values let's
+see so let's see what's happens up here so yeah so if I run it so it would be
+the original one and the one that is not uh is not even elements so if you would
+like to delete the index even index it would that right now could you do a print
+D after this you have three CR put another print D uh print the yeah again one
+more at the end okay print the it should not change I guess let's see see save
+yes right but do we want it to PR we want it to change or we don't want it to
+change uh we want it to change but I didn't figure out how can I do the in place
+dele so so one pass okay very good so Matthew you want to show us something else
+uh sure I do have a little bit of an illegal we haven't gone over it yet uh
+generating a generator uh well uh this statement this statement just creates the
+uh the list that we want all right we'll see that another time anybody else um
+who who else I've got this function is perfectly legal okay show us that all
+right so here we can just ignore line 41 on on line 43 we can see that we have
+list um D which is our 1 through 10 and on line 45 we have our list um shortened
+a bit and we're going to delete every even even position so that would be 1 3
+Etc uh 0 one uh 02 4 and we're going to do inside the function is very similar
+but we're going to do is we're going to get the length of x uh and we're going
+to store that as the last index which is kind of a misnomer as a name if this
+last index is not even we're going to make it even that's what we do in our if
+statement here um if it's not even in this case the answer is it's um the last
+index is let's talk about that more the length of X is 10 so the last index is
+the ninth position of the list so that's how we get that and because it's the
+ninth position of the list we want to get the last even position so that's so we
+kind of misnamed the variable here where we get the then this is going to be
+equal to eight then while we we're going from the back of our list to the front
+of our list well it's greater than zero we delete that even element and then we
+um change the last index further back so this will hit out so we attack um the
+indexes in Reverse so first we delete the nine then we delete the seven then we
+delete the five then the three then the one um and we result with this list
+every see what just doing over here what Matthew's doing what are you why are
+you going back backwards that's an interesting approach why are you going
+backwards so the reason why I'm going backwards is because we're modifying the
+list in place sort of um and when we change when we delete an element from the
+list that's going to change all of the future elements in the list which we are
+planning to delete so instead of trying to do some math on like which lists
+which ones we want to delete in order or whatever and trying to keep track of it
+going forward through the list I'm just going to go back backwards through the
+list so that I can do this um do this uh very simple minus two sort of thing
+very nice approach right because if you're going backwards if you're going
+forwards then in either case the list is shrinking right but you know where if
+for as the list shrinks by one then you know uh the the last even element is
+going to be either at the last position or one before it and then then just get
+a hold of that by taking the left and that works nicely very nice idea very nice
+idea all right anybody else do it this uh do another way no that's it I did it a
+different way okay let's see what you got uh so the way my function works is it
+starts at index zero and uh it goes through each uh index of the list and it
+deletes at index I uh it deletes at index I where I starts out at zero so it
+starts out at the even positions and then when you delete that index it removes
+everything shifts over one and so if you increment I by one that brings you to
+the next even position so this is kind of like a shift over by two so it
+accounts for that remove in place very good so let's try let's see a list right
+so prints out the the whole list first and then afterwards but and remove the
+right very nice so but let's make sure it's the same list it has to be the same
+so do that you don't need the print in there very good so let's print on the
+outside this is not the expected output yeah well what was are the even
+positions uh he remove the one which is position zero and the three was position
+two two so he did remove move the uh even positions is that not right because
+the list starts at zero who who just asked the question sir it was yes yes I was
+just looking at the question deleted even position it says uh we get 13579 on
+the question on page 132 that was wrong my question was wrong his answer is
+correct oh I I got the this answer first then I was trying changing my code to
+try to get the other one very good I'm sorry all right let's I have a meeting
+now so let's let's P it a de and um and we we we are going to meet on on Monday
+there won't be an exam on Monday uh and then we'll we'll work out what we need
+to work out I try to fix the pieces that we didn't do remind me about the range
+function I I'm I'm positive I thought I had it someplace in the notes and I
+thought I had it earlier than this so we'll work out it's very straightforward
+but we'll work it out we go back to the problems that needed range function and
+we're going to continue on okay any questions a couple yeah are you gonna are
+you going to have the requirement that we can't use things we haven't learned
+yet um probably okay and the second question are you g to teach Advanced C++
+anytime soon so they want me to continue with this python thing because they
+want to they think eventually moving python at the very beginning and so they
+want want to make sure that we can we have a group of people that know python so
+they can help out in the curriculum uh that's a really cool course the the
+advanced C++ is really very interesting even if C+ are much SM to use in Python
+um the the Technologies of the implementation are beautiful so maybe maybe um we
+shall see we shall see um yeah any other question

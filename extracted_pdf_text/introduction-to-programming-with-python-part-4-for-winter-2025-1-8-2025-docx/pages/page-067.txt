@@ -1,0 +1,47 @@
+Monte Carlo Method
+The Monte Carlo method, named after the Monte Carlo Casino in Monaco due to its reliance on random
+chance, is a computational algorithm that uses repeated random sampling to obtain numerical results
+The first documented application of the Monte Carlo method was in the simulations of neutron diffusion, a
+key process in the chain reactions required for nuclear fission. The method proved to be extremely useful
+in providing approximate solutions to complex mathematical problems that were otherwise unsolvable
+using deterministic numerical methods.
+The method was formally developed by scientists working on the Manhattan Project at Los Alamos
+National Laboratory, with notable contributions from Stanislaw Ulam and John von Neumann. The need
+for a new approach arose from the complexities involved in solving problems related to the physics of
+nuclear reactions, which were critical for the development of the atomic bomb.The Monte Carlo method
+has since become a fundamental tool in various scientific fields, including physics, chemistry, finance, and
+engineering.
+The provided code above is a simple implementation of the Monte Carlo method to approximate the value
+of Pi (π) and demonstrates solving problems through the use of randomness and probability. This
+particular implementation uses random points to estimate the area of a quarter circle, which in turn helps
+to approximate Pi.
+Here's a breakdown of the code and how it works:
+1. Code Overview:
+• The sqrt function from the math module is used to calculate the square root.
+• The random function from the random module generates random floating-point numbers
+between 0.0 and 1.0.
+• count is initialized to 0 and will be used to count the number of points that fall inside the
+quarter circle.
+• A loop runs 1,000,000 times, each time generating a random point (x, y) where x and y
+both range from 0 to 1.
+• For each point, it checks if the point lies inside the quarter circle inscribed within the unit
+square by using the equation sqrt(x*x + y*y) < 1. If so, the count is incremented.
+• After all iterations, the fraction of points that fell inside the quarter circle is multiplied by 4
+to approximate Pi.
+2. What it Calculates:
+• The code is calculating an approximation of Pi (π). The value of Pi is related to the area of
+a circle, and by estimating the area of a quarter circle and then multiplying by 4, we can
+approximate the value of Pi.
+3. Theory Behind the Method:
+• The code uses a probabilistic model to estimate the area of a quarter circle. Since the exact
+area of a circle with radius 1 is π, the area of a quarter circle would be π/4.
+• The unit square that bounds this quarter circle has an area of 1. By randomly generating
+points within this square, the proportion of points that fall inside the quarter circle should
+approximate the ratio of the quarter circle's area to the square's area, which is π/4.
+• Thus, by multiplying the proportion of points inside the quarter circle by 4, we get an
+approximation of π.
+• This method works due to the Law of Large Numbers in probability theory, which states
+that the results of performing the same experiment a large number of times should
+converge to the expected value. In this case, as the number of points increases, the
+approximation becomes closer to the true value of π.
+139

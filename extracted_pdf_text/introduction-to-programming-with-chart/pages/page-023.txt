@@ -1,0 +1,27 @@
+Inverted Index
+Another dictionary problem:
+Problem: Read a text file and create an inverted index for the file.
+What is an inverted index of a text file?
+An inverted index is a dictionary whose key is a “word” in the file and whose value is a list of tuples
+(line number, number of times “word” appears on the line).
+Part 1.
+Write a program that reads a text file and creates a simplified version of in inverted index.
+Your program will create a dictionary, invertedDict, whose key is the word in the file and whose value is a
+list of integers representing the line numbers in the file where word is found.
+What if the word is found k times on some line?
+Then the line number will appear k times in the list.
+For example, say the word “cat” appears 3 times on line 4, 2 times on line 6, and 4 time on line 8, then
+the dictionary entry for cat will be:
+invertedDict[“cat”] ->[4,4,4,6,6,8,8,8,8].
+Part 2.
+Write a function squish(x) where x is a list of integers so that squish(-[4,4,4,6,6,8,8,8,8]) returns -
+[(4,3),(6,2),(8,4)].
+Part 3.
+Modify part 1so that
+invertedDict[“cat”] ->[(4,3),(6,2),(8,4)].
+Test your program on the text of the Gettysburg Address.
+First do following:
+Problem
+Write a function squish(x) where x is a list of integers so that squish(-[4,4,4,6,6,8,8,8,8]) returns -
+[(4,3),(6,2),(8,4)].
+151

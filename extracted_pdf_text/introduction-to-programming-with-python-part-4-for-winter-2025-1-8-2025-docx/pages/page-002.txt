@@ -1,0 +1,6 @@
+Which functions are available in the math module?
+We do it with the “dir” command:
+If we want to know what each one of these function does we use the “help” command:
+And it goes on and on ..
+You can also get help on a single function:
+74

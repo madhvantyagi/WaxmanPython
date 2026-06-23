@@ -1,0 +1,11 @@
+Problem:
+Recall we had difficulty writing the function delete_at_even_positions(x).
+Would something like this solve our problem?
+d = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(d[1:len(d):2])
+def delete_at_even_positions(x):
+del x[1:len(x):2]
+delete_at_even_positions(d)
+print(d)
+Look at it carefully before you run the code. Then run the code to verify your analysis.
+142

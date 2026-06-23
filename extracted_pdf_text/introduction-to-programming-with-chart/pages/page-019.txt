@@ -1,0 +1,35 @@
+Function Call
+z(12, 3, 4, 5, k=87, l=19)
+- `a` will be `12`.
+- `b` will be a tuple `(3, 4, 5)`.
+- `c` will be a dictionary `{'k': 87, 'l': 19}`.
+Execution Steps Inside the Function
+1. `print(type(a), type(b), type(c))`:
+- Prints the types of `a`, `b`, `c`: `<class 'int'>`, `<class 'tuple'>`, `<class 'dict'>`.
+2. `print(a, b[1], c, sep='\n')`:
+- Prints `12`, `4` (second element of `b`), and `{'k': 87, 'l': 19}`.
+3. `print(len(c), list(c.items()))`:
+- Prints `2` (number of key-value pairs in `c`) and the list of key-value pairs `[('k', 87), ('l', 19)]`.
+4. `g = list(c.items())`:
+- `g` becomes `[('k', 87), ('l', 19)]`.
+5. `c[g[0]] = 156`:
+- Adds a new key-value pair to `c` where the key is the tuple `('k', 87)` and the value is `156`. Now `c` is
+`{'k': 87, 'l': 19, ('k', 87): 156}`.
+6. `print(c.items())`:
+- Prints the items of `c`: `[('k', 87), ('l', 19), (('k', 87), 156)]`.
+7. `print(type(c.items()))`:
+- Prints the type of `c.items()`: `<class 'dict_items'>`.
+8. `d = [i for i in c.keys()]`:
+- `d` becomes a list of keys of `c`: `['k', 'l', ('k', 87)]`.
+9. `print(c[d[0]])`:
+- Prints the value associated with the first key in `d` (which is `'k'`), so `87`.
+10. `z = list(c)`:
+- `z` becomes a list of keys of `c`: `['k', 'l', ('k', 87)]`.
+11. `print(c[list(c)[0]])`:
+- Prints the value associated with the first key in `c` (which is `'k'`), so `87`.
+12. The `for` loop `for i in iter(c): print(i)`:
+- Iterates over each key in `c` and prints it. The output will be `'k'`, `'l'`, `('k', 87)`.
+The program demonstrates the use of variable positional arguments (`*b`), keyword arguments (`**c`),
+and various dictionary operations. It shows how to access and modify the dictionary, including adding a
+tuple as a key.
+147

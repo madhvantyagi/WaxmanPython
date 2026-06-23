@@ -1,0 +1,14 @@
+Not exactly what we wanted.
+4. How about:
+This works!
+But ….what about if the list elements were dictionaries, or sets, or other structures containing circular
+references or …. The world is complicated.
+The copy module.
+Enter the copy module. It contains copy (a shallow copy) and deepcopy ( a deep copy). deepcopy is
+much more sophisticated than the recursive copy above. It handles all the data types and edge cases.
+The difference between them lies in how they treat complex objects that contain other objects, like lists or
+dictionaries.
+Shallow Copy (`copy`)
+A shallow copy creates a new object, but instead of copying the nested objects, it just copies the
+references to them. This means the new object is a separate instance, and changes to the top-level object
+157

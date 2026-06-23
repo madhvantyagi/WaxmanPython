@@ -1,0 +1,9 @@
+Lists and loops
+List and loops are made for each other!
+Problem:
+Write a program that creates a list with the integers 1 – 10. Using a for loop add up all the elements of
+the list and print the sum.
+Problem:
+Write a program that creates a list with the integers 1 – 10. Using a for loop, add up all the elements of
+the list that are even and print the sum.
+131

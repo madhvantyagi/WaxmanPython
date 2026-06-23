@@ -1,0 +1,34 @@
+8.Function Application and Parameter Passing
+When a function is called, the function parameters are local names that get bound to the passed input
+objects. Python passes the supplied objects to the function “as is” without any extra copying.
+Care is required if mutable objects, such as lists or dictionaries, are passed. If changes are made,
+those changes are reflected in the original object. Here’s an example:
+def square(items):
+for i, x in enumerate(items): # enumerate creates an iterator that yields pairs.
+items[i] = x * x # Modify items in-place
+a = [1, 2, 3, 4, 5]
+square(a) # Changes a to [1, 4, 9, 16, 25]
+Functions that mutate their input values, or change the state of other parts of the program
+behind the scenes, are said to have “side effects.”
+As a general rule, side effects are best avoided. They can become a source of subtle
+programming errors as programs grow in size and complexity—it may not be obvious from
+reading a function call if a function has side effects or not. Such functions also interact
+poorly with programs involving threads and concurrency since side effects typically need
+to be protected by locks.
+It’s important to make a distinction between modifying an object and reassigning a
+variable name. Consider this function:
+def sum_squares(items):
+items = [x*x for x in items] # Reassign "items" name, not changing the passed list.
+return sum(items)
+a = [1, 2, 3, 4, 5]
+result = sum_squares(a)
+print(a) # [1, 2, 3, 4, 5] (Unchanged)
+In this example, it appears as if the sum_squares() function might be overwriting the
+passed items variable. Yes, the local items label is reassigned to a new value. But the
+original input value (a) is not changed by that operation. Instead, the local variable name
+items is bound to a completely different object—the result of the internal list
+comprehension. There is a difference between assigning a variable name and modifying an
+object. When you assign a value to a name, you’re not overwriting the object that was
+already there—you’re just reassigning the name to a different object.
+Stylistically, it is common for functions with just side effects to return None as a result.
+101

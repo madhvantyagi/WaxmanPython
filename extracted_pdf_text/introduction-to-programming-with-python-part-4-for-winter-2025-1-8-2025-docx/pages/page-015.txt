@@ -1,0 +1,38 @@
+First, Python looks for x locally, in the local function bar.
+Next, Python looks for x in the enclosing function foo.
+If x were not in foo, then Python would continue looking at the global level.
+And if x were not a global variable, then Python would look in the built-ins namespace.
+What if I want to change the value of x, a local variable in the enclosing function? It’s not global, so the
+global declaration won’t work. In Python 3, though, we have the nonlocal keyword. This keyword tells
+Python: “Any assignment we do to this variable should go to the outer function, not to a (new) local
+variable”. There is no need to declare a variable nonlocal if it is only going to be read.
+For example
+def foo():
+call_counter = 0 ❶
+def bar(y):
+nonlocal call_counter ❷
+call_counter += 1 ❸
+return f'y = {y}, call_counter = {call_counter}'
+return bar
+b = foo()
+for i in range(10, 100, 10): ❹
+print(b(i))
+❺
+❶ Initializes call_counter as a local variable in foo
+❷ Tells bar that assignments to call_counter should affect the enclosing variable in foo
+❸ Increments call_counter, whose value sticks around across runs of bar
+❹ Iterates over the numbers 10, 20, 30, ... 90
+❺ Calls b with each of the numbers in that range
+The output from this code is
+y = 10, call_counter = 1
+y = 20, call_counter = 2
+y = 30, call_counter = 3
+y = 40, call_counter = 4
+y = 50, call_counter = 5
+y = 60, call_counter = 6
+y = 70, call_counter = 7
+y = 80, call_counter = 8
+y = 90, call_counter = 9
+Takeaway: the LEGB scoping rule and how it’s always, without exception, used to find all identifiers,
+including data, functions, classes, and modules.
+87

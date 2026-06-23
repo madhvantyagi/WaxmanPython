@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to Programming with Chart - Exam Study Guide</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #5f6c7b;
+      --line: #d7dee8;
+      --paper: #ffffff;
+      --bg: #f4f7fb;
+      --blue: #1f5eff;
+      --green: #147d64;
+      --red: #b42318;
+      --yellow: #8a6100;
+      --code: #111827;
+      --code-bg: #eef3f8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    header {
+      background: #152238;
+      color: #ffffff;
+      padding: 34px 24px;
+      border-bottom: 6px solid var(--blue);
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: 0;
+    }
+
+    header p {
+      margin: 0;
+      max-width: 920px;
+      color: #dbe7ff;
+      font-size: 16px;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    nav {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 22px;
+    }
+
+    nav h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    nav ol {
+      columns: 2;
+      padding-left: 24px;
+      margin-bottom: 0;
+    }
+
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      margin: 18px 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: #12263f;
+      font-size: 26px;
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      color: #183b56;
+      font-size: 20px;
+    }
+
+    h4 {
+      margin: 18px 0 8px;
+      color: #263f58;
+      font-size: 17px;
+    }
+
+    p {
+      margin: 8px 0 12px;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    code {
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      background: var(--code-bg);
+      color: var(--code);
+      padding: 1px 4px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+
+    pre {
+      background: #101828;
+      color: #eef4ff;
+      padding: 14px;
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 1px solid #26374d;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      background: #ffffff;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 9px 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #e9eff8;
+      color: #12263f;
+    }
+
+    .ref {
+      display: inline-block;
+      font-size: 12px;
+      color: #36506c;
+      background: #e8eef7;
+      border: 1px solid #cfd8e5;
+      padding: 2px 6px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .callout {
+      border-left: 5px solid var(--blue);
+      background: #eef5ff;
+      padding: 12px 14px;
+      border-radius: 6px;
+      margin: 12px 0;
+    }
+
+    .trap {
+      border-left-color: var(--red);
+      background: #fff1f0;
+    }
+
+    .behind {
+      border-left-color: var(--green);
+      background: #edfbf7;
+    }
+
+    .exam {
+      border-left-color: var(--yellow);
+      background: #fff8e5;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fbfdff;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .answer {
+      border-top: 1px dashed #b8c4d4;
+      margin-top: 10px;
+      padding-top: 10px;
+    }
+
+    .output {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      padding: 10px;
+      border-radius: 6px;
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      white-space: pre-wrap;
+    }
+
+    @media (max-width: 780px) {
+      main {
+        padding: 14px;
+      }
+
+      section {
+        padding: 16px;
+      }
+
+      nav ol {
+        columns: 1;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Introduction to Programming with Chart</h1>
+    <p>Source-specific exam guide for the PDF covering dictionaries, Counter, dictionary views, copying, kwargs, pickle, inverted indexes, groupby, CSV score bins, and Matplotlib bar charts.</p>
+  </header>
+
+  <main>
+    <nav>
+      <h2>What to Master</h2>
+      <ol>
+        <li><a href="#dictionary-core">Dictionary core model and methods</a></li>
+        <li><a href="#tabulation-counter">Tabulation and Counter</a></li>
+        <li><a href="#views-order">Views, list conversion, and order</a></li>
+        <li><a href="#comprehensions-copy">Dictionary comprehensions and copying</a></li>
+        <li><a href="#kwargs-trace">*args, **kwargs, and trace questions</a></li>
+        <li><a href="#scrabble-pickle">Scrabble descrambler and pickle</a></li>
+        <li><a href="#inverted-index">Inverted index, squish, groupby, defaultdict</a></li>
+        <li><a href="#csv-chart">CSV grade intervals and bar chart</a></li>
+        <li><a href="#professor-questions">Professor-style output questions</a></li>
+        <li><a href="#exam-checklist">Final exam checklist</a></li>
+      </ol>
+    </nav>
+
+    <section id="dictionary-core">
+      <h2>1. Dictionaries: The Core Model <span class="ref">pp. 1-4</span></h2>
+      <p>The PDF introduces a dictionary by comparing it to an online dictionary or phone book: you use a key to look up a value. In Python, a dictionary maps keys to values.</p>
+
+      <div class="callout behind">
+        <strong>Behind the scenes:</strong> A Python dict is a hash table. Python computes a hash from the key, uses that hash to find a storage location, and then retrieves the associated value. This is why lookups like <code>prices['IBM']</code> are fast on average, and why keys must be hashable.
+      </div>
+
+      <h3>Basic Creation and Access <span class="ref">pp. 2-4</span></h3>
+      <pre><code>s = {
+    'name': 'GOOG',
+    'shares': 100,
+    'price': 490.10
+}
+
+name = s['name']
+cost = s['shares'] * s['price']
+
+s['shares'] = 75
+s['date'] = '2007-06-07'</code></pre>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Operation</th>
+            <th>Meaning</th>
+            <th>Exam trap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>{}</code> or <code>dict()</code></td>
+            <td>Create an empty dictionary.</td>
+            <td><code>{}</code> is an empty dict, not an empty set. Empty set is <code>set()</code>.</td>
+          </tr>
+          <tr>
+            <td><code>len(d)</code></td>
+            <td>Return the number of key-value pairs.</td>
+            <td>Counts dictionary items, not total nested values.</td>
+          </tr>
+          <tr>
+            <td><code>d[key]</code></td>
+            <td>Return the value for <code>key</code>.</td>
+            <td>Raises <code>KeyError</code> if missing.</td>
+          </tr>
+          <tr>
+            <td><code>d[key] = value</code></td>
+            <td>Add or overwrite a key-value pair.</td>
+            <td>Same syntax for insert and update.</td>
+          </tr>
+          <tr>
+            <td><code>del d[key]</code></td>
+            <td>Remove a key-value pair.</td>
+            <td>Raises <code>KeyError</code> if missing.</td>
+          </tr>
+          <tr>
+            <td><code>key in d</code></td>
+            <td>Tests whether key exists.</td>
+            <td>It checks keys, not values.</td>
+          </tr>
+          <tr>
+            <td><code>key not in d</code></td>
+            <td>Same as <code>not key in d</code>.</td>
+            <td>Still checks keys only.</td>
+          </tr>
+          <tr>
+            <td><code>d.get(key, default)</code></td>
+            <td>Return value if present, otherwise default.</td>
+            <td>Does not insert the key.</td>
+          </tr>
+          <tr>
+            <td><code>d.pop(key[, default])</code></td>
+            <td>Remove and return value.</td>
+            <td>Without a default, missing key raises <code>KeyError</code>.</td>
+          </tr>
+          <tr>
+            <td><code>d.clear()</code></td>
+            <td>Remove all items.</td>
+            <td>The same dictionary object becomes empty.</td>
+          </tr>
+          <tr>
+            <td><code>dict.fromkeys(seq, value)</code></td>
+            <td>Create a new dict with keys from <code>seq</code>.</td>
+            <td>Every key receives the same value object; dangerous if that value is mutable.</td>
+          </tr>
+          <tr>
+            <td><code>d.copy()</code></td>
+            <td>Return a shallow copy.</td>
+            <td>Nested mutable objects are still shared.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Membership and Default Lookup <span class="ref">p. 4</span></h3>
+      <pre><code>prices = {
+    'GOOG': 490.1,
+    'AAPL': 123.5,
+    'IBM': 91.5,
+    'MSFT': 52.13
+}
+
+if 'IBM' in prices:
+    p = prices['IBM']
+else:
+    p = 0.0
+
+p = prices.get('IBM', 0.0)</code></pre>
+
+      <p>The two examples produce the same value for existing and missing keys. The difference is style and concision: <code>get</code> packages the membership test and retrieval into one expression.</p>
+
+      <h3>What Can Be a Key? <span class="ref">p. 4</span></h3>
+      <p>Strings are common keys, but numbers and tuples can also be keys. Lists, sets, and dictionaries cannot be keys because they are mutable and unhashable.</p>
+      <pre><code>prices = {}
+prices[('IBM', '2015-02-03')] = 91.23
+prices['IBM', '2015-02-04'] = 91.42  # same kind of tuple key</code></pre>
+
+      <div class="callout trap">
+        <strong>Trap:</strong> In <code>prices['IBM', '2015-02-04']</code>, the comma creates a tuple. The key is <code>('IBM', '2015-02-04')</code>, not two separate indexes.
+      </div>
+
+      <h3>Likely Test Questions</h3>
+      <ul>
+        <li>Does <code>'IBM' in prices</code> check keys or values? It checks keys.</li>
+        <li>What happens if <code>prices['TSLA']</code> is used and <code>'TSLA'</code> is missing? <code>KeyError</code>.</li>
+        <li>What does <code>prices.get('TSLA', 0.0)</code> return if missing? <code>0.0</code>.</li>
+        <li>Can <code>[1, 2]</code> be a dictionary key? No, lists are mutable and unhashable.</li>
+        <li>Can <code>(1, 2)</code> be a dictionary key? Yes, because a tuple of hashable values is hashable.</li>
+      </ul>
+    </section>
+
+    <section id="tabulation-counter">
+      <h2>2. Tabulation and Counter <span class="ref">pp. 5-9</span></h2>
+      <p>The PDF uses dictionaries to solve a tabulation problem: count the total number of shares for each stock symbol.</p>
+
+      <h3>Manual Dictionary Tabulation <span class="ref">p. 5</span></h3>
+      <pre><code>portfolio = [
+    ('ACME', 50, 92.34),
+    ('IBM', 75, 102.25),
+    ('PHP', 40, 74.50),
+    ('IBM', 50, 124.75)
+]
+
+total_shares = {s[0]: 0 for s in portfolio}
+for name, shares, _ in portfolio:
+    total_shares[name] += shares
+
+# {'ACME': 50, 'IBM': 125, 'PHP': 40}</code></pre>
+
+      <div class="callout behind">
+        <strong>Behind the scenes:</strong> The dictionary comprehension runs first. It creates one key for each distinct stock symbol and sets every value to 0. If a symbol appears twice, like <code>'IBM'</code>, the later assignment still sets the same key to 0. Then the loop adds shares to the existing count.
+      </div>
+
+      <p>The underscore in <code>for name, shares, _ in portfolio</code> is just a normal variable name used by convention to mean "I am ignoring this value." It receives the third tuple item, the price, but the program does not use it.</p>
+
+      <h3>Counter Version <span class="ref">pp. 5-9</span></h3>
+      <pre><code>from collections import Counter
+
+total_shares = Counter()
+for name, shares, _ in portfolio:
+    total_shares[name] += shares
+
+# Counter({'IBM': 125, 'ACME': 50, 'PHP': 40})</code></pre>
+
+      <p><code>Counter</code> is a subclass of <code>dict</code> specialized for counting hashable objects. Elements are dictionary keys; counts are dictionary values.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Counter behavior</th>
+            <th>Example</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Create from iterable</td>
+            <td><code>Counter("banana")</code></td>
+            <td>Counts characters: <code>a:3</code>, <code>n:2</code>, <code>b:1</code>.</td>
+          </tr>
+          <tr>
+            <td>Missing key</td>
+            <td><code>Counter("apple")['z']</code></td>
+            <td>Returns <code>0</code>, not <code>KeyError</code>.</td>
+          </tr>
+          <tr>
+            <td><code>update</code></td>
+            <td><code>c.update(['red', 'blue'])</code></td>
+            <td>Adds counts from iterable.</td>
+          </tr>
+          <tr>
+            <td><code>subtract</code></td>
+            <td><code>c.subtract(['red'])</code></td>
+            <td>Subtracts counts and can create zero or negative counts.</td>
+          </tr>
+          <tr>
+            <td>Cleanup</td>
+            <td><code>c = +c</code> or <code>c += Counter()</code></td>
+            <td>Removes zero and negative counts.</td>
+          </tr>
+          <tr>
+            <td><code>most_common(n)</code></td>
+            <td><code>word_counts.most_common(3)</code></td>
+            <td>Returns top <code>n</code> elements with counts.</td>
+          </tr>
+          <tr>
+            <td><code>elements()</code></td>
+            <td><code>list(c.elements())</code></td>
+            <td>Repeats each element according to its positive count.</td>
+          </tr>
+          <tr>
+            <td><code>total()</code></td>
+            <td><code>word_counts.total()</code></td>
+            <td>Python 3.10+: sum of all counts.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Counter Arithmetic <span class="ref">p. 8</span></h3>
+      <pre><code>from collections import Counter
+
+c1 = Counter(a=4, b=2)
+c2 = Counter(a=1, b=3, c=1)
+
+print(c1 + c2)  # Counter({'a': 5, 'b': 5, 'c': 1})
+print(c1 - c2)  # Counter({'a': 3})
+print(c1 & c2)  # Counter({'b': 2, 'a': 1})
+print(c1 | c2)  # Counter({'a': 4, 'b': 3, 'c': 1})</code></pre>
+
+      <ul>
+        <li><code>+</code> adds corresponding counts.</li>
+        <li><code>-</code> subtracts counts and discards zero or negative results.</li>
+        <li><code>&</code> keeps minimum positive counts, like multiset intersection.</li>
+        <li><code>|</code> keeps maximum counts, like multiset union.</li>
+      </ul>
+
+      <div class="callout trap">
+        <strong>Trap:</strong> <code>Counter.subtract</code> can leave negative counts, but the <code>-</code> operator discards negative and zero results. Those are not the same behavior.
+      </div>
+
+      <h3>When to Use Counter and When Not To <span class="ref">pp. 8-9</span></h3>
+      <p>Use <code>Counter</code> for word counts, item frequencies, votes, inventory-style tallies, sparse integer counts, and quick frequency distributions. Avoid it when you need a custom insertion-order object, mutable objects as keys, or direct floating-point/non-integer arithmetic as the main meaning of the values.</p>
+
+      <h3>Performance Notes <span class="ref">p. 9</span></h3>
+      <p>Creating a Counter from an iterable is linear in the number of input elements. Most updates and lookups are average constant time because Counter inherits dictionary hash-table behavior.</p>
+    </section>
+
+    <section id="views-order">
+      <h2>3. Dictionary Views, Lists, and Order <span class="ref">pp. 10-13</span></h2>
+
+      <h3>Empty Dicts and Constructing from Pairs <span class="ref">p. 10</span></h3>
+      <pre><code>prices = {}
+prices = dict()
+
+pairs = [('IBM', 125), ('ACME', 50), ('PHP', 40)]
+d = dict(pairs)</code></pre>
+
+      <p><code>{}</code> is idiomatic for an empty dictionary. <code>dict(pairs)</code> is useful when you already have key-value pairs.</p>
+
+      <h3><code>list(d)</code> vs <code>d.keys()</code> <span class="ref">pp. 10-12</span></h3>
+      <pre><code>prices = {'AAPL': 123.5, 'MSFT': 52.13, 'IBM': 91.5, 'GOOG': 490.1}
+
+syms1 = list(prices)   # frozen list of keys at this moment
+syms2 = prices.keys()  # dynamic dict_keys view</code></pre>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Expression</th>
+            <th>Type / behavior</th>
+            <th>Changes when dict changes?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>list(d)</code></td>
+            <td>A real list of keys.</td>
+            <td>No. It is a snapshot.</td>
+          </tr>
+          <tr>
+            <td><code>d.keys()</code></td>
+            <td><code>dict_keys</code> view.</td>
+            <td>Yes. It reflects later changes.</td>
+          </tr>
+          <tr>
+            <td><code>d.values()</code></td>
+            <td><code>dict_values</code> view.</td>
+            <td>Yes. It reflects changed values and removals.</td>
+          </tr>
+          <tr>
+            <td><code>d.items()</code></td>
+            <td><code>dict_items</code> view of <code>(key, value)</code> pairs.</td>
+            <td>Yes. It reflects changed pairs.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pre><code>dishes = {'eggs': 2, 'sausage': 1, 'bacon': 1, 'spam': 500}
+keys = dishes.keys()
+values = dishes.values()
+
+del dishes['eggs']
+del dishes['sausage']
+
+print(list(keys))    # ['bacon', 'spam']
+print(list(values))  # [1, 500]</code></pre>
+
+      <div class="callout behind">
+        <strong>Behind the scenes:</strong> A view does not copy all keys or values into a new container. It points at the dictionary and exposes its current contents. That saves memory and keeps the view live.
+      </div>
+
+      <h3>View Set Operations <span class="ref">p. 13</span></h3>
+      <pre><code>dishes = {'bacon': 1, 'spam': 500}
+keys = dishes.keys()
+
+print(keys & {'eggs', 'bacon', 'salad'})  # {'bacon'}
+print(keys ^ {'sausage', 'juice'})        # {'juice', 'sausage', 'bacon', 'spam'}</code></pre>
+
+      <p>Key views support set-like operations because dictionary keys are unique and hashable. Values views do not behave like sets in the same way because values are not necessarily unique or hashable.</p>
+
+      <h3>Dictionary Order <span class="ref">p. 13</span></h3>
+      <p>The PDF states that keys appear in insertion order in modern Python. Converting a dict to a list preserves that key order.</p>
+
+      <pre><code>od = collections.OrderedDict()
+od['apple'] = 1
+od['banana'] = 2
+od['orange'] = 3
+od['grape'] = 4
+
+for key, value in od.items():
+    print(key, value)</code></pre>
+
+      <p><code>OrderedDict</code> is a dictionary subclass designed to guarantee order. In current Python versions, normal dicts preserve insertion order too, but <code>OrderedDict</code> still signals that order is part of the design.</p>
+
+      <div class="callout trap">
+        <strong>Trap:</strong> Iterating over a dictionary means iterating over keys, not values and not <code>(key, value)</code> pairs. Use <code>d.items()</code> when you need both.
+      </div>
+    </section>
+
+    <section id="comprehensions-copy">
+      <h2>4. Comprehensions, Shallow Copy, Deep Copy <span class="ref">pp. 14-17</span></h2>
+
+      <h3>Dictionary Comprehensions <span class="ref">p. 14</span></h3>
+      <pre><code>results = {n: n ** 2 for n in range(10)}
+# {0: 0, 1: 1, 2: 4, ..., 9: 81}</code></pre>
+
+      <p>A dictionary comprehension processes an iterable and creates key-value pairs. In this example, each key is <code>n</code> and each value is <code>n ** 2</code>.</p>
+
+      <h4>PDF prime-number problem <span class="ref">p. 14</span></h4>
+      <p>The PDF asks for a dictionary mapping <code>n</code> to the nth prime for the first <code>k</code> primes, with <code>k</code> provided by the user. The comprehension should use an already-computed list of primes.</p>
+      <pre><code>def is_prime(x):
+    if x &lt; 2:
+        return False
+    for d in range(2, int(x ** 0.5) + 1):
+        if x % d == 0:
+            return False
+    return True
+
+def first_k_primes(k):
+    primes = []
+    n = 2
+    while len(primes) &lt; k:
+        if is_prime(n):
+            primes.append(n)
+        n += 1
+    return primes
+
+k = 5
+primes = first_k_primes(k)
+prime_dict = {i + 1: primes[i] for i in range(k)}
+# {1: 2, 2: 3, 3: 5, 4: 7, 5: 11}</code></pre>
+
+      <div class="callout exam">
+        <strong>Likely professor angle:</strong> The dictionary comprehension is not where the primality algorithm has to live. The PDF says <code>k</code> is provided and is not part of the comprehension. Expect a question asking what the comprehension alone produces once the prime list exists.
+      </div>
+
+      <h3>Shallow Copy <span class="ref">p. 14</span></h3>
+      <pre><code>original_dict = {'a': 1, 'b': 2, 'c': 3}
+copy_dict = original_dict.copy()</code></pre>
+
+      <p>A shallow copy creates a new outer dictionary, but it does not recursively copy nested mutable objects.</p>
+
+      <h3>Deep Copy <span class="ref">pp. 16-17</span></h3>
+      <pre><code>import copy
+
+my_dict = {'a': [1, 2], 'b': [3, 4]}
+my_dict_copy = copy.deepcopy(my_dict)
+
+my_dict_copy['a'][0] = 5
+
+print(my_dict)       # {'a': [1, 2], 'b': [3, 4]}
+print(my_dict_copy)  # {'a': [5, 2], 'b': [3, 4]}</code></pre>
+
+      <div class="callout behind">
+        <strong>Behind the scenes:</strong> Assignment makes another name for the same object. Shallow copy makes a new outer dict but reuses nested list/dict objects. Deep copy recursively creates independent nested objects.
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Operation</th>
+            <th>Outer dict copied?</th>
+            <th>Nested mutable values copied?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>b = a</code></td>
+            <td>No</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><code>b = a.copy()</code></td>
+            <td>Yes</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><code>b = dict(a)</code></td>
+            <td>Yes</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><code>b = copy.deepcopy(a)</code></td>
+            <td>Yes</td>
+            <td>Yes, recursively</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="kwargs-trace">
+      <h2>5. <code>*args</code>, <code>**kwargs</code>, and Trace Questions <span class="ref">pp. 17-20</span></h2>
+      <p>The PDF connects dictionaries to <code>**kwargs</code>. In a function definition, <code>**kwargs</code> collects keyword arguments into a dictionary.</p>
+
+      <pre><code>def my_func(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+my_func(apple=3, banana=5, orange=2)</code></pre>
+
+      <div class="output">apple: 3
+banana: 5
+orange: 2</div>
+
+      <h3>The PDF Trace Program <span class="ref">pp. 18-19</span></h3>
+      <pre><code>def z(a, *b, **c):
+    print(type(a), type(b), type(c))
+    print(a, b[1], c, sep='\n')
+    print(len(c), list(c.items()))
+    g = list(c.items())
+    c[g[0]] = 156
+    print(c.items())
+    print(type(c.items()))
+    d = [i for i in c.keys()]
+    print(c[d[0]])
+    print()
+    z = list(c)
+    print(c[list(c)[0]])
+    print()
+    for i in iter(c):
+        print(i)
+
+z(12, 3, 4, 5, k=87, l=19)</code></pre>
+
+      <h4>Step-by-step state</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Variable</th>
+            <th>Value after call</th>
+            <th>Why</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>a</code></td>
+            <td><code>12</code></td>
+            <td>First positional argument.</td>
+          </tr>
+          <tr>
+            <td><code>b</code></td>
+            <td><code>(3, 4, 5)</code></td>
+            <td>Extra positional arguments become a tuple.</td>
+          </tr>
+          <tr>
+            <td><code>c</code></td>
+            <td><code>{'k': 87, 'l': 19}</code></td>
+            <td>Keyword arguments become a dict.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Then <code>g = list(c.items())</code> creates <code>[('k', 87), ('l', 19)]</code>. The line <code>c[g[0]] = 156</code> uses <code>('k', 87)</code> as a tuple key. Tuples can be keys when their elements are hashable.</p>
+
+      <div class="output">&lt;class 'int'&gt; &lt;class 'tuple'&gt; &lt;class 'dict'&gt;
+12
+4
+{'k': 87, 'l': 19}
+2 [('k', 87), ('l', 19)]
+dict_items([('k', 87), ('l', 19), (('k', 87), 156)])
+&lt;class 'dict_items'&gt;
+87
+
+87
+
+k
+l
+('k', 87)</div>
+
+      <div class="callout trap">
+        <strong>Trap:</strong> The local assignment <code>z = list(c)</code> inside the function reuses the name <code>z</code>, but it does not matter after the function call. Inside the function, after that assignment, <code>z</code> refers to a list, not the function. This would matter only if the function tried to call <code>z(...)</code> again after rebinding the name.
+      </div>
+    </section>
+
+    <section id="scrabble-pickle">
+      <h2>6. Scrabble Descrambler and Pickle <span class="ref">pp. 20-22</span></h2>
+
+      <h3>Signature Function <span class="ref">p. 20</span></h3>
+      <p>The signature of a word is its letters sorted into lexicographic order.</p>
+      <pre><code>def signature(n):
+    return ''.join(sorted(n))
+
+print(signature('stop'))  # opst</code></pre>
+
+      <p><code>sorted(n)</code> returns a list of sorted characters. <code>''.join(...)</code> stitches those characters into a string.</p>
+
+      <h3>Dictionary Design for the Descrambler <span class="ref">pp. 20-22</span></h3>
+      <p>The Scrabble program stores all six-letter legal words in a dictionary:</p>
+      <ul>
+        <li>Key: the sorted signature, such as <code>'ACENRT'</code>.</li>
+        <li>Value: a list of all words with that same signature.</li>
+      </ul>
+
+      <pre><code>d = {}
+for w in words:
+    sig = signature(w)
+    if sig not in d:
+        d[sig] = []
+    d[sig].append(w)</code></pre>
+
+      <p>If the user enters letters with the same signature, the program looks up that signature and prints all matching words.</p>
+
+      <div class="callout behind">
+        <strong>Behind the scenes:</strong> This is a reverse lookup table. Instead of searching every word each time the user enters tiles, the program pays the cost once to build a dictionary. Later lookups are fast because the signature directly indexes the list of matching words.
+      </div>
+
+      <h3>Pickle <span class="ref">pp. 21-22</span></h3>
+      <p><code>pickle</code> serializes Python objects into bytes and deserializes bytes back into Python objects. The PDF uses it to save and reload the Scrabble dictionary.</p>
+
+      <pre><code>import pickle
+
+numbers = [1, 2, 3, 4, 5]
+with open("numbers.pkl", "wb") as f:
+    pickle.dump(numbers, f)
+
+with open("numbers.pkl", "rb") as f:
+    restored_numbers = pickle.load(f)
+
+print(restored_numbers)</code></pre>
+
+      <div class="callout trap">
+        <strong>Trap:</strong> Pickle files are binary. Use <code>"wb"</code> to write and <code>"rb"</code> to read. Also, do not load pickle data from an untrusted source; unpickling can execute code. The PDF calls pickle powerful, but exam answers should remember this security issue.
+      </div>
+
+      <h3>Control Flow in the PDF Program <span class="ref">pp. 21-22</span></h3>
+      <ul>
+        <li>Ask whether to create or load: <code>mode=input("Create or Load C or L: ")</code>.</li>
+        <li>If <code>mode.upper() == 'C'</code>, read the word file and build the dictionary.</li>
+        <li>Otherwise, open the pickle file and load the dictionary.</li>
+        <li>Loop until the user enters <code>done</code>.</li>
+        <li>If input length is not 6, print an error.</li>
+        <li>Otherwise uppercase, sort into signature, and look up in <code>d</code>.</li>
+        <li>At the end, write the dictionary back to the pickle file.</li>
+      </ul>
+    </section>
+
+    <section id="inverted-index">
+      <h2>7. Inverted Index, Squish, Groupby, Defaultdict <span class="ref">pp. 23-28</span></h2>
+
+      <h3>Inverted Index Problem <span class="ref">p. 23</span></h3>
+      <p>An inverted index maps each word to where it appears. The PDF starts with a simplified version:</p>
+      <pre><code>invertedDict["cat"] = [4, 4, 4, 6, 6, 8, 8, 8, 8]</code></pre>
+      <p>This means <code>cat</code> appears 3 times on line 4, 2 times on line 6, and 4 times on line 8.</p>
+
+      <h3>Squish <span class="ref">pp. 23-24</span></h3>
+      <p><code>squish</code> compresses repeated consecutive line numbers into <code>(line, count)</code> pairs.</p>
+      <pre><code>def squish(x):
+    if not x:
+        return []
+    result = []
+    count = 1
+    current = x[0]
+    for i in range(1, len(x)):
+        if x[i] == current:
+            count += 1
+        else:
+            result.append((current, count))
+            current = x[i]
+            count = 1
+    result.append((current, count))
+    return result
+
+print(squish([4, 4, 4, 6, 6, 8, 8, 8, 8]))
+# [(4, 3), (6, 2), (8, 4)]</code></pre>
+
+      <div class="callout trap">
+        <strong>Trap:</strong> This version only works as intended when equal values are consecutive. If the list is <code>[4, 6, 4]</code>, it returns <code>[(4, 1), (6, 1), (4, 1)]</code>, not <code>[(4, 2), (6, 1)]</code>.
+      </div>
+
+      <h3>Groupby Version <span class="ref">pp. 24-25</span></h3>
+      <pre><code>from itertools import groupby
+
+def squish(x):
+    return [(key, len(list(group))) for key, group in groupby(x)]</code></pre>
+
+      <p><code>groupby</code> returns an iterator of <code>(key, group)</code> pairs. The <code>group</code> is itself an iterator, not a list. That is why the code uses <code>list(group)</code> before calling <code>len</code>.</p>
+
+      <pre><code>from itertools import groupby
+
+data = [1, 1, 2, 2, 2, 3, 3, 3, 3]
+for key, group in groupby(data):
+    print(f"Key: {key}, Group: {list(group)}")</code></pre>
+
+      <div class="output">Key: 1, Group: [1, 1]
+Key: 2, Group: [2, 2, 2]
+Key: 3, Group: [3, 3, 3, 3]</div>
+
+      <div class="callout behind">
+        <strong>Behind the scenes:</strong> <code>groupby</code> streams through the iterable. It only groups adjacent items with the same key. It does not search the whole iterable for all matching values unless the iterable has already been sorted by the same grouping key.
+      </div>
+
+      <h3>Original Inverted Index Shape <span class="ref">p. 26</span></h3>
+      <p>The original program removes punctuation, loops over lines, splits words, and builds a dictionary where each word maps to a count and a list of line numbers.</p>
+
+      <pre><code>def clean(x):
+    s = {'.', ',', '-'}
+    return ''.join(i for i in x if i not in s)
+
+d = {}
+ln = 0
+for line in open('GB.txt'):
+    ln += 1
+    line = clean(line)
+    words = line.split()
+    for word in words:
+        if word not in d:
+            d[word] = []
+            d[word].append(1)
+            d[word].append([ln])
+        else:
+            d[word][0] += 1
+            d[word][1].append(ln)</code></pre>
+
+      <p>For each word, the first stored value is total count and the second stored value is a list of line numbers. A cleaner design is to use a dictionary like <code>{'count': 0, 'lines': []}</code> for each word.</p>
+
+      <h3>Refactored Version with Defaultdict <span class="ref">pp. 27-28</span></h3>
+      <pre><code>from collections import defaultdict
+
+def build_inverted_index(file_path):
+    inverted_index = defaultdict(lambda: {'count': 0, 'lines': []})
+    with open(file_path, 'r') as file:
+        for ln, line in enumerate(file, 1):
+            cleaned_line = clean(line)
+            words = cleaned_line.split()
+            for word in words:
+                entry = inverted_index[word]
+                entry['count'] += 1
+                entry['lines'].append(ln)
+
+    for word, data in inverted_index.items():
+        data['lines'] = squish(sorted(data['lines']))
+    return inverted_index</code></pre>
+
+      <p><code>defaultdict</code> automatically creates a default value for a missing key. In this case, each new word starts with <code>{'count': 0, 'lines': []}</code>.</p>
+
+      <h3>Sentinel Value in Squish <span class="ref">p. 28</span></h3>
+      <pre><code>def squish(x):
+    if not x:
+        return []
+    result = []
+    current = x[0]
+    count = 1
+    for number in x[1:] + [None]:
+        if number == current:
+            count += 1
+        else:
+            result.append((current, count))
+            current = number
+            count = 1
+    return result</code></pre>
+
+      <p>The appended <code>None</code> forces one final mismatch after the real data ends. That makes the loop append the last group without needing duplicate cleanup code after the loop.</p>
+
+      <div class="callout trap">
+        <strong>Trap:</strong> <code>x[1:] + [None]</code> creates a new list. It works because <code>x</code> is a list. If <code>x</code> were a tuple or iterator, this exact expression would need adjustment.
+      </div>
+    </section>
+
+    <section id="csv-chart">
+      <h2>8. CSV Grade Intervals and Bar Chart <span class="ref">pp. 29-34</span></h2>
+
+      <h3>Generating a CSV of Scores <span class="ref">p. 29</span></h3>
+      <p>The PDF creates fake student names and exam scores drawn from a normal distribution with mean 75 and standard deviation 15.</p>
+
+      <pre><code>import os
+import csv
+import numpy as np
+from faker import Faker
+
+fake = Faker()
+
+def generate_data_normal_dist(num_rows, mean=75, std_dev=15):
+    data = []
+    for _ in range(num_rows):
+        last_name = fake.last_name()
+        first_name = fake.first_name()
+        score = np.random.normal(mean, std_dev)
+        score = min(max(score, 0), 100)
+        data.append([last_name, first_name, score])
+    return data</code></pre>
+
+      <ul>
+        <li><code>np.random.normal(mean, std_dev)</code> produces scores centered around 75.</li>
+        <li><code>min(max(score, 0), 100)</code> clamps values below 0 up to 0 and values above 100 down to 100.</li>
+        <li><code>csv.writer</code> writes rows to the file.</li>
+        <li><code>newline=''</code> prevents extra blank lines on some systems when writing CSV files.</li>
+        <li><code>Faker</code> generates realistic fake names for test data; the PDF notes it can be installed with <code>pip install Faker</code>.</li>
+      </ul>
+
+      <h3>Reading CSV and Filtering Grades <span class="ref">p. 31</span></h3>
+      <pre><code>with open(csv_file_path, mode="r") as file:
+    csv_reader = csv.reader(file)
+    next(csv_reader)
+    grades = []
+    for row in csv_reader:
+        grades.append(row[2])
+
+positive_float_grades = [
+    float(grade)
+    for grade in grades
+    if grade and float(grade) &gt; 0
+]</code></pre>
+
+      <div class="callout behind">
+        <strong>Behind the scenes:</strong> CSV fields are read as strings. Even if the file visually contains <code>87.5</code>, Python reads it as <code>'87.5'</code>. The list comprehension converts nonblank positive grades to floats.
+      </div>
+
+      <div class="callout trap">
+        <strong>Trap:</strong> The PDF's missing-file branch prints <code>csv_file_name</code>, but the path variable shown is <code>csv_file_path</code>. In real code that would cause a <code>NameError</code> if the file does not exist.
+      </div>
+
+      <h3>Counting Grade Intervals <span class="ref">p. 31</span></h3>
+      <pre><code>def count_numbers_in_intervals(positive_float_grades):
+    interval_counts = {}
+    for interval in range(1, 101, 10):
+        count = sum(
+            1 for num in positive_float_grades
+            if interval &lt;= num &lt; interval + 10
+        )
+        interval_counts[f"{interval}-{interval + 9}"] = count
+    return interval_counts</code></pre>
+
+      <p>This creates labels <code>1-10</code>, <code>11-20</code>, ..., <code>91-100</code> if the label uses <code>interval + 9</code>. The condition uses a half-open range: lower bound included, upper bound excluded.</p>
+
+      <div class="callout trap">
+        <strong>Important interval trap:</strong> For <code>interval = 1</code>, the condition is <code>1 &lt;= num &lt; 11</code>. That includes 10.0. For <code>interval = 91</code>, the condition is <code>91 &lt;= num &lt; 101</code>. That includes 100.0. The label is <code>91-100</code>.
+      </div>
+
+      <h3>Matplotlib Bar Chart <span class="ref">pp. 32-33</span></h3>
+      <pre><code>import matplotlib.pyplot as plt
+
+def plot_bar_graph(data_dict):
+    keys = data_dict.keys()
+    values = data_dict.values()
+
+    plt.figure(figsize=(8, 4))
+    plt.bar(keys, values)
+    plt.xlabel('Grade intervals')
+    plt.ylabel('Number of grades')
+    plt.title('Midterm grade distribution')
+    plt.show()</code></pre>
+
+      <p><code>pyplot</code> gives a MATLAB-like plotting interface. The dictionary keys become x-axis labels and the dictionary values become bar heights.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Line</th>
+            <th>What it does</th>
+            <th>Behind-the-scenes behavior</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>plt.figure(figsize=(8, 4))</code></td>
+            <td>Creates a new figure 8 inches wide and 4 inches tall.</td>
+            <td>At default 100 DPI, that is about 800 by 400 pixels.</td>
+          </tr>
+          <tr>
+            <td><code>plt.bar(keys, values)</code></td>
+            <td>Draws a bar for each interval.</td>
+            <td>The order follows dictionary insertion order, so the intervals appear as inserted.</td>
+          </tr>
+          <tr>
+            <td><code>plt.xlabel</code>, <code>plt.ylabel</code>, <code>plt.title</code></td>
+            <td>Add text labels.</td>
+            <td>They attach to the current active axes.</td>
+          </tr>
+          <tr>
+            <td><code>plt.show()</code></td>
+            <td>Displays the chart window or inline output depending on environment.</td>
+            <td>In scripts, it can block execution until the chart is closed.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Groupby Interval Version <span class="ref">pp. 33-34</span></h3>
+      <pre><code>from itertools import groupby
+
+def count_numbers_in_intervals(grades):
+    interval_counts = {f"{i}-{i + 9}": 0 for i in range(1, 101, 10)}
+
+    def interval_key(grade):
+        lower = int((grade - 1) // 10) * 10 + 1
+        upper = int((grade - 1) // 10) * 10 + 10
+        return f"{lower}-{upper}"
+
+    for key, group in groupby(sorted(grades), interval_key):
+        interval_counts[key] = len(list(group))
+    return interval_counts</code></pre>
+
+      <p>The purpose is to sort grades, group them by the interval key, then count each group. Sorting is required because <code>groupby</code> only groups consecutive items.</p>
+
+      <div class="callout trap">
+        <strong>Subtle source-specific trap:</strong> The PDF initializes labels with <code>f"{i}-{i + 9}"</code>, but the shown <code>interval_key</code> returns an upper bound of <code>... + 10</code>. That means the prefilled label <code>1-10</code> matches, but the formula for a grade of 100 returns <code>91-100</code>; for ordinary bins it is consistent with labels like <code>31-40</code>. Be careful not to mix labels like <code>1-9</code> or <code>1-11</code>.
+      </div>
+    </section>
+
+    <section id="professor-questions">
+      <h2>9. Professor-Style Print and Reasoning Questions</h2>
+
+      <div class="card">
+        <h3>Question 1: Dict lookup vs get</h3>
+        <pre><code>prices = {'IBM': 91.5, 'MSFT': 52.13}
+print(prices.get('GOOG', 0.0))
+print(prices['GOOG'])</code></pre>
+        <div class="answer">
+          <strong>Answer:</strong>
+          <div class="output">0.0
+KeyError: 'GOOG'</div>
+          <p><code>get</code> returns the default for a missing key. Bracket lookup requires the key to exist.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Question 2: Tuple key hidden by commas</h3>
+        <pre><code>d = {}
+d['IBM', '2015-02-04'] = 91.42
+print(list(d.keys()))
+print(d[('IBM', '2015-02-04')])</code></pre>
+        <div class="answer">
+          <strong>Answer:</strong>
+          <div class="output">[('IBM', '2015-02-04')]
+91.42</div>
+          <p>The comma creates a tuple key. Parentheses are optional in this expression.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Question 3: Dynamic view vs frozen list</h3>
+        <pre><code>d = {'a': 1, 'b': 2}
+k1 = d.keys()
+k2 = list(d)
+d['c'] = 3
+del d['a']
+print(list(k1))
+print(k2)</code></pre>
+        <div class="answer">
+          <strong>Answer:</strong>
+          <div class="output">['b', 'c']
+['a', 'b']</div>
+          <p><code>k1</code> is a live view. <code>k2</code> is a list snapshot created before the mutation.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Question 4: Counter missing keys and cleanup</h3>
+        <pre><code>from collections import Counter
+c = Counter("apple")
+print(c['z'])
+c.subtract(['p', 'p', 'p', 'z'])
+print(c)
+print(+c)</code></pre>
+        <div class="answer">
+          <strong>Answer:</strong>
+          <div class="output">0
+Counter({'a': 1, 'l': 1, 'e': 1, 'p': -1, 'z': -1})
+Counter({'a': 1, 'l': 1, 'e': 1})</div>
+          <p><code>Counter</code> returns 0 for missing keys. <code>subtract</code> allows negative counts. Unary plus removes zero and negative counts.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Question 5: Counter arithmetic</h3>
+        <pre><code>from collections import Counter
+c1 = Counter(a=2, b=1)
+c2 = Counter(a=5, b=1, c=3)
+print(c1 - c2)
+print(c1 & c2)
+print(c1 | c2)</code></pre>
+        <div class="answer">
+          <strong>Answer:</strong>
+          <div class="output">Counter()
+Counter({'a': 2, 'b': 1})
+Counter({'a': 5, 'c': 3, 'b': 1})</div>
+          <p><code>c1 - c2</code> discards nonpositive results. Intersection takes minimum counts. Union takes maximum counts.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Question 6: Shallow copy trap</h3>
+        <pre><code>a = {'x': [1, 2], 'y': 3}
+b = a.copy()
+b['x'][0] = 99
+b['y'] = 4
+print(a)
+print(b)</code></pre>
+        <div class="answer">
+          <strong>Answer:</strong>
+          <div class="output">{'x': [99, 2], 'y': 3}
+{'x': [99, 2], 'y': 4}</div>
+          <p>The outer dictionaries are separate, so changing <code>b['y']</code> does not affect <code>a['y']</code>. But both dictionaries share the same nested list.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Question 7: Deep copy contrast</h3>
+        <pre><code>import copy
+a = {'x': [1, 2]}
+b = copy.deepcopy(a)
+b['x'].append(3)
+print(a)
+print(b)</code></pre>
+        <div class="answer">
+          <strong>Answer:</strong>
+          <div class="output">{'x': [1, 2]}
+{'x': [1, 2, 3]}</div>
+          <p>Deep copy recursively copies the nested list, so appending to <code>b['x']</code> does not mutate <code>a['x']</code>.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Question 8: Args and kwargs</h3>
+        <pre><code>def f(a, *b, **c):
+    print(a)
+    print(b)
+    print(c)
+    print(type(b), type(c))
+
+f(10, 20, 30, x=1, y=2)</code></pre>
+        <div class="answer">
+          <strong>Answer:</strong>
+          <div class="output">10
+(20, 30)
+{'x': 1, 'y': 2}
+&lt;class 'tuple'&gt; &lt;class 'dict'&gt;</div>
+          <p><code>*b</code> gathers extra positional arguments into a tuple. <code>**c</code> gathers keyword arguments into a dictionary.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Question 9: Iterating over a dictionary</h3>
+        <pre><code>d = {'first': 1, 'second': 2}
+for x in d:
+    print(x)
+for x in d.items():
+    print(x)</code></pre>
+        <div class="answer">
+          <strong>Answer:</strong>
+          <div class="output">first
+second
+('first', 1)
+('second', 2)</div>
+          <p>Plain dictionary iteration yields keys. <code>items()</code> yields <code>(key, value)</code> tuples.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Question 10: Signature and anagram dictionary</h3>
+        <pre><code>def signature(n):
+    return ''.join(sorted(n))
+
+words = ['stop', 'pots', 'tops', 'post', 'spot', 'cat']
+d = {}
+for w in words:
+    sig = signature(w)
+    if sig not in d:
+        d[sig] = []
+    d[sig].append(w)
+
+print(signature('opts'))
+print(d[signature('opts')])</code></pre>
+        <div class="answer">
+          <strong>Answer:</strong>
+          <div class="output">opst
+['stop', 'pots', 'tops', 'post', 'spot']</div>
+          <p>Every word with letters <code>o</code>, <code>p</code>, <code>s</code>, <code>t</code> has the same signature <code>opst</code>.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Question 11: Squish with nonconsecutive repeats</h3>
+        <pre><code>from itertools import groupby
+def squish(x):
+    return [(key, len(list(group))) for key, group in groupby(x)]
+
+print(squish([4, 4, 6, 4, 4]))</code></pre>
+        <div class="answer">
+          <strong>Answer:</strong>
+          <div class="output">[(4, 2), (6, 1), (4, 2)]</div>
+          <p><code>groupby</code> groups consecutive equal values only. The two groups of 4 are separated by 6, so they stay separate.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Question 12: Groupby must be sorted by key</h3>
+        <pre><code>from itertools import groupby
+grades = [95, 12, 18, 91, 17]
+
+def interval_key(grade):
+    return f"{int((grade - 1) // 10) * 10 + 1}-{int((grade - 1) // 10) * 10 + 10}"
+
+for key, group in groupby(grades, interval_key):
+    print(key, list(group))</code></pre>
+        <div class="answer">
+          <strong>Answer:</strong>
+          <div class="output">91-100 [95]
+11-20 [12, 18]
+91-100 [91]
+11-20 [17]</div>
+          <p>The same interval appears twice because the list is not sorted by interval. The PDF's grade-count version uses <code>groupby(sorted(grades), interval_key)</code> to avoid this.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Question 13: Interval boundary prediction</h3>
+        <pre><code>grades = [0, 1, 10, 10.5, 11, 100]
+positive = [g for g in grades if g and g &gt; 0]
+for interval in range(1, 101, 10):
+    count = sum(1 for num in positive if interval &lt;= num &lt; interval + 10)
+    if count:
+        print(f"{interval}-{interval + 9}: {count}")</code></pre>
+        <div class="answer">
+          <strong>Answer:</strong>
+          <div class="output">1-10: 3
+11-20: 1
+91-100: 1</div>
+          <p><code>0</code> is removed by the positive filter. <code>1</code>, <code>10</code>, and <code>10.5</code> all satisfy <code>1 &lt;= num &lt; 11</code>. <code>11</code> starts the next bin. <code>100</code> belongs to <code>91-100</code>.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Question 14: Defaultdict missing key</h3>
+        <pre><code>from collections import defaultdict
+d = defaultdict(lambda: {'count': 0, 'lines': []})
+d['cat']['count'] += 1
+d['cat']['lines'].append(4)
+print(d['cat'])
+print(d['dog'])</code></pre>
+        <div class="answer">
+          <strong>Answer:</strong>
+          <div class="output">{'count': 1, 'lines': [4]}
+{'count': 0, 'lines': []}</div>
+          <p>Accessing <code>d['dog']</code> creates the default dictionary for that key. This is helpful but can also create keys accidentally.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Question 15: Matplotlib data source</h3>
+        <pre><code>interval_counts = {'1-10': 2, '11-20': 5, '21-30': 0}
+keys = interval_counts.keys()
+values = interval_counts.values()
+print(list(keys))
+print(list(values))</code></pre>
+        <div class="answer">
+          <strong>Answer:</strong>
+          <div class="output">['1-10', '11-20', '21-30']
+[2, 5, 0]</div>
+          <p>Those keys and values are what the PDF passes to <code>plt.bar(keys, values)</code>. The labels are the x positions; the counts are bar heights.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="common-traps">
+      <h2>10. Common Traps From This PDF</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Dictionary traps</h3>
+          <ul>
+            <li><code>{}</code> is an empty dict, not an empty set.</li>
+            <li><code>in</code> checks keys, not values.</li>
+            <li><code>d[key]</code> raises <code>KeyError</code> for a missing key.</li>
+            <li><code>d.get(key, default)</code> does not insert the key.</li>
+            <li>Plain iteration over <code>d</code> yields keys.</li>
+            <li><code>d.items()</code> is a dynamic view, not a list.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Hashability traps</h3>
+          <ul>
+            <li>Tuple keys work only if their contents are hashable.</li>
+            <li>Lists, sets, and dicts cannot be keys.</li>
+            <li><code>d['A', 'B']</code> uses tuple key <code>('A', 'B')</code>.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Counter traps</h3>
+          <ul>
+            <li>Missing Counter keys return 0.</li>
+            <li><code>subtract</code> can produce negative counts.</li>
+            <li><code>c1 - c2</code> discards nonpositive counts.</li>
+            <li><code>elements()</code> ignores zero and negative counts.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Copy traps</h3>
+          <ul>
+            <li>Assignment is not copying.</li>
+            <li><code>copy()</code> is shallow.</li>
+            <li>Nested lists remain shared after shallow copy.</li>
+            <li><code>deepcopy</code> is needed for independent nested mutable objects.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Groupby traps</h3>
+          <ul>
+            <li><code>groupby</code> groups consecutive elements only.</li>
+            <li>Sort by the same key before grouping if you need all equal-key items together.</li>
+            <li>The group object is an iterator; once consumed, it is exhausted.</li>
+            <li><code>list(group)</code> is used to count or inspect the group.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>CSV and chart traps</h3>
+          <ul>
+            <li>CSV values are strings until converted.</li>
+            <li><code>next(csv_reader)</code> skips the header row.</li>
+            <li>The interval test is half-open: <code>low &lt;= num &lt; high</code>.</li>
+            <li><code>plt.figure(figsize=(8, 4))</code> uses inches, not pixels.</li>
+            <li><code>plt.bar(keys, values)</code> relies on matching key/value order.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="exam-checklist">
+      <h2>11. Final Exam Checklist</h2>
+      <ul>
+        <li>Can you predict output when a dictionary is mutated after <code>keys()</code> is stored?</li>
+        <li>Can you explain why <code>list(d)</code> and <code>d.keys()</code> differ?</li>
+        <li>Can you trace <code>*args</code> and <code>**kwargs</code> and identify tuple vs dict types?</li>
+        <li>Can you identify when a tuple can be a dictionary key and when a mutable object cannot?</li>
+        <li>Can you hand-compute a Counter after <code>update</code>, <code>subtract</code>, <code>+</code>, <code>-</code>, <code>&</code>, and <code>|</code>?</li>
+        <li>Can you explain why <code>Counter()['missing']</code> returns 0 but <code>{}['missing']</code> raises <code>KeyError</code>?</li>
+        <li>Can you write or trace <code>squish</code> and explain why the last group must be appended?</li>
+        <li>Can you explain the sentinel <code>None</code> trick in the refactored <code>squish</code>?</li>
+        <li>Can you build the Scrabble signature dictionary and explain why it avoids repeated full-list searches?</li>
+        <li>Can you explain pickle serialization and the difference between <code>wb</code>/<code>rb</code>?</li>
+        <li>Can you build an inverted index with counts and line-number lists?</li>
+        <li>Can you explain why <code>defaultdict</code> removes the need for <code>if word not in d</code>?</li>
+        <li>Can you predict grade interval counts at boundaries like 1, 10, 11, 91, and 100?</li>
+        <li>Can you explain what each Matplotlib line contributes to the bar chart?</li>
+      </ul>
+
+      <div class="callout exam">
+        <strong>Hard-class preparation:</strong> Do not just memorize definitions. For this PDF, the most testable skill is tracing state changes: what the dictionary contains after each line, whether a view updates, whether a copy shares nested objects, what <code>groupby</code> actually groups, and exactly which grades land in each chart interval.
+      </div>
+    </section>
+  </main>
+</body>
+</html>

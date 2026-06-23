@@ -1,0 +1,29 @@
+Here is an interesting use of this.
+def matrix_mult(A,B):
+"""
+Assumed that count(cols) == count(rows).
+Use zip(*B) to find transpose matrix of B.
+"""
+dot = lambda r,c: sum([r[i] * c[i] for i in range(len(r))])
+return [[dot(ri,cj) for cj in zip(*B)] for ri in A]
+A very “pythonic” matrix multiplier.
+matrix_mult(A, B) is designed to perform matrix multiplication on two matrices `A` and
+`B`. Let's break down how it works:
+### Function Signature:
+```python
+def matrix_mult(A, B):
+```
+This defines a function named `matrix_mult` that takes two arguments, `A` and `B`, which
+are expected to be matrices represented as lists of lists in Python.
+We assumed that count(cols) == count(rows) and we use zip(*B) to find transpose matrix
+of B.
+The function uses `zip(*B)` to obtain the transpose of matrix `B`. In matrix multiplication,
+you multiply rows of the first matrix with columns of the second matrix. Transposing `B`
+makes it easier to access its columns as rows.
+The `dot` Lambda Function:
+dot = lambda r,c: sum([r[i] * c[i] for i in range(len(r))])
+This lambda function, named `dot`, calculates the dot product of two vectors. It takes two
+arguments `r` and `c`, which represent a row from `A` and a column from `B` (or a row
+from the transpose of `B`). The dot product is calculated by multiplying corresponding
+elements and then summing up these products.
+130

@@ -1,0 +1,35 @@
+Creating and running code at runtime – exec and eval
+There is a mechanism in python to read in a string, representing a function, and at runtime, and then call
+that function by name.
+`exec()` and `eval()` are both built-in functions in Python that allow for the dynamic execution of Python
+code, but they serve different purposes and have distinct behaviors:
+exec()
+- `exec()` is used to execute dynamically generated Python code which can be a single statement, a
+statement block, or even a string representing a Python script.
+- It does not return any value; it only executes the code within its argument.
+- It can be used for executing dynamic Python code that includes loops, conditionals, function/class
+definitions, and so forth.
+- It can modify the current scope if used without specifying an explicit namespace, meaning it can define
+new variables or functions or change existing ones within the scope it is called.
+Syntax example: `exec("code")`, where `"code"` is a string containing Python statements.
+eval()
+- `eval()` is used to evaluate valid Python expressions (not statements) contained in a string and return the
+result of the expression.
+- It is essentially used for simple expression evaluation, like arithmetic calculations or evaluating
+expressions to a single value.
+- It cannot execute complex Python code like loops, conditionals, function/class definitions, etc.
+- It's useful for dynamically evaluating expressions that result in a single value, such as `'3 + 4'` or even
+calling functions that return a value.
+Syntax example: `result = eval("expression")`, where `"expression"` is a string containing a Python
+expression, and `result` will store the evaluated result.
+Key Differences
+Usage: `exec()` is for executing statements (including multi-line code blocks, function definitions, etc.),
+whereas `eval()` is for evaluating expressions and returning their results.
+Return Value: `exec()` does not return any value (or returns `None`), while `eval()` returns the value of
+the given expression.
+Scope Modification: `exec()` can modify the current scope or namespace, while `eval()` is generally used
+for expressions and has limited capability to modify the current scope.
+Careful: Due to their ability to execute arbitrary code, both `exec()` and `eval()` should be used with
+caution, especially with untrusted input, to avoid potential security vulnerabilities such as code injection
+attacks.
+115

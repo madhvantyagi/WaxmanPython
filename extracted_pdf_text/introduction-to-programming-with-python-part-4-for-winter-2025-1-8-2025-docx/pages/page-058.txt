@@ -1,0 +1,38 @@
+Interned objects
+As noted above, when the reference count of an object goes to zero, its marked eligible for garbage
+collection. There is an interesting exception: the “interned” values. Consider:
+i=5
+del i
+i now has a reference count decreased by 1. If there are no other references to the integer 5 elsewhere in
+your program, its reference count would become 0, making it eligible for garbage collection. However, in
+Python, small integers (typically between -5 and 256) are interned, meaning they are reused and never
+garbage collected, so the reference count change for the integer 5 will not lead to its deallocation.
+In Python, small integers (typically in the range of -5 to 256) are implemented as "interned" objects. This
+means that instead of creating a new object each time a small integer is needed, Python uses a pre-
+existing, pre-allocated object for that integer value. These interned integers are, in a sense, singleton
+objects for their respective values, and any reference to such an integer actually points to the same object
+in memory.
+Interning Details
+1. Interned objects are singletons: When you assign a small integer to a variable, Python doesn't create a
+new integer object; it assigns a reference to the existing interned object representing that integer. This is
+efficient in terms of both memory usage and execution speed, as it reduces the number of integer objects
+that need to be created and managed.
+2. Attributes: Even though integers in Python are objects and have attributes and methods (you can use
+`dir(1)` to see them), the way Python handles small integers does not affect how you interact with them.
+You can use these integers just like any other number in Python, and the fact that they are interned is
+mostly transparent to the user.
+3. Pointers: Variables assigned with small integers essentially hold pointers to these pre-allocated integer
+objects. When you do `a = 1`, `a` holds a pointer to the interned object for `1`.
+4. Universally Available: These interned integer objects are created at the start of the Python interpreter
+and are available globally. Any reference to a small integer in any part of a Python program will point to
+the same interned object.
+5. Comparison and Identity: Because all references to a given small integer point to the same object, both
+equality (`==`) and identity (`is`) checks work the same for these interned integers. For example, `(1 ==
+1)` and `(1 is 1)` both evaluate to `True`, not just because the values are equal, but also because both
+expressions are referring to the same object in memory.
+Beyond Small Integers
+For integers outside of the small integer range, Python may create new integer objects each time.
+However, the behavior can be implementation-specific and may vary. In such cases, two variables with
+the same integer value might not necessarily point to the same object, and an identity check (`is`) could
+evaluate to `False`.
+130

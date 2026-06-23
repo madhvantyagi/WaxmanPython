@@ -1,0 +1,33 @@
+def func(x, y, /):
+pass
+func(1, 2) # Ok
+func(1, y=2) # Error
+This definition is supported only in Python 3.8 and later. However, it can be a useful way
+to avoid potential name clashes between argument names. For example, consider the
+following code:
+import time
+def after(seconds, func, /, *args, **kwargs):
+time.sleep(seconds)
+return func(*args, **kwargs)
+def duration(*, seconds, minutes, hours):
+return seconds + 60 * minutes + 3600 * hours
+after(5, duration, seconds=20, minutes=3, hours=2)
+In this code, seconds is being passed as a keyword argument, but it’s intended to be used
+with the duration function that’s passed to after(). The use of positional-only arguments in
+after() prevents a name clash with the seconds argument that appears first.
+7.Names, Documentation Strings, and Type Hints
+The standard naming convention for functions is to use lowercase letters with an underscore ( _ ) used as a
+word separator—for example, read_data() and not readData().
+If a function is not meant to be used directly because it’s a helper or some kind of internal
+implementation detail, its name usually has a single underscore prepended to it—for example, _helper().
+These are only conventions, however. You are free to name a function whatever you want as long as the
+name is a valid identifier.
+The name of a function can be obtained via the __name__ attribute. This is sometimes useful for
+debugging.
+>>> def square(x):
+... return x * x
+...
+>>> square.__name__
+'square'
+>>>
+99

@@ -1,0 +1,20 @@
+Problem:
+What about removing the unwanted characters from the left end? What about from both ends? What about
+from anywhere in the string?
+Answer:
+def clear_left(x):
+return [word.lstrip('.,;') for word in x]
+def clear_both_ends(x):
+return [word.strip('.,;') for word in x]
+def clear_anywhere(x):
+return [''.join(char for char in word if char not in '.,;') for word in x]Problem:
+Problem:
+Write a function scrape(s) which take a string s representing the HTML of a web page and returns a
+list of all links found on the page. Explain in detail how this works.
+Answer:
+Problem: Count the ones.
+Write a program that prompts the user for some integer n, and calculates the number of occurrences of
+the digit ‘1’ in all the numbers from 1-n inclusive.
+For example, if n=20 the program will print 12 since
+1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20.
+124

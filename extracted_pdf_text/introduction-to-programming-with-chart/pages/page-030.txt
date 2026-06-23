@@ -1,0 +1,7 @@
+Problem
+We have a CVS file like the one above with students names and exam scores. We would like to write a
+python program to show the breakdown of scores by interval: how many between 1-10, 1-20 etc.
+We want to print a table like this:
+And a bar chart like this:
+Here is a program to do it.
+158

@@ -1,0 +1,27 @@
+Dictionaries are often used as building blocks for various algorithms and data-handling problems.
+One such problem is tabulation.
+For example, here’s how you could count the total number of shares for each stock name in earlier data:
+portfolio = [
+('ACME', 50, 92.34),
+('IBM', 75, 102.25),
+('PHP', 40, 74.50),
+('IBM', 50, 124.75)
+]
+total_shares = { s[0]: 0 for s in portfolio } # dictionary comprehension
+for name, shares, _ in portfolio:
+total_shares[name] += shares
+# total_shares = {'IBM': 125, 'ACME': 50, 'PHP': 40}
+In this example, { s[0]: 0 for s in portfolio } is an example of a dictionary comprehension.
+It creates a dictionary of key-value pairs from another collection of data. In this case, it’s making an initial
+dictionary mapping stock names to 0. The for loop that follows iterates over the dictionary and adds up all
+of the held shares for each stock symbol.
+Another way to do the above tabulation:
+Aside: Many common data processing tasks such as this one have already been implemented by library
+modules.
+For example, the collections module has a Counter object that can be used for this task:
+from collections import Counter # 1
+total_shares = Counter() #2
+for name, shares, _ in portfolio:# 3
+total_shares[name] += shares
+# total_shares = Counter({'IBM': 125, 'ACME': 50, 'PHP': 40})
+133

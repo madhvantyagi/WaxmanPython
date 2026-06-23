@@ -1,0 +1,33 @@
+1. The Closure Mechanism
+When a nested function (like bar) uses a variable from its enclosing scope (like x in foo), Python creates
+a closure for the nested function. This closure stores references to the variables from the enclosing scope
+that the nested function needs.
+2. Where is x Stored?
+• The variable x is not stored in the global or local scope of bar. Instead:
+o It is captured and stored in a cell object within the __closure__ attribute of the function
+bar.
+o This ensures that x remains accessible even after the enclosing function foo has finished
+executing.
+3. Inspecting the Closure
+You can see this in action by inspecting the __closure__ attribute of f:
+def foo(x):
+def bar(y):
+return x * y
+return bar
+f = foo(10) # Call foo and get the inner function
+# Inspect the closure
+print(f.__closure__) # Output: (<cell at 0x...: int object at 0x...>,)
+print(f.__closure__[0].cell_contents) # Output: 10
+• f.__closure__ is a tuple of cell objects, where each cell represents a variable captured from the
+enclosing scope.
+• Each cell contains a reference to the value of the variable (in this case, x = 10).
+4. Data Structure: The Cell Object
+• The cell object acts as a container for the variable x.
+• Internally, Python uses this cell object to maintain a reference to the captured variable, ensuring it
+is accessible for the nested function.
+5. Key Points About This Storage:
+1. Efficient Memory Management: Python stores only a reference to x, not a copy, allowing
+efficient use of memory.
+2. Garbage Collection: The captured variable is not garbage collected as long as the closure exists,
+even if the enclosing function (foo) has finished executing.
+90

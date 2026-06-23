@@ -1,0 +1,27 @@
+Problem: Trace this program and check it with program run below.
+def z(a,*b,**c): # recall the order
+print(type(a),type(b),type(c))
+print(a,b[1],c,sep='\n')
+print(len(c),list(c.items()))
+g=list(c.items())
+c[g[0]]=156
+print(c.items())
+print (type(c.items()))
+d=[i for i in c.keys()]
+print(c[d[0]])
+print()
+z=list(c)
+print(c[list(c)[0]])
+print()
+for i in iter(c):
+print(i)
+z(12,3,4,5,k=87,l=19)
+The output:
+The program defines a function `z` and then calls it with a set of arguments. Here is the execution step-by-
+step:
+Function Definition
+def z(a, *b, **c):
+- `a` captures the first positional argument.
+- `*b` captures additional positional arguments in a tuple.
+- `**c` captures keyword arguments in a dictionary.
+146

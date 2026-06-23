@@ -1,0 +1,36 @@
+Function modification at runtime
+Hold on to your seats ……
+You can modify a function in real time in Python, (but this is generally done using higher-level constructs
+like decorators which modify the functions behavior while leaving the original function intact) by
+modifying the function's bytecode directly. Here is an example:
+from bytecode import Instr, Bytecode
+import types
+def f(a, s):
+return a + s
+# Convert the function's code to a mutable bytecode object
+byte_code = Bytecode.from_code(f.__code__)
+# Find the BINARY_ADD instruction and replace it with BINARY_MULTIPLY
+for instr in byte_code:
+if isinstance(instr, Instr) and instr.name == "BINARY_ADD":
+instr.set("BINARY_MULTIPLY")
+break
+f = byte_code.to_code()
+f = types.FunctionType(f, globals(), "new_f")
+# Test the modified function
+print(f(2, 3)) # Should print '6' instead of '5'
+How does this work?
+1. `from bytecode import Instr, Bytecode`
+- This line imports the `Instr` and `Bytecode` classes from the `bytecode` library, which allows for
+manipulation of Python bytecode.
+2. `import types`
+- This imports the `types` module, which provides utility functions and types for working with different
+Python object types, including functions.
+3. `def f(a, s): return a + s`
+- Here is our sample function that we want to modify. `f` is defined that takes two arguments, `a` and `s`,
+and returns their sum.
+4. `byte_code = Bytecode.from_code(f.__code__)`
+- This converts the code object of the function `f` (accessible via `f.__code__`) into a `Bytecode` object
+from the `bytecode` library. The `Bytecode` object is mutable, allowing for modifications to the bytecode.
+5. The `for` loop iterates over each instruction in the `byte_code` object:
+- `for instr in byte_code:` iterates through each bytecode instruction in `byte_code`.
+113

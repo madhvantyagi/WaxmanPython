@@ -1,0 +1,30 @@
+Scripts and Modules
+In languages like C++ or Java a distinction is made between application programs and libraries.
+For example, in C++ you would write a main function and perhaps some supporting functions to
+accomplish a particular task. This is an application. The Python equivalent is a script.
+If you needed some specific functionality, say input/output, you would #include<iostream>. iostream is
+not a “main program”, an “application”, but rather a “library”, a file containing classes, functions,
+definitions, variable declarations and initializations. Its not meant to be run as a standalone application,
+but as a collection of reated functions to support a particular functionality. iostream supports stream-
+oriented i/o in C++. The Python equivalent is called a module. The math module is an example.
+Scripts are run as top-level applications, modules are imported. Both are .py files, the difference is in their
+intended use.
+You might have seen the following in python programs:
+if __name__ == "__main__"
+What is this and how does this relate scripts and modules.
+Do this: Make two files, module.py and import_module.py.
+# module.py
+def foo():
+print("Function foo from module.py")
+if __name__ == "__main__":
+# This block of code will run only when module.py is executed directly,
+# not when it is imported in another file.
+foo()
+print("module.py is being run directly")
+# import_module.py
+import module
+module.foo()
+1. When module.py is run directly (at the “top level”)we get:
+2. But if we run import_module
+we get:
+117

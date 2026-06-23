@@ -1,0 +1,28 @@
+print(x)
+foo()
+print(x)
+This code will print 100, 200, and then 200, because there’s only one x, thanks to the global declaration.
+This behavior changes when we pass mutable iterables to a function though.
+The basic idea is that Python utilizes a system, which is known as “Call by Object Reference” or “Call by
+assignment” (what is usually called call by value). In the event that you pass arguments like whole
+numbers, strings or tuples to a function, the passing is like call-by-value because you can not change the
+value of the immutable objects being passed to the function. Whereas passing mutable objects can be
+considered as call by reference because when their values are changed inside the function, then it will also
+be reflected outside the function.
+ENCLOSING (a function defined in inside another)
+Unlike other languages, Python allows functions to be defined inside other functions (we will deal with
+lambdas later). We will encounter this when we look at “decorators.”
+def foo(x):
+def bar(y):
+return x * y
+return bar
+f = foo(10)
+print(f(20))
+What are we doing defining bar inside of foo? This inner function and its accessible variables etc.
+sometimes known as a closure, is a function that’s defined when foo is executed. Indeed, every time that
+we run foo, we get a new function named bar back. The name bar is a local name inside of foo.
+When we run the code, the result is 200. It makes sense that when we invoke f, we’re executing bar, which
+was returned by foo. And we can understand how bar has access to y, since it’s a local variable. But what
+about x? How does the function bar have access to x, a local variable in foo?
+The answer is LEGB:
+86

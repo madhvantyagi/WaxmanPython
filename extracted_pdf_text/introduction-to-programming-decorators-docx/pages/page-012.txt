@@ -1,0 +1,25 @@
+Problem:
+Write a decorator that when applied to a function will keep track of how many times that
+function has been called. It will do this by keeping count of the calls to the decorated functions in
+a dictionary passed to the decorator.
+calldict={} # calldict is the dictionary
+@countcalls(calldict) #countcalls is the decorator
+def add(x,y):
+return x+y
+@countcalls(calldict)
+def mult(x,y):
+return x*y
+z=add(2,3)
+print(calldict)
+z=add(2,3)
+print(calldict)
+z=mult(2,3)
+print(calldict)
+When I run the above code, I get:
+{'add': 1}
+{'add': 2}
+{'add': 2, 'mult': 1}
+>>>
+Write the countcalls decorator.
+Solution:
+12

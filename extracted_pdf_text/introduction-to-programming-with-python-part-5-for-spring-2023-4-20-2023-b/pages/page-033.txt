@@ -1,0 +1,32 @@
+produces:
+Notice that the newline characters are gone.
+Problem:
+Create a text file, 'grades.txt', with the following data.
+Bob 78 98 67 77
+Joan 78
+Sally 90 97 77 56 88 98
+Write a program to read this file and print out the students name followed by their average on all
+exams.
+Answer: How about this? …
+#Student averages
+f=open('grades.txt')
+for i in f:
+s=i.split()
+average=sum([int(s[i]) for i in range(1,len(s))])/(len(s)-1)
+print(format(s[0],'<7s'),'Average= ',format(average,'.2f'))
+or this:
+def calculate_average(scores):
+return sum(scores) / len(scores)
+with open("student_scores.txt", mode="r") as file:
+# Iterate through lines in the file
+for line in file:
+# Split the line into words
+words = line.split()
+# Extract the student's name and exam scores
+name = words[0]
+scores = [int(score) for score in words[1:]]
+# Calculate the average score
+average_score = calculate_average(scores)
+# Print the student's name and their average score
+print(f"Student: {name}, Average Score: {average_score:.2f}")
+18

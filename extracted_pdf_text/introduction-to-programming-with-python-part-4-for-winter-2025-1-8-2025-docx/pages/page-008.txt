@@ -1,0 +1,20 @@
+Question: How does a function return a value back to the “caller”?
+Answer: It uses the “return statement”. It has two forms:
+• return <some value>
+• return
+• or … the function just “falls off” the last statement and implicitly returns to the caller.
+The first form terminates the function and makes <value> available at the place from which the
+function was called. Program execution resumes from that point as well.
+The second form just terminates the function, and computation resumes from the point from which the
+program was called.
+The third “form” behaves just like the one above.
+Terminology: When a function doesn’t return a value, but rather performs some function for us, we
+will sometimes call it a procedure.
+This tells us that the len() function returns an int.
+But the print function returns “NoneType”, a catchall that says that the function returns nothing. The
+print function is not computing a value for us, it’s basically “doing a job” for us, and then returning to
+the caller. We will call this a procedure.
+Problem:
+Write a function is_even(x) which returns True if x is even and False otherwise.
+Answer:
+80

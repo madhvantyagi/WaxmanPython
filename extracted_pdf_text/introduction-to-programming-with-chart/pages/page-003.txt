@@ -1,0 +1,32 @@
+If key is in the dictionary, remove it and return its value, else return default. If default is not given and
+key is not in the dictionary, a KeyError is raised.
+values()
+Return a new view of the dictionary’s values
+There are additional methods. Check out the Python on-line documentation.
+Dictionaries in some more detail
+A dictionary is a mapping between keys and values. You create a dictionary by enclosing the key-value
+pairs (key:value) each separated by a colon), in curly braces ({ }), each pair separated by a comma like
+this:
+s = {
+'name' : 'GOOG',
+'shares' : 100,
+'price' : 490.10
+}
+To access members of a dictionary, use the indexing operator as follows:
+name = s['name']
+cost = s['shares'] * s['price']
+Inserting or modifying objects works like this:
+s['shares'] = 75
+s['date'] = '2007-06-07'
+A dictionary is a useful way to define an object that consists of named fields. However, dictionaries
+are also commonly used as a mapping for performing fast lookups on unordered data.
+For example, here’s a dictionary of stock prices:
+prices = {
+'GOOG' : 490.1,
+'AAPL' : 123.5,
+'IBM' : 91.5,
+'MSFT' : 52.13
+}
+Given such a dictionary, you can look up a price:
+p = prices['IBM']
+131

@@ -1,0 +1,35 @@
+How to read a csv file from the document directory (or any other one) in windows.
+To read a CSV file from the Documents directory in Windows using Python, you can specify the full path
+to the file in your code. Here's how you can do it:
+• Find the path to the Documents directory on your Windows system. The path is typically located
+in the user's profile folder. For example, it might be something like
+`C:\Users\<YourUsername>\Documents`.
+• Construct the full path to your CSV file by appending the file's name (including the `.csv`
+extension) to the Documents directory path.
+• Use the full path when opening the CSV file with the `open()` function.
+Here's a Python code example that reads a CSV file from the Documents directory:
+import csv
+import os
+# Get the path to the Documents directory
+documents_directory = os.path.expanduser("~/Documents")
+# Specify the CSV file name (change to your file's name)
+csv_file_name = "data.csv"
+# Construct the full path to the CSV file
+csv_file_path = os.path.join(documents_directory, csv_file_name)
+# Check if the file exists before opening it
+if os.path.exists(csv_file_path):
+# Open the CSV file for reading
+with open(csv_file_path, mode="r") as file:
+# Create a CSV reader
+csv_reader = csv.reader(file)
+# Skip the header row (if needed)
+next(csv_reader) # This advances the iterator to the next row
+# Iterate through rows and process data
+for row in csv_reader:
+print(row)
+else:
+print(f"The CSV file '{csv_file_name}' does not exist in the Documents directory.")
+Note: "~/Documents" refers to the "Documents" directory in the current user's home directory.
+"~username/Documents" would refer to the "Documents" directory in the home directory of the user
+with the username "username." This is portable manner across different systems.
+112

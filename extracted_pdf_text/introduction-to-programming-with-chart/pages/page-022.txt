@@ -1,0 +1,28 @@
+if sig not in d:
+d[sig]=[]
+d[sig].append(w)
+else:
+d[sig].append(w)
+f.close()
+else:
+print('Unpickling dictionary ... please wait.')
+f=open('slwords','rb')
+d=pickle.load(f) # this “unpickles”
+word=input("Please enter word: ")
+print()
+while word!='done':
+if len(word)!=6:
+print("word not 6 chars")
+else:
+word=word.upper()
+word=signature(word)
+if word in d:
+print(d[word])
+else:
+print(word,' not found.')
+word=input("Please enter word: ")
+print()
+f=open('slwords','wb') print('Pickling ... please wait.')
+pickle.dump(d,f) # this pickles
+f.close()
+150

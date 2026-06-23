@@ -1,0 +1,22 @@
+We create a new empty list in one of two ways:
+• x=[]
+• x=list()
+or, as above, we can create a list with elements just by listing the elements in the square
+brackets “[“ , “]”.
+Question:
+How do we access individual elements of a list?
+Answer:
+We use square brackets with an integer to “index” into the list.
+For example:
+Notice:
+1. The positions in the list are numbered from 0 (not 1). In the above example, this means that the last
+element in the lost is accessed as x[3].
+2. Since x[3] in our example is the list [3,4] we can access its elements by using a second index. That is
+why x[3][0] is the “zeroth” (i.e. first) element of [3,4], which is 3.
+3. Since there is no element in the list x[4] (they are x[0], x[1], x[2], x[3]) we are trying to access a
+nonexistent element and Python prints an error message.
+Question:
+Can we change (i.e. replace) elements of a list?
+Answer:
+Yes. Here is an example where we modify the list x above.
+123

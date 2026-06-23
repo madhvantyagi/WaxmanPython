@@ -1,0 +1,9 @@
+What about .clear()?
+Problem:
+a, b, and c are as above. What will happen if we run the following:
+d=[a,b,c]
+for i in d:
+del i
+print(d)
+Why?
+127

@@ -1,0 +1,36 @@
+It provides a dynamic view of all the keys in the dictionary. If the dictionary changes, the
+keys view changes accordingly.
+Example: dict_keys(['a', 'b', 'c'])
+Values View:
+Obtained using the .values() method on a dictionary.
+This view shows all the values in the dictionary. Like the keys view, it updates in real-time
+as the dictionary's values change.
+Example: dict_values([1, 2, 3])
+Items View:
+Obtained using the .items() method on a dictionary.
+It provides a view of all the key-value pairs in the dictionary as tuples. Any change in the
+dictionary is immediately reflected in the items view.
+Example: dict_items([('a', 1), ('b', 2), ('c', 3)])
+These views are particularly useful because they allow you to observe the changes in the
+dictionary without needing to create a new list of its contents every time it updates. This
+makes your code more efficient and elegant, especially when working with large datasets
+or in scenarios where the dictionary is frequently updated.
+Some examples:
+Iterating over the entire contents of a dictionary as key-value pairs:
+for sym, price in prices.items():
+print(f'{sym} = {price}')
+Here are some more examples from the Python documentation.
+An example of dictionary view usage:
+>>> dishes = {'eggs': 2, 'sausage': 1, 'bacon': 1, 'spam': 500}
+>>> keys = dishes.keys()
+>>> values = dishes.values()
+>>> # iteration
+>>> n = 0
+>>> for val in values:
+... n += val
+>>> print(n)
+504
+>>> # keys and values are iterated over in the same order (insertion order)
+>>> list(keys)
+['eggs', 'sausage', 'bacon', 'spam']
+140

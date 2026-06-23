@@ -1,0 +1,21 @@
+2. sorted()
+While .sort() can only be used with lists, sorted() can be used on any iterable.
+The sorted function will create a new list.
+See the difference between sort() and sorted():
+Note: The built-in sorted() function is guaranteed to be stable.
+We saw the use of the keyword reverse, what about the keyword key?
+Key Functions
+As we saw above, both list.sort() and sorted() have a key parameter to specify a function (or other
+callable) to be called on each list element prior to making comparisons. That is, if f() is the key function
+then instead if comparing elements a and b , f(a) and f(b) are compared instead.
+For example, here’s a case-insensitive string comparison:
+>>> sorted("This is a test string from Andrew".split(), key=str.lower)
+['a', 'Andrew', 'from', 'is', 'string', 'test', 'This']
+In the above example, the function, lower(), is predefined for string objects, but we can use our own
+functions as well.
+The value of the key parameter should be a function (or other callable) that takes a single argument and
+returns a key to use for sorting purposes. This technique is fast because the key function is called exactly
+once for each input record.
+In the context of sorting, (and others as we will see later) it is quite common to use a special kind of
+function called a “lambda expression.”
+152

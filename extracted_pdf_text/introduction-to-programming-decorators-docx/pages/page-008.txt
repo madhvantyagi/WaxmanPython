@@ -1,0 +1,36 @@
+• The my_decorator function takes say_hello as an argument, wraps additional
+functionality around it, and returns the wrapper function.
+• The name say_hello now refers to the wrapper function, not the original say_hello
+function.
+• When say_hello() is called, it's actually the wrapper function that gets executed.
+This illustrates that the decoration process is part of the function's creation and definition
+phase, not the call phase.
+Can we have multiple decorators applied to the same function?
+Yes.
+When you apply multiple decorators to a function, they are applied from the innermost (closest
+to the function definition) to the outermost (farthest from the function definition). This means the
+decorator closest to the function is applied first, and then the next closest, and so on, up to the
+outermost decorator.
+Consider:
+def decorator1(func):
+def wrapper(*args, **kwargs):
+print("Decorator 1")
+return func(*args, **kwargs)
+return wrapper
+def decorator2(func):
+def wrapper(*args, **kwargs):
+print("Decorator 2")
+return func(*args, **kwargs)
+return wrapper
+def decorator3(func):
+def wrapper(*args, **kwargs):
+print("Decorator 3")
+return func(*args, **kwargs)
+return wrapper
+@decorator3
+@decorator2
+@decorator1
+def my_function():
+print("Hello, World!")
+my_function()
+8

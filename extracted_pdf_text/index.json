@@ -1,0 +1,56 @@
+[
+  {
+    "source_pdf": "Classes PDF/intro-to-oop-in-python.pdf",
+    "output_dir": "extracted_pdf_text/intro-to-oop-in-python",
+    "combined_text_file": "extracted_pdf_text/intro-to-oop-in-python/combined.txt",
+    "page_count": 18,
+    "character_count": 25415,
+    "word_count": 4204,
+    "pages_with_no_text": []
+  },
+  {
+    "source_pdf": "Classes PDF/introduction-to-programming--decorators-docx.pdf",
+    "output_dir": "extracted_pdf_text/introduction-to-programming-decorators-docx",
+    "combined_text_file": "extracted_pdf_text/introduction-to-programming-decorators-docx/combined.txt",
+    "page_count": 21,
+    "character_count": 22156,
+    "word_count": 3479,
+    "pages_with_no_text": []
+  },
+  {
+    "source_pdf": "Classes PDF/introduction-to-programming-generators.pdf",
+    "output_dir": "extracted_pdf_text/introduction-to-programming-generators",
+    "combined_text_file": "extracted_pdf_text/introduction-to-programming-generators/combined.txt",
+    "page_count": 14,
+    "character_count": 19369,
+    "word_count": 3228,
+    "pages_with_no_text": []
+  },
+  {
+    "source_pdf": "Classes PDF/introduction-to-programming-with-chart.pdf",
+    "output_dir": "extracted_pdf_text/introduction-to-programming-with-chart",
+    "combined_text_file": "extracted_pdf_text/introduction-to-programming-with-chart/combined.txt",
+    "page_count": 34,
+    "character_count": 43914,
+    "word_count": 7383,
+    "pages_with_no_text": []
+  },
+  {
+    "source_pdf": "Classes PDF/introduction-to-programming-with-python-part-4-for-winter-2025-1-8-2025-docx.pdf",
+    "output_dir": "extracted_pdf_text/introduction-to-programming-with-python-part-4-for-winter-2025-1-8-2025-docx",
+    "combined_text_file": "extracted_pdf_text/introduction-to-programming-with-python-part-4-for-winter-2025-1-8-2025-docx/combined.txt",
+    "page_count": 93,
+    "character_count": 119392,
+    "word_count": 20383,
+    "pages_with_no_text": []
+  },
+  {
+    "source_pdf": "Classes PDF/introduction-to-programming-with-python-part-5-for-spring-2023-4-20-2023-b.pdf",
+    "output_dir": "extracted_pdf_text/introduction-to-programming-with-python-part-5-for-spring-2023-4-20-2023-b",
+    "combined_text_file": "extracted_pdf_text/introduction-to-programming-with-python-part-5-for-spring-2023-4-20-2023-b/combined.txt",
+    "page_count": 38,
+    "character_count": 39738,
+    "word_count": 7070,
+    "pages_with_no_text": []
+  }
+]

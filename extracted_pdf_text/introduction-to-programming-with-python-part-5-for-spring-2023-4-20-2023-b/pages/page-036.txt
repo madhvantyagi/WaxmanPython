@@ -1,0 +1,31 @@
+Here is a sample data file:
+Name, Age, City
+Alice, 30, New York
+Bob, 25, Los Angeles
+Charlie, 35, Chicago
+If you are going to process the file you often want to skip the header line:
+import csv
+# Open the CSV file for reading
+with open("data.csv", mode="r") as file:
+# Create a CSV reader
+csv_reader = csv.reader(file)
+# Skip the header row (first row)
+next(csv_reader) # This advances the iterator to the next row
+# Iterate through rows and process data starting from the second row
+for row in csv_reader:
+print(row))
+To write data to a CSV file
+import csv
+# Data to be written to the CSV file
+data = [
+["Name", "Age", "City"],
+["Alice", 30, "New York"],
+["Bob", 25, "Los Angeles"],
+]
+# Open a CSV file for writing
+with open("output.csv", mode="w", newline="") as file:
+# Create a CSV writer
+csv_writer = csv.writer(file)
+# Write data to the CSV file
+csv_writer.writerows(data)
+111

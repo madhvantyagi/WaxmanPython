@@ -1,0 +1,7 @@
+Problem:
+Given a list, print the elements of that list in reverse order. Do this in two ways.
+Problem:
+Given a list reverse the elements of the list. For example if
+x=[1,2,3], then after it is reversed x would be [3,2,1].
+Do this in two ways.
+151

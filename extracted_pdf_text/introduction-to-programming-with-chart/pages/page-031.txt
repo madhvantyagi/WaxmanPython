@@ -1,0 +1,30 @@
+import csv
+import os
+#File path for the CSV
+csv_file_path = os.path.join('C:/Users/waxman/Documents', 'random_names_scores.csv')
+# Check if the file exists before opening it
+if os.path.exists(csv_file_path):
+# Open the CSV file for reading
+with open(csv_file_path, mode="r") as file:
+# Create a CSV reader
+csv_reader = csv.reader(file)
+# Skip the header row
+next(csv_reader) # This advances the iterator to the next row
+grades=[]
+# Iterate through rows and process data
+for row in csv_reader:
+grades.append(row[2])# skip the names
+else:
+print(f"The CSV file '{csv_file_name}' does not exist in the Documents directory.")
+# Filtering and converting grades to floats, keeping only positive values - don't want grade of 0 or blank
+positive_float_grades = [float(grade) for grade in grades if grade and float(grade) > 0]
+def count_numbers_in_intervals(positive_float_grades):
+interval_counts = {}
+for interval in range(1, 101, 10):
+count = sum(1 for num in positive_float_grades if interval <= num < interval + 10)
+interval_counts[f"{interval}-{interval + 9}"] = count
+return interval_counts
+interval_counts = count_numbers_in_intervals(positive_float_grades)
+for interval, count in interval_counts.items():
+print(f"Numbers in interval {interval}: {count}")
+159

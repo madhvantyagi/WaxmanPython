@@ -1,0 +1,20 @@
+Problem: Consider the following function
+def Dog():
+def bark():
+print("bark bark")
+Dog.bark = bark
+return Dog
+What happens when we run bark()?
+What happens when we run Dog.bark()?
+What happens when we run:
+spot= Dog()
+spot.bark()
+What if we had just had:
+def Dog():
+def bark():
+print("bark bark")
+Dog.bark = bark
+return Dog
+Dog()
+Dog.bark()
+92

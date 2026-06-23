@@ -1,0 +1,10 @@
+Problem:
+Write a function int_add(x,y) that takes two “integers” as represented above, and returns their sum.
+Note that these “integers” needn’t be the same size. You can simplify your program by padding the shorter one with
+zeros (on the left).
+Note as well, there might be a final carry that will increase the answer by one digit more than the addends.
+Problem:
+Write a function matrix_add(x,y) that takes two square “matrices” and returns their sum.
+Problem:
+Write a function matrix_mult(x,y) that takes two square “matrices” and returns their product.
+119

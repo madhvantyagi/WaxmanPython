@@ -1,0 +1,26 @@
+means dictionaries, sets, and other mutable objects would be shallow copied, sharing references between
+the original and copied structures.
+To make the function more general and capable of deep copying structures that may include dictionaries,
+sets, or other mutable types, you'd need to enhance its type checking and handling..
+Here’s an extended version of the deep_copy function that can handle lists, dictionaries, and sets. It does
+not cover all edge cases or types but demonstrates how you might extend the functionality:
+def deep_copy(obj): # this code is incomplete – a general idea of what needs to be done
+if isinstance(obj, list):
+return [deep_copy(item) for item in obj]
+elif isinstance(obj, dict):
+return {deep_copy(key): deep_copy(value) for key, value in obj.items()}
+elif isinstance(obj, set):
+return {deep_copy(item) for item in obj}
+else:
+# For simplicity, other types are not deeply copied.
+# This includes custom objects, which might require special handling.
+return obj
+# Example usage with a complex structure
+original_structure = [1, [2, {'a': 3, 'b': {4, 5}}, 6], 7]
+copied_structure = deep_copy(original_structure)
+print("Original Structure:", original_structure)
+print("Copied Structure:", copied_structure)
+Keep in mind that for a fully robust deep copy implementation, you would need to handle many more
+cases, and it's generally recommended to use Python's built-in copy.deepcopy() for this purpose, especially
+in production code or complex scenarios.
+160

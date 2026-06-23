@@ -1,0 +1,25 @@
+<generator object countdown at 0x105f73740
+> >>>
+What happens is that a generator object is created. The generator object, in turn, only executes the
+function when you start iterating on it.
+next
+We saw that we can do this with the for loop. Another way is to call next() on it:
+>>> next(c)
+Counting down from 10
+10
+>>> next(c)
+9
+When next() is called, the generator function executes statements until it reaches a yield statement. The
+yield statement returns a result, at which point execution of the function is suspended until next() is
+invoked again. While it’s suspended, the function retains all of its local variables and execution
+environment. When resumed, execution continues with the statement following the yield.
+next() is a shorthand for invoking the __next__() method on a generator. For example, you could also
+do this:
+>>> c.__next__()
+8
+>>> c.__next__()
+7
+>>>
+Problem:
+Write a generator that will yield the “next” prime number each time that it’s called.
+5

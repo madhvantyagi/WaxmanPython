@@ -1,0 +1,22 @@
+A generator function produces items until it “returns” (since it’s a function after all)—by
+• reaching the end of the function or
+• by using a return statement.
+Restartable Generators (as a class) – we will see this later
+Normally a generator function executes only once. For example:
+>>> c = countdown(3)
+>>> for n in c:
+... print('T-minus', n)
+...
+T-minus 3
+T-minus 2
+T-minus 1
+>>> for n in c:
+... print('T-minus', n)
+...
+>>>
+If you want an object that allows repeated iteration, define it as a class and make the __iter__() method
+a generator:
+class countdown:
+def __init__(self, start):
+self.start = start
+13

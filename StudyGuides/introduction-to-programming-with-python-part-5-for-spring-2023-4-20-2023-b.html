@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Guide - Introduction to Programming with Python Part 5</title>
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #5f6368;
+      --line: #d8dee4;
+      --soft: #f6f8fa;
+      --panel: #ffffff;
+      --accent: #1d4f91;
+      --accent2: #7a3e00;
+      --code: #0f172a;
+      --code-bg: #f1f5f9;
+      --warn-bg: #fff7e6;
+      --ok-bg: #edf7ed;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #eef2f6;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 18px 56px;
+    }
+
+    header {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.2;
+      color: #102a43;
+    }
+
+    h2 {
+      margin: 28px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--line);
+      color: #102a43;
+      font-size: 22px;
+    }
+
+    h3 {
+      margin: 20px 0 8px;
+      color: #17324d;
+      font-size: 17px;
+    }
+
+    h4 {
+      margin: 16px 0 6px;
+      font-size: 15px;
+      color: #333;
+    }
+
+    p { margin: 8px 0; }
+
+    ul, ol { margin: 8px 0 12px 22px; padding: 0; }
+    li { margin: 4px 0; }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      background: var(--code-bg);
+      color: var(--code);
+      padding: 1px 4px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+
+    pre {
+      margin: 10px 0;
+      padding: 13px 14px;
+      background: var(--code-bg);
+      border: 1px solid #d7e0ea;
+      border-radius: 8px;
+      overflow-x: auto;
+      color: var(--code);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    pre code {
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      font-size: inherit;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 16px;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: #eaf1f8; color: #102a43; }
+
+    .section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 16px 0;
+    }
+
+    .ref {
+      display: inline-block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: normal;
+      margin-left: 6px;
+    }
+
+    .callout {
+      border-left: 4px solid var(--accent);
+      background: #eef6ff;
+      padding: 10px 12px;
+      margin: 10px 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .trap {
+      border-left: 4px solid var(--accent2);
+      background: var(--warn-bg);
+      padding: 10px 12px;
+      margin: 10px 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .answer {
+      border-left: 4px solid #2f7d32;
+      background: var(--ok-bg);
+      padding: 10px 12px;
+      margin: 10px 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    .mini {
+      border: 1px solid var(--line);
+      background: #fbfcfd;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .toc a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .toc a:hover { text-decoration: underline; }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid #bfd0e0;
+      background: #f5f9fc;
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin: 2px 3px 2px 0;
+      font-size: 12px;
+      color: #24445f;
+    }
+
+    @media (max-width: 700px) {
+      .page { padding: 16px 10px 36px; }
+      header, .section { padding: 16px; }
+      h1 { font-size: 23px; }
+      h2 { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Introduction to Programming with Python, Part 5 - Exam Study Guide</h1>
+      <p>This guide is built from the extracted PDF text for <strong>introduction-to-programming-with-python-part-5-for-spring-2023-4-20-2023-b</strong>. Page references use the PDF extraction page plus the printed slide/page number when it appears.</p>
+      <p>
+        <span class="tag">sets</span>
+        <span class="tag">2D lists</span>
+        <span class="tag">list comprehensions</span>
+        <span class="tag">references and mutation</span>
+        <span class="tag">matrix algorithms</span>
+        <span class="tag">dynamic programming</span>
+        <span class="tag">unpacking</span>
+        <span class="tag">zip and transpose</span>
+        <span class="tag">strings</span>
+        <span class="tag">files</span>
+        <span class="tag">CSV</span>
+      </p>
+    </header>
+
+    <section class="section toc">
+      <h2>How to Use This</h2>
+      <ol>
+        <li>For each topic, know the short definition, the Python mechanics behind it, and at least one implementation.</li>
+        <li>For code questions, trace names, objects, indexes, and function calls. Most hard questions in this unit come from aliasing, nested lists, list comprehensions, recursion, and file/string newline behavior.</li>
+        <li>Use the exam drills at the end as output-prediction practice. Do not just read the answers; trace first.</li>
+      </ol>
+      <p><strong>Contents:</strong>
+        <a href="#sets">Sets and Unique Random Values</a> |
+        <a href="#tables">2D Tables and Matrices</a> |
+        <a href="#comprehensions">List Comprehensions</a> |
+        <a href="#matrix">Matrix Algorithms</a> |
+        <a href="#robot">Robot Paths</a> |
+        <a href="#base8">Base 8 and Eight Queens</a> |
+        <a href="#unpacking">Unpacking</a> |
+        <a href="#zip">zip and Transpose</a> |
+        <a href="#strings">Strings</a> |
+        <a href="#files">Files and CSV</a> |
+        <a href="#drills">Professor-Style Drills</a>
+      </p>
+    </section>
+
+    <section id="sets" class="section">
+      <h2>1. Sets and Unique Random Values <span class="ref">PDF pp. 1-2, printed 110-111</span></h2>
+
+      <h3>Source problem pattern</h3>
+      <p>The PDF starts with two related problems:</p>
+      <ul>
+        <li>Ask for integers <code>n</code> and <code>m</code> with <code>m &gt; n</code>. Create a list <code>x</code> of size <code>n</code> filled with random integers from <code>1</code> through <code>m</code>.</li>
+        <li>Modify the solution so all values in <code>x</code> are unique.</li>
+      </ul>
+
+      <h3>Set facts you must know</h3>
+      <p>A set is a container like a list, but it can contain only one copy of any element. Sets are useful for duplicate checking because membership testing with <code>value in s</code> is the natural operation.</p>
+
+      <table>
+        <tr><th>Operation</th><th>Meaning</th><th>Trap</th></tr>
+        <tr><td><code>s = set()</code></td><td>Create an empty set.</td><td><code>{}</code> creates an empty dictionary, not an empty set.</td></tr>
+        <tr><td><code>s = set(iterable)</code></td><td>Build a set from another iterable, removing duplicates.</td><td>Order is not the point of a set.</td></tr>
+        <tr><td><code>s.add(elem)</code></td><td>Add one element.</td><td>Adding a duplicate changes nothing.</td></tr>
+        <tr><td><code>s.remove(elem)</code></td><td>Remove an element.</td><td>Raises <code>KeyError</code> if missing.</td></tr>
+        <tr><td><code>s.discard(elem)</code></td><td>Remove if present.</td><td>No error if missing.</td></tr>
+        <tr><td><code>s.pop()</code></td><td>Remove and return an arbitrary element.</td><td>Not first or last; arbitrary. Raises <code>KeyError</code> if empty.</td></tr>
+        <tr><td><code>s.clear()</code></td><td>Remove all elements.</td><td>The set object remains; it is just empty.</td></tr>
+        <tr><td><code>len(s)</code></td><td>Number of unique elements.</td><td>This is cardinality, not max index.</td></tr>
+        <tr><td><code>x in s</code></td><td>Membership test.</td><td>Use this before appending to a unique list.</td></tr>
+      </table>
+
+      <h3>Implementation pattern: random list with repeats allowed</h3>
+      <pre><code>import random
+
+n = int(input("n: "))
+m = int(input("m: "))
+x = []
+for i in range(n):
+    x.append(random.randint(1, m))  # includes both endpoints
+print(x)</code></pre>
+
+      <h3>Implementation pattern: random list with unique values</h3>
+      <pre><code>import random
+
+n = int(input("n: "))
+m = int(input("m: "))
+seen = set()
+x = []
+while len(x) &lt; n:
+    value = random.randint(1, m)
+    if value not in seen:
+        seen.add(value)
+        x.append(value)
+print(x)</code></pre>
+
+      <div class="callout">
+        <strong>Behind the scenes:</strong> <code>x</code> is a name bound to a list object. <code>seen</code> is a name bound to a set object. <code>x.append(value)</code> mutates the existing list object; it does not create a new list. <code>seen.add(value)</code> mutates the existing set object.
+      </div>
+
+      <div class="trap">
+        <strong>Common trap:</strong> If <code>m &lt; n</code>, it is impossible to choose <code>n</code> unique integers from <code>1..m</code>. If a loop tries anyway, it may run forever. The PDF says <code>m &gt; n</code> for the first version, but for uniqueness you need at least <code>m &gt;= n</code>.
+      </div>
+
+      <h3>Likely exam questions</h3>
+      <ul>
+        <li>Explain why a set removes duplicates from a list.</li>
+        <li>Write code that uses a set to prevent duplicate random values.</li>
+        <li>State the difference between <code>remove</code> and <code>discard</code>.</li>
+        <li>Predict whether a loop can terminate when the range contains fewer unique values than requested.</li>
+      </ul>
+    </section>
+
+    <section id="tables" class="section">
+      <h2>2. 2D Tables, Rows, Columns, and Diagonals <span class="ref">PDF pp. 3-5, printed 112-114</span></h2>
+
+      <h3>Source problem pattern</h3>
+      <p>The PDF moves from a 1D list to a two-dimensional table, represented as a list of lists. It asks for an <code>n * m</code> table of unique random integers from <code>1</code> through <code>k</code>, where <code>k &gt; m*n</code>.</p>
+
+      <h3>Creating a 2D table correctly</h3>
+      <pre><code>import random
+
+n = int(input("rows: "))
+m = int(input("cols: "))
+k = int(input("max value: "))
+
+seen = set()
+x = []
+for row in range(n):
+    new_row = []
+    for col in range(m):
+        value = random.randint(1, k)
+        while value in seen:
+            value = random.randint(1, k)
+        seen.add(value)
+        new_row.append(value)
+    x.append(new_row)
+
+print(x)</code></pre>
+
+      <div class="trap">
+        <strong>Major nested-list trap:</strong> Do not create a table with <code>a = n * [m * [0]]</code>. That repeats references to the same inner list. Mutating one row mutates every row. The PDF later uses the safe form <code>a = [5 * [0] for i in range(5)]</code> for robot paths.
+      </div>
+
+      <h3>Rows and columns</h3>
+      <pre><code>def get_row_copy(x, i):
+    return [x[i][j] for j in range(len(x[i]))]
+
+def get_row_reference(x, i):
+    return x[i]
+
+def get_col(x, i):
+    return [x[j][i] for j in range(len(x))]</code></pre>
+
+      <p>For a square matrix, <code>len(x)</code> is both the number of rows and the number of columns. For a rectangular table, columns should use <code>len(x)</code> for rows and rows should use <code>len(x[i])</code> for columns.</p>
+
+      <h3>Main diagonal and anti-diagonal</h3>
+      <p>The main diagonal goes upper-left to lower-right: <code>x[0][0]</code>, <code>x[1][1]</code>, <code>x[2][2]</code>, and so on.</p>
+      <pre><code>def main_diag_sum(x):
+    return sum(x[i][i] for i in range(len(x)))</code></pre>
+
+      <p>The other diagonal goes upper-right to lower-left: <code>x[0][n-1]</code>, <code>x[1][n-2]</code>, <code>x[2][n-3]</code>, and so on.</p>
+      <pre><code>def anti_diag_sum(x):
+    n = len(x)
+    return sum(x[i][n - 1 - i] for i in range(n))</code></pre>
+
+      <div class="callout">
+        <strong>Index mechanics:</strong> If <code>n = len(x)</code>, then row <code>i</code> on the anti-diagonal pairs with column <code>n - 1 - i</code>. When <code>i = 0</code>, this is the last column. When <code>i = n - 1</code>, this is column <code>0</code>.
+      </div>
+
+      <h3>Likely exam questions</h3>
+      <ul>
+        <li>Write <code>get_col(x, i)</code> and explain why it cannot just return <code>x[i]</code>.</li>
+        <li>Trace the values visited by <code>x[i][len(x)-1-i]</code>.</li>
+        <li>Explain the reference difference between returning <code>x[i]</code> and returning a newly built row list.</li>
+      </ul>
+    </section>
+
+    <section id="comprehensions" class="section">
+      <h2>3. List Comprehensions <span class="ref">PDF pp. 5-8, printed 114-118</span></h2>
+
+      <h3>General form</h3>
+      <pre><code>[expression using a value from an iterable for value in iterable if condition]</code></pre>
+
+      <p>The expression runs for each value produced by the iterable that passes the optional <code>if</code> condition. The result is always a new list.</p>
+
+      <h3>Squares of even numbers from 1 through 100</h3>
+      <pre><code>a = [x * x for x in range(1, 101) if x % 2 == 0]</code></pre>
+
+      <p>Equivalent loop:</p>
+      <pre><code>a = []
+for x in range(1, 101):
+    if x % 2 == 0:
+        a.append(x * x)</code></pre>
+
+      <h3>Prime list example</h3>
+      <pre><code>y = [k for k in range(2, 121) if prime(k)]</code></pre>
+
+      <p>This assumes <code>prime(k)</code> returns <code>True</code> for primes and <code>False</code> otherwise. The function call is evaluated once for each <code>k</code> from 2 through 120.</p>
+
+      <h3>Dot product example</h3>
+      <pre><code>x = [1, 2, 3]
+y = [10, 11, 12]
+dot = sum([x[i] * y[i] for i in range(len(x))])
+# 1*10 + 2*11 + 3*12 = 68</code></pre>
+
+      <h3>Even values with positions</h3>
+      <pre><code>z = [13, 14, 7, 12, 11, 3, 18, 20, 5, 7,
+     19, 17, 10, 16, 14, 12, 5, 19, 15, 1]
+k = [(i, z[i]) for i in range(20) if z[i] % 2 == 0]
+# [(1, 14), (3, 12), (6, 18), (7, 20),
+#  (12, 10), (13, 16), (14, 14), (15, 12)]</code></pre>
+
+      <div class="callout">
+        <strong>Behind the scenes:</strong> The comprehension creates a new list object. Each tuple <code>(i, z[i])</code> is a new tuple object. The original <code>z</code> list is not mutated.
+      </div>
+
+      <h3>Row copy versus row reference</h3>
+      <p>The PDF emphasizes that two versions of <code>get_row</code> can print the same result but behave differently after mutation.</p>
+      <pre><code>def get_row_a(x, i):
+    return [x[i][j] for j in range(len(x))]
+
+def get_row_b(x, i):
+    return x[i]
+
+m = [[1, 2], [3, 4]]
+a = get_row_a(m, 0)
+b = get_row_b(m, 0)
+a[0] = 99
+b[1] = 88
+print(m)</code></pre>
+
+      <div class="answer">
+        <strong>Output:</strong> <code>[[1, 88], [3, 4]]</code>. <code>a</code> points to a new list, so changing <code>a[0]</code> does not change <code>m</code>. <code>b</code> points to the exact same inner list as <code>m[0]</code>, so changing <code>b[1]</code> changes the matrix.
+      </div>
+
+      <h3>Column sum and diagonal difference with comprehensions</h3>
+      <pre><code>def sum_col(x, i):
+    return sum([x[j][i] for j in range(len(x))])
+
+def diag_diff(x):
+    n = len(x)
+    d1 = sum([x[i][i] for i in range(n)])
+    d2 = sum([x[i][n - 1 - i] for i in range(n)])
+    return d1 - d2</code></pre>
+
+      <h3>make_int: representing an integer as a list of digits</h3>
+      <p>The PDF notes that early Python distinguished <code>int</code> and <code>long</code>, and says modern Python 3 integers are represented like long integers internally. The class exercise represents a big integer as a list of digits.</p>
+      <pre><code>def make_int(x: str) -&gt; list:
+    return [int(ch) for ch in x]</code></pre>
+
+      <div class="trap">
+        <strong>Trap:</strong> <code>[int(x)]</code> is not the same as <code>[int(ch) for ch in x]</code>. For <code>"123"</code>, the first gives <code>[123]</code>; the second gives <code>[1, 2, 3]</code>.
+      </div>
+    </section>
+
+    <section id="matrix" class="section">
+      <h2>4. Big-Integer Addition and Matrix Algorithms <span class="ref">PDF pp. 9-10, printed 119 plus later pp. 21-23, printed 129-131</span></h2>
+
+      <h3>Adding integer-lists digit by digit</h3>
+      <p>The source asks for <code>int_add(x, y)</code>, where integers are represented as lists of digits. Different lengths are allowed, and a final carry may add one extra digit.</p>
+
+      <pre><code>def int_add(x, y):
+    x = x[:]
+    y = y[:]
+
+    while len(x) &lt; len(y):
+        x.insert(0, 0)
+    while len(y) &lt; len(x):
+        y.insert(0, 0)
+
+    carry = 0
+    ans = []
+    for i in range(len(x) - 1, -1, -1):
+        total = x[i] + y[i] + carry
+        ans.insert(0, total % 10)
+        carry = total // 10
+
+    if carry:
+        ans.insert(0, carry)
+    return ans</code></pre>
+
+      <div class="callout">
+        <strong>Call stack and binding note:</strong> Inside <code>int_add</code>, the names <code>x</code> and <code>y</code> initially refer to the caller's list objects. The assignments <code>x = x[:]</code> and <code>y = y[:]</code> rebind those local names to copies, so padding with zeros does not mutate the caller's lists.
+      </div>
+
+      <h3>Matrix addition</h3>
+      <pre><code>def matrix_add(x, y):
+    n = len(x)
+    return [[x[i][j] + y[i][j] for j in range(n)] for i in range(n)]</code></pre>
+
+      <h3>Matrix multiplication, standard version</h3>
+      <pre><code>def matrix_mult(x, y):
+    n = len(x)
+    ans = []
+    for i in range(n):
+        row = []
+        for j in range(n):
+            total = 0
+            for k in range(n):
+                total += x[i][k] * y[k][j]
+            row.append(total)
+        ans.append(row)
+    return ans</code></pre>
+
+      <h3>Matrix multiplication, Pythonic zip version</h3>
+      <pre><code>def matrix_mult(A, B):
+    dot = lambda r, c: sum([r[i] * c[i] for i in range(len(r))])
+    return [[dot(ri, cj) for cj in zip(*B)] for ri in A]</code></pre>
+
+      <p><code>zip(*B)</code> turns columns of <code>B</code> into tuples, so each <code>cj</code> acts like a column vector. The outer comprehension chooses each row <code>ri</code> from <code>A</code>.</p>
+
+      <h3>Saddle point</h3>
+      <p>A saddle point is an entry that is the minimum in its row and the maximum in its column. The PDF asks to return <code>(value, x pos, y pos)</code> if one exists, or <code>"not found"</code>.</p>
+
+      <pre><code>def saddle_point(x):
+    n = len(x)
+    for i in range(n):
+        row_min = min(x[i])
+        for j in range(n):
+            if x[i][j] == row_min:
+                col = [x[r][j] for r in range(n)]
+                if x[i][j] == max(col):
+                    return (x[i][j], i, j)
+    return "not found"</code></pre>
+
+      <div class="trap">
+        <strong>Trap:</strong> If a row has repeated minimum values, you must test each matching position, because only one of those columns may make the value a column maximum.
+      </div>
+    </section>
+
+    <section id="robot" class="section">
+      <h2>5. Robot Paths: Dynamic Programming and Recursion <span class="ref">PDF p. 11, printed 11/111</span></h2>
+
+      <h3>Problem</h3>
+      <p>A robot starts at the upper-left square of a 5 by 5 grid and must reach the lower-right square. At each square it may move only one square right or one square down. Count how many paths exist.</p>
+
+      <h3>Table solution from the PDF</h3>
+      <pre><code>a = [5 * [0] for i in range(5)]
+
+for i in range(5):
+    a[i][0] = 1
+    a[0][i] = 1
+
+for i in range(1, 5):
+    for j in range(1, 5):
+        a[i][j] = a[i - 1][j] + a[i][j - 1]
+
+print(a[4][4])</code></pre>
+
+      <p>Every cell stores the number of ways to reach that cell. A robot can only enter cell <code>(i, j)</code> from above <code>(i-1, j)</code> or from the left <code>(i, j-1)</code>, so the count is the sum of those two counts. The top row and left column are all 1 because there is only one straight-line path to each of those boundary cells.</p>
+
+      <pre><code>Final 5 by 5 table:
+1   1   1   1   1
+1   2   3   4   5
+1   3   6  10  15
+1   4  10  20  35
+1   5  15  35  70</code></pre>
+
+      <h3>Recursive solution from the PDF</h3>
+      <pre><code>def num_paths(n, i, j):
+    if i == 0 or j == 0:
+        return 1
+    return num_paths(n, i - 1, j) + num_paths(n, i, j - 1)
+
+n = int(input("Please enter the 'size' of the array, n= "))
+print(num_paths(n, n - 1, n - 1))</code></pre>
+
+      <div class="callout">
+        <strong>Call stack mechanics:</strong> Each recursive call gets its own local <code>i</code> and <code>j</code>. The function keeps splitting the problem until it reaches the top row or left column. Then returns flow back up the call stack and are added together.
+      </div>
+
+      <div class="trap">
+        <strong>Performance trap:</strong> The recursive version recomputes the same subproblems many times. The table version stores each answer once, so it is much faster for larger grids.
+      </div>
+    </section>
+
+    <section id="base8" class="section">
+      <h2>6. Base 8 Generation and Eight Queens <span class="ref">PDF pp. 12-14, printed 120-122</span></h2>
+
+      <h3>Generating all eight-digit base-8 integers</h3>
+      <p>Base 8 uses digits <code>0</code> through <code>7</code>. The PDF shows eight nested loops, one for each digit, producing lists such as <code>[0, 0, 0, 0, 0, 0, 0, 0]</code> through <code>[7, 7, 7, 7, 7, 7, 7, 7]</code>.</p>
+
+      <pre><code>for i0 in range(8):
+    for i1 in range(8):
+        for i2 in range(8):
+            for i3 in range(8):
+                for i4 in range(8):
+                    for i5 in range(8):
+                        for i6 in range(8):
+                            for i7 in range(8):
+                                q = [i0, i1, i2, i3, i4, i5, i6, i7]
+                                print(q)</code></pre>
+
+      <p>This prints <code>8 ** 8</code> configurations because each of 8 positions has 8 choices.</p>
+
+      <h3>get_num(n): decimal to fixed 8-digit base-8 list</h3>
+      <pre><code>def get_num(n):
+    digits = [0] * 8
+    for i in range(7, -1, -1):
+        digits[i] = n % 8
+        n = n // 8
+    return digits</code></pre>
+
+      <p>Example: <code>get_num(10)</code> returns <code>[0, 0, 0, 0, 0, 0, 1, 2]</code> because decimal 10 is base-8 <code>12</code>.</p>
+
+      <h3>Eight Queens representation</h3>
+      <p>The PDF connects base-8 configurations to the Eight Queens problem. A configuration can be represented as a vector <code>q</code> of length 8. Usually, column <code>i</code> contains one queen, and <code>q[i]</code> gives that queen's row.</p>
+
+      <ul>
+        <li>Row conflict: two columns have the same row value.</li>
+        <li>Main diagonal conflict: two queens have equal <code>row + col</code>.</li>
+        <li>Other diagonal conflict: two queens have equal <code>row - col</code>.</li>
+      </ul>
+
+      <h3>Permutation solution from the PDF</h3>
+      <pre><code>from itertools import permutations
+
+col = [0, 1, 2, 3, 4, 5, 6, 7]
+for vec in permutations(col):
+    if (8 == len(set(vec[i] + i for i in col))
+           == len(set(vec[i] - i for i in col))):
+        print(vec)</code></pre>
+
+      <p><code>permutations(col)</code> already prevents row conflicts because every row value appears exactly once. The two set lengths test diagonal conflicts. If there are 8 distinct <code>vec[i] + i</code> values and 8 distinct <code>vec[i] - i</code> values, no two queens share a diagonal.</p>
+
+      <h3>diagonal_threat helper</h3>
+      <pre><code>def diagonal_threat(q):
+    for i in range(len(q)):
+        for j in range(i + 1, len(q)):
+            if q[i] + i == q[j] + j:
+                return True
+            if q[i] - i == q[j] - j:
+                return True
+    return False</code></pre>
+
+      <pre><code>from itertools import permutations
+
+candidates = permutations([0, 1, 2, 3, 4, 5, 6, 7])
+count = 0
+for p in candidates:
+    if diagonal_threat(p):
+        continue
+    count += 1
+    print("Solution number ", count, ": ", p)
+print()</code></pre>
+
+      <div class="trap">
+        <strong>Trap:</strong> <code>permutations</code> returns tuples, not lists. You can index tuples the same way, but you cannot mutate them.
+      </div>
+    </section>
+
+    <section id="unpacking" class="section">
+      <h2>7. Unpacking Sequences and Iterables <span class="ref">PDF pp. 15-18, printed 123-126</span></h2>
+
+      <h3>Parallel assignment</h3>
+      <pre><code>lax_coordinates = (33.9425, -118.408056)
+latitude, longitude = lax_coordinates</code></pre>
+
+      <p>Python asks the iterable for values and binds each target name to one value. Without a star target, the number of values must exactly match the number of names.</p>
+
+      <h3>Swapping variables</h3>
+      <pre><code>b, a = a, b</code></pre>
+
+      <p>The right side is evaluated first, forming the pair of current values. Then the left names are rebound. No temporary variable is needed.</p>
+
+      <h3>Unpacking into function calls</h3>
+      <pre><code>divmod(20, 8)    # (2, 4)
+t = (20, 8)
+divmod(*t)      # same as divmod(20, 8)
+quotient, remainder = divmod(*t)</code></pre>
+
+      <p>The <code>*t</code> in a call expands the iterable into separate positional arguments.</p>
+
+      <h3>Ignoring values with underscore</h3>
+      <pre><code>import os
+_, filename = os.path.split("/home/luciano/.ssh/id_rsa.pub")
+print(filename)  # id_rsa.pub</code></pre>
+
+      <p><code>_</code> is just a normal name, but by convention it means "I do not plan to use this value."</p>
+
+      <h3>Using star to grab excess items</h3>
+      <pre><code>a, b, *rest = range(5)      # a=0, b=1, rest=[2, 3, 4]
+a, b, *rest = range(3)      # a=0, b=1, rest=[2]
+a, b, *rest = range(2)      # a=0, b=1, rest=[]
+a, *body, c, d = range(5)   # a=0, body=[1, 2], c=3, d=4
+*head, b, c, d = range(5)   # head=[0, 1], b=2, c=3, d=4</code></pre>
+
+      <div class="callout">
+        <strong>Important:</strong> In assignment, the starred target receives a list. In a function definition like <code>def fun(..., *rest)</code>, the excess arguments are collected into a tuple.
+      </div>
+
+      <h3>Star unpacking in function calls and literals</h3>
+      <pre><code>def fun(a, b, c, d, *rest):
+    return a, b, c, d, rest
+
+fun(*[1, 2], 3, *range(4, 7))
+# (1, 2, 3, 4, (5, 6))
+
+*range(4), 4
+# (0, 1, 2, 3, 4)
+
+[*range(4), 4]
+# [0, 1, 2, 3, 4]
+
+{*range(4), 4, *(5, 6, 7)}
+# {0, 1, 2, 3, 4, 5, 6, 7}</code></pre>
+
+      <h3>Nested unpacking</h3>
+      <pre><code>metro_areas = [
+    ("Tokyo", "JP", 36.933, (35.689722, 139.691667)),
+    ("Delhi NCR", "IN", 21.935, (28.613889, 77.208889)),
+    ("Mexico City", "MX", 20.142, (19.433333, -99.133333)),
+    ("New York-Newark", "US", 20.104, (40.808611, -74.020386)),
+    ("Sao Paulo", "BR", 19.649, (-23.547778, -46.635833)),
+]
+
+for name, _, _, (lat, lon) in metro_areas:
+    if lon &lt;= 0:
+        print(f"{name:15} | {lat:9.4f} | {lon:9.4f}")</code></pre>
+
+      <p>The last field in each record is itself a tuple. The target <code>(lat, lon)</code> unpacks that nested tuple directly.</p>
+    </section>
+
+    <section id="zip" class="section">
+      <h2>8. zip, Unzipping, Dictionaries, and Transpose <span class="ref">PDF pp. 19-23, printed 127-131</span></h2>
+
+      <h3>Basic zip</h3>
+      <pre><code>a = [1, 2, 3]
+b = ["a", "b", "c"]
+print(list(zip(a, b)))
+# [(1, "a"), (2, "b"), (3, "c")]</code></pre>
+
+      <p><code>zip</code> returns an iterator. Once you consume it, it is exhausted. Convert to <code>list</code> only when you need to see or reuse all pairs.</p>
+
+      <h3>Different lengths</h3>
+      <pre><code>a = [1, 2, 3, 4]
+b = ["a", "b"]
+print(list(zip(a, b)))
+# [(1, "a"), (2, "b")]</code></pre>
+
+      <p><code>zip</code> stops when the shortest iterable is exhausted.</p>
+
+      <h3>Unzipping</h3>
+      <pre><code>pairs = [(1, "a"), (2, "b"), (3, "c")]
+numbers, letters = zip(*pairs)
+print(numbers)  # (1, 2, 3)
+print(letters)  # ("a", "b", "c")</code></pre>
+
+      <p><code>*pairs</code> passes each tuple as a separate argument to <code>zip</code>. Then <code>zip</code> groups all first elements, all second elements, and so on.</p>
+
+      <h3>Parallel iteration</h3>
+      <pre><code>for number, letter in zip([1, 2, 3], ["a", "b", "c"]):
+    print(number, letter)</code></pre>
+
+      <h3>Creating dictionaries</h3>
+      <pre><code>keys = ["a", "b", "c"]
+values = [1, 2, 3]
+dictionary = dict(zip(keys, values))
+print(dictionary)  # {"a": 1, "b": 2, "c": 3}</code></pre>
+
+      <h3>Transposing a matrix</h3>
+      <pre><code>B = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+]
+
+print(list(zip(*B)))
+# [(1, 4, 7), (2, 5, 8), (3, 6, 9)]
+
+transposed = [list(group) for group in zip(*B)]
+print(transposed)
+# [[1, 4, 7], [2, 5, 8], [3, 6, 9]]</code></pre>
+
+      <div class="callout">
+        <strong>Mechanics of <code>zip(*B)</code>:</strong> If <code>B</code> has three rows, <code>*B</code> passes those rows as three separate arguments: <code>zip(B[0], B[1], B[2])</code>. Then <code>zip</code> groups values by column position.
+      </div>
+    </section>
+
+    <section id="strings" class="section">
+      <h2>9. Strings <span class="ref">PDF pp. 24-28, printed 132-134 and 124</span></h2>
+
+      <h3>Core string facts</h3>
+      <ul>
+        <li>Strings are immutable. You cannot change a character in place.</li>
+        <li>Strings are iterable, so <code>for ch in s</code> works.</li>
+        <li>Strings are sequences, so indexing and slicing work.</li>
+        <li>String concatenation with <code>+</code> creates a new string.</li>
+      </ul>
+
+      <h3>Useful methods from the PDF</h3>
+      <table>
+        <tr><th>Method</th><th>Meaning</th><th>Example trap</th></tr>
+        <tr><td><code>s.count(sub, start, end)</code></td><td>Number of non-overlapping occurrences.</td><td><code>"111".count("11")</code> is 1, not 2.</td></tr>
+        <tr><td><code>s.find(sub, start, end)</code></td><td>Lowest index where found, or <code>-1</code>.</td><td><code>-1</code> is not an error; it is a result.</td></tr>
+        <tr><td><code>sep.join(iterable)</code></td><td>Concatenate strings with separator.</td><td>Every item must already be a string.</td></tr>
+        <tr><td><code>s.replace(old, new, count)</code></td><td>Return a copy with replacements.</td><td>Original string is unchanged.</td></tr>
+        <tr><td><code>s.split(sep, maxsplit)</code></td><td>Split into list of strings.</td><td><code>split(",")</code> keeps empty fields between consecutive commas.</td></tr>
+        <tr><td><code>s.splitlines(keepends)</code></td><td>Split at line boundaries.</td><td>Without <code>keepends</code>, newline characters are removed.</td></tr>
+        <tr><td><code>s.rstrip(chars)</code></td><td>Remove trailing chars from a set of chars.</td><td><code>chars</code> is not a suffix; all trailing matching chars are stripped.</td></tr>
+        <tr><td><code>s.lstrip(chars)</code></td><td>Remove leading chars.</td><td>Same set-of-chars rule.</td></tr>
+        <tr><td><code>s.strip(chars)</code></td><td>Remove from both ends.</td><td>Does not remove from the middle.</td></tr>
+        <tr><td><code>s.upper()</code></td><td>Return uppercase copy.</td><td>Does not mutate <code>s</code>.</td></tr>
+        <tr><td><code>s.lower()</code></td><td>Return lowercase copy.</td><td>Does not mutate <code>s</code>.</td></tr>
+      </table>
+
+      <h3>split with and without a separator</h3>
+      <pre><code>"1,,2".split(",")       # ["1", "", "2"]
+"1&lt;&gt;2&lt;&gt;3".split("&lt;&gt;")  # ["1", "2", "3"]
+"".split(",")           # [""]
+" 1 2 3 ".split()       # ["1", "2", "3"]
+"   ".split()           # []</code></pre>
+
+      <p>When <code>sep</code> is omitted or <code>None</code>, runs of whitespace count as one separator and leading/trailing whitespace does not create empty strings.</p>
+
+      <h3>splitlines</h3>
+      <pre><code>text = "Hello\nWorld!\rThis is an example.\r\nEnjoy!"
+print(text.splitlines())
+# ["Hello", "World!", "This is an example.", "Enjoy!"]
+
+print(text.splitlines(True))
+# ["Hello\n", "World!\r", "This is an example.\r\n", "Enjoy!"]</code></pre>
+
+      <h3>Reverse a string</h3>
+      <pre><code>def reverse_slicing(s):
+    return s[::-1]
+
+def reverse_loop(s):
+    ans = ""
+    for ch in s:
+        ans = ch + ans
+    return ans
+
+def reverse_join_reversed(s):
+    return "".join(reversed(s))</code></pre>
+
+      <div class="callout">
+        <strong>Behind the scenes:</strong> Because strings are immutable, <code>ans = ch + ans</code> makes a new string each time. <code>reversed(s)</code> returns an iterator over characters in reverse order; <code>join</code> builds the final string.
+      </div>
+
+      <h3>Exactly one uppercase character</h3>
+      <pre><code>def one_upper(s):
+    return sum([1 for ch in s if ch.isupper()]) == 1</code></pre>
+
+      <p>The PDF says the input contains only alphabetic characters and no blanks. With that assumption, <code>isupper</code> and <code>islower</code> are enough.</p>
+
+      <h3>clear: punctuation at the end of words</h3>
+      <pre><code>def clear_loop(x):
+    cleaned_words = []
+    for word in x:
+        if word[-1] in (".", ",", ";"):
+            cleaned_word = word[:-1]
+        else:
+            cleaned_word = word
+        cleaned_words.append(cleaned_word)
+    return cleaned_words
+
+def clear_rstrip(x):
+    return [word.rstrip(".,;") for word in x]
+
+def clear_conditional(x):
+    return [word[:-1] if word[-1] in ".,;" else word for word in x]</code></pre>
+
+      <h4>Do these behave exactly the same?</h4>
+      <ul>
+        <li><code>clear_loop</code> and <code>clear_conditional</code> remove at most one final punctuation character.</li>
+        <li><code>clear_rstrip</code> removes all trailing characters that are in <code>".,;"</code>.</li>
+        <li>All three fail on empty words if they access <code>word[-1]</code>; <code>rstrip</code> handles empty strings safely.</li>
+      </ul>
+
+      <pre><code>x = ["hi...", "ok;", "", "a,b"]
+clear_rstrip(x)       # ["hi", "ok", "", "a,b"]
+# clear_loop(x) would raise IndexError on "" unless guarded.</code></pre>
+
+      <h3>Clearing punctuation from left, both ends, or anywhere</h3>
+      <pre><code>def clear_left(x):
+    return [word.lstrip(".,;") for word in x]
+
+def clear_both_ends(x):
+    return [word.strip(".,;") for word in x]
+
+def clear_anywhere(x):
+    return ["".join(char for char in word if char not in ".,;") for word in x]</code></pre>
+
+      <h3>scrape(s): finding links in HTML</h3>
+      <p>The PDF asks for a function that takes HTML text and returns a list of all links. A simple class-level solution is to search for <code>href="..."</code> patterns. This is not a full HTML parser, but it matches the string-method focus of this slide set.</p>
+
+      <pre><code>def scrape(s):
+    links = []
+    pos = 0
+    marker = 'href="'
+    while True:
+        start = s.find(marker, pos)
+        if start == -1:
+            break
+        start = start + len(marker)
+        end = s.find('"', start)
+        if end == -1:
+            break
+        links.append(s[start:end])
+        pos = end + 1
+    return links</code></pre>
+
+      <p>Mechanics: <code>find</code> returns the index where the marker begins. If missing, it returns <code>-1</code>. After finding <code>href="</code>, the actual URL starts after the marker and ends at the next quote.</p>
+
+      <h3>Count the ones from 1 through n</h3>
+      <pre><code>def count_ones(n):
+    total = 0
+    for i in range(1, n + 1):
+        total += str(i).count("1")
+    return total</code></pre>
+
+      <p>For <code>n = 20</code>, the answer is 12: one from <code>1</code>, one from <code>10</code>, two from <code>11</code>, and one each from <code>12</code> through <code>19</code>.</p>
+    </section>
+
+    <section id="files" class="section">
+      <h2>10. Files, Input, Output, Grades, Sorting, and CSV <span class="ref">PDF pp. 29-38, printed 125-127, 18-19, 110-113</span></h2>
+
+      <h3>Basic file operations from the PDF</h3>
+      <table>
+        <tr><th>Code</th><th>Meaning</th></tr>
+        <tr><td><code>open("data", "r")</code></td><td>Open for reading. <code>"r"</code> is default.</td></tr>
+        <tr><td><code>open("out.txt", "w")</code></td><td>Open for writing, replacing existing content.</td></tr>
+        <tr><td><code>f.read()</code></td><td>Read entire file into one string.</td></tr>
+        <tr><td><code>f.read(N)</code></td><td>Read up to next <code>N</code> characters.</td></tr>
+        <tr><td><code>f.readline()</code></td><td>Read one line including newline if present.</td></tr>
+        <tr><td><code>f.readlines()</code></td><td>Read all lines into a list of strings.</td></tr>
+        <tr><td><code>f.write(s)</code></td><td>Write a string.</td></tr>
+        <tr><td><code>f.writelines(lines)</code></td><td>Write all strings from a list.</td></tr>
+        <tr><td><code>print(value, file=f)</code></td><td>Send print output to a file object.</td></tr>
+        <tr><td><code>f.close()</code></td><td>Close the file manually.</td></tr>
+        <tr><td><code>f.flush()</code></td><td>Flush output buffer without closing.</td></tr>
+        <tr><td><code>f.seek(N)</code></td><td>Move file position to offset <code>N</code>.</td></tr>
+        <tr><td><code>for line in open("data")</code></td><td>Iterate line by line.</td></tr>
+        <tr><td><code>open("f.txt", encoding="latin-1")</code></td><td>Open a text file with explicit encoding.</td></tr>
+        <tr><td><code>open("f.bin", "rb")</code></td><td>Open a binary file as bytes.</td></tr>
+      </table>
+
+      <h3>Use a context manager</h3>
+      <pre><code>with open("data.txt") as file:
+    for line in file:
+        print(line, end="")</code></pre>
+
+      <p>The <code>with</code> statement creates a context. When control leaves the block, the file is closed automatically. Without <code>with</code>, you must remember <code>file.close()</code>.</p>
+
+      <h3>Reading whole file or chunks</h3>
+      <pre><code>with open("data.txt") as file:
+    data = file.read()
+
+with open("data.txt") as file:
+    while (chunk := file.read(10000)):
+        print(chunk, end="")
+
+with open("data.txt") as file:
+    while True:
+        chunk = file.read(10000)
+        if not chunk:
+            break
+        print(chunk, end="")</code></pre>
+
+      <p><code>read()</code> returns an empty string at end-of-file. The walrus operator <code>:=</code> assigns and returns the assigned value so the loop condition can test it.</p>
+
+      <h3>Interactive input</h3>
+      <pre><code>name = input("Enter your name : ")
+print("Hello", name)</code></pre>
+
+      <p><code>input</code> returns typed text up to the terminating newline, but the newline is not included.</p>
+
+      <h3>Writing to files</h3>
+      <pre><code>with open("out.txt", "wt") as out:
+    while year &lt;= numyears:
+        principal = principal * (1 + rate)
+        print(f"{year:&gt;3d} {principal:0.2f}", file=out)
+        year += 1</code></pre>
+
+      <p>The same output can be written with <code>write</code>, but then you must include <code>\n</code> yourself:</p>
+      <pre><code>out.write(f"{year:3d} {principal:0.2f}\n")</code></pre>
+
+      <h3>bears.txt newline behavior</h3>
+      <pre><code>Once upon a time
+there were
+three bears,
+a poppa, a momma,
+and a little baby bear!</code></pre>
+
+      <pre><code>f = open("bears.txt")
+for i in f:
+    print(i)</code></pre>
+
+      <p>This prints blank-looking lines between file lines because each <code>i</code> already contains a newline from the file, and <code>print</code> adds another newline. Use <code>print(i, end="")</code> to avoid the extra one.</p>
+
+      <pre><code>f = open("bears.txt")
+z = f.read()
+print(z)</code></pre>
+
+      <p>Reading the whole file as one string and printing once preserves the file's own newlines without adding an extra newline after every file line.</p>
+
+      <pre><code>f = open("bears.txt")
+z = f.read()
+z = z.split(" ")
+print(z)</code></pre>
+
+      <p>Splitting on a literal space leaves newline characters attached to words where the line breaks occurred.</p>
+
+      <pre><code>f = open("bears.txt")
+z = f.read()
+z = z.splitlines()
+print(z)</code></pre>
+
+      <p><code>splitlines()</code> returns a list of lines with newline characters removed by default.</p>
+
+      <h3>Student averages from a text file</h3>
+      <pre><code># grades.txt
+Bob 78 98 67 77
+Joan 78
+Sally 90 97 77 56 88 98</code></pre>
+
+      <pre><code>f = open("grades.txt")
+for line in f:
+    s = line.split()
+    average = sum([int(s[i]) for i in range(1, len(s))]) / (len(s) - 1)
+    print(format(s[0], "&lt;7s"), "Average= ", format(average, ".2f"))</code></pre>
+
+      <p><code>line.split()</code> handles any whitespace and removes the newline. <code>s[0]</code> is the name. <code>s[1:]</code> are score strings that must be converted to integers before arithmetic.</p>
+
+      <h3>Write averages to a file</h3>
+      <pre><code>with open("grades.txt") as f, open("averages", "w") as out:
+    for line in f:
+        s = line.split()
+        scores = [int(score) for score in s[1:]]
+        average = sum(scores) / len(scores)
+        print(format(s[0], "&lt;7s"), "Average= ", format(average, ".2f"), file=out)</code></pre>
+
+      <h3>Sorting by last name, then first name</h3>
+      <p>The PDF shows a file <code>bnames.txt</code> with first name, last name, midterm score, and final score. It stores rows in a 2D list, computes the class average, sorts, and writes results.</p>
+
+      <pre><code>def last_then_first(x):
+    return (x[1], x[0])
+
+cav = 0
+grades = []
+
+for line in open("bnames.txt"):
+    line = line.split()
+    line[2] = float(line[2])
+    line[3] = float(line[3])
+    grades.append(line)
+    cav += (line[2] + line[3]) / 2
+
+cav = cav / len(grades)
+
+outfile = open("scores.txt", "w")
+grades.sort(key=last_then_first)
+
+for line in grades:
+    av = (line[2] + line[3]) / 2
+    out_line = (
+        format(line[0], "&lt;10s")
+        + format(line[1], "&lt;10s")
+        + str(line[2]) + " "
+        + str(line[3]) + " "
+        + str(av) + " "
+        + str(av - cav) + "\n"
+    )
+    outfile.write(out_line)
+
+outfile.close()</code></pre>
+
+      <div class="trap">
+        <strong>Sorting trap:</strong> The source uses <code>return x[1] + x[0]</code>. A safer key is <code>(x[1], x[0])</code>, because tuple sorting clearly sorts by last name first, then first name. String concatenation can be ambiguous: <code>("Ann", "Ab")</code> and <code>("Nna", "A")</code> can collide as concatenated strings in contrived cases.
+      </div>
+
+      <h3>CSV files</h3>
+      <p>The PDF introduces Python's built-in <code>csv</code> module for comma-separated values.</p>
+
+      <pre><code>import csv
+
+with open("data.csv", mode="r") as file:
+    csv_reader = csv.reader(file)
+    for row in csv_reader:
+        print(row)</code></pre>
+
+      <h3>Skipping a header row</h3>
+      <pre><code>import csv
+
+with open("data.csv", mode="r") as file:
+    csv_reader = csv.reader(file)
+    next(csv_reader)
+    for row in csv_reader:
+        print(row)</code></pre>
+
+      <p><code>next(csv_reader)</code> advances the iterator once, so the loop starts at the second row.</p>
+
+      <h3>Writing CSV</h3>
+      <pre><code>import csv
+
+data = [
+    ["Name", "Age", "City"],
+    ["Alice", 30, "New York"],
+    ["Bob", 25, "Los Angeles"],
+]
+
+with open("output.csv", mode="w", newline="") as file:
+    csv_writer = csv.writer(file)
+    csv_writer.writerows(data)</code></pre>
+
+      <p>The <code>newline=""</code> argument prevents extra blank lines on some systems when writing CSV.</p>
+
+      <h3>CSV file in Documents directory</h3>
+      <pre><code>import csv
+import os
+
+documents_directory = os.path.expanduser("~/Documents")
+csv_file_name = "data.csv"
+csv_file_path = os.path.join(documents_directory, csv_file_name)
+
+if os.path.exists(csv_file_path):
+    with open(csv_file_path, mode="r") as file:
+        csv_reader = csv.reader(file)
+        next(csv_reader)
+        for row in csv_reader:
+            print(row)
+else:
+    print(f"The CSV file '{csv_file_name}' does not exist in the Documents directory.")</code></pre>
+
+      <h3>Student averages from CSV</h3>
+      <pre><code>import csv
+
+def calculate_average(scores):
+    return sum(scores) / len(scores)
+
+with open("student_scores.csv", mode="r") as file:
+    csv_reader = csv.reader(file)
+    next(csv_reader)
+    for row in csv_reader:
+        name = row[0]
+        exam_scores = [int(score) for score in row[1:]]
+        average_score = calculate_average(exam_scores)
+        print(f"Student: {name}, Average Score: {average_score:.2f}")</code></pre>
+    </section>
+
+    <section id="drills" class="section">
+      <h2>11. Professor-Style Output and Reasoning Drills</h2>
+
+      <h3>Drill 1: row copy versus reference <span class="ref">PDF p. 7, printed 116</span></h3>
+      <pre><code>def get_row_a(x, i):
+    return [x[i][j] for j in range(len(x))]
+
+def get_row_b(x, i):
+    return x[i]
+
+m = [[1, 2], [3, 4]]
+a = get_row_a(m, 0)
+b = get_row_b(m, 0)
+a.append(99)
+b.append(88)
+print(a)
+print(b)
+print(m)</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong>
+        <pre><code>[1, 2, 99]
+[1, 2, 88]
+[[1, 2, 88], [3, 4]]</code></pre>
+        <p><code>a</code> is a new list. <code>b</code> is an alias for <code>m[0]</code>. Appending to <code>b</code> mutates the first row of <code>m</code>.</p>
+      </div>
+
+      <h3>Drill 2: bad 2D-list construction</h3>
+      <pre><code>a = 3 * [3 * [0]]
+a[0][1] = 7
+print(a)</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong> <code>[[0, 7, 0], [0, 7, 0], [0, 7, 0]]</code>. The outer multiplication repeats references to the same inner list. There are three row references but only one row object.
+      </div>
+
+      <h3>Drill 3: safe 2D-list construction</h3>
+      <pre><code>a = [3 * [0] for i in range(3)]
+a[0][1] = 7
+print(a)</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong> <code>[[0, 7, 0], [0, 0, 0], [0, 0, 0]]</code>. The comprehension creates a new inner list on each iteration.
+      </div>
+
+      <h3>Drill 4: diagonal difference</h3>
+      <pre><code>x = [
+    [2, 4, 6],
+    [1, 3, 5],
+    [9, 8, 7],
+]
+print(sum([x[i][i] for i in range(len(x))]))
+print(sum([x[i][len(x)-1-i] for i in range(len(x))]))
+print(sum([x[i][i] for i in range(len(x))]) -
+      sum([x[i][len(x)-1-i] for i in range(len(x))]))</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong>
+        <pre><code>12
+18
+-6</code></pre>
+        <p>Main diagonal: <code>2 + 3 + 7 = 12</code>. Other diagonal: <code>6 + 3 + 9 = 18</code>. Difference: <code>12 - 18 = -6</code>.</p>
+      </div>
+
+      <h3>Drill 5: list comprehension order</h3>
+      <pre><code>x = [3, 4, 5, 6]
+y = [(i, x[i] * 2) for i in range(len(x)) if x[i] % 2 == 0]
+print(y)</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong> <code>[(1, 8), (3, 12)]</code>. Index 1 has value 4 and index 3 has value 6. The expression stores the index and twice the value.
+      </div>
+
+      <h3>Drill 6: int_add carry</h3>
+      <pre><code>print(int_add([9, 9, 9], [1]))</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong> <code>[1, 0, 0, 0]</code>. Pad <code>[1]</code> to <code>[0, 0, 1]</code>. Add right to left: 9+1=10, carry 1; 9+0+1=10; 9+0+1=10; final carry becomes a new leading digit.</div>
+
+      <h3>Drill 7: robot paths small case</h3>
+      <pre><code>print(num_paths(3, 2, 2))</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong> <code>6</code>. In a 3 by 3 grid from <code>(0,0)</code> to <code>(2,2)</code>, the robot must make two down moves and two right moves. The table value at <code>(2,2)</code> is 6.
+      </div>
+
+      <h3>Drill 8: star assignment</h3>
+      <pre><code>a, *b, c = range(5)
+print(a)
+print(b)
+print(c)</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong>
+        <pre><code>0
+[1, 2, 3]
+4</code></pre>
+        <p>The starred assignment target receives a list of the middle excess values.</p>
+      </div>
+
+      <h3>Drill 9: function-call unpacking</h3>
+      <pre><code>def f(a, b, c, *rest):
+    print(a, b, c, rest)
+
+f(*[1, 2], 3, *range(4, 6))</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong> <code>1 2 3 (4, 5)</code>. The call becomes <code>f(1, 2, 3, 4, 5)</code>. The function header collects extra arguments into tuple <code>rest</code>.
+      </div>
+
+      <h3>Drill 10: zip exhaustion</h3>
+      <pre><code>z = zip([1, 2], ["a", "b"])
+print(list(z))
+print(list(z))</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong>
+        <pre><code>[(1, 'a'), (2, 'b')]
+[]</code></pre>
+        <p><code>zip</code> returns an iterator. After the first <code>list(z)</code>, it has been consumed.</p>
+      </div>
+
+      <h3>Drill 11: transpose with uneven rows</h3>
+      <pre><code>B = [[1, 2, 3], [4, 5], [6, 7, 8]]
+print(list(zip(*B)))</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong> <code>[(1, 4, 6), (2, 5, 7)]</code>. <code>zip</code> stops at the shortest row, which has length 2.</div>
+
+      <h3>Drill 12: string split traps</h3>
+      <pre><code>print("1,,2".split(","))
+print(" 1  2 3 ".split())
+print(" 1  2 3 ".split(" "))</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong>
+        <pre><code>['1', '', '2']
+['1', '2', '3']
+['', '1', '', '2', '3', '']</code></pre>
+        <p>With an explicit separator, consecutive separators create empty strings. With no separator, whitespace runs are grouped and edge whitespace is ignored.</p>
+      </div>
+
+      <h3>Drill 13: rstrip is not suffix removal</h3>
+      <pre><code>print("mississippi".rstrip("ip"))
+print("hello...;;".rstrip(".,;"))</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong>
+        <pre><code>mississ
+hello</code></pre>
+        <p><code>rstrip(chars)</code> removes any trailing character that belongs to the set of chars, repeatedly. It does not remove one exact suffix string.</p>
+      </div>
+
+      <h3>Drill 14: strings are immutable</h3>
+      <pre><code>s = "cat"
+s.upper()
+print(s)
+s = s.upper()
+print(s)</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong>
+        <pre><code>cat
+CAT</code></pre>
+        <p>The first <code>upper()</code> returns a new string that is ignored. The assignment rebinds <code>s</code> to the new uppercase string.</p>
+      </div>
+
+      <h3>Drill 15: file line printing</h3>
+      <pre><code># Suppose one line read from a file is:
+line = "there were\n"
+print(line)
+print(line, end="")</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong> The first print outputs the line's own newline and then print's newline, so it leaves a blank-looking line after it. The second print uses the line's own newline only.</div>
+
+      <h3>Drill 16: grades line parsing</h3>
+      <pre><code>line = "Sally 90 97 77 56 88 98\n"
+s = line.split()
+scores = [int(score) for score in s[1:]]
+print(s[0])
+print(scores)
+print(format(sum(scores) / len(scores), ".2f"))</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong>
+        <pre><code>Sally
+[90, 97, 77, 56, 88, 98]
+84.33</code></pre>
+        <p><code>split()</code> removes the newline and separates on whitespace. The score strings must become integers before summing.</p>
+      </div>
+
+      <h3>Drill 17: CSV header skip</h3>
+      <pre><code>rows = iter([
+    ["Name", "Age", "City"],
+    ["Alice", "30", "New York"],
+    ["Bob", "25", "Los Angeles"],
+])
+next(rows)
+for row in rows:
+    print(row[0])</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong>
+        <pre><code>Alice
+Bob</code></pre>
+        <p><code>next(rows)</code> consumes the header. The loop sees only the remaining rows.</p>
+      </div>
+
+      <h3>Drill 18: eight queens diagonal sets</h3>
+      <pre><code>vec = (0, 1, 2, 3, 4, 5, 6, 7)
+col = [0, 1, 2, 3, 4, 5, 6, 7]
+print(len(set(vec[i] + i for i in col)))
+print(len(set(vec[i] - i for i in col)))</code></pre>
+      <div class="answer">
+        <strong>Answer:</strong>
+        <pre><code>8
+1</code></pre>
+        <p>The <code>row + col</code> values are all different: <code>0,2,4,...,14</code>. The <code>row - col</code> values are all <code>0</code>, so all queens lie on the same diagonal. This is not a valid solution.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>12. Final Exam Checklist</h2>
+      <div class="grid">
+        <div class="mini">
+          <h3>Containers</h3>
+          <ul>
+            <li>Use sets for uniqueness and duplicate tests.</li>
+            <li>Know set operations and their errors.</li>
+            <li>Know when order matters and when it does not.</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>References</h3>
+          <ul>
+            <li>Returning <code>x[i]</code> returns a row alias.</li>
+            <li>Returning a comprehension returns a new list.</li>
+            <li>List mutation affects all aliases.</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>2D Lists</h3>
+          <ul>
+            <li>Rows: <code>x[i]</code>.</li>
+            <li>Columns: <code>[x[j][i] for j in range(len(x))]</code>.</li>
+            <li>Diagonals: <code>x[i][i]</code> and <code>x[i][n-1-i]</code>.</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>Comprehensions</h3>
+          <ul>
+            <li>Expression first, loop second, condition last.</li>
+            <li>They create new lists.</li>
+            <li>Nested comprehensions preserve loop order.</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>Unpacking</h3>
+          <ul>
+            <li>Exact counts unless one starred target exists.</li>
+            <li>Starred assignment target becomes a list.</li>
+            <li><code>*</code> in calls expands arguments.</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>zip</h3>
+          <ul>
+            <li><code>zip</code> returns an iterator of tuples.</li>
+            <li>Stops at the shortest iterable.</li>
+            <li><code>zip(*B)</code> transposes rows into columns.</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>Strings</h3>
+          <ul>
+            <li>Immutable: methods return new strings.</li>
+            <li><code>split()</code> differs from <code>split(" ")</code>.</li>
+            <li><code>rstrip(chars)</code> treats chars as a set.</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>Files</h3>
+          <ul>
+            <li>Use <code>with open(...)</code> to close automatically.</li>
+            <li>File lines usually include <code>\n</code>.</li>
+            <li>Use <code>csv.reader</code> for CSV, not manual comma splitting.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+Excursus
+`time.time()` and `timeit.timeit()` are both used for measuring time in Python, but they serve
+different purposes and operate in slightly different ways:
+1. `time.time()`:
+Purpose: `time.time()` is a function in the `time` module. It returns the current time in seconds
+since the Epoch (Jan 1, 1970, at 00:00:00 UTC), commonly known as Unix time.
+Usage: It's typically used for getting the current timestamp or measuring the duration of an
+event by calculating the difference in time before and after the event. For example, to measure
+how long a piece of code takes to execute, you would record the time before and after its
+execution and calculate the difference.
+Precision: The precision of `time.time()` can vary based on the system and platform. It's
+generally suitable for most practical purposes but might not be the best choice for
+microbenchmarking or where very high precision is needed.
+2. `timeit.timeit()`:
+Purpose: `timeit.timeit()` is a function in the `timeit` module. It's specifically designed for
+measuring the execution time of small code snippets. It provides a more accurate and reliable
+way of timing code than `time.time()`, particularly for short code snippets where the execution
+time is very brief.
+Usage: `timeit.timeit()` runs the code snippet multiple times (default is 1,000,000 times) in a
+controlled environment and returns the total time taken for all executions. This repeated
+execution helps to average out any fluctuations in time due to systemrelated anomalies.
+Setup: `timeit.timeit()` also allows you to specify setup code that runs once before the timing
+runs start. This is useful for setting up the environment without including this setup time in the
+final timing.
+Precision: `timeit.timeit()` is more precise for timing short code snippets, as it minimizes the
+impact of external factors on the timing and averages out the time over multiple runs.
+14

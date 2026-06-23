@@ -1,0 +1,1232 @@
+all right so uh let's quickly go for the syllabus it's actually more than this I
+have to generally let me just talk about these notes um so you'll notice some of
+the stuff here is really trivial and as we get along it's going to get uh more
+detailed and more complex um you could sort of do an archaeological dig over
+here the original version of this is many years old I was requested a number of
+years ago by to come to NYU to the Quran to the math program where they were
+they wanted to redesign the undergraduate Computing curriculum so I was working
+with they wanted to know how to put together a python thing I was working on the
+python uh syllabus there so uh some of the early things some these class notes
+are uh from a sketch for that curriculum that's why I find some of the stuff
+here super um super Elementary and then stuff got built on it because I didn't
+have time to really change it early on but anyway so why do we this here's a
+syllabus syllabus a topical syllabus these are things we're gonna hopefully
+we'll probably go through most of these things and plus plus more than that so
+obviously we'll talk we talk a littleit about the environment data types which
+we'll do today we saw input and output variables and assignment con control
+structures functions and More Than This for example in the early in the early uh
+iteration of this we didn't talk about generators we didn't talk about
+comprehensions of various types we didn't talk about any more advanced topics so
+this is sort of the very basic things to look at and plus more we spoke about
+yesterday M final exam uh these are the class notes uh which you getting
+obviously by looking at this right now uh this is not a textbook we don't have a
+textbook over here there's plenty of stuff out there and we spoke about this
+yesterday uh we looked at this um and we started working on this we're going to
+be looking at python we using three ways I just talked about this a bit
+yesterday python has an interactive shell know what we did yesterday was he
+actually wrote programs right we opened up U you know the built-in uh the text
+editor and wrote the programs around the programs but these the interactive
+shell when you come in right away you can use it as a calculator you can take
+Snippets of code and run them very very useful we'll use this as we go along
+also you know so for example um I'll bring it up later we can you know you can
+say you can type at the showell what's 3 + 5 you know and it it'll figure out
+for it's pretty smart and then the the emulator we saw yesterday right the
+emulator lets you run the program and watch it as it steps through so we're
+going to start by looking at the um the data types um this is not super
+fascinating stuff but it's um I think most of it is obvious there are some some
+new things that we'll see here uh it's it's not so it could be a little bit
+boring but we'll have to go through this to see how we work with python so the
+basic data types are integ floats strings booleans and some other stuff which
+will later on and just like other programming languages you can create your own
+data types by um you know by making you know classes which Define new types of
+objects and you've done this in many previous classes and we'll see later on how
+you do this in in Python so let's see the different data types U remember as we
+saw yesterday um everything in Python is an object and it's a first class object
+including including functions the first CL object means pretty much that you can
+pass them around between functions this again there just a very basic
+introduction at this point we'll go into the details here um we'll also see the
+different Expressions that python evaluates and that's important in many
+contexts again we'll see that later on everybody knows what an expression is
+okay so let's see what are the data types integers are whole numbers as you know
+here's examples of integers they can be very very long um if you want to write a
+number like 123,456 you can't use commas in Python to do the separation it has a
+separate meaning because those are two polls in Python but you can use the
+underscore and python will you know unless you do this just to improve
+readability it's not going to affect what the number actually is right but again
+you can't use the commas to um you know to to say you know these millions 100
+millions and so on what you can do with the integers is the obvious things you
+can add them you can subtract them you can multiply them you can divide them
+there's two division operators in Python there's this one which is the normal
+the regular division which when you take two integers you divide them you get a
+floating Point number but then there's the double divide what that does it
+basically is a truncated division right so um if you take 2 / 1 what is 2 ided 1
+well that's 2.  2.0 right because you can get a floating point but if you if you
+use the double division operator it's going to give you a truncated value right
+so um it always produces an integer result right so those are the basic things
+to know so the examples are I'm going to add them I'm going to subtract them I'm
+going to multiply them divide them and I take one two three and divide it by 56
+so you don't get a floating Point number you got a floating point value but here
+you're just going to get the truncated value gives you two okay any questions
+about this then of course there's a mod function um and it does what you expect
+the mod function gives you a remainder in other programming languages the mod
+function only works with integers in python as we'll see it also works on
+floating Point numbers and it does what you'd expect right it gives you the
+remainder when you divide one by the other what about operator precedence so um
+it's pretty much like in other languages this goes from low to high lambdas
+whatever those things are and then then the the Boolean operations the relation
+operations the arithmetic operations and so on so forth this has the highest
+precedence we'll see these as we go along so this is the kind of thing you
+expect um okay what's this that's the the second data type is the floating Point
+data type now what's interesting let's just important Point here that again in
+the 211 class so we took it we worked with um with the Fibonacci sequence and we
+saw that whereas in um whereas in uh C++ we wrote that program the Fibonacci
+numbers they grow exponentially fast and they get very long and eventually not
+eventually pretty soon like around I don't know 30th step the fifth step it ends
+up overflowing right because just you have a 32-bit representation and then it
+just starts cycling and you get get Negative values and so on it doesn't happen
+when you write that program uh in in Python and the reason is because python
+simulates the arithmetic on integers integers have some internal representation
+essentially like strings and it basically simulates the addition by doing what
+you learned in first grade how to add numbers right so basically limited by the
+amount of memory that you have that's allocated to running the python
+interpreter um but with floating Point numbers so in other words the integers
+are not represented directly using the hardware right they're simulated in the
+in the python interpreter uh the the floating Point numbers are represented
+directly right it's the same thing in other words it's just as if you were
+running in C++ or or in Java they use the hardware for you know the hardware um
+floating Point uh um Hardware to do the floating point so then it's pretty big I
+mean I think you get like I know uses like 50 bits or something to represent the
+actual number number not counting the exponent but uh but it can overflow and it
+can underflow and it's um you get the same kind of thing you synch
+representation you have with the U compiled languages third data type are
+strings some some languages like let's say C++ the distinction is made between a
+string and a character right if you have if it's a so in C+ let me just get a
+pen here for a second right so um in C++ I'm sure you know this just to make
+sure we all know the same things um in c+s is a difference between something
+like let me get a pen something like this right and something like this right
+these are not the same data types in Lang like C++ this thing here is a char and
+um and this over here is a string so a Char is represented essentially as a bite
+in C++ and a string is represented as a succession of bytes with a terminating
+null character so this be represented as one bite over here and so the a would
+be that character and then there' be a terminating no whereas this would just be
+you know one bite representing the character a it's not the case in Python right
+because in Python everything is represented as a string even though uh even
+single characters right so they're all represent string and how do you write a
+string so you write a string in U like like this this this the quote marks so
+this is the string hello this is the string hello and this is the string hello
+and The Interpreter just shows you they all they all the same they're all the
+same right um uh if I write if I start it with one delimitated one quote and and
+I have the wrong kind of quote it's going to try to scan to find the one that it
+started with it doesn't find it you're going to get an error message right what
+does this what does this say to you EOL what is what does that mean somebody end
+line scaring and just finds you know doesn't find it right so what can you do
+with strings well the things that you know about right plus many many others
+strings is a very important data type one of the main uses of python in in the
+world out there is for processing texts so it's very they used to be a language
+still a language called Pearl that people use but uh and if they did Heavy D you
+know string processing text and so on they used to use Pearl uh before that
+there was L full snowball way way back but now a lot of the stuff is done in um
+in Pyon they you know they imported all of those kinds of operations on the on
+the string data type so I can I can concatenate them um um I can what else can I
+do with them what can I do with them we'll see be able to search for one and the
+other be able to do all kinds of neque things as a string library that comes
+with strings is very um is very extensive what about like this can I say three
+times hello you can multiply strings the answer is yes and it does what you'd
+expect it to do basically it means concatenate um concatenate this string here
+three times and the reason that this the multi the star operation is used
+because just like in regular arithmetic the star means repeated addition if I
+say 3 * 5 you're going to say 5 plus 5 plus 5 if I say three times hello it's
+hello plus hello plus hello right but the Plus in the string class means
+concatenate so that's why that symbol does what it does fourth data type is the
+Boolean data type this is how you spell it that's capital T and capital F and
+they do just what you expect them to do so um certain Boolean operations if I'm
+going too fast U just let me know but these are things that I'm sure you know
+and you've seen elsewhere right so Boolean uh certain so you have what we'll see
+what operations you can do on them but certain operations yield Boolean values
+right comparison operations right um and other ones as we'll see so for example
+if I do if I have arithmetic um I'm going to get numbers if I have string
+Expressions I use Springs I get strings back right if I concatenate this one to
+that one I get that one um what about if I what what do I get back when I use
+the uh the operations for Bulls what do I get back so what are some operations I
+can get that give you Bulls so you have the comparison operators that you have
+the normal ones greater than less than and so on and so um if I say five greater
+than three so it is greater than three so I get back a true less than and so on
+false um I can say less than or equal I can say equal five is not equal to three
+five is equal to five I get a true not equal and so on and so forth um so so
+these oper are relational operations the comparisons so they aren't Boolean
+operations but I they return Boolean they return Boolean to me what are the
+Boolean operations oh I could do this with strings also so um I says ABC is less
+than de that's true why is it true that the string ABC is less than de why is
+that true reordering is alphabetical reordering right what what's the fancy term
+for that graphic so what happens is if they if they're the same size it goes
+character by character if it's not then it's going to pair it to make them the
+same size right just to compare them and so in the dictionary something starts
+with an A is before something that starts with a d so therefore it's true that
+ABC is before de and so that's true um I can chain the comparison but this is
+actually very interesting um I can write things like X is less than or equal to
+y less than Z now you can't do this in the other languages right you can't do
+this in most most program Lang you can do it in in um in Python now so while
+comparison operators right they they yield they aren't working on Bully and
+objects they return Bulls but I have specific operations that I can do on the
+Bulls directly and that's as you know the and and the or and the not and you
+know how those work right and and so on so let's see how that works if I say
+true and true everybody knows how Bulls work right in order how do what's what's
+an and when is an and going to be false or one is false one one or more right
+one or the other is false right so true and true is true true and false is false
+false and false is false true or now what about the ores when is the or going to
+be true when at least one is true right or it's G be true at least one it's G be
+false if both are false so for true or false is true or true is true true or
+false is true because this guy false or false is false true and six what what's
+going on over here so what would be the case if I tried that in a language like
+like uh C++ or something true should be true it would get true right why does it
+get everybody know that why would it get true because uh everything is evaluated
+to true except zero and false right because there's a conversion operator when I
+need it in other words pyth language like C++ try to be helpful the same thing
+works with the conversion Constructors and so on when it try to when it tries to
+do stuff with uh with class objects it tries to be as helpful as possible and it
+says can I can I make any Transformations over here that that that this makes
+sense in context right so internally the represent the false is represented as a
+zero anything else internally is represented let say in language like C++ is is
+was true right anything is not a zero is a true so if I would try something like
+true and six well it could say this makes no sense because the and only worked
+with two bulls right but six is not a bull so this in the language has a rule
+that converts this thing to a bull so that's going to be true to a true and true
+and true is going to be true but that's not what's happening over here right
+what what what's going on over here how do I why do I get a six because the
+language says to itself the following um if I'm evaluating buling expression so
+so it so true p and Q right p and Q um so if I find the first one that P if I
+find that evaluates to true so the so the value of the whole expression is the
+value of the Q does that make sense so if the Q are a false that would give me
+false if the Q is true give you true but since it's going to be the value of the
+list expression whatever the expression is that's going to be the value going to
+return so this says true so to find out what the whole thing is it depends on
+this well this guy's a six so I'll give you back a six right does that make
+sense in some range Universe what about true or six it doesn't give you the six
+the true why because for the or to be true right the whole expression would in
+order to be true if the first one is true no need to go further right here I had
+to go further to see the value and returns that value of six right what about
+false and six that's a false what about false or six well this is not enough to
+say the whole thing is false it really depends on the last guy right the last
+guy is's a six so it returns a six so that's a little bit strange but that's the
+way they do it does that make sense sort of everybody okay yes sir yes Professor
+uh how about if six comes first six and true right it's good question try it I
+get a true six and true gives me true yeah why is that six we have six and or
+six or um so is there uh conversion from six to a true which did you try you try
+six and true yes sir six and true gives me true six right okay and what about or
+I also get a true hold up you still there yeah Professor six or true gives me
+six six and true gives me true six six and true gives you true right right so
+what's happening you have a theory um my guess is uh um the six gets somehow
+converted into a true and then we get the short circuit and the value for the
+second argument is true so we get true so the six and true gave you a six right
+um six and true gives me a true six and true gives you a six and true gives you
+a true yes sir the value of the cube six and true gives you a true oh yeah yeah
+six and true gives you a yeah it gives you a true right right because it takes
+the first six to be a true and the value of this expression depends on the
+second one right the Q yeah you get a true back right so it's the same idea and
+so so encounters anything that's not a zero ENC counts it en counts it it counts
+it as a true very good all right so that's uh we saw these we walked through
+these and so on now the basic rule is you'll read it has this notion of truthy
+and falsy which we'll see later on in more detail um U but that's this is what
+we get but that's why the answers that we saw are these read through these uh
+some of them are not going to make sense yet we'll come back to them when we
+learn more about the um more about the syntax of so these things we have to see
+what these are at this point I can't go through this but we'll go back to it but
+um here here's the general stuff and we'll come back to when we get more more
+pip okay um there are the whole thing we'll come back to truthy and fcy later on
+what about this what about this what do we get we say 7 greater than 5 * 6 we
+get a six 7 less than five time six we get a zero what's going on so first of
+all one one sec give me a second let me just frame the question uh why is this
+this is sort of why is it strange why is it why should it raise your you know
+the hairs on your neck what's going on because you know that you can M we saw
+earlier we can multiply certainly multiply two numbers one by the next right we
+saw that you multiply strings because it just took the times to be apply the
+plus operator as many times right so it becomes concatenate but this is a
+Boolean operation what does it mean to multiply a Boolean what does it meant to
+multiply a number by a Boolean uh operator right what's going on so who has a
+theory I'm I'm guessing since the first one is true oh Professor my name is niji
+okay good Naj let's see yeah I'm guessing this the first one is true it would
+just result in a one one one time six right because the default representation
+of true is a one right and again as we saw many programming languages try to be
+nice and says well we want to make this this has to have you know some meaning
+here so I'm going to revert to the default uh representation of true so that's 1
+* 6 is 6 excuse me the default for um for if false is a zero internally that's
+why it works there are other comparison operations we'll see we'll come in later
+on because we're going to look at collections things like lists and dictionaries
+and sets and so on and I'm going to want to know if something is in something
+else something is not in something else something is the same as something else
+something is not the same as something else so these are not going to work on
+rules right I mean that's not the primary use of them but they return Boolean uh
+boolean's Force we'll see this later on as we we look at those things there's
+convers there's conversions and the conversions are not just like for example in
+C++ if I say um if I say float of of three right so what happens U what what's
+the what's the there's a fancy term for that if I say float of three what am I
+doing to that three in other words uh you're turning it into a floating Point
+into from an integer to a float ter what's the term for this I am casting right
+I'm casting uh I'm casting this this this also works I can say I can say float
+in then the implementations right that will work too um or I can right um but um
+but this is not a call on a Constructor not in C++ If This Were if were type if
+if were an object type that would that would be Constructor but here these are
+structor calls so if I take an in and make it to a float or I take a string and
+make it into an INT or I take a an in and make it into a string those are
+actually conver Constructors from one type to the other okay I want to know what
+type something is I can ask about it like the type function I tell me the kind
+of thing that it is so for example five is an integer so if I say type of five
+it's going to say the class is an INT what this means this context word class
+means type right so the type of it is an integer um if I if I if I make five to
+a float um I'm going to get this floating Point object but it's going to
+disappear right I have to assign some pointer to it in order to keep it around I
+say what if I make five into a string I get a string if I ask what is typ is
+it's a float and it does what you expect five is a is a is a string because it's
+a string if I say make an integer out of it it makes an integer I say make the
+string into a float it makes it into a float okay all these are things that you
+expect and as we actually start working with this stuff it's going to make you
+know get used to this but they they're they're obvious right is a type of one
+equal to the type of 1.0 no right but um what if I say one is equal to 1.0 who
+has an interpreter open yeser you still have your thing open what what's gonna
+say if I say if I I say one equals not the tie so one equals 1.0 what do I get
+there hold up Professor G speaking I got a syntax Arrow yeah me too if I say one
+double equal right if I want to say is it the same as that one not types one
+double equal 1.0 I get true true right because the value of it is the same right
+but the types are different thank you okay so that's the basic types um How do I
+do output um so we saw the print statement we did this yesterday here's the
+syntax of the print statement and so on we saw these arguments right so let's
+read this um a bit more carefully this is an earlier version of the print
+statement now because we saw the first one was star args um and that basically
+means as many values this simply says value comma that the the newer the newer
+Syntax for that is a star uh and then some value that means as many of the
+values as you want so and it doesn't say what type it is so I can say print a
+comma 3 comma 7.9 and so as much as I want and it goes until I finish with the
+values that I want to print we saw what the SE does and file and flush we saw
+all this yesterday okay um let's try so let's try I really make sure the
+interpreters up um let's print one two three all one line how do I do that try
+it everybody try it y you have a question um yes sir I had a question um do we
+have anything like uh double equals and Dot equals like we have in Java in
+python or just double equals for everything what do you mean do equals give me
+give me give me an example over here I think you're talking about like objects
+when we're comparing string for example we'll get to that we get that the dot b
+we'll get to that okay um let's do this print the values one two and three all
+on one line it's trivial do it in 10 seconds do it actually in the in the shell
+it at the show you don't have to write a program for this just do it at the show
+it any well can you hear uh yes screen all right um one sec let me just select
+my screen all right uh can you sh uh can you see my screen yeah but somehow I'm
+still there we go okay so in The Interpreter here um I just put print uh one two
+and three and it outputed one two and three on one line okay why didn't it Why
+didn't it go to the um why didn't put on separate lines um it's all in one
+statement and U by default the separator is the space separator so it'll all
+just print this on one line and the end of line characters at the end of the
+statement so okay everybody got that all right so let us let me just take my
+screen back let's try stop Yes okay good um share all right now let's uh do them
+one per line I want to do it in two ways one on one line two on the other line
+three on the other line everybody oh do we have to do this one in the Shell too
+uh no do make R program fin all right thank or uh I just did it one way so far
+browser what's the what's the obvious One Way de what's the obvious way to do it
+oh just printing prints on each individual line that's right right just three
+three Prints but let's say if you want to do them uh if you want to do them with
+one print statement who's going to show that um I could describe that one right
+right it's true write it you could just write it on one print and just add the
+endline character should go do it oh okay one second guys I need more than three
+or four people participating okay as soon as you do it just take the screen yes
+sir can I go I'm done yeah I think we're waiting who who said that who who was
+earlier um this is yes I'm sorry yeah ad you got it already or uh I can't really
+uh get it okay who's talking Mato yir who wants to show the screen uh I have
+here I can go um can you see my screen yep okay so I used the uh for loop I in
+range three print I and if I run it it will print uh sorry I should have gone I
++ one if I run it it will uh give us uh one two three in different lines this
+works because uh after each print we have a new line character keep the screen
+up keep your screen up could you do it with just without a for Loop uh just with
+one print St without a for Loop in different lines yeah uh yeah I can do that do
+it do it okay no no no no no probably not I'm sorry okay somebody want to
+suggest I I can do it all right who is it me me ana ana show us what you got
+sure can you see my screen yeah good so this is the print statement it works
+because the slash n is considered a line break and then it's gonna print this
+good very good all right can somebody do it very good somebody else I'd like to
+submit a way to do it yep see Matthew okay good good very good if I'm going to
+open a python interpreter I'm going to run print one two3 and I'm going to set
+the separator for the function equal to the new line character and that's going
+to print every um every entry on a new line right because the SE what's the
+what's the for for the separator is the blank but what he did over here is he
+put a uh he put the new line character and get one to it's all very creative
+ways to do this all right any questions with this thank you thank you very much
+everybody we're good all right let's check the next thing what's the next thing
+let's see more examples you can make them up and so on all right so I think
+that's it for this let's go to that was part one let's see what's in part two
+okay programming programming again this is the early stuff um here's how you
+print hello world which I have to show them over there everybody uh how do you
+write comments right some of you don't know that um so this is a comment right
+so there a on line comment if I want to have a multi-line comment you can put at
+the end right you can put it over here as long as just this goes to the end of
+the line um you can have as we saw we can comment out bits of code and just put
+you know three um you know you put the the um the quotes on top and the quotes
+on the bottom and you for long comments and you'll come out of a block and it'll
+be ignored by The Interpreter but it'll be seen by over looks at the program
+what about variables okay you can't program I mean you can but um not here so
+you want to program with variables um so what are variables so in a language
+like like C++ a variable is a name that associated with a um something and in
+the simplest case the something lives in a very specific place it has an address
+and the variable basically I say have toare like integer I I is the name of very
+specific place it's not a pointer to that place in C++ it's it's the place
+itself right and we saw yesterday that's not what's going on in Python in Python
+um you have a you have a stack sort of a runtime stack but in with that stack is
+the variables those are Pointers to the actual object and since everything's an
+object is so you get like a stack of pointers and then somewhere else the The
+Interpreter is keeping where the object is pointed to so what happens when I say
+x equal to 5 Y is equal to 10 we saw what that looks like right and it looks
+like the object five and X is pointing to that object five now what about
+assignment statements so this every know everybody knows what an assignment
+statement is but it's very interesting uh this assignment statement so let's say
+I want to make sure that everybody understands the following thing um in many
+context so we have the notion of something called an expression an expression
+get rid of the keyboard for a second so what's an expression expression is
+something that the compiler or the runtime evaluates and the when it evaluates
+expression I get some kind of value back right so for example one is an
+expression right let's say let's say like a lang like C++ one's an expression so
+what is the value of the expression the Val expression is one the value means
+what gets returned right if I say evaluate one I get a one right if I have I is
+equal to three and saying C++ again I I want keep apology let this you know this
+this apologies for the next week let's say right I is equal to three and I is an
+integer so um this this is saying more than this is not this is not an equality
+this this is different than this right this says the value in here is the same
+value as here this is not what this means right this means I've got some
+location in memory called I I evaluate the thing on the left hand side and in
+the location specified by I I'm going to put a three right if this were python
+it would mean something else it means I have on the runtime I have a runtime I
+have a pointer I and I is pointing someplace over here to an object that has a
+three in it okay but um but this is not only an assignment statement an
+expression so an expression has two things associated with it generally in
+compile languages number one it has a value right and that's what we talk about
+over here the value uh is what we'll see what the value is in a second and it
+also has a it also has a side effect in many cases so if let's say if I say I is
+equal to three what's the side effect the side effect is the sum location um uh
+associated with the name three and the bit pattern in in um in that in that
+location called I gets changed to the binary representation of the integer three
+right in the case of python the side effect when I size I the three is that in
+the runtime stack I is registered as a as a pointer variable an object three
+gets created and his pointer I is pointing to the three but so that's the side
+effect means what happens in the runtime environment of the program as a result
+of evaluating this thing over here now um however Expressions to be real
+Expressions have to have some value right they have to return something when
+they get evaluated right so in C++ when I say I is equal to three right um and I
+would to say C out right I is equal to three what's going to get printed over
+here see is equal to three what's going to get printed you got a trick question
+so what's going what what I see when I print that out somebody uh true no
+there's not double equal it's a single equal I equals 3 address the address
+where somebody can somebody bring up bring up a plus plus compiler very quickly
+and and run this thing it's much it's much easier in Python because you have a
+run time that runs right away here have second compil it but somebody bring this
+up C out I is equal to 3 so you say in I and then you say C out I is equal to 3
+and that's the end of the program see what gets printed more than one person can
+do it's a race let's see who gets there first a syntax error you get a syntax
+error for I equals for C see have I equals 3 I did yeah which compiler you using
+just some random online one okay everybody getting a syntax error here yes
+interesting what happens what's the value that I get back did we import iio
+stream and using STD I'm sure you did right yes you got you would have gotten a
+different that error message would have been that I don't know this is a
+variable I know what that means right that you wouldn't see that but um but
+every this is surprising you said got everybody the syntax error for this really
+profess I got a three you got a three right you should you should get a three
+right so it should it should be a three um I'm not sure why I got a syntax there
+but why is this equal to three so what happens so somehow this is a three why is
+this a three why do you think that when I say I equals 3 this thing returns
+something right and then it prints out that something so the question is in C++
+what is the something right what's what what's the something that gets returned
+when I say I is equal to three you would imagine that gets returned as the three
+right and then it's printing the three because that's if you run the program it
+actually prints the three but in fact that's not what happens right what happens
+is it returns an I so when I have in C plus when I have I is equal to J what it
+does is it has the side of effect of changing the bit pattern in I to whatever
+the bit pattern in J is and it turns the guy in the left Returns the guy in the
+hand side that allows me to chain stuff so for example have you heard
+everybody's heard of this notion of chaining right chaining things so for
+example I can say see out right um you know five and then and then I say hi you
+know and I say you know 4.6 and so on and so forth that actually works right so
+but how does that work see out if I say I if I say C out let's say five so the C
+out operator takes how many how many values how many C out operator takes how
+many values what's the answer to that back to C+ but 21 111 C out anybody takes
+just one takes one right so what's wrong with what I just said I was you know
+what's wrong with what I say when I say C out double shift five so this C out is
+the question is like this five is a is an object right five is a is a number
+right which which thing says print is is the C out the C++ verb for print is C
+out just a fancy way to say print and this is just a little bit of filler stuff
+to make it you know which is the verb and the answer is is the verb is this what
+the way you read this in C++ is to the see out object to the SE out object put
+this thing is the verb says put into the stream we talk about streams yesterday
+put five so the SE object internally has like a long array a long buffer in
+there and remember the water is going under the bridge and you drive drop the
+five into that into that the stream and it goes into the buff and SE object see
+out is object of the O stream class right so it says to this object so basically
+what's happening is running the operator left shift on this is like saying to
+the C out object you want to run um you want to apply what operator right
+operator left shift and put a five in that right somebody put a point you know
+this that's what's going on over here but what happens is it Returns the C out
+object so when I say C out like this what it's going to do is it's going to put
+the five into this buffer into the SE object right in other words it's going to
+change it's going to change the there'll be a side effect over here but there's
+also going to be a value and what gets returned is the C out object right so
+it's going to the the run time the um the side effect will be the five goes into
+the SE out object turns SE out object and that's why I can now say you know to
+the SE out object I can apply of the left shift again and put high in there
+right and that again is going to return the C out object and then that's and
+then then I'm going to apply the left shift and put the 4.6 into the buff right
+so that's what happens in C++ and that's what happens over here also when I say
+you know print you know C out left shift you know I is equal to 3 because it
+evaluates the I is equal to 3 and it's not three gets returned what gets
+returned is the reference to the left hand side so the reason a three gets
+returned is because three changes the bit pattern in I so now I has been changed
+that's a side effect but this returns I so now when this says C out left shift I
+it looks again in I it finds that is it's a three in there and then it's going
+to print the three right so in C++ when I evaluate the assignment statement I is
+equal to J um I get J back I get I mean I get I back I don't get the value
+that's in J I get the I back if I remember correctly Java doesn't do this right
+what Java does if I say I equals J what Java will do is give me the value that
+got transferred from J to the value that was originally in J and now in I I
+don't get the I back I get the value that was put in I but what about in Python
+right what happens when I say in Python so if I say print um if I say print I is
+equal to three try it and see what happens over here is it like the is it like
+the C++ is it like the Java is it like its own thing what happens when I try in
+um Professor quick question in C++ let's answer this first take question no
+problem do is The Interpreter print I equals 3 Matthew what do you got um I've
+got a trace back error that I is an invalid keyword argument for print oh let's
+take a look that's that's interesting let me just it's interpreting I as like a
+keyword argument in a second I'm going to stop my share I want you to show your
+screen and then you talk okay here we go down here on the bottom okay when have
+I is equal to three or I is equal to three just I is equal to that's you had
+over there so what's message we have traceback most recent line this print
+statement um type error I is an invalid keyword argument for print so I think
+it's treating it like yes exactly so it's treating it like uh sep in this key as
+a keyword argument [Music] um right excellent right let's let me just very good
+let me let me expand what's going on here Matthew has it right the idea here is
+that we saw that it worked in C++ it's not working over here right because when
+you say print I is equal to 3 it's not evaluating but it doesn't C++ it did the
+evaluation of that expression was an expression with a return value right so in
+C++ the return value would have been in I and then the the compiler would have
+generated let me look in I and see what's there it's the bit pattern for three
+and it would have printed three right if it was in Java the equivalent it would
+still give you a three but that's because the value of the expression is the guy
+that you just put into the a right um but here it's it print is a predefined
+function right and what print is you have some values you can print I comma J
+comma 9 comma whatever it is but that's not what this thing is once it says I is
+equal to something it's going to say and we'll do this really in detail later on
+we talk about functions uh and so on but this tells you this is invalu this is
+an invalid keyword argument what's a keyword argument so so the keyword is those
+things that we saw when we looked at the print in detail I can say sep is equal
+to this I can say flush is equal to some Boolean value right I can say whatever
+those keywords are so when you do something like this when it sees the equal it
+says he's setting some keyword there's a default value to the keyword and he's
+redefining that that value but it says wait a second there is no there is no uh
+keyword argument to the predefined uh print function that's I and that's why
+You' get that error but the the takeaway here is that when I say I is equal to
+three in Python it's neither the same thing that it is in um in C++ nor like you
+would have Java it's a thing by itself and this does not return anything doesn't
+return the value was assigned it doesn't it doesn't return the left hand side
+it's not an expression in Python it's a statement with no return value at all so
+the question is is can I get the same behavior but let's uh let's stop here and
+we will return and see the answer to that let's take 10 minutes um and and then
+we'll we'll pick it up any questions before we we take a break okay I'm G to
+turn off the recording so please remind me to turn it back on okay I'm GNA pause
+it can we talk about recording stop the C++ error now yeah yeah well who who had
+an error okay so I got an error and then I resolved the error by um yeah let's
+just do that I'm going to share the terminal window again yep all right so let's
+see um I just wrote almost this program here the difference between the time
+that I was running getting the error with this program is I added these
+parentheses to fix operator precedence and that resolved the error um the error
+I was getting was this error SDC out plus one no match for operator assignment
+that makes no sense no no I think it's doing this it's doing SDC out it does the
+insertion operator and then it carries through the SDC out and it tries to
+assign three to stdc out that's right exactly right exactly yeah so that's
+what's going on very good that's that's why when you when you put the Precedence
+in it by putting the parentheses you resolve it exactly right that's why I have
+a parentheses you see what I wrote down there in the notes is like put the
+parenthesis right I said that did work I have a question about the C++ code also
+yeah who's talking yeah this is yes yes okay question yeah okay I'm going to
+share my screen also it's the same code uh my question is uh sir the the reason
+the C++ returns three is because uh for chaining right like I = Jal 3 right
+right uh can we not change in uh can we not chain this in Python like can we not
+do IAL Jal 3 in Python talk about that when we come back you can but but it
+doesn't do it the same way you're doing the chaining but not because it Returns
+the the I it doesn't turn the left hand side it doesn't return anything
+assignment doesn't return anything it just it allows chaining as part of the
+things that it allows the mechanism oh the mechanism is different it it it
+recognize that is an extended assignment I see thank you but it's not it doesn't
+work in the same way that C++ works you get the same result but it's not that it
+returns a reference to the guy on the left it doesn't return anything at all
+understand thank you very good welcome back everybody please turn on the cameras
+for a moment so we see who's here have them at your face please not the ceiling
+like I earlier Mauricio you here okay see one more okay and un you're here too
+okay so you Tong did you pay two times tuition or you pay tuition for two U no
+only for one very good all right please turn them off so that we can now not
+overwhelm the system all right any questions about what we did until now let me
+turn off my camera too any questions all right so let's uh let's keep going did
+you restart the recording ah thank you thank you thank you recording get back to
+recording um there we go we zo Qui recording in progress all right so let's see
+what we have over here um all right so variables and so on and so forth and so
+if I run this program let's actually do this right go back to the first um you
+know to the first web page and type this in right here trivial program x = 1 Y 2
+X+ Y and then we're going to put that we see what happens when we actually run
+this thing May let's let's leave this together so we want to go here to the uh
+what go um like Dum I on code WR the code um let's see so what is this x equals
+1 Y = 2 Z is = to x + y and print on XY Z okay all right so now if I want to
+write this going to run this so let's see no it's wrun the wrong one I I they
+changed it since I last um land this code what's happening it said yeah it says
+visualize execution what it did say let's try it again yeah where you wrote your
+code you just have to scroll down a bit scroll down a bit all right so let me
+let me do it again then so I want [Music] to um pth not AI help I don't AI help
+I want to run with them so is it it's um xal 1 and then Y is equal to 2 and then
+Z is equal to x + y and then I want to say print x 5 and okay so um where does
+it say where's right under it oh there it is yeah ah so brought it up here very
+good okay so let's try it so notice we have as opposed to the other languages we
+have this the frame tells you which variables I have in the objects and it's
+sort of that's the way it really works in the um you know internally in The
+Interpreter so it's about to do this so when I run the code I go to the next
+step and so on the frame so this is not exact let's we'll talk about this in a
+second so what happens on the frame it sets me up um X it says I have a variable
+X now um and then what it's doing though is it's saying that it's that it's
+doing like as if it were in a compile language it says that X is really very I
+mean the one is a very very small value so um I'm going to um instead of
+creating an object and pointing to the object I'm going to actually Store It On
+The Stack frame in a place called X so this is that what's going on this the
+earlier version did it like this and then they changed everything so X will
+really be appointed to the objects but we'll have to deal what we deal with so
+say go to the next one next one is sets up a two this should be pointing to a
+two object next is going to be a z we go to the next and then um and then I do a
+next and I'm doing the print and where's it they changes where's the here's the
+operator output is 1 2 3 unfortunately if you look at the one that I have in
+notes which is the way that it's really done is that there'll be in the object
+there'll be an object one an object two and object three and then then the print
+will be running okay so we'll use it later when we have uh sort of more
+interesting stuff and be bugging gets a little bit crazier let's get out of here
+and go back to the python notes we're in part two or part three two okay so um
+right here's what's really going on right here's a stack frame and it's point
+one 3 two three and it it sort of does what it's supposed to be doing now in in
+Python you have a bunch of we have these four assment say one that we saw
+earlier that we have extended assignment that we saw that you can do in other
+languages but works differently right you can't say it's not that X gets Y and
+returns an X and it puts every it doesn't do that what's happening is X and Y
+and Z all of them end up with a five right so it's GNA it's G to do it's going
+to do the appropriate thing in the background to get everyone the value of five
+and what is that going to look like it's going to look like this right it so in
+other words you're not going to have a situation where on the stack frame you
+have X Y and Z and you have you have multiple copies of the five they're all
+going to be pointing to the same object right does that make sense so um what
+happens let's run this you you guys anybody still in the emulator it's not doing
+the thing that we want anyway U because the question what happens if I would
+have changed let's say so I have every if I have X Y and Z pointing to that same
+object five if I a say if I now say x is equal to three what it would do is it
+peel off it makes a three over here and and and X will pointed to three and the
+other two guys still be Point F that's the that's the first kind of assignment
+it's an extended assignment um the second kind is um this assignment to two pul
+this is actually quite interesting so I can say on the left hand side instead of
+of having a single variable that is the target of the assignment I can say oh
+wait am I I am recording right on the left- hand side I can have these three
+values X and Y and Z these three targets and on the right hand side I have a you
+appropriate number of values to assign so the one goes into the X and the two
+goes into the Y and the three goes to the Z and this is what you end up with
+right uh when you do it right so you have a three one two three and the X and Y
+and Z so this is is also called unpacking and the reason it's called unpacking
+is because we later on we'll talk about uh the various data structures that you
+have and one of them is called a tupo and a tupo is what you see over here like
+a one two three and so on and you can unpack the Tuple into variables right so
+on on the right hand side you have the tupo um XYZ in some sense also represents
+a tup over here on this side and this unpacks the one into the X and a two into
+the Y and the three into the Z one of the nice things you can do over here which
+is easy to do in Python but not so much in C++ is that I can have a function
+right I have some function right and here's my function and then um I can in my
+function equivalent I can say return you know um you know one two and three
+right now you can't do that easily in C+ plus you have to use something
+internally called the tupo and have to set it up and but here I can do it
+directly here what's going to happen it's going to return this object this Tuple
+object one two three and I can say Z is equal to F and when it what's going to
+happen is f is going to return the one two and three it's return that Tuple and
+then uh not Z I would say like you know X comma y comma Z and it it'll unpack it
+for me and I'm I'm returning three things and the first thing is go to x and the
+second second go to the Y and the third thing going to the Z that makes sense
+it's pretty it's very nice and lets you to do things easily in Python that would
+be much more difficult to do uh if it wasn't if you couldn't play with these tup
+in an easy way all right that's pretty cool um then you can also have this
+augmented assignment uh in other words you can have instead of writing x = x + 1
+you can do the following you know X+ equal xus equal equals these two divides
+mod equals and exponential equals okay and they do they do exactly what You'
+expect it to do any questions until now good so now this is what we talked about
+right before the break if I try to say print a equals 7 uh we saw that c out uh
+a you know = s that gives me a seven um if you put the parentheses right because
+you need to say that you know you need to say you want to evaluate that first
+and what that return be an a we try that in python as we saw it doesn't work but
+what will work is if I use if I put a colon equals 7al col equal 7 that's an
+operator that you have from uh later version 3.8 on and that operator is called
+the wallrus operator okay why the wallrus operator what kind of name is that
+because you sort of Imagine a walrus right and warus looks like this and it has
+like you know right has these the mustache there but that's what this thing sort
+of looks like here's here's the eyes right over here's the eyes and then there's
+the sort of the mustache coming down and what that does is exactly what would
+happen in C plus s in other words it has a it has this has a value also as
+opposed to just a um just a side effect so in fact a will in fact change but
+it's going to return a seven so therefore it's going to print a seven right so
+it works like in the other languages and the reason you do this is it's very
+very useful right you have this in other cases also uh and for example I can say
+in C C++ I can have a while that looks like this I can say something like you
+know yio you know C in you know X and so on and do some stuff in here and this
+will actually be a Boolean like why would that be a Boolean right this is um you
+know why would that work work well it's going to work because it's a conversion
+operator that that makes you know it's going to make is going to turn this thing
+into a bull when it you know when it it's going to evaluate the true and false
+to see if it works or not right so I can use it to to um to control the loop so
+you can do the same thing here with this the warless operator very useful so
+that's why they put it in there what about input we saw input um okay this
+trivial stuff you can all do this you can do this um can do this we did this
+yesterday we can do this all right this I think I didn't want to weapon I think
+every can do this right let's let's try this you want to write I mean let's try
+this right so you want to write a you want write a program ask the user for
+temperature in fahrenheit and the program calculate can the print the the
+temperature Centigrade here's the formulas okay so let's do that this one again
+raise raise your hand once once you got B okay you guys you're raising your hand
+once you got the thing anybody else raise your hand as soon as you're done do
+you see my screen yeah um this is what I number that's I got we just seen the
+code though the code is right here oh oh you don't see the let me fix this all
+right do you see um there we go very good all right so let's we're going from
+what going Fahrenheit to Centigrade right so put 212 and see what comes out okay
+212 right that that makes sense right that's the boiling points of order and it
+works it's very simple okay so just make it a little bit bigger can you do that
+so we can see it you can do it playing with the shell anyway I think if we right
+so so just just to show how the arithmetic operators work good and then five
+divided by nine becomes a float right so that's why you get a float out at the
+end all right that was fine okay so it works very nice thank you let's go back
+and see what is next all right rounding is important right so everybody knows
+what a rounding is when when you round a number so um if uh what you do is if
+the fractional part is 0 five or greater you round to the next highest integer
+the fractional part is less than 0.5 we round down so 3 34.5 six becomes 3 35
+and this becomes uh 34 notice when we round we get an integer so if we want to
+we want to write an assignment statement to convert a floating Point number to
+the rounded value now you can do this in Python in well in two ways right one
+way is to use the built-in round function which rounds for you and tells you how
+many positions you want uh um um after the decimal point um and uh so that's
+defeats the notion of round but it's going to round you know doesn't give you
+back an integer you get the integer by default because that will be zero and the
+other one is actually write an expression itself so let's um let's see what what
+would the expression look like know you're given a you're given a number like
+like this and it should do the following round to the integer what would that
+look like so you're given 34.56 let's say x is equal to that and you want you
+want to round it what do you do to X to round it um so this becomes a 35 and
+that becomes a 34 some of you have seen this before I hope most of you have seen
+this but if you haven't then we should work on this and see how you get it to
+work right I want an expression that's going to do this rounding okay let's take
+two minutes one half a minute 30 seconds and then somebody will show the result
+but everybody should be able to do this right you give in this and that should
+give you 35 because there's a five over here after the decimal point but there's
+a four over here and that's that's going do it's going to round down and so on
+right soon as you get it raise your hand basically can you see my screen here
+guys am I sharing no you're not sharing no basically what you want to do is if X
+is the value you want to um you want to uh round you want to add something to it
+that it's going to go up or go down depending on whether it's 0 five but then
+you might need to do something here on the outside right that's the basic idea
+this is sort of a well-known trick so um who wants to show what they know how to
+do here who has who has their hand up let me check this all right so uh um Anna
+right an Ahmed show show what you got all right I'm sharing my screen oh [Music]
+uh I I I think I have to rejoin because uh I need some permission oh are you on
+a Mac or something yes that's a problem okay who else who else yes I think you
+had Matthew you had it who has who Matthew you with us okay show your screen
+good how do you do it oh yeah sure um yeah here I have um x x is um give me a
+float and then I change it to Y and Z and print those right leave it on leave it
+on so we can see it very good it works right let's talk about it so this is this
+is a known trick um so let's say for example uh let's say x is 1.3 let's say x
+let's say x is 1.3 so um when you add A5 what's what what's that going to be
+it's going to be 1 right8 right and 1.8 uh when you rounded is going to be what
+let's see that should be um round up to two or if we just chop it off it's going
+to be one okay does that make sense to everybody so let's try that again so X is
+what right X is right so um right because what the int does is the int um is the
+int is going to truncate right but let's say x was equal to 1.6 what happens
+there when X is equal to 1.6 we want that to round up to two right um so if we
+do um X is equal to X+ .5 we're going to get 2.1 M when we wrap that into our
+int that's going to uh cut off the remainder EXC off everything below zero very
+so that's the way you would do it if you wanted to do it directly but there's
+and there's a round what happens when you run the round function on that what
+happened there see on on this or just x no on you know on on round let's say
+round on 1.6 and then uh and then round on 1.4 and see what happens yeah there
+it goes He the right answer all right so here's the interesting stuff thank you
+very much uh let me take the um all right so um there's some interesting things
+let's let's so this is what we have over second okay let's see what this is
+about um so if I do the trick it goes right and I get the same answers right if
+I say let's say x equal to let's see with negative numbers if x is minus 1.5 and
+when I say when I add uh the 0.5 I've been doing over there and the result is
+going to be this and I do an INT I'm going to get a minus one but if I do a
+round of -1.5 I'm going to get a different value which is the minus two is that
+right so this we would imagine this is what you mean by round Right add the 0
+five to take it over the take it over the the uh you know the boundary and then
+you shop off the digits so if it's minus 1.5 the first method gives us minus one
+the round function gives us um gives us a minus two that's great right there's
+different behaviors between two methods and uh what about with the positive
+numbers let's say say x equal 2.5 so if it's 2.5 and we use this trick over here
+we saw before I'm going to get a three and but if I use the round function on
+2.5 you would imagine takes it up right you imagine it gives me the three but
+according to what it says here it gives me a two so something is happening here
+right something that's unexpected is happening excuse me in the way the python
+is treating the r it's not doing what that standard trick is it's doing
+something else and what's it doing I thought I had it in the notes over here
+anybody know what's going on here why is it doing this I don't strange I should
+have it in here some Qui but I don't what what's happening over here why is it
+why is it acting strange anyone want to suggest what's happening somehow the
+rule is that it's going to round to the nearest even number it seems if you do
+enough experiments that's that's what it seems to be doing so anybody here ever
+work in in finance or anything like that many people have a job no so what doing
+something called the banker algorithm um and this they use this in fintech all
+the time because if you think about how this the trick for rounding works by
+adding the 0 five what that's doing is it's it's rounding up right in other
+words as soon as he finds that middle value it's statistically if you do enough
+of these cases you'll find that you know if it's exactly in the middle and you
+have data that behaves like that you you'll you'll have a the big chunk of it
+it's going to move to the right as opposed to moving to the left so what you do
+is you you you for for the cases where it's not exactly in the middle right in
+other words 3.47 or 3.68 you do the trick you do this this business over here by
+adding 0.  five and then and then taking the int but if it's in the middle so
+the rule is in fact what you're going to do is going to round to the nearest
+even number and the reason for that is because you want to overcome the
+statistical anomaly of always rounding up so you don't get the thing bunching to
+the right you know bunching you know what you want to do is you want to sort of
+half the time going one way half the other time and see this turns out because
+half the time will be an even number on either side and so uh so you so adding
+that into the mix into the into the algorithm you get more even distribution of
+how the rounding works right so you'd be surprised about this but this is done
+this is a feature not a book so to to to summarize if it's not exactly in the
+middle it's not 0 five exactly in the middle then it does what you'd expect
+namely essentially use this trick but if it's in the middle it's going around to
+the nearest even okay and in order to overcome the statistical issue of
+everything moving to the the to the right all right let's do this let's write a
+program to ask the the user to enter an integer and what you want to do is
+you're going to e Echo the input you're g a guy puts in a five you're going to
+print a five and then you're going to say if it's true if the number is even and
+false if the number is odd okayy try to do this in less than three minutes right
+write in write a program say give me an integer and then you should say whatever
+they tell you and then say true or false we're testing for evenness right so
+going to say true if it's even and false if it's if it's right go to it but
+everybody not like four people right there have 40 people in the room here
+there's no reason that everybody shouldn't do this this an easy screen yes
+Professor see can you see my screen now uh yes we can uh where's my here this
+part okay again but let me just go back to what we said yesterday that um
+there's an if and there's an else in there which we didn't cover yet H okay
+sorry redo it redo it right okay sure your life right here just do it right now
+while we're watching you want to print through if it's even and false not how
+would I do that um without us get rid of the if and else and just in the print
+statement can you put an expression on the print statement put the expression in
+the pr like yeah print something and then that something will be true or Force
+depending on whether it's even or odd this one print MH if true no if you don't
+have okay connect like maybe well so remember when yeah when Expressions
+evaluate they give you values right you can print the value so let's see so you
+want to print X right so that even is it going to be true that it gives you a
+value a remainder of zero it is right and when it's four let's let's actually
+run this very good let's see if that works okay oh yes yeah yeah yeah yes the
+same so we can pass one more with yes okay everybody understand what happened
+thank you Professor thank you okay let's go on let's see the next one um let's
+now do the same thing but we want to the same thing but instead of saying true
+and false we want to say even and we want to say odd if the number is even it's
+going to say instead of saying true it's going to say even otherwise going to
+say odd this a minor modification let's see what we just saw now we'll go with
+here and see if we can do a very simple modification yet we want to use only the
+things that have been introduced so far that's a good point who just asked that
+question it was me yes here Professor yes is y I mean if you're you're writing a
+real program should you like jump through hoops and not use an if then an if
+then else or should you use if of course you should use it you whatever makes
+sense in the language right but right yeah right what we're trying to do over
+here is to see what what one of the things we're trying to do is we're seeing
+what you get by adding new features right to to do this thing you don't need the
+if then right you can you can do very well without it that's what we're looking
+at now also there are some sizable people number of people in the CL that don't
+yet have any background python at all so we just want to use what we introduce
+until this point got to take you a five so far this should be very very simple
+very straightforward okay Rohan you want to show us what you got second okay so
+this is the program okay let's see how that works so let's say num is five right
+so run the program see what we got num is five and five is indeed odd right so
+what did the program do it took five more to equals Z and what's the value of
+that one right is that false five we want to know if this is a yeah all right so
+five 2 equals z is is what uh false right why because five 2 is equal to one not
+because that's false so so therefore what's going to happen it's going to be
+what uh so false would become odd why what well why is it so in other words
+what's the order of evaluation over here those you have you have an you have an
+an and and a so you have like you have the pivots on the and and in the r right
+so why does it do first why does it do second so that this thing works so first
+um it'll do yeah let me just make the question a little bit sharper here in
+order for to you have you have you have OD you have an and and an or there so in
+fact when you when you did this it printed odd which is the correct answer so in
+order to do that the left hand side had to become true so that the or uh had to
+become what false right yeah right so then uh because for the ore for it to be
+false right so the ore got done right it's pivoting on the ore right because the
+precedents do the and first right is that what happens right yeah so so say it
+up what's the what's the order so first uh it evaluates the end part with this
+expression and if like uh it's not uh true then it'll evaluate the or right
+notice just pivoting on the or right so what happens if you it's pivoting and if
+you put in a four what would happen a uh that'll be even there it goes right
+okay can anybody I think everybody that did did something like this right um
+anybody do it a little bit differently just a little bit differently here
+Matthew have a different approach to this my Approach is generally the same but
+slightly it's um I have another and statement let's see let's see what you got
+[Music] um it's basically the same thing where I'm doing um the and and or sort
+of thing but I just split it up into this part on the left which is is checking
+for the zoness and doing the even thing and this on the right which is just
+replacing the zero with a one okay C could I do this you know could I do this um
+um by evaluating something on the left and then something on the right and
+concatenating that Al we do that concatenating the string values in other words
+can I do something let just take this so we could do something like um result m
+equal to the empty string and then we have um result plus equals if we do this
+are we going to be concatenating Falls let me let me just let me just so I'm
+take this away for a second let go here so I do something like this have
+something here and that's going to give me even and you want me to give the
+screen back to you you didn't give it back I thought I took it back oh sorry do
+I can you see my screen or you see Matthew's screen what do you guys see um we
+don't see any screens yet let me let me go back over here and share can you see
+my screen so can I do something plus something times odd right so if this
+evaluates to True some kind of Boolean over here that are values the true then I
+will get even and this thing will be false and I won't get anything right in
+other words can I do it like that instead of with or and so on have two sides
+going to get something in other words I'm going to concatenate two strings the
+one that's true will be printed and the one that's false will not be because I'm
+going to be multiplying by a one times a string and I will print it or I'll be
+multiplying by a zero times a string and I'll give no string and it won't and so
+cinate the one that will print and the one that won't and it'll only print the
+one of those two so clear what I'm looking at have some blue in expression like
+um you know X mods 2 equals to let's say one and then on the other side you know
+X Mod to not equal to uh one all right and then put something over here and
+something over here so when it's even this will this will be true it will be a
+one I'm going to multiply it by even and if it it's odd so this will be zero and
+so multiply the string by zero will give me a null string and and then here and
+and this will be true and it'll give me OD does this make sense will the buan
+value be Co into an integer yeah right the zero and one got I think does that
+make sense in other words if what's the value of this let's say let's say x is
+even so this I'm sorry this should be zero so um that should be zero and it
+should be zero same let's see Z right so let's say that's even so um it even the
+the mod the remainder is going to be zero when I divide by two and so that's so
+that's going to be that will be true there will be a one and here I say even and
+so when that's even X Mar 2 not equal to zero um um is going to be false right
+it's going to be a one it's going to be a one so it's not it's not so I want
+this to be a false when it's odd and I want it to be a a true when it's um when
+it's even can anybody write an expression like that somebody so I want to print
+something like this so this is going to be a string and that's going to be a
+string and only one of the two strings are going to print depending on the bo
+the value the try uh yeah yes so who's going to write who's going to write
+screen can you make it a little bit bigger see what you're writing idle provides
+us some way to yeah a you're on a Mac wion anybody know how to do that on a Mac
+to make the font bigger on window okay let's see what you got let's see let's
+let's look at the programming so you're G to give a value and you get an integer
+right so let's try put in a four let's see if it works let's run it put in a
+four five and and give me five and PR a five so we don't want it to print a five
+want to print odd oh it PR an odd right looks like okay good it works right so
+why is it working let's go through the code and see what's happening so um the
+multiplying so you get you get a numerical value so let's say x is an even
+number right so what's the value of x mod 2 equals z that's a one so the one is
+going to be multiplying by even so you'll get the string even but on the right
+hand side XM 2 is um is is um is equal to zero but if it's an odd number uh if
+it's an even number then the right hand side gives you what x mod 2 is not equal
+to zero that's going to be that's going to be false because it equal to zero so
+it's going to be 0 multipli odd and so you're not going to get anything be the
+empty string so you just you'll just print even on the other hand if it's an odd
+number so x 2 is equal to zero is four so it's going to give a zero so it's
+going to be zero multiplied by even but the other side it's going to be true so
+you're going to get odds because the left hand side will be the null string
+right when you multiply zero is going to give you a string back right but the
+string will be the no string okay excellent very nice every understand that
+clear everybody okay let's move [Music] on all right so let's do this I want to
+write a program that asks the user enter two integers your program we're asking
+to write a swap everybody knows how to write a swap right so let's do that have
+variable A and B you want to print a and b you want to write the swap again
+we're not writing functions here just writing straight line programs because we
+didn't do functions yet so then when after you do whatever code you need to do
+the swap um then you print A and B so it was originally five and 10 it should be
+10 and five okay everybody do this this is like 111 stuff still right so there's
+no deep things happening here you have a question oh no I was raising my hand
+because I finished it oh very good excellent all right everybody keep working on
+so keep your hand well let me just go in here for a second I want stop the again
+as soon you soon as you answer it put it up okay another 30 seconds this is you
+know this uh seven hands out of 35 out of 33 screen uh so A and B are input the
+swap is done and then the new results are showed so if it's one and then two it
+switches to two and then one keep the screen up right so this is like you
+learned this in in11 right then so you create some variable to store the a while
+the B goes into the A and then um then you take that variable put it back into B
+and then um and then it works can is it possible to do a swap um Everybody I've
+seen this right before can you do the swap without a temporary variable yes you
+can remember how to do that use Z right right right using the Hardware directly
+um right um it turns out that in Python very good everybody understands how this
+works right the standard way to do this should you use a fancy way to do this if
+you're writing let's say a C++ program should use the the you know the bit the
+bit manipulations or should you do the swap like this the answer is obviously
+you should do the swap like this or use a built-in swap function right because
+cleverness is not a very good idea it might be a good idea you know when you're
+doing an interview but when you're writing codes that you to share with a group
+of people you want to do the thing that will be uh you know sort of most
+clearest because you know what's at a premium when you actually write production
+code is that people can actually read the code however what's really interesting
+is that in Python there's another way to do this another way to do this in fact
+I can do the following um I can do the following if I want to swap A and B I can
+say a comma B is equal to B comma a that will do the swap for me try this and
+see if it works it worked it worked right that's strange right I mean if you
+think about it it can't be doing what it seems to be saying right it can't be
+saying well remember what we call this ear we saw this earlier these are two
+poles right and we call this unpacking right so sort of unpacking the guys on
+the right and to the left and what you would imagine is that b goes into a so
+now a has what B had but then how would this work a has already been changed by
+the first part of the chain right so it can't be doing that because it wouldn't
+work right so what does work is that this notation works right but in the
+background uh python must be doing the appropriate thing so what is the
+appropriate thing it's either going to swap through a temporary variable we just
+saw Nicholas show us or something else later on we'll actually see how we can
+look at you know what bite codes are being generated internally and now we'll
+see that it really is it's but it's doing it very very efficiently right it's
+doing it in the registers it's it's it's it's putting something in the register
+and swapping through some internal you know temporary variable and the register
+goes very very fast so this notation is what they call a pythonic notation if
+you want to swap everybody who knows python does this right because this this
+when you read it it says I Want A and B to be what b and a are and then it works
+right but it doesn't work you know if you assume that it works the way that you
+know you would interpret it naively that clearly can't be what's going on all
+right so is UN packing which we just looked at and how time works because it
+works right they do the right thing in the background um what time is it let's
+take a let's take a five minute break we've been sitting here for a long time
+and now we we'll just do the rest of the things we finish soon okay let's come
+back in five minutes I'm going to turn off the recording so remind me please to
+turn it back on $50 for five whatever just just make this work okay so you progr
+to calculate the workers paid given the number of hours they worked and the rate
+per hour the Valu should both be floats and then you want to print something
+like this you know with double signs if you can and let's see how that works
+okay let's see to as quickly as you can all right um nitia let's see your screen
+it'sa uh see my screen yep I don't know if we can read small make it bigger but
+it's the same code as in here yeah but we want to which program you not okay
+good let's let okay fine so let's see how does this work so you're getting the
+value of yes Flo both the hours in raate you're doing what I asked you not to do
+you're using functions which we have not covered oh yeah then use functions in
+there and the here yeah let's see the one without functions this thing Cod what
+the same C all right good very good okay so this is this is soly how are you
+doing this yeah um no you're using again what we didn't use there people have no
+idea what an F string is right so um I mean but you didn't do what we were we
+wanted to do so just rewrite this thing a little bit let's see how it works you
+enter please enter the number of hours you work so that's going to go into hours
+and then rate is going to be the rate and he puts it to float because both the
+floats and then he's going to print out you earned right you earned uh he's
+going to print that out and um but but without the fancy stuff over here right
+you you earned um how would just let's do the weo the print with just the way
+that we we have it until now okay so you want to print out you earned right as
+as one string and then put a comma and then hours times rate right right this
+okay and you can't make any larger than that okay okay very good all right
+excellent so that's that's a very simple program right that's that's right and
+so that is looks what he did over here looks like um looks like what we have
+here very good right in other words it's a put in a number of hours and then the
+rate you put in the rate then it ended up looking like this but this is pretty
+messy right he said you earned right and then this was a this was a a string
+right right this was the entered value it's a float that's why it looks like
+this um and that should be dollars right or something like that you know uh and
+um at $10 uh per hour that's good he's a little bit fancier you earn this has a
+little instead of saying 50 it says that there's a dollar sign over here but
+it's still not so great right because there's a space normally this would report
+you know for a real company they would not be happy with a space over here and
+um uh you know they're probably missing a uh dollar sign here this fixes it up
+but um this is even nicer right this tells you there's no space over here um
+this uh there's there's no space over here and but but but you know um normally
+if you say how many dollars you earned it should be like you know another zero
+over there maybe you know um and there should be another zero here so basic what
+you do is you want to you want to you want to format it in various ways right
+that's the basic idea so how do you format stuff in Python and make it look
+normal so there's a bunch of different ways to do formatting so uh the basic
+this here's some of the basic the basic is is a buil-in format function that
+works and the format function takes two arguments the first is a value that you
+want to have printed and they format specification and this is sort of a little
+grammar to tell you what the format specification is I copy this directly out of
+the Python documentation right so it's a value followed by the Format speci Pig
+and this shows that it is there's a default what the format specification is now
+this format function returns a string so if you want to say if you want to say
+you earned and then you're going to sort of have something over here with a
+format specifier and the value be printed this comes back as a string so then
+you since it's a string you concatenate it to our came before and sort of make
+it look more normal right so these are the specifiers let's see some examples so
+um if I say I want to print this whatever this is over here um and but first
+it's going to format it which means take this stuff this is the data and this is
+the formatting code and it's going to print this so what is this what does this
+possibly mean so I want to print one 2 3 4 5 6.  789 um and so notice this is a
+string right the format specifies a string and this says point to F so what the
+f is telling me seems to be the f is telling it's a floating Point number and it
+took something with these three position these three decimal values and it made
+it two so this says um you want to format this as a as a it's a a decimal right
+a FL Point number and after the decimal point is only there going to be two uh
+two positions so the seven8 N it rounds it over the last it rounds it up the
+eight becomes a nine and it prints 79 okay so and what about this I'm going to
+put the same thing here's the format specifying string I still find the point to
+F but I have a 20 over here so it's not printing the 20 what it's doing is idea
+what do you think it's doing over here with the 20 somebody want a guess um it's
+going to be if you have a 23 digit number it's only going to print 20 of those
+digits right so what does the 20 mean um the 20 most significant digits um as
+scientific notation it says in a field of size 20 right this is the field width
+in other words from here to here is 20 and it's shoves it up along the right
+side of the field what you're saying is if it's more than that well something
+has to give right but the 20 is is a field specified um so uh that works right
+um I don't know why I have to it twice what about if I do the same thing but
+then I say e so it prints it in scientific notation right um and um here the
+default was to the right right here the default is to the left and um here um
+what happens over here it puts it again to the right because I tell you that um
+right it field of 20 and uh it's going to go to the right um I can put a plus in
+there really doesn't make a difference over here or minus if it's a negative
+number it's going to give it to minus how about let's see in more detail
+formatting strings so if I say how do I know it's a string I mean uh integers
+how do I know it's an integer d stands for integer for the digits and so it's
+printing digits um and it's going to print in a field of 20 um I'm printing the
+same number in the field of 20 but the less than sign here means I want it to be
+left you know I want to print it left adjusted this means printed against the
+right and this means printed in the middle of a field of 20 right that's
+formatting integers I can format strings same basic idea so remember the format
+is always going to return to me a string so this is going to be 20 ABC D in a 20
+uh the U as a string it goes to the left same thing goes to the left goes to the
+right goes to the middle any questions okay now um so what do we see so so that
+first thing over here is the format uh is the format uh uh function the format
+function is very simple thing what it does it takes the value you want to turn
+into a string and then you have the specifier and the detail specifiers you can
+sort of work your way through this here and that tells you U what the format
+specifier is this is interesting it says you have the fill the align the sign
+the width and so on it tells you what those possible things are um all right now
+um so that's one way and so that the format function you take one value and it
+returns a string but so so if you want to print out a whole thing like this you
+know you this amount of money times this number of hours and so on so forth
+you'd have to use the format function each time get back a string and you
+yourself will concatenate all that stuff in the appropriate way to um to print
+out the thing you want to print out so it seems there needs to be a way to do
+this all in one you know swell fo and this do that this thing is called an F
+string right F stands for format you can format the strings like this so um I
+say F The Interpreter says I know what you're talking about talking about an F
+string and so uh F and then I have a quote Mark and another quote over here
+right and then uh what it's going to do is it's going to print value is Right
+there're within the quotes it's also going to give you a string but it's more
+complicated right because it's not right I'm not just giving a value and and a
+format I'm giving you a whole sentence to print out here right so it's going to
+say the value is and then uh and then X and then a format specifier so look at
+what this looks like I have a curly bracket over here and a curly bracket over
+here so what it's going to do um it's going to the F string um if I have
+something in the F string that has the curly brackets and then I have I have the
+value and then a specifier and the value can be an expression so what happens
+over here is it basically it calls this the function we just saw earlier right
+calls the format function and whatever comes back from this you don't have to
+call it explicitly it's going to be done by The Interpreter for you so if we
+start if x is equal to one point one you know this value over here and uh I say
+I so it's going to print for you value is and then all part of that same string
+right so you don't have to keep concatenating things so it's going to be this
+but it's be formatted as a floating point value um and um two two positions
+after the the decimal point so it's going to be uh four and that's a five and
+it's going to go up because there it's going to go to six um if I say this it's
+going to SP that same value 54 but it's going to be uh what does this 10 mean in
+a field of 10 right and so it's going to be um give you this you write adjusted
+by default it's be four positions afterwards but this one is interesting what
+does this mean it's going to say value is and um this is an expression see what
+it looks like it's expression called in the specifier so if this is x 2 * X is
+going to be this guy here and then what is the so this is the expression I'm
+Printing and this part over here is the format that I'm printing it in right so
+let's see how how this thing works so this says I want you to get in a field
+width of 10 be field withth of 10 what is the less than sign mean what does this
+mean it means going to format it to the left but when you format to the left you
+got all the spaces so this is a fill character and this says we don't want you
+know it's like a check right so we don't want somebody to put in you know a
+couple of more zeros so it's going to fill it in with whatever you specify as
+the fill character okay does that make sense you see this is this is much more
+flexible going have a whole story over here with with this string and every time
+you want to put you want to insert things that have been computed or things
+values that you have you use the this this curly braces and that's the
+expression and then you put the specifier now uh it turns out that within the
+expression the specifier right which is it's going to call that function it's
+it's it's pretty uh it's it's very flexible right right so within the FST string
+over here you can um you can say part of the specifier itself um can be uh
+supplied by other Expressions so for example I need to tell you what the width
+is going to be and what the Precision is going to be so I can say U I want to
+print Y and then I want to it's going to be this this is the format specifier
+right so um R is going to be some string so it says the width is going to be
+eight and the Precision is going to be three right so that's that's this and the
+you know the um the specification use the variables that I provided on the
+outside okay got it make sense and some more interesting stuff um if you end the
+expression by equal so um what does it mean and the expression right it's
+expression comma specifier so if you put an the expression part you put an equal
+sign so like this is the expression instead of just saying X you say x equal so
+the literal text of the expression is also included right so if I do that um and
+x equal to this value here so it's going to not only print the the you know get
+the value of x specified you know according to this specifier but it's going to
+print the X as well likewise doesn't have to be a variable since I can have a
+whole expression over here two * X so since I have an equal sign over here the
+colon separates the expression from the specifier right that's the colon over
+here so it's going to do this it's going to give you this literal it's going to
+say 2 * X is equal to to this one we'll point to qua today if I pendant r a bang
+R here to the value formatting is applied to the output of the repper function
+if I use the bang s it's using string what is this about what is this about so
+there's some really cool things happening over here in the background so what is
+repr what is Str Str so they look like these are functions you call Str Str is a
+what that is a we know this is creating a string right say it's conversion
+operation giv something the string class and so um that's the one that normally
+gets applied so when because if you if you want to print a you want to print a
+you know a floating Point number it's not going to do that right the print has
+to have strings everything's going into a string so by default the string
+Constructor is what's used unless you want it to be to be to use the uh the
+reper we'll see that in a second so so for example let's say I have a string ask
+is hello world so this is a valid string right because there's the quote marks
+on both sides and we saw this earlier somebody showed us something remember we
+trying to print one two three who was it somebody printed one and the new line
+character and then two and then new line character world right so if I print
+this directly what's going to happen it's going to print hello world right and
+if I do it explicitly by calling the Str Str function on this it's going to it's
+going to format it as a string and sort of with string formatting is going to
+actually take all the special characters in here the ones you know with the back
+slashes and take it as a code and this this will give you what's being printed
+so by saying print s you'll get the same thing as printing s strr of s because
+the default converting whatever is in here is using the Str Str and the strr
+gives you a the normal nice you user read you know readable form of it however
+if I have that same s over here and I say give me the repper of s it's going to
+actually print the original representation internally that that s had it's not
+going to it's not going to give you a nice human readable thing it's going to
+give you exactly what it was that produced that would have produced the output
+of Str Str so why in the world would you want this why would you want it to
+print a low back slen is very very useful for debugging right so reper s gives
+you the thing that um that you could use when you debug right so if you want the
+repper to be called so you would say you would this is the value you want to
+print that's the expression so you have the expression and then then the bang R
+for the repper and if you wanted if you wanted the the um you know the the Str
+Str function to be applied or if you want the default you if you want explicitly
+say it You' say you know a bang s otherwise it just does automatically so what
+in the world does this stuff mean mean what does this mean so um we'll see this
+but this is sort of this is interesting thing someone asked about the dots
+beforehand right dot Plus or dot something or other so um what does this remind
+you of this format of something do something right what does that remind you of
+somebody mentioned it earlier this looks like what calling something on
+something right if you have an object of a certain type so so in many cases in
+you know with object-oriented programming the format for calling a method on an
+object is to say you have the object right and you say dot and then you say the
+method that you're calling it on so everything as we saw in Python here is
+really is an object and these objects have D have member functions so um uh so
+um so what what's going to happen over here is this is some kind of thing that
+can be represented as a string right could be an integer or whatever it is right
+um so if I if I say print this using repper what it's going to do is it's going
+to call this function on a string both repper X and Str Str of X are going to
+give you strings so this so this says on the string that comes back from calling
+these functions I'm going to call the built-in member function called format um
+and on on on the string that comes out over here you'll notice this thing has
+like a strange you know thing over here and over here um these are two
+underscores and they're colloquially called Dunder methods Dunder for double
+under so this is double under under under format under under this is an argument
+comes into this so what this is going to be doing it's it's a it's a member
+function the string class it's going to apply this member function onto the
+string comes out over here so when you say this what's going to call it's going
+to call this member function a string class on on the on the X but first using
+rep to give you the the representation and this will will'll do this does that
+sort of make sense we're going to see a lot of this later on these Dunder
+functions because you can you can call them directly or you can you can use the
+nice stuff that be provided by Python and you can do this but underneath the
+hood what's really happening is the the dunders the the member functions the the
+special member function we'll see later on we'll see a lot of this stuff later
+uh that's what that's what's really happening in the interpret okay yaser
+question um Professor my question was so this uh double underscore format this
+is a member function is this F does this function behave the same way as the
+format non-member function we were using the format right the format well so a
+little bit like because the form function has two has two arguments right this
+has one argument right but it's really a trick because if I have a member
+function in C++ right is always an argument that gets snuck in automatically
+right in other words there there's a yeah they calling uh invoking object yeah
+there's a this pointer right so we'll see when we talk about objects in C+ in in
+Python you have to explicitly mentioned with this but um essentially what's
+happening is here because this is the interpreted uh uh uh thing of it it's
+basically imagining you're taking this right you're getting that string and
+imagine putting of this pointer into this format specifier so even though it
+looks like it's only one it's only like you know there only one argument here
+but really what it's doing is like you know it has access to the argument it's
+working on and it's calling the specifier and what comes out of you does that
+make sense I see thank you Professor any other questions uh we ask another
+question are you done okay so let's call it a day who has I asked the people
+that did not get um okay so I'm going to just stop the share and okay so if
+we're done if if you have if you have an issue over here like with the the
+emails please stick around okay everyone else can uh have a happy thank you
+Professor thank you very much profess thank weekend everybody thank you
+professor professor is there any homework for this class or I can give you stuff
+but not not today okay thank you have a good weekend thank you you too

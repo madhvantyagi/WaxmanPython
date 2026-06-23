@@ -1,0 +1,32 @@
+This initial call advances the generator to the first `yield` statement, which yields `zero_count`
+initialized to `0`. This first yielded value is not captured or utilized, as its purpose is primarily to
+prepare the generator to receive values. Notice that it is not assigned to any variable. It just ensures the
+generator is in a ready state to process incoming data via `send()`.
+2. Starting the Loop:
+- A loop is set up to run for 20 iterations. This loop represents the main execution block where both
+production and consumption of values will take place.
+3. Simulating the Producer:
+- `produced = random.randint(0, 1)` simulates the action of generating sensor data by producing a
+random integer (0 or 1).
+- `print(f"Produced: {produced}")` displays the generated value, indicating that it has been 'produced'.
+4. Simulating the Consumer:
+- `gap = monitor.send(produced)` sends the produced value to the `monitor` generator, which
+processes this value by calculating the gap (number of zeros since the last one) and yields this gap
+back.
+- The gap value is then printed alongside the consumed value, indicating that the consumer has
+processed the value and determined the current gap.
+5. Repeat:
+- The loop continues, repeating this process of producing a random value and consuming it by
+calculating the gap. Each iteration represents a new cycle of production and consumption.
+6. End of Loop:
+- After 20 iterations, the loop ends. At this point, the program has simulated 20 cycles of producing
+and consuming sensor data.
+This approach of interleaving the producer and consumer operations within a single loop is a
+straightforward way to demonstrate the concept without involving concurrency. It sequentially
+simulates the production of data and its consumption, showing how each piece of data is processed in
+order.
+Problem:
+Referring to the problem above. Imagine that the sequence of 1s and 0s represents the state of some
+security sensor, 1 if available, zero if not. If the gap between 0s exceeds some user defined n, the
+generator should return a warning and return. Write the modified generator.
+12

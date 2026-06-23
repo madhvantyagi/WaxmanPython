@@ -1,0 +1,38 @@
+Deep copy
+In Python, you can create a deep copy of a dictionary using the copy.deepcopy() method from the built-in
+copy module. A deep copy is a new dictionary that is completely independent of the original dictionary.
+Any changes made to the new dictionary will not affect the original dictionary.
+For example:
+import copy
+# Define a dictionary
+my_dict = {'a': [1, 2], 'b': [3, 4]}
+# Create a deep copy of the dictionary
+my_dict_copy = copy.deepcopy(my_dict)
+# Modify the copy
+my_dict_copy['a'][0] = 5
+# Print both dictionaries
+print(my_dict) # Output: {'a': [1, 2], 'b': [3, 4]}
+print(my_dict_copy) # Output: {'a': [5, 2], 'b': [3, 4]}
+In this example, we start by defining a dictionary named my_dict. We then create a deep copy of my_dict
+using the copy.deepcopy() method and assign it to a variable named my_dict_copy.
+Next, we modify the value associated with the key 'a' in my_dict_copy to [5, 2].
+Finally, we print both dictionaries to show that the original dictionary my_dict has not been modified,
+while the copied dictionary my_dict_copy has been modified.
+Important: Note that copy.deepcopy() recursively copies all nested data structures in the dictionary, so
+if your dictionary contains lists, dictionaries, or other mutable objects, a deep copy is necessary to ensure
+that these objects are also copied and not simply referenced.
+For example:
+import copy
+original_dict = {
+'a': 1,
+'b': {
+'c': 2,
+'d': {
+'e': 3,
+'f': {
+'g': 4
+}
+}
+}
+}
+144

@@ -1,0 +1,30 @@
+Before we move on to strings, let’s revisit
+Unpacking Sequences and Iterables
+We covered some of this before, but we review here and look at some additional uses.
+Unpacking is important because it avoids unnecessary and error-prone use of indexes to extract elements
+from sequences. Also, unpacking works with any iterable object as the data source—including iterators,
+which don’t support index notation ([]). The only requirement is that the iterable yields exactly one item
+per variable in the receiving end, unless you use a star (*) to capture excess items, as explained below
+Parallel Assignment
+The most visible form of unpacking is parallel assignment; that is, assigning items from an iterable to a
+tuple of variables, as you can see in this example:
+>>> lax_coordinates = (33.9425, -118.408056)
+>>> latitude, longitude = lax_coordinates # unpacking
+>>> latitude
+33.9425
+>>> longitude
+-118.408056
+An elegant application of unpacking is swapping the values of variables without using a temporary
+variable:
+>>> b, a = a, b
+Another example of unpacking is prefixing an argument with * when calling a function:
+>>> divmod(20, 8) # returns the divisor and remainder
+(2, 4)
+>>> t = (20, 8)
+>>> divmod(*t)
+(2, 4)
+>>> quotient, remainder = divmod(*t) # in this case the t variable is the “args”
+>>> quotient, remainder
+(2, 4)
+In other wors:
+123

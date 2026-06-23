@@ -1,0 +1,33 @@
+- Each call to `next(monitor)` resumes the generator's execution from the point of the last `yield`
+statement.
+- The generator runs until it hits the next `yield` statement, at which point it yields a value (in this
+case, the current `gap` count).
+- The value yielded by the generator is collected by `list()`, which then calls `next(monitor)` again to
+get the next value.
+- This loop continues: the generator runs, yields the next value, and pauses until the next `next()` call.
+3. Handling StopIteration:
+- Once the generator has no more values to yield (i.e., the for loop inside the generator finishes
+processing all items in `states`), it naturally completes its execution and implicitly returns. In Python,
+when a generator or any iterator returns, it raises a `StopIteration` exception.
+- `list()` catches this `StopIteration` exception, understands that there are no more items to process,
+and stops calling `next()`.
+4. Final List Creation:
+- The `list()` function now has all the values yielded by the generator stored internally. It finalizes the
+construction of the list with these collected values and returns it.
+Thus, while the `list()` function is indeed a constructor, its interaction with generators (and other
+iterable objects) includes iteratively calling `next()` to retrieve all the values until the generator is
+exhausted, effectively converting the stream of yielded values into a static list. This is a common
+pattern in Python for consuming all values from a generator when you want all the results at once and
+are okay with them being stored in memory.
+But still …
+The generators that we have encountered have produced values each time that they are called as well
+as preserving their state between those calls. Indeed, that is what they do … they generate values.
+But realistically in the example we just looked at we have a situation where we would receive inputs,
+possibly respond, and then wait for the next “signal” sent to us from some other process, all the while
+preserving the sate of the function.
+In the above problem we got all the inputs at once in the list states. But if we wanted to model a more
+realistic situation we would like our generator to receive inputs each time it is called.
+Enter coroutines
+Coroutines extend the concept of generators. While a generator is primarily used to produce values,
+coroutines can both produce and consume values. They are defined with `def` (like regular functions
+10

@@ -1,0 +1,39 @@
+def __mul__(self, other):
+if isinstance(other, Rat):
+return Rat(self.n * other.n, self.d * other.d)
+elif isinstance(other, int):
+return self * Rat(other)
+def __rmul__(self, other):
+return self * other
+def __truediv__(self, other):
+if isinstance(other, Rat):
+return Rat(self.n * other.d, self.d * other.n)
+elif isinstance(other, int):
+return self / Rat(other)
+def __rtruediv__(self, other):
+return Rat(other) / self
+# String representation
+def __str__(self):
+return f"{self.n}/{self.d}"
+Using it:
+r1 = Rat(3, 4)
+r2 = Rat(2, 5)
+sum_ = r1 + r2
+diff = r1 - r2
+prod = r1 * r2
+quot = r1 / r2
+print("Sum:", sum_)
+print("Difference:", diff)
+print("Product:", prod)
+print("Quotient:", quot)
+This Python Rat class supports:
+Arithmetic operations (+, -, *, /) between Rat objects and between a Rat object and an integer.
+Overridden __str__ method for string representation, similar to the << operator overload in C++.
+The __radd__, __rsub__, __rmul__, and __rtruediv__ methods are the "right" versions of the arithmetic
+methods and are used when the Rat instance is on the right side of the operator. Python's special method
+names (__methodname__) are used for operator overloading, providing a Pythonic way to implement
+the behavior similar to C++ operator overloading.
+The __add__ method overloads the + operator, and __str__ provides a string representation of the
+object (similar to overloading << in C++). The from_input static method is an equivalent for the >>
+operator overload, facilitating input from the user.
+4

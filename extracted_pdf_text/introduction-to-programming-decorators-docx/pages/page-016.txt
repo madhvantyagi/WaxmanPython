@@ -1,0 +1,30 @@
+import timeit
+def my_function():
+time.sleep(2) # simulate a 2 second delay
+return "Hello, world!"
+duration = timeit.timeit(my_function, number=1)
+print(f"Duration: {duration} seconds")
+The timeit module is specifically designed to measure the execution time of small code snippets
+with high accuracy. It provides a timeit() function that takes a Python statement as input and
+executes it a number of times to measure the average execution time.
+For example:
+import timeit
+def my_function():
+for i in range(1000000):
+pass
+# timeit can be used as a standalone function
+time_taken = timeit.timeit(my_function, number=100)
+print("Execution time:", f"{time_taken:.4f} seconds")
+The result is
+Execution time: 1.8632 seconds
+Another example:
+import timeit
+def my_function():
+sum = 0
+for i in range(1000000):
+sum += i
+return sum
+# Time the execution of my_function 1000 times
+t = timeit.timeit(my_function, number=1000)
+print(f"Execution time: {t:.6f} seconds")
+16

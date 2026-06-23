@@ -1,0 +1,34 @@
+For the iterator, the key method must implement i `__iter__()`. This method is called to obtain an
+iterator from it and `__next__()`.
+`__iter__()`: Returns the iterator object itself. This is required to allow both iterators and iterables to
+be used in for loops and other iteration contexts.
+`__next__()`: Returns the next item from the iterator. When there are no more items, it should raise
+`StopIteration`. When we are interacting wih an iterator wecan use either __next__()`: or next(itrator
+name).
+So:
+Creating an Iterator: An iterator is obtained from an iterable. When you iterate over an iterable (like a
+list), Python automatically calls the `__iter__()` method of the iterable to get an iterator (or iter()).
+Iterating: The actual process of iteration over an iterable is done via an iterator. When you use a loop
+to go over an iterable, Python internally uses the iterator obtained from that iterable to fetch items one
+by one using __next__()
+Example
+my_list = [1, 2, 3] # This is an iterable
+my_iterator = iter(my_list) # Obtaining an iterator from the iterable
+for i in my_list:
+print(i)
+for _ in my_iterator:
+print(__)
+# Iterating using the iterator via next()
+print(next(my_iterator)) # Outputs: 1
+print(next(my_iterator)) # Outputs: 2
+print(next(my_iterator)) # Outputs: 3
+equivalently:
+# Iterating using the iterator with the __next__() method
+print(my_iterator.__next__()) # Outputs: 1
+print(my_iterator.__next__()) # Outputs: 2
+print(my_iterator.__next__()) # Outputs: 3
+# The next call would raise StopIteration
+Generators in Python are like factories that produce a sequence of values, one at a time.
+Generators are created using a special type of function that uses the yield keyword to produce values
+on-the-fly. It also is “stateful”, it keeps the state of the function between calls. It doesn’t exit once it
+3

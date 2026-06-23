@@ -1,0 +1,39 @@
+Then we have 2. Compilation to Bytecode. What does that look like?
+The bytecode generated for the `add` function is as follows:
+1. `LOAD_FAST` (a): This instruction loads the local variable `a` onto the stack. It's the first argument of
+the function `add`.
+2. `LOAD_FAST` (b): This instruction loads the next local variable `b` onto the stack. It's the second
+argument of the function `add`.
+3. `BINARY_ADD`: This instruction pops the top two values from the stack (which are `a` and `b`), adds
+them, and then pushes the result back onto the stack.
+4. `RETURN_VALUE`: This instruction returns the value on top of the stack to the caller of the function.
+Each `Instruction` in the bytecode includes the operation name (`opname`), the operation code (`opcode`),
+the argument to the operation if any (`arg` and `argval`), a representation of the argument (`argrepr`), the
+offset in the bytecode, and whether the line starts a new line of Python code or is a jump target.
+This sequence of instructions is what the Python interpreter executes when the `add` function is called,
+performing the addition operation and returning the result.
+The bytecode is essentially a tuple consisting of the following components:
+1. Operation Name (`opname`)
+The operation name (`opname`) is a human-readable string representing the operation that the bytecode
+instruction performs. For example, `LOAD_FAST` is the operation name for the opcode that loads a local
+variable onto the stack. These names are meant to be descriptive and help in understanding the purpose of
+the opcode without needing to know its numerical code.
+2. Operation Code (`opcode`)
+The operation code (`opcode`) is a numerical value that represents the specific operation to be performed. Each type
+of operation (like loading a variable, performing an addition, or returning a value) has a unique opcode. The Python
+interpreter uses this code to identify what action to take when executing the bytecode. For instance, in CPython,
+`LOAD_FAST` might have an opcode value of 124, although the exact number can vary between Python versions.
+3. Argument (`arg` and `argval`)
+arg: This is the raw numerical argument for the opcode, if any. Some operations require additional information to
+be executed properly. For example, `LOAD_FAST` needs to know which local variable to load. The `arg` value
+provides this information, usually as an index or a reference to other data structures like the constant pool or
+variable names list.
+argval: This represents the interpreted value of the argument. It provides a more meaningful
+representation of the `arg` value. For instance, if `arg` is an index of a local variable, `argval` would be the
+name of that variable.
+4. Argument Representation (`argrepr`)
+The argument representation (`argrepr`) is a human-readable description of the argument value (`argval`).
+It's designed to make the bytecode more understandable. For example, if the `argval` is the name of a local
+variable like `'x'`, then `argrepr` would also be `'x'`, making it clear that the operation involves the variable
+`'x'`.
+108

@@ -1,0 +1,28 @@
+lambda Expressions
+The lambda expression is an anonymous—unnamed—function with the following form:
+lambda args: expression
+where args is a comma-separated list of arguments, and expression is an expression involving those
+arguments.
+Here’s an example:
+a = lambda x, y: x + y
+r = a(2, 3) # r gets 5
+The code defined with lambda must be a valid expression. Multiple statements, or nonexpression
+statements such as try and while, cannot appear in a lambda expression.
+A common pattern is to sort complex objects using some of the object’s indices as keys.
+For example:
+>>> student_tuples = [
+... ('john', 'A', 15),
+... ('jane', 'B', 12),
+... ('dave', 'B', 10),
+... ]
+>>> sorted(student_tuples, key=lambda student: student[2]) # sort by age
+[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+The key-function pattern is very common, so Python provides convenient functions to make accessor
+functions easier and faster. The operator module has the itemgetter() (also attrgetter(), and a
+methodcaller() which we will see later) function.
+Using those functions, the above becomes simpler and faster:
+>>> from operator import itemgetter, attrgetter
+>>> sorted(student_tuples, key=itemgetter(2))
+[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+Problem: Explain the result:
+153

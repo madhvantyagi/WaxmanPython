@@ -1,0 +1,33 @@
+Where/when/how does the generation happen? What role does the list constructor play?
+The generator `monitor` is called implicitly when its outputs are collected into a list using the line
+`output = list(monitor)`.
+Here’s what happens in detail:
+1. Creating the generator: `monitor = sensor_monitor(runs)` initializes the generator called `monitor`
+with the sequence `runs`. At this point, the generator is ready but hasn't processed any of the input
+sequence yet.
+2. Collecting outputs into a list: The expression `list(monitor)` is where the generator `monitor` is
+actually called and executed. This line does the following:
+- The `list()` function iterates over the generator `monitor`.
+- As `list()` retrieves each value from the generator, `monitor` executes its code from the last `yield`
+to the next `yield` (or until the sequence ends if there's no more `yield`).
+- For each `1` encountered in the sequence `runs`, the generator `yield`s the current value of `gap`,
+which represents the count of consecutive zeros encountered since the last `1`.
+- The yielded `gap` values are collected by `list()` and added to the `output` list.
+3. Resetting the gap: Inside the generator, each time a `1` is found in the sequence `runs`, the `gap` is
+yielded and then reset to zero (`gap = 0`). If a `0` is found, the `gap` is incremented by one (`gap +=
+1`).
+4. Resulting output: The `print(output)` line outputs the list `[0, 0, 1, 0, 3, 0, 0, 0, 1, 2, 0]` to the
+console. Each element of this list corresponds to the count of zeros that appeared in the sequence `runs`
+between occurrences of `1`.
+Here is a question.
+The list() function is basically a constructor for a list object, so how dost it end up doing the
+iteration?
+While that the `list()` function is essentially a constructor, it also has the capability to iterate over
+iterable objects, such as generators. When passed a generator, `list()` constructs a new list by repeatedly
+calling the `next()` function on the generator object until it raises a `StopIteration` exception, which
+signifies the end of the generator.
+Here's how the process works in the context of the generator:
+1. Initialization: When `list(monitor)` is called, `list()` starts by calling `next(monitor)`. This begins
+the execution of the `sensor_monitor` generator's code.
+2. Iteration and Collection:
+9

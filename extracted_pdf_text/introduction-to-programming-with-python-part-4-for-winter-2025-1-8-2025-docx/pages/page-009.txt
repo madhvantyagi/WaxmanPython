@@ -1,0 +1,6 @@
+Problem:
+Write a function is_leap(x) which returns True if x is a leap year and False otherwise. Answer:
+Problem:
+Write a function is_prime(x) which returns True if x is a prime number and False otherwise.
+Answer:
+81

@@ -1,0 +1,2254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Guide: Introduction to Programming with Python, Part 4</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --ink: #1f2933;
+      --muted: #5d6b7a;
+      --line: #d9e2ec;
+      --accent: #0f766e;
+      --accent-dark: #0b5d57;
+      --warn: #8a4b08;
+      --bad: #9f1239;
+      --good: #166534;
+      --code-bg: #111827;
+      --code-ink: #f9fafb;
+      --soft: #eef6f5;
+      --soft-warn: #fff7ed;
+      --soft-bad: #fff1f2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 34px 24px 28px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 42px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--line);
+      font-size: 1.45rem;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 28px 0 8px;
+      font-size: 1.12rem;
+      letter-spacing: 0;
+    }
+
+    h4 {
+      margin: 18px 0 6px;
+      font-size: 1rem;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 8px 0 12px;
+    }
+
+    ul, ol {
+      margin: 8px 0 16px 22px;
+      padding: 0;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    a {
+      color: var(--accent-dark);
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      background: #edf2f7;
+      padding: 0.12rem 0.28rem;
+      border-radius: 4px;
+      font-size: 0.94em;
+    }
+
+    pre {
+      margin: 12px 0 18px;
+      padding: 14px 16px;
+      overflow-x: auto;
+      color: var(--code-ink);
+      background: var(--code-bg);
+      border-radius: 8px;
+      line-height: 1.45;
+    }
+
+    pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      border-radius: 0;
+      font-size: 0.93rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 20px;
+      background: var(--panel);
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 9px 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card, .note, .trap, .exam, .behind, .question {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px 16px;
+      margin: 14px 0;
+    }
+
+    .note {
+      background: var(--soft);
+      border-left: 5px solid var(--accent);
+    }
+
+    .trap {
+      background: var(--soft-bad);
+      border-left: 5px solid var(--bad);
+    }
+
+    .exam {
+      background: var(--soft-warn);
+      border-left: 5px solid var(--warn);
+    }
+
+    .behind {
+      border-left: 5px solid #2563eb;
+      background: #eff6ff;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 2px 4px 2px 0;
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #f8fafc;
+      color: var(--muted);
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    .answer {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line);
+    }
+
+    details {
+      margin: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 10px 12px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 10px 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .toc a:hover {
+      border-color: var(--accent);
+      color: var(--accent-dark);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .good {
+      color: var(--good);
+      font-weight: 700;
+    }
+
+    .bad {
+      color: var(--bad);
+      font-weight: 700;
+    }
+
+    .small {
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 850px) {
+      .wrap, .hero {
+        padding: 18px;
+      }
+
+      .grid, .toc {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 1.55rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <h1>Introduction to Programming with Python, Part 4: Exam Study Guide</h1>
+      <p class="muted">Source-specific guide for the 93-page PDF extraction dated 1-8-2025. PDF page markers 1-93 correspond to slide numbers 73-165 in the source text.</p>
+      <p>
+        This guide follows the PDF's order: modules, functions, scoping, closures, function internals,
+        runtime execution, scripts/modules, lists, deletion/reference mechanics, slicing, sorting, copying,
+        and two-dimensional lists. The focus is output prediction, mutation, aliasing, and behind-the-scenes
+        behavior.
+      </p>
+      <div class="toc">
+        <a href="#map">Source Map</a>
+        <a href="#modules">Modules and Imports</a>
+        <a href="#functions">Function Basics</a>
+        <a href="#scope">Scope, LEGB, Closures</a>
+        <a href="#call-mechanics">Call Mechanics</a>
+        <a href="#internals">AST, Bytecode, Runtime</a>
+        <a href="#scripts">Scripts and Modules</a>
+        <a href="#lists">Lists and References</a>
+        <a href="#slicing">Slicing</a>
+        <a href="#sorting">Sorting</a>
+        <a href="#copying">Copying</a>
+        <a href="#twod">Two-Dimensional Lists</a>
+        <a href="#practice">Professor-Style Practice</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="map">
+      <h2>1. Source Map and What to Prioritize</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>PDF pages</th>
+            <th>Slide refs</th>
+            <th>Concepts</th>
+            <th>Exam risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1-3</td>
+            <td>73-75</td>
+            <td>Modules, <code>math</code>, <code>import</code>, <code>dir()</code>, <code>help()</code>, three import styles.</td>
+            <td>Import syntax and namespace traps.</td>
+          </tr>
+          <tr>
+            <td>4-11</td>
+            <td>76-83</td>
+            <td>Function definition, parameters vs arguments, return values, procedures, small function problems.</td>
+            <td>Predicting <code>None</code>, local parameter behavior, prime/leap/digit/base conversion logic.</td>
+          </tr>
+          <tr>
+            <td>12-20</td>
+            <td>84-92</td>
+            <td>LEGB, shadowing built-ins, <code>global</code>, <code>nonlocal</code>, closures, function attributes.</td>
+            <td>Very high: output prediction and name lookup.</td>
+          </tr>
+          <tr>
+            <td>21-32</td>
+            <td>93-104</td>
+            <td>Argument evaluation, defaults, mutable default trap, <code>*args</code>, keywords, <code>**kwargs</code>, positional-only, type hints, return unpacking, named tuples.</td>
+            <td>Very high: call signatures and TypeError reasoning.</td>
+          </tr>
+          <tr>
+            <td>33-44</td>
+            <td>105-116</td>
+            <td>Function definition internals, AST, bytecode, PVM stack, swap bytecode, runtime bytecode modification, <code>exec()</code>, <code>eval()</code>.</td>
+            <td>Conceptual plus trace questions.</td>
+          </tr>
+          <tr>
+            <td>45-47</td>
+            <td>117-119</td>
+            <td>Scripts vs modules, <code>__name__ == "__main__"</code>, <code>main()</code> idiom.</td>
+            <td>Predict what runs when imported vs executed.</td>
+          </tr>
+          <tr>
+            <td>48-70</td>
+            <td>120-142</td>
+            <td>Lists, nested lists, mutability, <code>append</code> vs <code>extend</code>, <code>del</code> vs <code>clear</code>, reference counts, interning, loops, random, sieve, Monte Carlo, slicing.</td>
+            <td>Highest: aliasing, deletion, mutation, slicing with stride.</td>
+          </tr>
+          <tr>
+            <td>71-83</td>
+            <td>143-155</td>
+            <td>Selection sort, insertion sort, binary insertion sort, merge sort, <code>sort()</code>, <code>sorted()</code>, key functions, lambdas, Timsort.</td>
+            <td>Algorithm trace, stability, in-place vs new list.</td>
+          </tr>
+          <tr>
+            <td>84-93</td>
+            <td>156-165</td>
+            <td>List copying, shallow/deep copy, recursive copy, 2D lists, nested loops, list multiplication aliasing.</td>
+            <td>Highest: nested-list aliasing and copy depth.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="exam">
+        <strong>Professor-style theme:</strong> this PDF repeatedly asks "what happens" before running code.
+        Expect exams to test the exact difference between names and objects, assignment and mutation,
+        importing and defining, returning and printing, deleting a name and clearing an object, shallow and
+        deep copying, and top-level scripts versus imported modules.
+      </div>
+    </section>
+
+    <section id="modules">
+      <h2>2. Modules and Imports</h2>
+      <span class="tag">PDF pp. 1-3</span><span class="tag">slides 73-75</span>
+      <p>
+        A module is a Python file containing definitions. The PDF starts with <code>math</code>: Python has
+        built-in functions available immediately, but <code>sqrt</code> is not built in. It lives inside the
+        <code>math</code> module, so Python must load that module before you can use it.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Style</th>
+            <th>Example</th>
+            <th>How you call <code>sqrt</code></th>
+            <th>Tradeoff</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Import module</td>
+            <td><code>import math</code></td>
+            <td><code>math.sqrt(25)</code></td>
+            <td>Clear namespace. You can see where the function came from.</td>
+          </tr>
+          <tr>
+            <td>Import one name</td>
+            <td><code>from math import sqrt</code></td>
+            <td><code>sqrt(25)</code></td>
+            <td>Convenient, but the module source is less visible at the call site.</td>
+          </tr>
+          <tr>
+            <td>Import all names</td>
+            <td><code>from math import *</code></td>
+            <td><code>sqrt(25)</code></td>
+            <td>Shortest calls, but can overwrite or hide names. Avoid in serious code.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>Useful inspection tools:</strong> <code>dir(math)</code> lists names available in a module.
+        <code>help(math)</code> or <code>help(math.sqrt)</code> gives documentation. These were explicitly
+        shown in the PDF before moving into user-defined functions.
+      </div>
+
+      <div class="question">
+        <h3>Output Question 1: Module Namespace</h3>
+        <pre><code>import math
+print(sqrt(16))</code></pre>
+        <details>
+          <summary>Answer and reasoning</summary>
+          <div class="answer">
+            This raises <code>NameError: name 'sqrt' is not defined</code>. The name <code>math</code> exists,
+            but <code>sqrt</code> is still inside that module namespace. Correct call: <code>math.sqrt(16)</code>.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section id="functions">
+      <h2>3. Function Basics: Definitions, Returns, and Procedures</h2>
+      <span class="tag">PDF pp. 4-11</span><span class="tag">slides 76-83</span>
+      <p>
+        A function is defined with <code>def</code>. The function body is indented. The function must be
+        defined before it is called in the current execution path. The PDF emphasizes terminology:
+        variables listed in the definition are <strong>parameters</strong>; values supplied by the caller are
+        <strong>arguments</strong>.
+      </p>
+
+      <pre><code>def my_function(param1, param2):
+    result = param1 + param2
+    return result
+
+answer = my_function(3, 4)</code></pre>
+
+      <div class="behind">
+        <strong>Behind the scenes:</strong> the call creates a new execution frame. The local parameter
+        names <code>param1</code> and <code>param2</code> are bound to the same objects passed by the caller.
+        Python does not copy the objects. For immutable objects like integers, rebinding the local name
+        cannot change the caller's variable. For mutable objects like lists, mutating the object can be seen
+        by the caller.
+      </div>
+
+      <h3>Return Forms</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Function body</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>return value</code></td>
+            <td>Stops the function and sends <code>value</code> back to the call expression.</td>
+          </tr>
+          <tr>
+            <td><code>return</code></td>
+            <td>Stops the function and returns <code>None</code>.</td>
+          </tr>
+          <tr>
+            <td>No return statement</td>
+            <td>The function "falls off" the end and returns <code>None</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        The PDF calls functions that mainly do a job and do not compute a value
+        <strong>procedures</strong>. <code>print()</code> is the central example: it displays output but returns
+        <code>None</code>.
+      </p>
+
+      <div class="question">
+        <h3>Output Question 2: Print Returns None</h3>
+        <pre><code>x = print("hello")
+print(x)</code></pre>
+        <details>
+          <summary>Answer and reasoning</summary>
+          <div class="answer">
+            Output:
+            <pre><code>hello
+None</code></pre>
+            First, <code>print("hello")</code> displays <code>hello</code>. Its return value is
+            <code>None</code>, so <code>x</code> is bound to <code>None</code>. Then <code>print(x)</code>
+            displays <code>None</code>.
+          </div>
+        </details>
+      </div>
+
+      <h3>First-Class Functions and Decorators</h3>
+      <span class="tag">PDF pp. 5-6</span><span class="tag">slides 77-78</span>
+      <p>
+        The source says functions are first-class objects. That means a function can be stored in a variable,
+        passed into another function, returned from a function, and called later.
+      </p>
+      <pre><code>def shout(text):
+    return text.upper()
+
+def whisper(text):
+    return text.lower()
+
+def greet(func):
+    greeting = func("Hello, I am a function")
+    print(greeting)
+
+greet(shout)
+greet(whisper)</code></pre>
+      <p>Output:</p>
+      <pre><code>HELLO, I AM A FUNCTION
+hello, i am a function</code></pre>
+      <p>
+        A decorator is a function that takes another function, wraps or changes its behavior, and returns
+        the replacement function. The <code>@decorator</code> syntax is shorthand for assigning the original
+        name to the decorated result.
+      </p>
+      <pre><code>def my_decorator(func):
+    def wrapper():
+        print("before")
+        func()
+        print("after")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()</code></pre>
+      <p>Output:</p>
+      <pre><code>before
+Hello!
+after</code></pre>
+      <p>
+        Behind the scenes, this is equivalent to
+        <code>say_hello = my_decorator(say_hello)</code>. The name <code>say_hello</code> now refers to
+        <code>wrapper</code>, and <code>wrapper</code> closes over the original function.
+      </p>
+
+      <h3>Functions the PDF Asks You to Write</h3>
+      <div class="grid">
+        <div class="card">
+          <h4><code>is_even(x)</code></h4>
+          <pre><code>def is_even(x):
+    return x % 2 == 0</code></pre>
+          <p>Exam trap: do not write <code>if ... return True else return False</code> unless asked. The Boolean expression already is the answer.</p>
+        </div>
+        <div class="card">
+          <h4><code>is_leap(year)</code></h4>
+          <pre><code>def is_leap(year):
+    return year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)</code></pre>
+          <p>Century years must be divisible by 400. So 2000 is leap, 1900 is not.</p>
+        </div>
+        <div class="card">
+          <h4><code>is_prime(n)</code></h4>
+          <pre><code>def is_prime(n):
+    if n &lt; 2:
+        return False
+    for d in range(2, int(n ** 0.5) + 1):
+        if n % d == 0:
+            return False
+    return True</code></pre>
+          <p>Only test up to the square root. If a larger factor exists, a smaller paired factor already exists.</p>
+        </div>
+        <div class="card">
+          <h4><code>sum_of_digits(n)</code></h4>
+          <pre><code>def sum_of_digits(n):
+    n = abs(n)
+    total = 0
+    while n &gt; 0:
+        total += n % 10
+        n //= 10
+    return total</code></pre>
+          <p>For <code>0</code>, this returns <code>0</code>. The loop-based version tests integer division and modulo.</p>
+        </div>
+      </div>
+
+      <h3>Base Conversion from the PDF</h3>
+      <span class="tag">PDF p. 11</span><span class="tag">slide 83</span>
+      <p>
+        The built-in <code>bin(x)</code> converts an integer to a binary string with a leading
+        <code>0b</code>. A custom <code>my_bin(n)</code> can repeatedly divide by 2 and collect remainders.
+        The general <code>convert(a, basea, baseb)</code> idea is two phases: first convert the input number
+        from <code>basea</code> to base 10, then convert base 10 to <code>baseb</code>. The PDF says bases are
+        from 2 through 9, so every digit is a single character.
+      </p>
+
+      <pre><code>def to_decimal(a, base):
+    total = 0
+    place = 1
+    while a &gt; 0:
+        digit = a % 10
+        total += digit * place
+        place *= base
+        a //= 10
+    return total
+
+def from_decimal(n, base):
+    if n == 0:
+        return "0"
+    digits = ""
+    while n &gt; 0:
+        digits = str(n % base) + digits
+        n //= base
+    return digits
+
+def convert(a, basea, baseb):
+    return from_decimal(to_decimal(a, basea), baseb)</code></pre>
+
+      <div class="trap">
+        <strong>Common trap:</strong> <code>1011</code> as a Python integer is one thousand eleven in base 10.
+        The conversion function interprets its decimal digits as symbols in another base. That is why it
+        repeatedly uses <code>% 10</code> and <code>// 10</code> to peel off displayed digits.
+      </div>
+    </section>
+
+    <section id="scope">
+      <h2>4. Scope, LEGB, Global, Nonlocal, and Closures</h2>
+      <span class="tag">PDF pp. 12-18</span><span class="tag">slides 84-90</span>
+      <p>
+        Python name lookup follows <strong>LEGB</strong>: Local, Enclosing, Global, Built-ins. Inside a
+        function, Python searches in that order and stops at the first matching name. Outside a function,
+        only global and built-ins normally matter. Indentation by itself does not create a new scope:
+        <code>if</code>, <code>for</code>, and <code>while</code> blocks do not create local scopes.
+      </p>
+
+      <h3>Shadowing Built-ins</h3>
+      <pre><code>sum = 0
+for i in range(5):
+    sum += i
+print(sum)
+print(sum([10, 20, 30]))</code></pre>
+      <p>
+        The first print displays <code>10</code>. The second line raises
+        <code>TypeError: 'int' object is not callable</code>. You shadowed the built-in function
+        <code>sum</code> with a global integer named <code>sum</code>.
+      </p>
+
+      <h3>Local Variables</h3>
+      <pre><code>x = 100
+
+def foo():
+    x = 200
+    print(x)
+
+print(x)
+foo()
+print(x)</code></pre>
+      <p>Output: <code>100</code>, then <code>200</code>, then <code>100</code>. The local <code>x</code> inside <code>foo</code> is a different name binding from global <code>x</code>.</p>
+
+      <h3>The <code>global</code> Statement</h3>
+      <pre><code>x = 100
+
+def foo():
+    global x
+    x = 200
+    print(x)
+
+print(x)
+foo()
+print(x)</code></pre>
+      <p>Output: <code>100</code>, then <code>200</code>, then <code>200</code>. Inside <code>foo</code>, assignment goes to the global name.</p>
+
+      <div class="behind">
+        <strong>Call by object reference / call by assignment:</strong> Python passes object references by
+        assigning local parameter names to the supplied objects. Rebinding a local name is not mutation.
+        Mutating a shared object changes the object, so all names pointing to that object can observe the
+        change.
+      </div>
+
+      <h3>Enclosing Scope and Closures</h3>
+      <pre><code>def foo(x):
+    def bar(y):
+        return x * y
+    return bar
+
+f = foo(10)
+print(f(20))</code></pre>
+      <p>
+        Output: <code>200</code>. <code>foo(10)</code> creates <code>bar</code>, and <code>bar</code>
+        remembers the enclosing variable <code>x</code>. That returned function plus its remembered
+        environment is a closure.
+      </p>
+
+      <div class="behind">
+        <strong>Where is captured <code>x</code> stored?</strong> The PDF explains that the captured value is
+        stored through a cell object in the returned function's <code>__closure__</code> tuple. Python stores a
+        reference, not a duplicate copy. As long as the closure exists, the captured cell remains reachable
+        and is not garbage collected.
+      </div>
+
+      <h3><code>nonlocal</code></h3>
+      <pre><code>def foo():
+    call_counter = 0
+    def bar(y):
+        nonlocal call_counter
+        call_counter += 1
+        return f"y = {y}, call_counter = {call_counter}"
+    return bar
+
+b = foo()
+print(b(10))
+print(b(20))</code></pre>
+      <p>
+        Output:
+      </p>
+      <pre><code>y = 10, call_counter = 1
+y = 20, call_counter = 2</code></pre>
+      <p>
+        <code>nonlocal</code> means assignments to <code>call_counter</code> update the enclosing function's
+        variable, not a new local variable inside <code>bar</code>. You only need <code>nonlocal</code> when
+        assigning, not when merely reading.
+      </p>
+
+      <div class="question">
+        <h3>Output Question 3: Closure State</h3>
+        <pre><code>def make_adder(x):
+    calls = 0
+    def add(y):
+        nonlocal calls
+        calls += 1
+        return x + y + calls
+    return add
+
+a = make_adder(5)
+b = make_adder(5)
+print(a(10))
+print(a(10))
+print(b(10))</code></pre>
+        <details>
+          <summary>Answer and reasoning</summary>
+          <div class="answer">
+            Output:
+            <pre><code>16
+17
+16</code></pre>
+            <code>a</code> and <code>b</code> are two separate closures. <code>a</code>'s
+            <code>calls</code> becomes 1 then 2. <code>b</code>'s <code>calls</code> starts at 0 and becomes 1.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section id="function-objects">
+      <h2>5. Functions Are Objects</h2>
+      <span class="tag">PDF pp. 19-20</span><span class="tag">slides 91-92</span>
+      <p>
+        Functions are first-class objects: they can be assigned to variables, passed as arguments, returned
+        from functions, and in normal user-defined functions, given attributes.
+      </p>
+
+      <pre><code>def do_thing():
+    return
+
+do_thing.whatever = "hi"
+print(do_thing.whatever)</code></pre>
+      <p>Output: <code>hi</code>. A user-defined function can have a <code>__dict__</code> for extra attributes.</p>
+
+      <div class="trap">
+        Built-in functions and many built-in object types do not allow arbitrary attribute assignment.
+        <code>print.some_data = "foo"</code> raises <code>AttributeError</code>. A string like
+        <code>"abc"</code> also cannot receive <code>.some_data</code>, even though both are objects.
+      </div>
+
+      <h3>Function Attribute as Counter</h3>
+      <pre><code>def func(a, b):
+    func.ncalls += 1
+    return a + b
+
+func.ncalls = 0
+func(1, 2)
+func(3, 2)
+print(func.ncalls)</code></pre>
+      <p>
+        Output: <code>2</code>. <code>ncalls</code> is not local to the call frame. It is an attribute attached
+        to the function object <code>func</code>.
+      </p>
+
+      <h3>The PDF's <code>Dog</code> Problem</h3>
+      <pre><code>def Dog():
+    def bark():
+        print("bark bark")
+    Dog.bark = bark
+    return Dog</code></pre>
+      <ul>
+        <li><code>bark()</code> outside the function raises <code>NameError</code>. The name <code>bark</code> is local to <code>Dog</code>.</li>
+        <li><code>Dog.bark()</code> before calling <code>Dog()</code> raises <code>AttributeError</code>. The attribute has not been attached yet.</li>
+        <li><code>spot = Dog()</code> returns the function object <code>Dog</code> and attaches <code>bark</code> to it. Then <code>spot.bark()</code> prints <code>bark bark</code>.</li>
+        <li><code>Dog(); Dog.bark()</code> also prints <code>bark bark</code>.</li>
+      </ul>
+    </section>
+
+    <section id="call-mechanics">
+      <h2>6. Deep Function Call Mechanics</h2>
+      <span class="tag">PDF pp. 21-32</span><span class="tag">slides 93-104</span>
+
+      <h3>Arguments Evaluate Left to Right Before the Body Runs</h3>
+      <pre><code>def add(x, y):
+    return x + y
+
+a = 1
+print(add(a, a + 1))</code></pre>
+      <p>
+        Python first evaluates the argument expressions left to right: <code>a</code> becomes
+        <code>1</code>, <code>a + 1</code> becomes <code>2</code>. Then it calls
+        <code>add(1, 2)</code>, so output is <code>3</code>.
+      </p>
+
+      <h3>Default Arguments</h3>
+      <p>
+        Once a parameter has a default, all normal parameters after it must also have defaults. This is why
+        <code>def my_func(a=10, b):</code> is invalid: a single positional argument would be ambiguous.
+      </p>
+
+      <div class="trap">
+        <strong>Mutable default trap:</strong> default values are evaluated once, when the function is defined,
+        not each time it is called.
+      </div>
+
+      <pre><code>def f(x, items=[]):
+    items.append(x)
+    return items
+
+print(f(1))
+print(f(2))
+print(f(3))</code></pre>
+      <p>Output:</p>
+      <pre><code>[1]
+[1, 2]
+[1, 2, 3]</code></pre>
+      <p>Use <code>None</code> when a fresh list is needed:</p>
+      <pre><code>def f(x, items=None):
+    if items is None:
+        items = []
+    items.append(x)
+    return items</code></pre>
+
+      <h3><code>*args</code> and Variadic Positional Arguments</h3>
+      <pre><code>def product(first, *args):
+    result = first
+    for x in args:
+        result *= x
+    return result
+
+print(product(10, 20))
+print(product(2, 3, 4, 5))</code></pre>
+      <p>
+        Output: <code>200</code> and <code>120</code>. Inside the function, <code>args</code> is a tuple of
+        extra positional arguments.
+      </p>
+
+      <h3>Keyword Arguments</h3>
+      <p>
+        Keyword arguments can appear in any order after positional arguments, but no argument may receive
+        two values.
+      </p>
+      <pre><code>def func(w, x, y, z):
+    print(w, x, y, z)
+
+func("hello", 3, z=[1, 2], y=22)      # OK
+func(3, 22, w="hello", z=[1, 2])      # TypeError</code></pre>
+      <p>
+        The second call gives <code>w</code> twice: once positionally as <code>3</code>, and again by keyword
+        as <code>"hello"</code>.
+      </p>
+
+      <h3>Keyword-Only Arguments</h3>
+      <pre><code>def read_data(filename, *, debug=False):
+    pass
+
+read_data("Data.csv", True)          # TypeError
+read_data("Data.csv", debug=True)    # OK</code></pre>
+      <p>
+        The bare <code>*</code> says that parameters after it must be supplied by keyword. A function with
+        <code>*values</code> can also put keyword-only parameters after the variadic positional tuple:
+      </p>
+      <pre><code>def product(first, *values, scale=1):
+    result = first * scale
+    for val in values:
+        result *= val
+    return result
+
+print(product(2, 3, 4))
+print(product(2, 3, 4, scale=10))</code></pre>
+      <p>Output: <code>24</code>, then <code>240</code>.</p>
+
+      <h3><code>**kwargs</code> and Forwarding</h3>
+      <p>
+        Extra keyword arguments can be captured in a dictionary. The PDF's <code>make_table</code> example
+        uses <code>parms.pop("fgcolor", "black")</code> to consume known options and then raises an error if
+        unsupported options remain.
+      </p>
+      <pre><code>def func(*args, **kwargs):
+    print(args)
+    print(kwargs)
+
+func(1, 2, a=3, b=4)</code></pre>
+      <p>Output:</p>
+      <pre><code>(1, 2)
+{'a': 3, 'b': 4}</code></pre>
+      <p>
+        This is common in wrappers. The PDF's <code>parse_file(filename, *args, **kwargs)</code> opens a
+        file and forwards the rest to <code>parse_lines(file, *args, **kwargs)</code>.
+      </p>
+
+      <h3>Positional-Only Arguments</h3>
+      <pre><code>def func(x, y, /):
+    pass
+
+func(1, 2)      # OK
+func(1, y=2)    # TypeError</code></pre>
+      <p>
+        The slash means parameters before it cannot be passed by keyword. The PDF's example uses this to
+        prevent a keyword name clash:
+      </p>
+      <pre><code>import time
+
+def after(seconds, func, /, *args, **kwargs):
+    time.sleep(seconds)
+    return func(*args, **kwargs)
+
+def duration(*, seconds, minutes, hours):
+    return seconds + 60 * minutes + 3600 * hours
+
+after(5, duration, seconds=20, minutes=3, hours=2)</code></pre>
+      <p>
+        The first <code>seconds</code> belongs to <code>after</code> positionally. The keyword
+        <code>seconds=20</code> is forwarded to <code>duration</code>.
+      </p>
+
+      <h3>Names, Docstrings, and Type Hints</h3>
+      <ul>
+        <li>Function naming convention: lowercase with underscores, like <code>read_data</code>.</li>
+        <li>Internal helper convention: leading underscore, like <code>_helper</code>.</li>
+        <li><code>square.__name__</code> returns the function name as a string.</li>
+        <li>A first statement string becomes the function's <code>__doc__</code>.</li>
+        <li>Type hints are stored in <code>__annotations__</code> but do not enforce runtime checks.</li>
+      </ul>
+
+      <h3>Passing Mutable Objects and Side Effects</h3>
+      <pre><code>def square(items):
+    for i, x in enumerate(items):
+        items[i] = x * x
+
+a = [1, 2, 3, 4, 5]
+square(a)
+print(a)</code></pre>
+      <p>
+        Output: <code>[1, 4, 9, 16, 25]</code>. The function mutates the passed list in place.
+      </p>
+
+      <pre><code>def sum_squares(items):
+    items = [x * x for x in items]
+    return sum(items)
+
+a = [1, 2, 3, 4, 5]
+result = sum_squares(a)
+print(a)
+print(result)</code></pre>
+      <p>
+        Output: <code>[1, 2, 3, 4, 5]</code> and <code>55</code>. The local name <code>items</code> was rebound
+        to a new list. The caller's list was not mutated.
+      </p>
+
+      <h3>Argument Unpacking at Call Time</h3>
+      <pre><code>def func(x, y, z):
+    print(x, y, z)
+
+s = (1, 2, 3)
+d = {"x": 1, "y": 2, "z": 3}
+func(*s)
+func(**d)</code></pre>
+      <p>
+        Both calls pass <code>1 2 3</code>. <code>*</code> unpacks a sequence positionally.
+        <code>**</code> unpacks a mapping as keyword arguments. The signature still must match.
+      </p>
+
+      <h3>Return Multiple Values and Named Tuples</h3>
+      <p>
+        Returning multiple values means returning a tuple, often unpacked by the caller.
+      </p>
+      <pre><code>def parse_value(text):
+    parts = text.split("=", 1)
+    return (parts[0].strip(), parts[1].strip())
+
+name, value = parse_value("url=http://www.python.org")</code></pre>
+      <p>
+        A <code>NamedTuple</code> gives tuple behavior plus named fields:
+      </p>
+      <pre><code>from typing import NamedTuple
+
+class ParseResult(NamedTuple):
+    name: str
+    value: str
+
+def parse_value(text):
+    parts = text.split("=", 1)
+    return ParseResult(parts[0].strip(), parts[1].strip())
+
+r = parse_value("url=http://www.python.org")
+print(r.name, r.value)</code></pre>
+      <p>Output: <code>url http://www.python.org</code>.</p>
+    </section>
+
+    <section id="internals">
+      <h2>7. Function Internals: AST, Bytecode, Stack, Exec, Eval</h2>
+      <span class="tag">PDF pp. 33-44</span><span class="tag">slides 105-116</span>
+
+      <h3>What Happens When Python Sees <code>def</code>?</h3>
+      <ol>
+        <li>Python parses the function definition into an abstract syntax tree, or AST.</li>
+        <li>The function body is compiled into bytecode for the Python Virtual Machine.</li>
+        <li>Python creates a function object containing the code object, default values, global references, and closure cells if needed.</li>
+        <li>The function object is bound to the function name in the current namespace.</li>
+        <li>The body is not executed until the function is called.</li>
+      </ol>
+
+      <div class="behind">
+        <strong>Call time:</strong> Python creates a new execution frame and pushes it onto the call stack.
+        That frame has local variables, references to globals/nonlocals, and a pointer to the function code.
+      </div>
+
+      <h3>AST for <code>add</code></h3>
+      <pre><code>def add(a, b):
+    return a + b</code></pre>
+      <p>
+        The simplified AST has a <code>FunctionDef</code> node named <code>add</code>, an arguments node
+        containing <code>a</code> and <code>b</code>, and a body containing a <code>Return</code> node whose child
+        is a binary operation. In the AST, <code>ctx=Load()</code> means the name is being read for use in an
+        expression. Other contexts include storing or deleting a name.
+      </p>
+
+      <h3>Bytecode for <code>add</code></h3>
+      <p>
+        The PDF describes this sequence:
+      </p>
+      <ol>
+        <li><code>LOAD_FAST a</code>: load local variable <code>a</code> onto the PVM stack.</li>
+        <li><code>LOAD_FAST b</code>: load local variable <code>b</code> onto the stack.</li>
+        <li><code>BINARY_ADD</code>: pop both values, add them, push the result.</li>
+        <li><code>RETURN_VALUE</code>: return the top stack value to the caller.</li>
+      </ol>
+
+      <h3>Bytecode Instruction Fields</h3>
+      <p>
+        The source breaks down the pieces shown by bytecode/disassembly tools. You do not need to
+        memorize opcode numbers, but you should know what each field means.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>opname</code></td><td>Human-readable operation name, such as <code>LOAD_FAST</code>.</td></tr>
+          <tr><td><code>opcode</code></td><td>Numeric code used by the interpreter for that operation.</td></tr>
+          <tr><td><code>arg</code></td><td>Raw numeric argument, often an index into local names or constants.</td></tr>
+          <tr><td><code>argval</code></td><td>Interpreted argument value, such as the variable name <code>a</code>.</td></tr>
+          <tr><td><code>argrepr</code></td><td>Readable display of the argument.</td></tr>
+          <tr><td><code>offset</code></td><td>Byte position of the instruction in the bytecode sequence.</td></tr>
+          <tr><td>Line start / jump target</td><td>Mapping back to source lines and targets for loops or conditional jumps.</td></tr>
+        </tbody>
+      </table>
+      <p>
+        <code>LOAD_FAST</code> is fast because local variables in a function are stored in indexed local
+        slots. The instruction can fetch the local by index and push it onto the VM stack.
+      </p>
+
+      <h3>Pythonic Swap and the Stack</h3>
+      <pre><code>def swap(a, b):
+    a, b = b, a
+    return a, b</code></pre>
+      <p>
+        The PDF uses this to show that tuple packing/unpacking and stack operations can swap values
+        without a source-level temporary variable. In bytecode, values are loaded, reordered, and stored
+        back into fast local slots. The line numbers in disassembly refer to original source lines; the byte
+        offsets are positions in bytecode.
+      </p>
+
+      <div class="exam">
+        <strong>Likely exam answer:</strong> "No third Python variable is required because both original
+        values are loaded onto the VM stack before either local name is overwritten. The stack temporarily
+        holds the values during the reassignment."
+      </div>
+
+      <h3>Runtime Function Modification</h3>
+      <p>
+        The PDF shows an advanced example using the third-party <code>bytecode</code> package to convert
+        <code>f.__code__</code> into mutable bytecode, replace <code>BINARY_ADD</code> with
+        <code>BINARY_MULTIPLY</code>, convert back to a code object, and build a new function with
+        <code>types.FunctionType</code>. Then <code>f(2, 3)</code> prints <code>6</code> instead of
+        <code>5</code>.
+      </p>
+      <p>
+        You do not need to memorize the library API as much as the concept: a Python function object points
+        to a code object, and changing the code object changes what the function does.
+      </p>
+
+      <h3><code>exec()</code> vs <code>eval()</code></h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th><code>exec()</code></th>
+            <th><code>eval()</code></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Input</td>
+            <td>Statements or blocks, including function definitions.</td>
+            <td>A valid Python expression.</td>
+          </tr>
+          <tr>
+            <td>Return</td>
+            <td>Returns <code>None</code>.</td>
+            <td>Returns the expression's value.</td>
+          </tr>
+          <tr>
+            <td>Can define names?</td>
+            <td>Yes, if run in a namespace where definitions are stored.</td>
+            <td>Usually used for value computation, not statements.</td>
+          </tr>
+          <tr>
+            <td>Security</td>
+            <td colspan="2">Dangerous with untrusted input. Both can execute attacker-controlled code.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="question">
+        <h3>Output Question 4: Exec and Eval</h3>
+        <pre><code>code = "x = 10"
+result = exec(code)
+print(result)
+print(x)
+print(eval("x + 5"))</code></pre>
+        <details>
+          <summary>Answer and reasoning</summary>
+          <div class="answer">
+            Output:
+            <pre><code>None
+10
+15</code></pre>
+            <code>exec</code> executes the assignment and returns <code>None</code>. The name
+            <code>x</code> now exists in the current namespace. <code>eval</code> evaluates the expression
+            <code>x + 5</code> and returns <code>15</code>.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section id="scripts">
+      <h2>8. Scripts, Modules, and <code>__name__</code></h2>
+      <span class="tag">PDF pp. 45-47</span><span class="tag">slides 117-119</span>
+      <p>
+        A Python file used as a top-level application is a script. A Python file imported for reusable
+        definitions is a module. Both are <code>.py</code> files; the difference is intended use and how Python
+        sets <code>__name__</code>.
+      </p>
+
+      <pre><code># module.py
+def foo():
+    print("Function foo from module.py")
+
+if __name__ == "__main__":
+    foo()
+    print("module.py is being run directly")</code></pre>
+
+      <pre><code># import_module.py
+import module
+module.foo()</code></pre>
+
+      <ul>
+        <li>When <code>module.py</code> is run directly, <code>__name__</code> is <code>"__main__"</code>, so the guarded block runs.</li>
+        <li>When <code>module.py</code> is imported, <code>__name__</code> is <code>"module"</code>, so the guarded block does not run.</li>
+        <li>The imported function can still be called with <code>module.foo()</code>.</li>
+      </ul>
+
+      <p>
+        The PDF also shows the common <code>main()</code> idiom:
+      </p>
+      <pre><code>def greet(name):
+    print(f"Hello, {name}!")
+
+def main():
+    greet("Alice")
+
+if __name__ == "__main__":
+    main()</code></pre>
+      <p>This is similar in spirit to a C++ <code>main</code> entry point.</p>
+    </section>
+
+    <section id="lists">
+      <h2>9. Lists, Sequences, Mutability, Deletion, and Reference Mechanics</h2>
+      <span class="tag">PDF pp. 48-67</span><span class="tag">slides 120-139</span>
+
+      <h3>Sequences</h3>
+      <p>
+        Sequences are ordered collections indexed by nonnegative integers. Strings, lists, and tuples are
+        sequences. Strings and tuples are immutable; lists are mutable and support item assignment,
+        insertion, deletion, and substitution.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Operation</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>s[i]</code></td><td>Element at index <code>i</code>.</td></tr>
+          <tr><td><code>s[i:j]</code></td><td>Slice from <code>i</code> up to but not including <code>j</code>.</td></tr>
+          <tr><td><code>s[i:j:stride]</code></td><td>Extended slice with a step size.</td></tr>
+          <tr><td><code>len(s)</code></td><td>Number of elements.</td></tr>
+          <tr><td><code>min(s)</code>, <code>max(s)</code></td><td>Minimum and maximum comparable values.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>List Creation and Indexing</h3>
+      <pre><code>x = [1, 23, "hello", [3, 4]]
+print(x[0])
+print(x[3])
+print(x[3][0])</code></pre>
+      <p>
+        Output: <code>1</code>, <code>[3, 4]</code>, and <code>3</code>. Indexing starts at 0. The nested list
+        at <code>x[3]</code> can be indexed again.
+      </p>
+
+      <div class="trap">
+        Trying <code>x[4]</code> raises <code>IndexError</code>. The valid indices are <code>0</code> through
+        <code>3</code>.
+      </div>
+
+      <h3><code>list(a)</code> and Nested Lists</h3>
+      <span class="tag">PDF p. 52</span><span class="tag">slide 124</span>
+      <p>
+        Given <code>a = [[1, 2], [3, 4], [5, 6]]</code>, the calls
+        <code>list(a)</code>, <code>list(list(a))</code>, and <code>list((list(a)))</code> all produce a new outer
+        list with the same three inner-list references. They do not deep-copy the inner lists.
+      </p>
+      <p>
+        <code>[a]</code>, <code>[[a]]</code>, and <code>[[[a]]]</code> wrap the entire list object <code>a</code>
+        inside one, two, or three new outer lists. They do not copy <code>a</code>'s contents.
+      </p>
+
+      <h3><code>append</code> vs <code>extend</code></h3>
+      <span class="tag">PDF pp. 53-54</span><span class="tag">slides 125-126</span>
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Behavior</th>
+            <th>Example result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>a.append(x)</code></td>
+            <td>Adds <code>x</code> as one element at the end.</td>
+            <td><code>[1, 2].append([3, 4])</code> gives <code>[1, 2, [3, 4]]</code>.</td>
+          </tr>
+          <tr>
+            <td><code>a.extend(t)</code></td>
+            <td>Iterates over <code>t</code> and adds each element.</td>
+            <td><code>[1, 2].extend([3, 4])</code> gives <code>[1, 2, 3, 4]</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>List Methods from the Source</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Method or function</th>
+            <th>What it does</th>
+            <th>Trap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>list(s)</code></td><td>Creates a list from iterable <code>s</code>.</td><td>Only shallow-copies contained object references.</td></tr>
+          <tr><td><code>s.append(x)</code></td><td>Adds <code>x</code> as one new element.</td><td>Appending a list nests that list.</td></tr>
+          <tr><td><code>s.extend(t)</code></td><td>Adds each element from iterable <code>t</code>.</td><td>Extending with a string adds characters.</td></tr>
+          <tr><td><code>s.count(x)</code></td><td>Counts occurrences of <code>x</code>.</td><td>Uses equality, not identity.</td></tr>
+          <tr><td><code>s.index(x, start, stop)</code></td><td>Returns first index where <code>s[i] == x</code> in the search range.</td><td>Raises <code>ValueError</code> if not found.</td></tr>
+          <tr><td><code>s.insert(i, x)</code></td><td>Inserts <code>x</code> at index <code>i</code>.</td><td>Shifts later elements right.</td></tr>
+          <tr><td><code>s.pop(i)</code></td><td>Removes and returns item at <code>i</code>; last item if omitted.</td><td>It both returns and mutates.</td></tr>
+          <tr><td><code>s.remove(x)</code></td><td>Removes first occurrence of <code>x</code>.</td><td>Raises <code>ValueError</code> if not found.</td></tr>
+          <tr><td><code>s.reverse()</code></td><td>Reverses in place.</td><td>Returns <code>None</code>.</td></tr>
+          <tr><td><code>s.sort(key=..., reverse=...)</code></td><td>Sorts in place.</td><td>Returns <code>None</code>.</td></tr>
+        </tbody>
+      </table>
+
+      <h3><code>del</code> vs <code>.clear()</code></h3>
+      <span class="tag">PDF pp. 54-58</span><span class="tag">slides 126-130</span>
+      <p>
+        <code>del a</code> removes the name binding <code>a</code> from the namespace. It does not directly
+        destroy the object if other names still refer to it. <code>a.clear()</code> mutates the list object by
+        removing all elements but keeps the name <code>a</code> bound to that now-empty list.
+      </p>
+
+      <pre><code>a = [1, 2, 3]
+b = a
+a.clear()
+print(a)
+print(b)</code></pre>
+      <p>Output:</p>
+      <pre><code>[]
+[]</code></pre>
+      <p>Both names refer to the same list object, and that object was cleared.</p>
+
+      <pre><code>a = [1, 2, 3]
+b = a
+del a
+print(b)</code></pre>
+      <p>Output: <code>[1, 2, 3]</code>. Only the name <code>a</code> was removed.</p>
+
+      <div class="behind">
+        <strong>Reference counts:</strong> each object has references pointing to it. <code>sys.getrefcount(obj)</code>
+        reports a count one higher than expected because passing the object to <code>getrefcount</code> creates
+        a temporary reference. When an object's reference count reaches zero, it becomes eligible for
+        garbage collection. Interned small integers are a special implementation case.
+      </div>
+
+      <h3>Deleting While Looping Over a List of Names</h3>
+      <pre><code>a = [1, 2]
+b = [3, 4]
+c = [5, 6]
+d = [a, b, c]
+for i in d:
+    del i
+print(d)</code></pre>
+      <p>
+        Output: <code>[[1, 2], [3, 4], [5, 6]]</code>. The loop variable <code>i</code> is just a local/global
+        name that temporarily points at each element. <code>del i</code> deletes that temporary name, not the
+        list element inside <code>d</code>.
+      </p>
+
+      <h3>Internal List Deletion</h3>
+      <p>
+        For <code>d = [1, 2, 3]</code>, <code>del d[0]</code> removes the first element, decreases the removed
+        object's reference count, shifts later elements left, and adjusts the list size. Python lists are
+        dynamic arrays, so capacity may not shrink immediately after one deletion.
+      </p>
+
+      <h3>Manual <code>clear</code> from the PDF</h3>
+      <pre><code>def my_clear(lst):
+    for i in range(len(lst) - 1, -1, -1):
+        del lst[i]
+
+a = [1, 2]
+b = [3, 4]
+c = [a, 5, b, 6]
+my_clear(c)
+print(c)
+print(a)
+print(b)</code></pre>
+      <p>
+        Output:
+      </p>
+      <pre><code>[]
+[1, 2]
+[3, 4]</code></pre>
+      <p>
+        For the top-level list <code>c</code>, this behaves like <code>c.clear()</code>: it removes all elements
+        from <code>c</code>. It does not recursively clear sublists <code>a</code> and <code>b</code>; it only removes
+        references from <code>c</code>.
+      </p>
+
+      <h3>Interned Objects</h3>
+      <span class="tag">PDF p. 58</span><span class="tag">slide 130</span>
+      <p>
+        Small integers, typically <code>-5</code> through <code>256</code> in CPython, are interned/preallocated.
+        Assigning <code>a = 5</code> points <code>a</code> at the existing integer object. Deleting
+        <code>a</code> removes the name, but that interned object is not normally deallocated. Do not use
+        <code>is</code> to test numeric equality; use <code>==</code>.
+      </p>
+
+      <h3>Lists and Loops</h3>
+      <span class="tag">PDF pp. 59-63</span><span class="tag">slides 131-135</span>
+      <p>The PDF asks several list-loop problems: sum all values, sum evens, sum odds, sum elements in even positions, delete values at even positions, generate random values, find maxima, return max and position, and generate primes.</p>
+
+      <pre><code>items = list(range(1, 11))
+print(sum(items))
+print(sum(x for x in items if x % 2 == 0))
+print(sum(items[i] for i in range(0, len(items), 2)))</code></pre>
+
+      <h3><code>random()</code> and <code>randint()</code></h3>
+      <span class="tag">PDF p. 61</span><span class="tag">slide 133</span>
+      <p>
+        The <code>random</code> module provides functions for generated data in list problems.
+        <code>random()</code> returns a floating-point value from <code>0.0</code> up to but not including
+        <code>1.0</code>. <code>randint(a, b)</code> returns an integer from <code>a</code> through <code>b</code>,
+        inclusive.
+      </p>
+      <pre><code>from random import randint
+
+values = []
+for i in range(10):
+    values.append(randint(1, 10))
+print(values)</code></pre>
+
+      <h3>Maximum Value and Position</h3>
+      <span class="tag">PDF pp. 62-63</span><span class="tag">slides 134-135</span>
+      <pre><code>def getmax(x, i):
+    max_value = x[0]
+    max_pos = 0
+    for pos in range(1, i):
+        if x[pos] &gt; max_value:
+            max_value = x[pos]
+            max_pos = pos
+    return max_value, max_pos
+
+a = [4, 2, 7, 1, 45, 23]
+print(getmax(a, 4))
+print(getmax(a, 6))</code></pre>
+      <p>Output:</p>
+      <pre><code>(7, 2)
+(45, 4)</code></pre>
+
+      <h3>Sieve of Eratosthenes</h3>
+      <span class="tag">PDF pp. 63-65</span><span class="tag">slides 135-137</span>
+      <pre><code>n = 101
+sieve = [True] * n
+sieve[0] = sieve[1] = False
+
+for i in range(2, int(n ** 0.5) + 1):
+    if sieve[i]:
+        for j in range(i * i, n, i):
+            sieve[j] = False
+
+for i in range(n):
+    if sieve[i]:
+        print(i)</code></pre>
+      <p>
+        Start crossing off multiples at <code>i * i</code> because smaller multiples of <code>i</code> were already
+        crossed off by smaller primes.
+      </p>
+
+      <h3>Monte Carlo Approximation of Pi</h3>
+      <span class="tag">PDF pp. 66-67</span><span class="tag">slides 138-139</span>
+      <pre><code>from math import sqrt
+from random import random
+
+count = 0
+for i in range(1000000):
+    x = random()
+    y = random()
+    if sqrt(x * x + y * y) &lt; 1:
+        count += 1
+print(4 * (count / 1000000))</code></pre>
+      <p>
+        This estimates pi. Random points are generated in the unit square. The condition checks whether
+        the point is inside the quarter unit circle. The ratio of inside points approximates the area
+        <code>pi / 4</code>, so multiplying by 4 approximates pi. The law of large numbers explains why more
+        trials improve the estimate.
+      </p>
+    </section>
+
+    <section id="slicing">
+      <h2>10. Slicing Lists</h2>
+      <span class="tag">PDF pp. 68-70</span><span class="tag">slides 140-142</span>
+      <p>
+        For a list <code>x</code>, <code>x[a:b]</code> means elements from index <code>a</code> up to but not
+        including index <code>b</code>. If the start is omitted, it starts at the beginning. If the end is
+        omitted, it goes to the end. If both are omitted, it represents the whole list.
+      </p>
+
+      <pre><code>d = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(d[1:len(d):2])</code></pre>
+      <p>
+        Output: <code>[2, 4, 6, 8, 10]</code>. Starting at index 1 selects the second, fourth, sixth, etc.
+        elements. These are odd index positions, even values in this particular list.
+      </p>
+
+      <h3>Slice Assignment</h3>
+      <pre><code>a = [0, 1, 2, 3, 4, 5]
+a[1:4] = ["x", "y"]
+print(a)</code></pre>
+      <p>Output: <code>[0, 'x', 'y', 4, 5]</code>. Normal slice assignment can change list length.</p>
+
+      <pre><code>a = [0, 1, 2, 3, 4, 5]
+a[::2] = [10, 20, 30]
+print(a)</code></pre>
+      <p>Output: <code>[10, 1, 20, 3, 30, 5]</code>.</p>
+
+      <div class="trap">
+        If a slice has a stride other than 1, the right side must have exactly the same number of elements
+        as the selected slice. <code>a[::2] = [10, 20]</code> would raise <code>ValueError</code> for this list.
+      </div>
+
+      <h3>Deleting at Even Positions</h3>
+      <p>
+        The PDF first asks for <code>delete_at_even_position(x)</code> but expects the sample result
+        <code>[1, 3, 5, 7, 9]</code> from <code>[1, 2, ..., 10]</code>. That result deletes positions
+        <code>1, 3, 5, 7, 9</code>, not positions <code>0, 2, 4, 6, 8</code>. Read the wording and sample
+        carefully.
+      </p>
+      <pre><code>def delete_at_even_positions(x):
+    del x[1:len(x):2]
+
+d = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+delete_at_even_positions(d)
+print(d)</code></pre>
+      <p>Output: <code>[1, 3, 5, 7, 9]</code>.</p>
+    </section>
+
+    <section id="sorting">
+      <h2>11. Sorting</h2>
+      <span class="tag">PDF pp. 71-83</span><span class="tag">slides 143-155</span>
+
+      <h3>Why Sorting Matters</h3>
+      <p>
+        Sorting supports faster searching and data grouping. The PDF gives two examples: searching a phone
+        book and grouping Scrabble anagrams by sorting words using a <code>signature()</code> key.
+      </p>
+
+      <h3>Selection Sort</h3>
+      <p>
+        Selection sort repeatedly finds the smallest value in the unsorted suffix and swaps it into the next
+        sorted position.
+      </p>
+      <pre><code>def select_sort(x):
+    for i in range(len(x) - 1):
+        m = x[i]
+        pos = i
+        for j in range(i, len(x)):
+            if x[j] &lt; m:
+                m = x[j]
+                pos = j
+        x[i], x[pos] = x[pos], x[i]</code></pre>
+      <p>
+        The source first shows a less efficient version that creates <code>y = x[i:]</code>, calls
+        <code>min(y)</code>, then calls <code>x.index(m, i, len(x))</code>. That repeats scanning and creates
+        slices. The improved version scans once per outer loop without creating a sublist.
+      </p>
+      <p>
+        The outer loop stops at <code>len(x) - 1</code> because once every earlier position is correct, the last
+        element must already be correct. The inner loop uses <code>range(i, len(x))</code> because it must search
+        the entire unsorted suffix including position <code>i</code>.
+      </p>
+
+      <h3>Stability</h3>
+      <p>
+        A stable sort preserves the relative order of elements that compare equal. This matters for
+        multi-pass sorting, such as sorting by department and then by salary grade.
+      </p>
+
+      <h3>Insertion Sort</h3>
+      <pre><code>def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j &gt;= 0 and key &lt; arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    return arr</code></pre>
+      <ul>
+        <li>Best case: already sorted, <code>O(n)</code>.</li>
+        <li>Worst case: reverse sorted, <code>O(n^2)</code>.</li>
+        <li>Stable: equal keys are not moved past each other because the test is <code>key &lt; arr[j]</code>, not <code>key &lt;= arr[j]</code>.</li>
+        <li>In-place: uses constant extra space.</li>
+        <li>Online: can process input piece by piece.</li>
+      </ul>
+
+      <h3>Binary Insertion Sort</h3>
+      <p>
+        Binary insertion sort uses binary search to find the insertion position faster, but it still may
+        shift many elements. That reduces comparisons, not the cost of moving elements.
+      </p>
+
+      <h3>Merge Sort</h3>
+      <p>
+        Merge sort divides the list into halves, recursively sorts each half, and merges the sorted halves.
+        It is stable in typical implementations, not in-place in the common list-slicing version, and
+        <code>O(n log n)</code> in best, average, and worst cases.
+      </p>
+
+      <h3><code>list.sort()</code> vs <code>sorted()</code></h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th><code>list.sort()</code></th>
+            <th><code>sorted()</code></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Works on</td>
+            <td>Lists only.</td>
+            <td>Any iterable.</td>
+          </tr>
+          <tr>
+            <td>Mutation</td>
+            <td>Sorts the list in place.</td>
+            <td>Creates and returns a new list.</td>
+          </tr>
+          <tr>
+            <td>Return value</td>
+            <td><code>None</code>.</td>
+            <td>The new sorted list.</td>
+          </tr>
+          <tr>
+            <td>Stability</td>
+            <td>Stable.</td>
+            <td>Stable.</td>
+          </tr>
+          <tr>
+            <td>Options</td>
+            <td><code>key</code>, <code>reverse</code>.</td>
+            <td><code>key</code>, <code>reverse</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="question">
+        <h3>Output Question 5: Sort Returns None</h3>
+        <pre><code>a = [3, 1, 2]
+b = a.sort()
+print(a)
+print(b)</code></pre>
+        <details>
+          <summary>Answer and reasoning</summary>
+          <div class="answer">
+            Output:
+            <pre><code>[1, 2, 3]
+None</code></pre>
+            <code>a.sort()</code> mutates <code>a</code> and returns <code>None</code>. This mirrors the PDF's
+            point that functions/methods with side effects commonly return <code>None</code>.
+          </div>
+        </details>
+      </div>
+
+      <h3>Key Functions, Lambdas, and <code>itemgetter</code></h3>
+      <p>
+        A key function is called exactly once per input element. Python compares the returned keys, not the
+        original values directly.
+      </p>
+      <pre><code>words = "This is a test string from Andrew".split()
+print(sorted(words, key=str.lower))</code></pre>
+      <p>
+        This sorts case-insensitively because each word is compared by its lowercase form. The original
+        strings are still returned.
+      </p>
+      <pre><code>student_tuples = [
+    ("john", "A", 15),
+    ("jane", "B", 12),
+    ("dave", "B", 10),
+]
+print(sorted(student_tuples, key=lambda student: student[2]))</code></pre>
+      <p>
+        Output:
+      </p>
+      <pre><code>[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]</code></pre>
+      <p>
+        <code>lambda student: student[2]</code> is an anonymous one-expression function. The
+        <code>operator.itemgetter(2)</code> version is equivalent and often faster.
+      </p>
+
+      <h3>Timsort</h3>
+      <p>
+        Python's built-in sorting uses Timsort, a stable, adaptive hybrid of merge sort and binary insertion
+        sort. It identifies existing ordered runs, extends short runs with binary insertion sort, and merges
+        runs using invariants and galloping mode. The big practical takeaway is that Python sorting performs
+        especially well on real-world data that is partially ordered.
+      </p>
+    </section>
+
+    <section id="copying">
+      <h2>12. Copying Lists: Shallow vs Deep</h2>
+      <span class="tag">PDF pp. 84-88</span><span class="tag">slides 156-160</span>
+      <p>
+        <code>b = a</code> is not a copy. It binds another name to the same list object. Slice copy,
+        <code>list(a)</code>, and a manual loop can create a new outer list, but nested mutable objects are
+        still shared.
+      </p>
+
+      <pre><code>a = [1, 2, 3]
+b = a
+b[0] = 4
+print(a)</code></pre>
+      <p>Output: <code>[4, 2, 3]</code>.</p>
+
+      <pre><code>import copy
+
+original = [[1, 2, 3], [4, 5, 6]]
+shallow = copy.copy(original)
+shallow[0][0] = "X"
+print(original)
+print(shallow)</code></pre>
+      <p>Output:</p>
+      <pre><code>[['X', 2, 3], [4, 5, 6]]
+[['X', 2, 3], [4, 5, 6]]</code></pre>
+      <p>The outer list is new, but the inner lists are shared.</p>
+
+      <pre><code>import copy
+
+original = [[1, 2, 3], [4, 5, 6]]
+deep = copy.deepcopy(original)
+deep[0][0] = "X"
+print(original)
+print(deep)</code></pre>
+      <p>Output:</p>
+      <pre><code>[[1, 2, 3], [4, 5, 6]]
+[['X', 2, 3], [4, 5, 6]]</code></pre>
+      <p>
+        <code>deepcopy</code> recursively copies contained objects and handles many edge cases that a simple
+        recursive list-only function will miss, such as dictionaries, sets, custom objects, and circular
+        references.
+      </p>
+
+      <div class="trap">
+        A custom recursive <code>deep_copy(lst)</code> that only checks <code>isinstance(item, list)</code> is
+        not a general <code>deepcopy</code>. It deep-copies nested lists but shallow-copies dictionaries,
+        sets, and custom mutable objects.
+      </div>
+    </section>
+
+    <section id="twod">
+      <h2>13. Two-Dimensional Lists and Aliasing</h2>
+      <span class="tag">PDF pp. 89-93</span><span class="tag">slides 161-165</span>
+      <p>
+        Python represents a two-dimensional table as a list of lists.
+      </p>
+      <pre><code>a = [[10, 20, 30], [40, 50, 60], [70, 80, 90]]
+a[1][1] = 500
+print(a)</code></pre>
+      <p>Output: <code>[[10, 20, 30], [40, 500, 60], [70, 80, 90]]</code>.</p>
+
+      <h3>Printing Rows with Nested Loops</h3>
+      <pre><code>for row in a:
+    for value in row:
+        print(value, end=" ")
+    print()</code></pre>
+
+      <h3>Creating a 4 by 4 Zero Table</h3>
+      <pre><code>a = []
+for i in range(4):
+    a.append(4 * [0])</code></pre>
+      <p>
+        This creates four different row lists. Mutating <code>a[0][0]</code> changes only the first row.
+      </p>
+
+      <h3>List <code>+</code> and <code>*</code></h3>
+      <span class="tag">PDF pp. 91-92</span><span class="tag">slides 163-164</span>
+      <p>
+        <code>+</code> concatenates lists and creates a new list. <code>*</code> repeats references to the
+        elements. Repeating immutable integers is harmless, but repeating mutable inner lists creates
+        aliases.
+      </p>
+      <pre><code>print([1, 2] + [3, 4])
+print(4 * [8])
+print(3 * [[0]])</code></pre>
+      <p>Output:</p>
+      <pre><code>[1, 2, 3, 4]
+[8, 8, 8, 8]
+[[0], [0], [0]]</code></pre>
+      <p>
+        The last printed value looks like three separate lists, but all three elements refer to the same
+        inner list object.
+      </p>
+
+      <div class="question">
+        <h3>Output Question 6: The Dangerous Shortcut</h3>
+        <pre><code>a = [[0] * 4] * 4
+a[0][0] = 9
+print(a)</code></pre>
+        <details>
+          <summary>Answer and reasoning</summary>
+          <div class="answer">
+            Output:
+            <pre><code>[[9, 0, 0, 0], [9, 0, 0, 0], [9, 0, 0, 0], [9, 0, 0, 0]]</code></pre>
+            <code>[0] * 4</code> creates one row list. The outer <code>* 4</code> repeats references to that
+            same row four times. All rows alias the same object.
+          </div>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Output Question 7: The Safe Version</h3>
+        <pre><code>a = []
+for i in range(4):
+    a.append([0] * 4)
+a[0][0] = 9
+print(a)</code></pre>
+        <details>
+          <summary>Answer and reasoning</summary>
+          <div class="answer">
+            Output:
+            <pre><code>[[9, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]</code></pre>
+            Each loop iteration creates a new row list, so only row 0 changes.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section id="practice">
+      <h2>14. Professor-Style Practice Questions</h2>
+      <p>
+        These questions are built from the exact concepts emphasized in the PDF. Try predicting the output
+        before opening the answer.
+      </p>
+
+      <div class="question">
+        <h3>Q1. Parameters, Rebinding, and Immutability</h3>
+        <pre><code>def change(x):
+    x = x + 1
+    print("inside", x)
+
+a = 10
+change(a)
+print("outside", a)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>inside 11
+outside 10</code></pre>
+          <p><code>x</code> is local. <code>x = x + 1</code> rebinds the local name to a new integer.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q2. Mutable Argument Mutation</h3>
+        <pre><code>def change(x):
+    x.append(4)
+    x = [100]
+    print("inside", x)
+
+a = [1, 2, 3]
+change(a)
+print("outside", a)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>inside [100]
+outside [1, 2, 3, 4]</code></pre>
+          <p><code>append</code> mutates the shared list. Then <code>x = [100]</code> rebinds the local name only.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q3. LEGB and Built-in Shadowing</h3>
+        <pre><code>len = 3
+def f():
+    return len("abc")
+
+print(f())</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <p>
+            Raises <code>TypeError: 'int' object is not callable</code>. Inside <code>f</code>, Python does not
+            find local <code>len</code>, then finds global <code>len = 3</code>, and stops before checking built-ins.
+          </p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q4. Local Assignment Makes a Name Local</h3>
+        <pre><code>x = 10
+def f():
+    print(x)
+    x = 20
+
+f()</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <p>
+            Raises <code>UnboundLocalError</code>. Because <code>x</code> is assigned inside <code>f</code>, Python
+            treats it as local throughout the function. The <code>print(x)</code> tries to read the local before it
+            has a value.
+          </p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q5. Global Fix</h3>
+        <pre><code>x = 10
+def f():
+    global x
+    print(x)
+    x = 20
+
+f()
+print(x)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>10
+20</code></pre>
+          <p><code>global x</code> makes the assignment update the module-level <code>x</code>.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q6. Closure Without Nonlocal</h3>
+        <pre><code>def outer():
+    x = 5
+    def inner():
+        return x + 1
+    return inner
+
+f = outer()
+print(f())</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>6</code></pre>
+          <p>No <code>nonlocal</code> is needed because <code>inner</code> only reads <code>x</code>.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q7. Closure Assignment Without Nonlocal</h3>
+        <pre><code>def outer():
+    x = 5
+    def inner():
+        x += 1
+        return x
+    return inner
+
+f = outer()
+print(f())</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <p>
+            Raises <code>UnboundLocalError</code>. The assignment <code>x += 1</code> makes <code>x</code> local
+            to <code>inner</code>, but Python must read it before assigning. Use <code>nonlocal x</code>.
+          </p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q8. Mutable Default</h3>
+        <pre><code>def add_item(x, bucket=[]):
+    bucket.append(x)
+    return bucket
+
+print(add_item("a"))
+print(add_item("b"))
+print(add_item("c", []))
+print(add_item("d"))</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>['a']
+['a', 'b']
+['c']
+['a', 'b', 'd']</code></pre>
+          <p>The default list is shared across calls that omit <code>bucket</code>. The explicit <code>[]</code> call uses a separate list.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q9. Keyword Collision</h3>
+        <pre><code>def f(a, b, c=0):
+    print(a, b, c)
+
+f(1, b=2, a=3)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <p>
+            Raises <code>TypeError</code> because <code>a</code> receives two values: <code>1</code> positionally and
+            <code>3</code> by keyword.
+          </p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q10. Keyword-Only Argument</h3>
+        <pre><code>def f(a, *, b=10):
+    print(a, b)
+
+f(1, 2)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <p>
+            Raises <code>TypeError</code>. <code>b</code> is keyword-only, so call <code>f(1, b=2)</code>.
+          </p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q11. Args and Kwargs</h3>
+        <pre><code>def f(*args, **kwargs):
+    print(args)
+    print(kwargs)
+
+f(1, 2, x=3, y=4)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>(1, 2)
+{'x': 3, 'y': 4}</code></pre>
+          <p>Extra positional arguments become a tuple. Extra keyword arguments become a dictionary.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q12. Unpacking Duplicate</h3>
+        <pre><code>def f(x, y):
+    print(x, y)
+
+d = {"x": 10, "y": 20}
+f(1, **d)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <p>
+            Raises <code>TypeError</code>. <code>x</code> receives <code>1</code> positionally and <code>10</code> from
+            <code>**d</code>.
+          </p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q13. Function Attribute Counter</h3>
+        <pre><code>def f():
+    f.count += 1
+    return f.count
+
+f.count = 10
+print(f())
+print(f())</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>11
+12</code></pre>
+          <p><code>count</code> is stored on the function object, not in the local frame.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q14. List Copy Outer Only</h3>
+        <pre><code>a = [[1], [2]]
+b = list(a)
+b.append([3])
+b[0].append(99)
+print(a)
+print(b)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>[[1, 99], [2]]
+[[1, 99], [2], [3]]</code></pre>
+          <p><code>b</code> is a new outer list, so appending to <code>b</code> does not affect <code>a</code>. But <code>b[0]</code> and <code>a[0]</code> are the same inner list.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q15. Clear Through Alias</h3>
+        <pre><code>a = [1, 2]
+b = a
+c = [a]
+b.clear()
+print(a)
+print(c)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>[]
+[[]]</code></pre>
+          <p><code>a</code>, <code>b</code>, and <code>c[0]</code> all refer to the same list object. Clearing through one reference empties the object.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q16. Delete Name vs Delete Element</h3>
+        <pre><code>a = [1, 2, 3]
+b = a
+del a
+b[0] = 99
+print(b)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>[99, 2, 3]</code></pre>
+          <p><code>del a</code> removes only the name <code>a</code>. The list still exists because <code>b</code> refers to it.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q17. Slice Assignment Changes Length</h3>
+        <pre><code>a = [0, 1, 2, 3, 4]
+a[1:4] = ["x"]
+print(a)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>[0, 'x', 4]</code></pre>
+          <p>The slice <code>a[1:4]</code> selects <code>[1, 2, 3]</code> and replaces those three elements with one element.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q18. Strided Slice Assignment Error</h3>
+        <pre><code>a = [0, 1, 2, 3, 4, 5]
+a[::2] = [9, 9]
+print(a)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <p>
+            Raises <code>ValueError</code>. <code>a[::2]</code> selects three positions: indices 0, 2, and 4.
+            The replacement has only two elements.
+          </p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q19. Sorting with Key</h3>
+        <pre><code>words = ["bbb", "A", "cc", "dddd"]
+print(sorted(words, key=len))
+print(words)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>['A', 'cc', 'bbb', 'dddd']
+['bbb', 'A', 'cc', 'dddd']</code></pre>
+          <p><code>sorted</code> returns a new list. The original remains unchanged.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q20. Stable Sort</h3>
+        <pre><code>items = [("a", 2), ("b", 1), ("c", 2), ("d", 1)]
+print(sorted(items, key=lambda x: x[1]))</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>[('b', 1), ('d', 1), ('a', 2), ('c', 2)]</code></pre>
+          <p>Python's sort is stable. Among key <code>1</code>, <code>b</code> stays before <code>d</code>. Among key <code>2</code>, <code>a</code> stays before <code>c</code>.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q21. 2D Alias Through Multiplication</h3>
+        <pre><code>row = [0, 0]
+a = [row, row]
+a[1][1] = 7
+print(row)
+print(a)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>[0, 7]
+[[0, 7], [0, 7]]</code></pre>
+          <p>Both rows are the same object as <code>row</code>.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q22. Append vs Extend with String</h3>
+        <pre><code>a = [1, 2]
+b = [1, 2]
+a.append("hi")
+b.extend("hi")
+print(a)
+print(b)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>[1, 2, 'hi']
+[1, 2, 'h', 'i']</code></pre>
+          <p><code>extend</code> iterates over its argument. A string is an iterable of characters.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q23. Reverse In Place vs Reversed Copy</h3>
+        <pre><code>a = [1, 2, 3]
+b = a[::-1]
+c = a.reverse()
+print(a)
+print(b)
+print(c)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>[3, 2, 1]
+[3, 2, 1]
+None</code></pre>
+          <p><code>a[::-1]</code> creates a reversed copy. <code>a.reverse()</code> mutates <code>a</code> and returns <code>None</code>.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q24. Named Tuple Still Unpacks</h3>
+        <pre><code>from typing import NamedTuple
+
+class Pair(NamedTuple):
+    name: str
+    value: str
+
+p = Pair("url", "example")
+a, b = p
+print(p.name)
+print(a, b)</code></pre>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>url
+url example</code></pre>
+          <p>A named tuple supports field access and tuple unpacking.</p>
+        </details>
+      </div>
+
+      <div class="question">
+        <h3>Q25. Script Guard Concept</h3>
+        <pre><code># helper.py
+print("top")
+
+def f():
+    print("f")
+
+if __name__ == "__main__":
+    print("main")</code></pre>
+        <p>If another file runs <code>import helper</code>, what prints?</p>
+        <details>
+          <summary>Answer</summary>
+          <pre><code>top</code></pre>
+          <p>Top-level code runs during import. The guarded block does not because <code>__name__</code> is <code>"helper"</code>, not <code>"__main__"</code>. Calling <code>helper.f()</code> later would print <code>f</code>.</p>
+        </details>
+      </div>
+
+      <h2>15. Final Exam Checklist</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Must Explain Without Running</h3>
+          <ul>
+            <li>Why <code>math.sqrt</code> works after <code>import math</code> but <code>sqrt</code> alone does not.</li>
+            <li>Why <code>print()</code>, <code>list.sort()</code>, and <code>list.reverse()</code> return <code>None</code>.</li>
+            <li>Why rebinding a parameter differs from mutating a passed list.</li>
+            <li>Why LEGB finds a shadowed built-in before the actual built-in.</li>
+            <li>Why a closure can remember an outer variable after the outer call finishes.</li>
+            <li>Why mutable default arguments keep state across calls.</li>
+            <li>Why <code>del name</code> differs from <code>name.clear()</code>.</li>
+            <li>Why <code>[[0] * 4] * 4</code> aliases rows.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Must Be Able to Code</h3>
+          <ul>
+            <li><code>is_even</code>, <code>is_leap</code>, <code>is_prime</code>, <code>sum_of_digits</code>.</li>
+            <li>Base conversion through base 10.</li>
+            <li>Prime generation using a simple loop and using the sieve.</li>
+            <li>Max value and max position in first <code>i</code> list elements.</li>
+            <li>Delete selected list positions using slices.</li>
+            <li>Selection sort and insertion sort traces.</li>
+            <li>Use <code>key</code>, <code>reverse</code>, <code>lambda</code>, and <code>itemgetter</code>.</li>
+            <li>Build and print a 2D list safely.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

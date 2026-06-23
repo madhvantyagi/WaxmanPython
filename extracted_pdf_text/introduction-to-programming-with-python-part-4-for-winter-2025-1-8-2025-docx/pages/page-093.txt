@@ -1,0 +1,7 @@
+Notice when we print list a, both seem to produce the same list:
+However, internally they are represented very differently.
+The first one produces the following when it runs:
+What are the implications of this?
+The second one, however, produces this:
+What are the implications of this?
+165

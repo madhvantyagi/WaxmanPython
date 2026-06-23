@@ -1,0 +1,33 @@
+Class variables, on the other hand, are variables that are shared across all instances of the class.
+They are not specific to any one instance. Instead, if you change the value of a class variable, it
+affects all instances of the class.
+For example, let's add a class variable to the `Rat` class:
+class Rat:
+count = 0 # Class variable
+def __init__(self, n=0, d=1):
+self.n = n
+self.d = d
+Rat.count += 1
+So,
+r1 = Rat(1, 2)
+r2 = Rat(3, 4)
+print(Rat.count) # Output will be 2, shared across all instances. Notice the syntax.
+Here, `count` is a class variable that keeps track of how many `Rat` instances have been
+created.
+Static Methods
+A static method in Python is a method that belongs to a class but does not require an instance
+of the class to be used. It's not bound to an instance or class variable. Static methods are
+defined with the `@staticmethod` decorator.
+Static methods are used when some functionality is related to the class but does not need to
+access any instance-specific data or class variables.
+Class variables and static methods in Python are related in the sense that they both exist at the
+class level, rather than the instance level, but they serve different purposes:
+Class Variables
+1. Shared Across Instances: Class variables are shared among all instances of the class. A
+change to a class variable affects all instances of the class.
+2. Defined in Class Body: They are defined within the class body, outside of any instance
+methods (including `__init__`).
+3. Usage: Class variables are useful for storing data that is common to all instances of a
+class. This might include constants, default values, or counters that keep track of class-wide
+information.
+9

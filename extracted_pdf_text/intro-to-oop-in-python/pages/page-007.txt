@@ -1,0 +1,36 @@
+are all consenting adults here," meaning that it trusts programmers to respect these
+conventions rather than enforcing them through the language.
+This approach aligns with Python's overall design principles, which favor simplicity and
+readability. It relies on the discipline of the developer to adhere to these conventions rather
+than imposing strict access control. While this might seem like a drawback in terms of
+encapsulation, it provides greater flexibility.
+Properties for access control
+In Python, properties can be used to control access to instance variables, providing a level of
+encapsulation. A property in Python is a special kind of attribute whose access is managed by getter,
+setter, and deleter methods. This mechanism allows you to add logic around getting and setting a value,
+which can be used to implement validations, calculations, or other controls.
+Here's how properties can be used for encapsulation:
+1. Getter Method: This method is used to access the value of an attribute without exposing the attribute
+itself. It allows for computation or processing of data before returning it.
+2. Setter Method: This method is invoked when the value of an attribute is modified. It can be used to
+validate or modify the data before it's actually changed.
+3. Deleter Method: This method is called when the attribute is deleted. It allows for cleanup actions or
+other processing.
+For example:
+Consider a class `Person` with a private attribute `_age`:
+class Person:
+def __init__(self, age):
+self._age = age
+@property
+def age(self):
+return self._age
+@age.setter
+def age(self, value):
+if value < 0:
+raise ValueError("Age cannot be negative")
+self._age = value
+@age.deleter
+def age(self):
+del self._age
+In this example:
+7

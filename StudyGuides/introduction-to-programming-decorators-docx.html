@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decorators Study Guide</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --paper: #ffffff;
+      --ink: #1f2933;
+      --muted: #5b6673;
+      --line: #d8dee6;
+      --accent: #0f766e;
+      --accent2: #7c2d12;
+      --code-bg: #111827;
+      --code-ink: #f8fafc;
+      --warn-bg: #fff7ed;
+      --warn-line: #fed7aa;
+      --ok-bg: #ecfdf5;
+      --ok-line: #a7f3d0;
+      --trap-bg: #fef2f2;
+      --trap-line: #fecaca;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.58;
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 18px 56px;
+    }
+
+    header {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 28px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 34px;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 34px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--line);
+      font-size: 25px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 19px;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+
+    h4 {
+      margin: 16px 0 6px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 270px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    nav {
+      position: sticky;
+      top: 12px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      max-height: calc(100vh - 24px);
+      overflow: auto;
+    }
+
+    nav h2 {
+      margin: 0 0 10px;
+      padding: 0;
+      border: 0;
+      font-size: 16px;
+    }
+
+    nav a {
+      display: block;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 6px 4px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      background: #eef2f7;
+    }
+
+    main {
+      min-width: 0;
+    }
+
+    section, .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+
+    .ref {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #334155;
+      background: #e2e8f0;
+      border-radius: 999px;
+      padding: 2px 8px;
+      vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f5132;
+      background: #d1fae5;
+      border: 1px solid var(--ok-line);
+      border-radius: 999px;
+      padding: 1px 7px;
+      vertical-align: 1px;
+    }
+
+    code {
+      font-family: Menlo, Consolas, "Courier New", monospace;
+      font-size: 0.94em;
+      background: #eef2f7;
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+
+    pre {
+      margin: 12px 0;
+      background: var(--code-bg);
+      color: var(--code-ink);
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.48;
+    }
+
+    pre code {
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      color: inherit;
+      font-size: inherit;
+    }
+
+    ul, ol {
+      margin: 8px 0 8px 22px;
+      padding: 0;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 9px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #eef2f7;
+    }
+
+    .callout {
+      border-left: 5px solid var(--accent);
+      background: #f0fdfa;
+      padding: 12px 14px;
+      margin: 12px 0;
+      border-radius: 6px;
+    }
+
+    .warning {
+      border: 1px solid var(--warn-line);
+      background: var(--warn-bg);
+      padding: 12px 14px;
+      margin: 12px 0;
+      border-radius: 8px;
+    }
+
+    .trap {
+      border: 1px solid var(--trap-line);
+      background: var(--trap-bg);
+      padding: 12px 14px;
+      margin: 12px 0;
+      border-radius: 8px;
+    }
+
+    .answer {
+      border: 1px solid var(--ok-line);
+      background: var(--ok-bg);
+      padding: 12px 14px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin: 12px 0;
+      background: #ffffff;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .mini {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .flow {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #f8fafc;
+      font-family: Menlo, Consolas, "Courier New", monospace;
+      font-size: 13px;
+      overflow-x: auto;
+    }
+
+    .kbd {
+      display: inline-block;
+      min-width: 22px;
+      text-align: center;
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+      border-radius: 4px;
+      padding: 0 5px;
+      font-family: Menlo, Consolas, "Courier New", monospace;
+      font-size: 12px;
+    }
+
+    @media (max-width: 860px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        position: static;
+        max-height: none;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      header, section, .card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Decorators: Exam Study Guide</h1>
+      <p class="subtitle">Source-specific guide for <strong>introduction-to-programming-decorators-docx</strong>. Page references match the extracted PDF text.</p>
+    </header>
+
+    <div class="layout">
+      <nav aria-label="Table of contents">
+        <h2>Guide Map</h2>
+        <a href="#big-picture">Big Picture</a>
+        <a href="#first-class">Functions as Objects</a>
+        <a href="#basic-wrapper">Basic Wrapper Decorator</a>
+        <a href="#at-syntax">@ Syntax and Binding</a>
+        <a href="#behind-scenes">Behind the Scenes</a>
+        <a href="#wraps">functools.wraps</a>
+        <a href="#multiple">Multiple Decorators</a>
+        <a href="#objects-memory">Objects, Memory, References</a>
+        <a href="#decorator-factory">Decorator Factories</a>
+        <a href="#timing">Timing and timeit</a>
+        <a href="#sorting">Timer for Sorting</a>
+        <a href="#flow">Flow of Control</a>
+        <a href="#traps">Common Traps</a>
+        <a href="#questions">Professor-Style Questions</a>
+        <a href="#checklist">Exam Checklist</a>
+      </nav>
+
+      <main>
+        <section id="big-picture">
+          <h2>Big Picture <span class="ref">Pages 1-2</span></h2>
+          <p>A decorator is a function that takes another function and returns a replacement object, usually a wrapper function. The wrapper adds behavior before, after, or around the original function call without editing the original function body.</p>
+          <div class="callout">
+            <strong>Core exam sentence:</strong> A decorator is executed when the decorated function is defined; the wrapper is executed later when the function name is called.
+          </div>
+          <p>The PDF motivates decorators with debugging/logging: if many functions should print messages on entry and exit, editing every function is repetitive or impossible if you do not control the code. A decorator centralizes that behavior.</p>
+          <table>
+            <tr>
+              <th>Source idea</th>
+              <th>What it means in Python</th>
+            </tr>
+            <tr>
+              <td>Functions can be returned from functions.</td>
+              <td>An outer function can create an inner function object and return it to the caller.</td>
+            </tr>
+            <tr>
+              <td>Functions are first-class objects.</td>
+              <td>A function object can be stored in a variable, passed as an argument, returned, and attached to attributes.</td>
+            </tr>
+            <tr>
+              <td>The function name is a pointer/reference.</td>
+              <td>The name is bound to a function object. Rebinding the name changes what the name points to.</td>
+            </tr>
+            <tr>
+              <td>A decorator creates a wrapper.</td>
+              <td>The original function is passed into another function. The returned wrapper replaces the original name.</td>
+            </tr>
+          </table>
+        </section>
+
+        <section id="first-class">
+          <h2>Functions as Objects <span class="ref">Page 1</span></h2>
+          <p>The PDF starts with two prerequisite ideas: nested functions and function assignment.</p>
+          <pre><code>def f(x):
+    def sq(z):
+        return z * z
+    return sq(x)
+
+g = f
+print(g(3))</code></pre>
+          <p><strong>Output:</strong></p>
+          <pre><code>9</code></pre>
+          <h3>Behind the scenes</h3>
+          <ol>
+            <li>Executing <code>def f(x): ...</code> creates a function object and binds the name <code>f</code> to it.</li>
+            <li><code>g = f</code> does not copy the function. It binds <code>g</code> to the same function object.</li>
+            <li><code>g(3)</code> calls that function object with <code>x = 3</code>.</li>
+            <li>Each call to <code>f</code> creates a new local name <code>sq</code> bound to a new inner function object.</li>
+            <li><code>sq(x)</code> calls the inner function immediately and returns <code>9</code>.</li>
+          </ol>
+          <div class="trap">
+            <strong>Trap from page 1:</strong> The name of a function is not sacred. If you write <code>sum = 0</code>, you bind the name <code>sum</code> to an integer in that scope, hiding the built-in <code>sum</code> function. Then <code>sum([1, 2, 3])</code> fails because <code>sum</code> now refers to an <code>int</code>, not a function.
+          </div>
+          <pre><code>sum = 0
+print(sum([1, 2, 3]))</code></pre>
+          <p><strong>Result:</strong> <code>TypeError: 'int' object is not callable</code>.</p>
+        </section>
+
+        <section id="basic-wrapper">
+          <h2>Basic Wrapper Decorator <span class="ref">Pages 2-3</span></h2>
+          <p>The first decorator example wraps a no-argument function:</p>
+          <pre><code>def my_decorator(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+def say_whee():
+    print("Whee!")
+
+say_whee = my_decorator(say_whee)
+say_whee()</code></pre>
+          <p><strong>Output:</strong></p>
+          <pre><code>Something is happening before the function is called.
+Whee!
+Something is happening after the function is called.</code></pre>
+          <h3>What each name points to</h3>
+          <table>
+            <tr>
+              <th>Step</th>
+              <th>Binding</th>
+            </tr>
+            <tr>
+              <td>After <code>def say_whee</code></td>
+              <td><code>say_whee</code> points to the original function object.</td>
+            </tr>
+            <tr>
+              <td>During <code>my_decorator(say_whee)</code></td>
+              <td><code>func</code> points to the original <code>say_whee</code> function.</td>
+            </tr>
+            <tr>
+              <td>After return</td>
+              <td><code>my_decorator</code> returns <code>wrapper</code>.</td>
+            </tr>
+            <tr>
+              <td>After assignment</td>
+              <td>The name <code>say_whee</code> now points to <code>wrapper</code>, not directly to the original function.</td>
+            </tr>
+          </table>
+
+          <h3>General wrapper with arguments</h3>
+          <p>For functions like <code>add_numbers(x, y)</code>, the wrapper must accept arbitrary positional and keyword arguments:</p>
+          <pre><code>def log_function_call(func):
+    def wrapper(*args, **kwargs):
+        print(f"Calling function {func.__name__}")
+        result = func(*args, **kwargs)
+        print(f"Finished calling function {func.__name__}")
+        return result
+    return wrapper
+
+@log_function_call
+def add_numbers(x, y):
+    return x + y
+
+result = add_numbers(2, 3)
+print(result)</code></pre>
+          <p><strong>Output:</strong></p>
+          <pre><code>Calling function add_numbers
+Finished calling function add_numbers
+5</code></pre>
+          <p><code>*args</code> collects positional arguments like <code>2, 3</code>. <code>**kwargs</code> collects keyword arguments like <code>x=2, y=3</code>. The wrapper forwards them with <code>func(*args, **kwargs)</code>.</p>
+        </section>
+
+        <section id="at-syntax">
+          <h2>@ Syntax and Name Binding <span class="ref">Pages 3-6</span></h2>
+          <p>The PDF states the general syntax:</p>
+          <pre><code>@decorate
+def func(x):
+    ...</code></pre>
+          <p>This is shorthand for:</p>
+          <pre><code>def func(x):
+    ...
+
+func = decorate(func)</code></pre>
+          <div class="warning">
+            <strong>Source correction:</strong> Page 3 says <code>add_numbers = log_function_call(add_numbers(2,3))</code>. The intended equivalent is <code>add_numbers = log_function_call(add_numbers)</code>. You pass the function object to the decorator, not the result of calling the function.
+          </div>
+          <h3>Why the corrected version matters</h3>
+          <pre><code># Correct:
+add_numbers = log_function_call(add_numbers)
+
+# Wrong for this decorator:
+add_numbers = log_function_call(add_numbers(2, 3))</code></pre>
+          <p>In the wrong version, <code>add_numbers(2, 3)</code> runs first and returns <code>5</code>. Then Python tries to decorate <code>5</code> as if it were a function. The wrapper later tries <code>func.__name__</code> or <code>func(*args, **kwargs)</code>, which fails because <code>func</code> is an integer.</p>
+          <h3>Decorator placement rule</h3>
+          <p>Decorators must appear on their own line immediately before the function definition:</p>
+          <pre><code>@my_decorator
+def my_function(x, y):
+    return x + y</code></pre>
+        </section>
+
+        <section id="behind-scenes">
+          <h2>Behind the Scenes <span class="ref">Pages 7-8</span></h2>
+          <p>Decoration happens at definition time, not call time.</p>
+          <pre><code>def my_decorator(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hello!")
+
+# At this point, say_hello is already decorated
+say_hello()</code></pre>
+          <h3>Exact order of events</h3>
+          <ol>
+            <li>Python executes <code>def my_decorator(func): ...</code> and binds the name <code>my_decorator</code> to a function object.</li>
+            <li>Python sees <code>@my_decorator</code> above <code>say_hello</code>.</li>
+            <li>Python creates the original <code>say_hello</code> function object.</li>
+            <li>Immediately, Python calls <code>my_decorator(original_say_hello)</code>.</li>
+            <li>Inside <code>my_decorator</code>, Python creates the inner <code>wrapper</code> function object.</li>
+            <li><code>wrapper</code> closes over <code>func</code>, meaning it keeps a reference to the original <code>say_hello</code> function.</li>
+            <li><code>my_decorator</code> returns <code>wrapper</code>.</li>
+            <li>The name <code>say_hello</code> is bound to <code>wrapper</code>.</li>
+            <li>Later, <code>say_hello()</code> calls <code>wrapper()</code>.</li>
+            <li><code>wrapper()</code> prints before, calls the original function through <code>func()</code>, then prints after.</li>
+          </ol>
+          <div class="flow">
+            source code: @my_decorator def say_hello(): ...<br>
+            definition time: original say_hello object -&gt; my_decorator(original) -&gt; wrapper<br>
+            name binding: say_hello -&gt; wrapper<br>
+            call time: say_hello() -&gt; wrapper() -&gt; func() -&gt; original say_hello()
+          </div>
+        </section>
+
+        <section id="wraps">
+          <h2>Metadata and functools.wraps <span class="ref">Pages 4-6</span></h2>
+          <p>The PDF shows a practical problem: the wrapper hides the original function's metadata.</p>
+          <pre><code>def my_decorator(func):
+    def wrapper(*args, **kwargs):
+        """ wrapper"""
+        print("Before the function is called.")
+        result = func(*args, **kwargs)
+        print("After the function is called.")
+        return result
+    return wrapper
+
+@my_decorator
+def my_function(x, y):
+    """ my func"""
+    return x + y
+
+z = my_function(2, 3)
+print(z, my_function.__name__)
+print(z, my_function.__doc__)</code></pre>
+          <p><strong>Output without <code>wraps</code>:</strong></p>
+          <pre><code>Before the function is called.
+After the function is called.
+5 wrapper
+5  wrapper</code></pre>
+          <p>The name <code>my_function</code> now points to the wrapper, so <code>my_function.__name__</code> and <code>my_function.__doc__</code> are the wrapper's metadata.</p>
+          <h3>The fix</h3>
+          <pre><code>import functools
+
+def my_decorator(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        """ wrapper"""
+        print("Before the function is called.")
+        result = func(*args, **kwargs)
+        print("After the function is called.")
+        return result
+    return wrapper
+
+@my_decorator
+def my_function(x, y):
+    """ my func"""
+    return x + y
+
+z = my_function(2, 3)
+print(z, my_function.__name__)
+print(z, my_function.__doc__)</code></pre>
+          <p><strong>Output with <code>wraps</code>:</strong></p>
+          <pre><code>Before the function is called.
+After the function is called.
+5 my_function
+5  my func</code></pre>
+          <p><code>functools.wraps(func)</code> is itself a decorator applied to <code>wrapper</code>. It copies metadata such as <code>__name__</code>, <code>__doc__</code>, annotations, and module information from <code>func</code> to <code>wrapper</code>. It also sets <code>__wrapped__</code> so tools can find the original function.</p>
+
+          <h3>Applying the same decorator to another function</h3>
+          <p>Pages 6 shows the same decorator used on <code>mult</code>:</p>
+          <pre><code>@my_decorator
+def mult(x, y):
+    """ mult func"""
+    return x * y
+
+z = mult(2, 3)
+print(z, mult.__name__)
+print(z, mult.__doc__)</code></pre>
+          <p><strong>Output:</strong></p>
+          <pre><code>Before the function is called.
+After the function is called.
+6 mult
+6  mult func</code></pre>
+        </section>
+
+        <section id="multiple">
+          <h2>Multiple Decorators <span class="ref">Pages 8-9</span></h2>
+          <p>When multiple decorators appear above a function, the decorator closest to the function is applied first. At call time, the outermost wrapper runs first.</p>
+          <pre><code>def decorator1(func):
+    def wrapper(*args, **kwargs):
+        print("Decorator 1")
+        return func(*args, **kwargs)
+    return wrapper
+
+def decorator2(func):
+    def wrapper(*args, **kwargs):
+        print("Decorator 2")
+        return func(*args, **kwargs)
+    return wrapper
+
+def decorator3(func):
+    def wrapper(*args, **kwargs):
+        print("Decorator 3")
+        return func(*args, **kwargs)
+    return wrapper
+
+@decorator3
+@decorator2
+@decorator1
+def my_function():
+    print("Hello, World!")
+
+my_function()</code></pre>
+          <p><strong>Equivalent binding:</strong></p>
+          <pre><code>my_function = decorator3(decorator2(decorator1(my_function)))</code></pre>
+          <p><strong>Output:</strong></p>
+          <pre><code>Decorator 3
+Decorator 2
+Decorator 1
+Hello, World!</code></pre>
+          <table>
+            <tr>
+              <th>Phase</th>
+              <th>Order</th>
+            </tr>
+            <tr>
+              <td>Application at definition time</td>
+              <td><code>decorator1</code>, then <code>decorator2</code>, then <code>decorator3</code>.</td>
+            </tr>
+            <tr>
+              <td>Execution at call time</td>
+              <td><code>decorator3.wrapper</code>, then <code>decorator2.wrapper</code>, then <code>decorator1.wrapper</code>, then original function.</td>
+            </tr>
+          </table>
+          <div class="trap">
+            <strong>Professor trap:</strong> Students often reverse the output because they memorize "closest first." Closest first is application order. Printed output follows wrapper execution order, which starts with the outermost wrapper.
+          </div>
+        </section>
+
+        <section id="objects-memory">
+          <h2>Function Objects, Memory, and References <span class="ref">Pages 10-11</span></h2>
+          <p>The PDF emphasizes that the decorated function is normally a different object from the original function.</p>
+          <ol>
+            <li>Python creates the original function object.</li>
+            <li>The decorator receives a reference to that object.</li>
+            <li>The decorator returns a new object, usually <code>wrapper</code>.</li>
+            <li>The original function name is rebound to the returned object.</li>
+            <li>The wrapper may keep a reference to the original through a closure.</li>
+          </ol>
+          <h3>Keeping access to the original</h3>
+          <pre><code>def my_decorator(func):
+    def wrapper(*args, **kwargs):
+        print("Decorator adds this before the function call")
+        result = func(*args, **kwargs)
+        print("Decorator adds this after the function call")
+        return result
+
+    wrapper.original = func
+    return wrapper
+
+@my_decorator
+def original_function(x, y):
+    print(f"Original function called with arguments: {x}, {y}")
+    return x + y
+
+print("Calling decorated function:")
+original_function(5, 10)
+
+print("\nCalling undecorated function:")
+original_function.original(5, 10)</code></pre>
+          <p><strong>Output:</strong></p>
+          <pre><code>Calling decorated function:
+Decorator adds this before the function call
+Original function called with arguments: 5, 10
+Decorator adds this after the function call
+
+Calling undecorated function:
+Original function called with arguments: 5, 10</code></pre>
+          <p><code>wrapper.original = func</code> attaches the original function object as an attribute of the wrapper function object. Because functions are objects, they can have attributes.</p>
+          <div class="callout">
+            <strong>Memory/reference behavior:</strong> The original function is not destroyed as long as some live reference still points to it. The wrapper's closure variable <code>func</code> and the explicit <code>wrapper.original</code> attribute both keep references to the original function.
+          </div>
+        </section>
+
+        <section id="decorator-factory">
+          <h2>Decorator Factory: countcalls <span class="ref">Pages 12-13</span></h2>
+          <p>The PDF asks for a decorator that keeps track of how many times each decorated function has been called, using a dictionary passed to the decorator.</p>
+          <pre><code>calldict = {}
+
+@countcalls(calldict)
+def add(x, y):
+    return x + y
+
+@countcalls(calldict)
+def mult(x, y):
+    return x * y
+
+z = add(2, 3)
+print(calldict)
+z = add(2, 3)
+print(calldict)
+z = mult(2, 3)
+print(calldict)</code></pre>
+          <p><strong>Required output:</strong></p>
+          <pre><code>{'add': 1}
+{'add': 2}
+{'add': 2, 'mult': 1}</code></pre>
+          <h3>Solution from the PDF</h3>
+          <pre><code>def countcalls(calldict):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            calldict[func.__name__] = calldict.get(func.__name__, 0) + 1
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator</code></pre>
+          <h3>Why three nested functions?</h3>
+          <table>
+            <tr>
+              <th>Function</th>
+              <th>Job</th>
+            </tr>
+            <tr>
+              <td><code>countcalls(calldict)</code></td>
+              <td>Receives the dictionary and returns a real decorator. This is a decorator factory.</td>
+            </tr>
+            <tr>
+              <td><code>decorator(func)</code></td>
+              <td>Receives the function being decorated and returns a wrapper.</td>
+            </tr>
+            <tr>
+              <td><code>wrapper(*args, **kwargs)</code></td>
+              <td>Runs when the decorated function is called. It increments the count and calls the original function.</td>
+            </tr>
+          </table>
+          <h3>Definition-time order</h3>
+          <pre><code>@countcalls(calldict)
+def add(x, y):
+    return x + y</code></pre>
+          <p>is equivalent to:</p>
+          <pre><code>def add(x, y):
+    return x + y
+
+add = countcalls(calldict)(add)</code></pre>
+          <ol>
+            <li><code>countcalls(calldict)</code> runs first and returns <code>decorator</code>.</li>
+            <li>The original <code>add</code> function object is created.</li>
+            <li><code>decorator(add)</code> runs and returns <code>wrapper</code>.</li>
+            <li>The name <code>add</code> is rebound to <code>wrapper</code>.</li>
+            <li>Only when <code>add(2, 3)</code> is called does the dictionary count change.</li>
+          </ol>
+          <div class="trap">
+            <strong>Trap:</strong> The dictionary is shared because both decorated functions close over the same <code>calldict</code> object. The decorator does not create a separate dictionary per function unless you pass or create separate dictionaries.
+          </div>
+        </section>
+
+        <section id="timing">
+          <h2>Timing Code: time.time and timeit.timeit <span class="ref">Pages 13-16</span></h2>
+          <p>The PDF introduces timing before building a timer decorator.</p>
+          <table>
+            <tr>
+              <th>Tool</th>
+              <th>Use it for</th>
+              <th>How it works</th>
+            </tr>
+            <tr>
+              <td><code>time.time()</code></td>
+              <td>General timing and longer-running tasks.</td>
+              <td>Returns current seconds since the Unix Epoch. Measure duration by subtracting start from end.</td>
+            </tr>
+            <tr>
+              <td><code>timeit.timeit()</code></td>
+              <td>More accurate timing of short snippets or benchmarks.</td>
+              <td>Runs code many times in a controlled environment and returns total time.</td>
+            </tr>
+          </table>
+          <h3>General timing pattern</h3>
+          <pre><code>import time
+
+start = time.time()
+# code to time
+end = time.time()
+print(f"Duration: {end - start} seconds")</code></pre>
+          <div class="warning">
+            <strong>Source correction:</strong> Page 15 prints <code>{end start}</code>. The correct expression is <code>{end - start}</code>.
+          </div>
+          <h3>Timing a sleeping function</h3>
+          <pre><code>import time
+
+def my_function():
+    time.sleep(2)
+    return "Hello, world!"
+
+start_time = time.time()
+result = my_function()
+end_time = time.time()
+duration = end_time - start_time
+
+print(f"Result: {result}")
+print(f"Duration: {duration} seconds")</code></pre>
+          <p>The sample PDF run gives about <code>2.0110862255096436</code> seconds. The exact number changes by machine and run.</p>
+          <h3>Using timeit with a callable</h3>
+          <pre><code>import timeit
+
+def my_function():
+    for i in range(1000000):
+        pass
+
+time_taken = timeit.timeit(my_function, number=100)
+print("Execution time:", f"{time_taken:.4f} seconds")</code></pre>
+          <p><code>number=100</code> means the function is called 100 times and the returned duration is the total time for all 100 runs.</p>
+          <h3>Do not shadow <code>sum</code> in real code</h3>
+          <p>Page 16 uses:</p>
+          <pre><code>def my_function():
+    sum = 0
+    for i in range(1000000):
+        sum += i
+    return sum</code></pre>
+          <p>This works locally inside the function, but it shadows the built-in <code>sum</code>. For style and safety, a name like <code>total</code> is better.</p>
+        </section>
+
+        <section id="sorting">
+          <h2>Timer Decorator for Sorting Algorithms <span class="ref">Pages 17-19</span></h2>
+          <p>The PDF asks for a <code>timer</code> decorator that decorates a sort function, sorts a list, and returns the runtime. The answer returns both runtime and the sorted array.</p>
+          <pre><code>import time
+import functools
+
+def timer(func):
+    @functools.wraps(func)
+    def wrapper_timer(*args, **kwargs):
+        start_time = time.time()
+        value = func(*args, **kwargs)
+        end_time = time.time()
+        runtime = end_time - start_time
+        return runtime, value
+    return wrapper_timer</code></pre>
+          <p>When a sort is decorated with <code>@timer</code>, calling the sort no longer returns just the sorted list. It returns a tuple:</p>
+          <pre><code>(runtime, sorted_value)</code></pre>
+          <h3>Source-specific sort functions</h3>
+          <p>The PDF says "bubble sort, insertion sort, quicksort and merge sort" on page 17, but the code implements <code>bubble_sort</code>, <code>selection_sort</code>, <code>merge_sort</code>, and <code>quick_sort</code>. There is no insertion sort implementation in the shown answer.</p>
+          <div class="grid">
+            <div class="card">
+              <h3>Bubble sort</h3>
+              <p>Mutates the input list by repeatedly swapping adjacent out-of-order elements.</p>
+              <pre><code>@timer
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if arr[j] &gt; arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr</code></pre>
+            </div>
+            <div class="card">
+              <h3>Selection sort</h3>
+              <p>Mutates the input list by selecting the smallest remaining element and swapping it into position.</p>
+              <pre><code>@timer
+def selection_sort(arr):
+    for i in range(len(arr)):
+        min_idx = i
+        for j in range(i + 1, len(arr)):
+            if arr[min_idx] &gt; arr[j]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    return arr</code></pre>
+            </div>
+          </div>
+          <h3>Recursive decorated functions are tricky</h3>
+          <p>In the PDF, <code>merge_sort</code> and <code>quick_sort</code> are decorated. That means recursive calls to <code>merge_sort</code> or <code>quick_sort</code> call the wrapper, not the undecorated function.</p>
+          <pre><code>@timer
+def quick_sort(arr):
+    if len(arr) &lt;= 1:
+        return arr
+    pivot = arr[0]
+    less = [x for x in arr[1:] if x &lt;= pivot]
+    greater = [x for x in arr[1:] if x &gt; pivot]
+    _, sorted_less = quick_sort(less)
+    _, sorted_greater = quick_sort(greater)
+    return sorted_less + [pivot] + sorted_greater</code></pre>
+          <p>The unpacking is necessary because each recursive call returns <code>(runtime, sorted_list)</code>. If the code wrote <code>sorted_less = quick_sort(less)</code>, then <code>sorted_less</code> would be a tuple, not a list.</p>
+          <div class="trap">
+            <strong>Trap:</strong> Decorating a recursive function changes what its own name means inside its body. After decoration, the global name <code>quick_sort</code> points to <code>wrapper_timer</code>. Recursive calls through that name run the timer wrapper too.
+          </div>
+          <h3>Testing setup</h3>
+          <pre><code>data_size = 10000
+test_data = [random.randint(1, 10000) for _ in range(data_size)]
+
+times = {}
+times["Bubble Sort"], _ = bubble_sort(test_data.copy())
+times["Selection Sort"], _ = selection_sort(test_data.copy())
+times["Merge Sort"], _ = merge_sort(test_data.copy())
+times["Quick Sort"], _ = quick_sort(test_data.copy())</code></pre>
+          <p><code>test_data.copy()</code> matters because some algorithms mutate the list. Without copying, later algorithms might receive already-sorted data and the comparison would be unfair.</p>
+          <p>The PDF plots two bar charts with <code>matplotlib</code>: one normal scale and one logarithmic y-axis using <code>plt.yscale("log")</code>. A log scale helps compare runtimes when slow algorithms are much slower than fast algorithms.</p>
+        </section>
+
+        <section id="flow">
+          <h2>Flow of Control Example <span class="ref">Pages 19-20</span></h2>
+          <p>The final PDF example manually decorates a function instead of using <code>@</code> syntax:</p>
+          <pre><code>def hello_decorator(func):
+    def inner1():
+        print("Hello, this is before function execution")
+        func()
+        print("This is after function execution")
+    return inner1
+
+def function_to_be_used():
+    print("This is inside the function !!")
+
+function_to_be_used = hello_decorator(function_to_be_used)
+function_to_be_used()</code></pre>
+          <p><strong>Output:</strong></p>
+          <pre><code>Hello, this is before function execution
+This is inside the function !!
+This is after function execution</code></pre>
+          <h3>Step-by-step control path</h3>
+          <ol>
+            <li><code>hello_decorator</code> is defined.</li>
+            <li><code>function_to_be_used</code> is defined.</li>
+            <li><code>hello_decorator(function_to_be_used)</code> is called.</li>
+            <li>Inside <code>hello_decorator</code>, <code>func</code> points to the original <code>function_to_be_used</code>.</li>
+            <li><code>inner1</code> is created and returned.</li>
+            <li>The name <code>function_to_be_used</code> is rebound to <code>inner1</code>.</li>
+            <li><code>function_to_be_used()</code> now calls <code>inner1()</code>.</li>
+            <li><code>inner1</code> prints before, calls <code>func()</code>, then prints after.</li>
+          </ol>
+        </section>
+
+        <section id="traps">
+          <h2>Common Traps from This PDF</h2>
+          <div class="trap">
+            <h3>1. Passing a function call instead of a function object</h3>
+            <p><code>decorate(func)</code> passes the function object. <code>decorate(func())</code> calls the function first and passes its return value.</p>
+          </div>
+          <div class="trap">
+            <h3>2. Forgetting to return the wrapper</h3>
+            <p>If the decorator does not <code>return wrapper</code>, the decorated function name becomes <code>None</code>. Calling it gives <code>TypeError: 'NoneType' object is not callable</code>.</p>
+          </div>
+          <div class="trap">
+            <h3>3. Forgetting to return the original result from the wrapper</h3>
+            <p>If <code>wrapper</code> calls <code>func()</code> but does not return its result, the decorated function returns <code>None</code>.</p>
+          </div>
+          <div class="trap">
+            <h3>4. Wrapper accepts no arguments</h3>
+            <p>A wrapper written as <code>def wrapper():</code> fails for <code>add(2, 3)</code>. Use <code>*args, **kwargs</code> for general decorators.</p>
+          </div>
+          <div class="trap">
+            <h3>5. Confusing definition time and call time</h3>
+            <p>The decorator function runs during function definition. The wrapper body runs when the decorated function is called.</p>
+          </div>
+          <div class="trap">
+            <h3>6. Multiple decorator order</h3>
+            <p>Applied bottom-up. Executed top-down.</p>
+          </div>
+          <div class="trap">
+            <h3>7. Metadata hidden without <code>functools.wraps</code></h3>
+            <p>Without <code>@functools.wraps(func)</code>, <code>__name__</code> and <code>__doc__</code> usually show wrapper metadata.</p>
+          </div>
+          <div class="trap">
+            <h3>8. Decorated recursive functions return decorated results</h3>
+            <p>If a timer returns <code>(runtime, value)</code>, recursive calls also return <code>(runtime, value)</code> unless you deliberately call an undecorated reference.</p>
+          </div>
+          <div class="trap">
+            <h3>9. Mutating test data</h3>
+            <p>Sorting functions that mutate the input should receive copies when comparing runtimes.</p>
+          </div>
+        </section>
+
+        <section id="questions">
+          <h2>Professor-Style Questions with Answers</h2>
+
+          <details open>
+            <summary>Question 1: What prints?</summary>
+            <pre><code>def deco(func):
+    print("A")
+    def wrap():
+        print("B")
+        func()
+        print("C")
+    print("D")
+    return wrap
+
+@deco
+def f():
+    print("E")
+
+print("F")
+f()</code></pre>
+            <div class="answer">
+              <p><strong>Output:</strong></p>
+              <pre><code>A
+D
+F
+B
+E
+C</code></pre>
+              <p><strong>Reasoning:</strong> When <code>f</code> is defined, <code>deco(f)</code> runs immediately, so <code>A</code> and <code>D</code> print before <code>F</code>. The wrapper body does not run until <code>f()</code>. At call time, <code>f</code> points to <code>wrap</code>, so <code>B</code>, original <code>E</code>, then <code>C</code> print.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Question 2: What is wrong with this decorator?</summary>
+            <pre><code>def deco(func):
+    def wrapper(*args, **kwargs):
+        print("before")
+        func(*args, **kwargs)
+        print("after")
+    return wrapper
+
+@deco
+def add(x, y):
+    return x + y
+
+print(add(2, 3))</code></pre>
+            <div class="answer">
+              <p><strong>Output:</strong></p>
+              <pre><code>before
+after
+None</code></pre>
+              <p><strong>Reasoning:</strong> <code>add</code> now calls <code>wrapper</code>. The wrapper calls the original <code>add</code>, but it does not return that result. A Python function with no explicit return returns <code>None</code>.</p>
+              <p><strong>Fix:</strong></p>
+              <pre><code>result = func(*args, **kwargs)
+return result</code></pre>
+            </div>
+          </details>
+
+          <details>
+            <summary>Question 3: Multiple decorators, with definition-time prints</summary>
+            <pre><code>def d1(func):
+    print("make d1")
+    def w():
+        print("run d1")
+        return func()
+    return w
+
+def d2(func):
+    print("make d2")
+    def w():
+        print("run d2")
+        return func()
+    return w
+
+@d2
+@d1
+def f():
+    print("body")
+
+f()</code></pre>
+            <div class="answer">
+              <p><strong>Output:</strong></p>
+              <pre><code>make d1
+make d2
+run d2
+run d1
+body</code></pre>
+              <p><strong>Reasoning:</strong> Equivalent to <code>f = d2(d1(f))</code>. So <code>d1</code> is applied first and prints <code>make d1</code>. Then <code>d2</code> is applied and prints <code>make d2</code>. At call time, the <code>d2</code> wrapper is outermost, so it runs first.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Question 4: Function object or function call?</summary>
+            <pre><code>def deco(func):
+    def wrapper():
+        return func()
+    return wrapper
+
+def f():
+    print("inside f")
+    return 10
+
+g = deco(f())
+print(g())</code></pre>
+            <div class="answer">
+              <p><strong>Output/error:</strong></p>
+              <pre><code>inside f
+TypeError: 'int' object is not callable</code></pre>
+              <p><strong>Reasoning:</strong> <code>f()</code> runs immediately and returns <code>10</code>. Then <code>deco(10)</code> stores <code>10</code> in <code>func</code>. Later <code>wrapper</code> tries <code>func()</code>, which means <code>10()</code>, causing the error.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Question 5: Countcalls exact dictionary output</summary>
+            <pre><code>def countcalls(calldict):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            calldict[func.__name__] = calldict.get(func.__name__, 0) + 1
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+d = {}
+
+@countcalls(d)
+def a():
+    return "A"
+
+@countcalls(d)
+def b():
+    a()
+    return "B"
+
+print(d)
+print(b())
+print(d)</code></pre>
+            <div class="answer">
+              <p><strong>Output:</strong></p>
+              <pre><code>{}
+B
+{'b': 1, 'a': 1}</code></pre>
+              <p><strong>Reasoning:</strong> Decoration does not increment counts because the wrapper body has not run yet. <code>b()</code> increments <code>b</code>, then the original <code>b</code> body calls <code>a()</code>, which increments <code>a</code>. The call returns <code>B</code>.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Question 6: Metadata without wraps</summary>
+            <pre><code>def deco(func):
+    def wrapper():
+        """wrapper doc"""
+        return func()
+    return wrapper
+
+@deco
+def f():
+    """original doc"""
+    return 7
+
+print(f())
+print(f.__name__)
+print(f.__doc__)</code></pre>
+            <div class="answer">
+              <p><strong>Output:</strong></p>
+              <pre><code>7
+wrapper
+wrapper doc</code></pre>
+              <p><strong>Reasoning:</strong> The name <code>f</code> now points to the wrapper function object. Without <code>functools.wraps</code>, the visible metadata is the wrapper's metadata.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Question 7: Metadata with wraps</summary>
+            <pre><code>import functools
+
+def deco(func):
+    @functools.wraps(func)
+    def wrapper():
+        """wrapper doc"""
+        return func()
+    return wrapper
+
+@deco
+def f():
+    """original doc"""
+    return 7
+
+print(f())
+print(f.__name__)
+print(f.__doc__)</code></pre>
+            <div class="answer">
+              <p><strong>Output:</strong></p>
+              <pre><code>7
+f
+original doc</code></pre>
+              <p><strong>Reasoning:</strong> <code>@functools.wraps(func)</code> copies the original function's metadata onto the wrapper.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Question 8: Shared dictionary or separate dictionary?</summary>
+            <pre><code>def countcalls(calldict):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            calldict[func.__name__] = calldict.get(func.__name__, 0) + 1
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+d1 = {}
+d2 = {}
+
+@countcalls(d1)
+def f():
+    pass
+
+@countcalls(d2)
+def g():
+    pass
+
+f()
+g()
+f()
+print(d1)
+print(d2)</code></pre>
+            <div class="answer">
+              <p><strong>Output:</strong></p>
+              <pre><code>{'f': 2}
+{'g': 1}</code></pre>
+              <p><strong>Reasoning:</strong> Each decorator factory call closes over a different dictionary object.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Question 9: Attribute access to original function</summary>
+            <pre><code>def deco(func):
+    def wrapper():
+        print("wrapped")
+        return func()
+    wrapper.original = func
+    return wrapper
+
+@deco
+def f():
+    print("plain")
+
+f()
+f.original()</code></pre>
+            <div class="answer">
+              <p><strong>Output:</strong></p>
+              <pre><code>wrapped
+plain
+plain</code></pre>
+              <p><strong>Reasoning:</strong> <code>f()</code> calls the wrapper. <code>f.original</code> points to the undecorated function object, so it skips the wrapper print.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Question 10: Timer decorator changes return type</summary>
+            <pre><code>def timer(func):
+    def wrapper(*args, **kwargs):
+        value = func(*args, **kwargs)
+        return 0.5, value
+    return wrapper
+
+@timer
+def add(x, y):
+    return x + y
+
+z = add(2, 3)
+print(z)
+print(z[1])</code></pre>
+            <div class="answer">
+              <p><strong>Output:</strong></p>
+              <pre><code>(0.5, 5)
+5</code></pre>
+              <p><strong>Reasoning:</strong> The decorated <code>add</code> returns whatever <code>wrapper</code> returns. Here the wrapper returns a tuple containing fake runtime and the original result.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Question 11: Why does this recursive quicksort unpack?</summary>
+            <pre><code>@timer
+def quick_sort(arr):
+    if len(arr) &lt;= 1:
+        return arr
+    pivot = arr[0]
+    less = [x for x in arr[1:] if x &lt;= pivot]
+    greater = [x for x in arr[1:] if x &gt; pivot]
+    _, sorted_less = quick_sort(less)
+    _, sorted_greater = quick_sort(greater)
+    return sorted_less + [pivot] + sorted_greater</code></pre>
+            <div class="answer">
+              <p>Because <code>quick_sort</code> is decorated, every call to <code>quick_sort</code> returns <code>(runtime, value)</code>, not just the sorted list. The underscore receives the runtime that the algorithm does not need for the recursive combination step.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Question 12: What happens if the wrapper has no *args?</summary>
+            <pre><code>def deco(func):
+    def wrapper():
+        return func()
+    return wrapper
+
+@deco
+def add(x, y):
+    return x + y
+
+print(add(2, 3))</code></pre>
+            <div class="answer">
+              <p><strong>Error:</strong></p>
+              <pre><code>TypeError: wrapper() takes 0 positional arguments but 2 were given</code></pre>
+              <p><strong>Reasoning:</strong> After decoration, <code>add</code> points to <code>wrapper</code>. So <code>add(2, 3)</code> calls <code>wrapper(2, 3)</code>, but <code>wrapper</code> accepts no parameters.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Question 13: Closure memory behavior</summary>
+            <pre><code>def deco(func):
+    def wrapper():
+        return func()
+    return wrapper
+
+@deco
+def f():
+    return "ok"
+
+print(f())</code></pre>
+            <div class="answer">
+              <p><strong>Output:</strong> <code>ok</code>.</p>
+              <p><strong>Reasoning:</strong> Even though the name <code>f</code> was rebound to <code>wrapper</code>, the wrapper has a closure cell containing a reference to the original function object. That reference keeps the original function alive and callable through <code>func()</code>.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Question 14: Name shadowing and callability</summary>
+            <pre><code>def f():
+    return 3
+
+g = f
+f = 10
+print(g())
+print(f())</code></pre>
+            <div class="answer">
+              <p><strong>Output/error:</strong></p>
+              <pre><code>3
+TypeError: 'int' object is not callable</code></pre>
+              <p><strong>Reasoning:</strong> <code>g</code> still points to the original function object. <code>f</code> was rebound to integer <code>10</code>, so <code>f()</code> attempts to call an integer.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Question 15: Likely exam extension: write a decorator that prints arguments</summary>
+            <p>Write <code>show_args</code> so this works:</p>
+            <pre><code>@show_args
+def add(x, y=0):
+    return x + y
+
+print(add(3, y=4))</code></pre>
+            <div class="answer">
+              <p><strong>One good answer:</strong></p>
+              <pre><code>import functools
+
+def show_args(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        print("args:", args)
+        print("kwargs:", kwargs)
+        return func(*args, **kwargs)
+    return wrapper</code></pre>
+              <p><strong>Expected output:</strong></p>
+              <pre><code>args: (3,)
+kwargs: {'y': 4}
+7</code></pre>
+              <p>This is naturally testable from the PDF because it uses the same <code>*args, **kwargs</code> forwarding pattern as the logging and timing decorators.</p>
+            </div>
+          </details>
+        </section>
+
+        <section id="checklist">
+          <h2>Exam Checklist</h2>
+          <ul>
+            <li>Can you explain why <code>g = f</code> gives two names for one function object?</li>
+            <li>Can you explain why <code>sum = 0</code> hides the built-in <code>sum</code>?</li>
+            <li>Can you translate <code>@decorator</code> syntax into explicit assignment?</li>
+            <li>Can you tell which code runs at definition time and which code runs at call time?</li>
+            <li>Can you trace wrapper output before and after the original function call?</li>
+            <li>Can you write a general wrapper using <code>*args</code> and <code>**kwargs</code>?</li>
+            <li>Can you explain why the wrapper must return the original result?</li>
+            <li>Can you predict <code>__name__</code> and <code>__doc__</code> with and without <code>functools.wraps</code>?</li>
+            <li>Can you trace multiple decorators: bottom-up application, top-down execution?</li>
+            <li>Can you explain how a wrapper keeps the original function alive through a closure?</li>
+            <li>Can you use a wrapper attribute such as <code>wrapper.original = func</code> to preserve undecorated access?</li>
+            <li>Can you write and trace a decorator factory like <code>countcalls(calldict)</code>?</li>
+            <li>Can you distinguish <code>time.time()</code> from <code>timeit.timeit()</code>?</li>
+            <li>Can you explain why the timer decorator returns <code>(runtime, value)</code> and how that affects recursive functions?</li>
+            <li>Can you identify the source inconsistencies: page 3's incorrect equivalence, page 15's missing minus sign, and page 17's insertion-sort wording while the answer uses selection sort?</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

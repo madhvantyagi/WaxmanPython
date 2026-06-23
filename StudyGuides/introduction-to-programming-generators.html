@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generators Study Guide</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --paper: #ffffff;
+      --ink: #1f2933;
+      --muted: #5f6c7b;
+      --line: #d8dee8;
+      --accent: #2454a6;
+      --accent-soft: #e8f0ff;
+      --warn: #8a4b00;
+      --warn-soft: #fff3dd;
+      --good: #0f6b4b;
+      --good-soft: #e4f7ef;
+      --bad: #8b1f2c;
+      --bad-soft: #fde8ec;
+      --code-bg: #101827;
+      --code-ink: #edf2ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+
+    header {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 28px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+      line-height: 1.15;
+    }
+
+    h2 {
+      margin: 34px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--line);
+      font-size: 24px;
+    }
+
+    h3 {
+      margin: 24px 0 8px;
+      font-size: 18px;
+    }
+
+    h4 {
+      margin: 18px 0 8px;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    code {
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      background: #eef2f7;
+      padding: 1px 4px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+
+    pre {
+      margin: 10px 0;
+      padding: 14px 16px;
+      overflow-x: auto;
+      background: var(--code-bg);
+      color: var(--code-ink);
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    pre code {
+      background: transparent;
+      padding: 0;
+      color: inherit;
+      border-radius: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      background: var(--paper);
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #eef2f7;
+      font-weight: 700;
+    }
+
+    ul,
+    ol {
+      margin: 8px 0 12px 22px;
+      padding: 0;
+    }
+
+    li {
+      margin: 4px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      margin: 14px 0;
+    }
+
+    .small {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 0 6px 6px 0;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .ref {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .callout {
+      border-left: 5px solid var(--accent);
+      background: var(--accent-soft);
+      padding: 12px 14px;
+      border-radius: 6px;
+      margin: 12px 0;
+    }
+
+    .warning {
+      border-left-color: var(--warn);
+      background: var(--warn-soft);
+    }
+
+    .good {
+      border-left-color: var(--good);
+      background: var(--good-soft);
+    }
+
+    .bad {
+      border-left-color: var(--bad);
+      background: var(--bad-soft);
+    }
+
+    .answer {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin: 10px 0 18px;
+      background: #fbfcfe;
+    }
+
+    .answer summary {
+      cursor: pointer;
+      padding: 12px 14px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .answer .inside {
+      border-top: 1px solid var(--line);
+      padding: 12px 14px;
+    }
+
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .toc a {
+      display: block;
+      background: #f2f5fa;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px 10px;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .flow div {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      padding: 10px;
+      min-height: 78px;
+      font-size: 14px;
+    }
+
+    .flow b {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent);
+    }
+
+    @media (max-width: 820px) {
+      .grid,
+      .toc,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Generators: Hard Python Exam Study Guide</h1>
+      <p class="small">Source-specific guide for <strong>Introduction to Programming: Generators</strong>. Page references use the extracted PDF page markers.</p>
+      <div>
+        <span class="tag">iterables</span>
+        <span class="tag">iterators</span>
+        <span class="tag">generators</span>
+        <span class="tag">yield</span>
+        <span class="tag">StopIteration</span>
+        <span class="tag">send</span>
+        <span class="tag">coroutines</span>
+        <span class="tag">output prediction</span>
+      </div>
+      <div class="toc" aria-label="Table of contents">
+        <a href="#one-page">One-page exam map</a>
+        <a href="#memory">List vs range vs generator expression</a>
+        <a href="#iterators">Iterable and iterator protocol</a>
+        <a href="#generators">Generator functions and yield</a>
+        <a href="#problems">Source problem patterns</a>
+        <a href="#coroutines">Coroutines and send</a>
+        <a href="#restartable">Restartable generators</a>
+        <a href="#traps">Common traps</a>
+        <a href="#questions">Professor-style questions</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="one-page" class="card">
+        <h2>One-Page Exam Map</h2>
+        <p><span class="ref">Pages 1-14</span> The lecture builds one idea in layers: Python can process a stream of values without storing the whole stream, because iteration is a protocol. Generators are a convenient way to write your own iterators while preserving local state between values.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>What the exam expects</th>
+              <th>Key behavior</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>sum([1,2,3,4,5])</code></td>
+              <td>Recognize that the list is already fully built.</td>
+              <td>All five integers exist in the list before <code>sum</code> starts.</td>
+            </tr>
+            <tr>
+              <td><code>sum(range(1,6))</code></td>
+              <td>Recognize that <code>range</code> is lazy and compact.</td>
+              <td>The range object describes start, stop, step; it does not store a list of all values.</td>
+            </tr>
+            <tr>
+              <td><code>sum(i for i in range(1,6))</code></td>
+              <td>Recognize a generator expression.</td>
+              <td>Values are produced one at a time and immediately consumed by <code>sum</code>.</td>
+            </tr>
+            <tr>
+              <td>Iterable</td>
+              <td>Know it can produce an iterator through <code>iter(obj)</code> or <code>obj.__iter__()</code>.</td>
+              <td>Examples: list, tuple, set, dictionary, string, file object, range, generator object.</td>
+            </tr>
+            <tr>
+              <td>Iterator</td>
+              <td>Know it has <code>__next__()</code> and returns itself from <code>__iter__()</code>.</td>
+              <td>Once exhausted, further <code>next</code> calls raise <code>StopIteration</code>.</td>
+            </tr>
+            <tr>
+              <td>Generator function</td>
+              <td>Identify it by the presence of <code>yield</code> in a <code>def</code>.</td>
+              <td>Calling it returns a generator object; the function body does not run yet.</td>
+            </tr>
+            <tr>
+              <td><code>yield</code></td>
+              <td>Explain that it returns one value and suspends the function.</td>
+              <td>Local variables, instruction pointer, and execution environment are retained.</td>
+            </tr>
+            <tr>
+              <td><code>list(generator)</code></td>
+              <td>Explain how a constructor consumes an iterator.</td>
+              <td>Repeatedly calls <code>next</code>, stores yielded values, stops when <code>StopIteration</code> occurs.</td>
+            </tr>
+            <tr>
+              <td>Coroutine style</td>
+              <td>Know why <code>next(monitor)</code> is needed before <code>send(value)</code>.</td>
+              <td>The first <code>next</code> advances to the first <code>yield</code>; later <code>send</code> injects data into the suspended <code>yield</code> expression.</td>
+            </tr>
+            <tr>
+              <td>Restartable iteration</td>
+              <td>Know why a generator object is one-use and why a class can restart.</td>
+              <td>A class with <code>__iter__</code> as a generator creates a fresh generator each time.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="memory" class="card">
+        <h2>List vs Range vs Generator Expression</h2>
+        <p><span class="ref">Pages 1-2</span> The opening question asks why the following all print <code>15</code> but are not the same:</p>
+        <pre><code>print(sum([1, 2, 3, 4, 5]))
+print(sum(range(1, 6)))
+print(sum(i for i in range(1, 6)))</code></pre>
+        <p>They have the same final value because each supplies <code>sum</code> with the numbers 1 through 5. They differ in how those numbers are represented before and during iteration.</p>
+
+        <div class="grid">
+          <div class="callout">
+            <h3>List version</h3>
+            <p>The list literal stores all elements at once. This is clear and direct, but for a huge input it means memory grows with the number of elements.</p>
+          </div>
+          <div class="callout">
+            <h3><code>range</code> version</h3>
+            <p><code>range(1, 6)</code> is a compact iterable. It represents the sequence without building a full list. During iteration, values are produced as needed.</p>
+          </div>
+          <div class="callout">
+            <h3>Generator expression version</h3>
+            <p><code>(i for i in range(1, 6))</code> creates a generator object. It is especially useful when each element needs a condition or transformation before being consumed.</p>
+          </div>
+          <div class="callout warning">
+            <h3>Exam trap</h3>
+            <p>Same printed output does not mean same memory behavior. A hard question may ask for the output and the memory model.</p>
+          </div>
+        </div>
+
+        <h3>Behind the scenes in <code>sum</code></h3>
+        <p><code>sum</code> does not need to know whether it was given a list, a range, or a generator expression. It only needs an iterable. Internally, the logic is conceptually like this:</p>
+        <pre><code>total = 0
+iterator = iter(input_object)
+while True:
+    try:
+        item = next(iterator)
+    except StopIteration:
+        break
+    total += item</code></pre>
+        <p>That pattern is the central hidden mechanism behind most of the lecture.</p>
+      </section>
+
+      <section id="state-function" class="card">
+        <h2>The "Next Even Number" Problem</h2>
+        <p><span class="ref">Page 2</span> The lecture asks for a function <code>f</code> that returns the next positive even integer less than 10 each time it is called: <code>2</code>, then <code>4</code>, then <code>6</code>, then <code>8</code>. Then it asks to do it without global variables.</p>
+        <p>This problem is really about state. A normal function starts fresh on every call unless the state is stored somewhere. The lecture later shows that generators solve this naturally.</p>
+
+        <h3>Generator version</h3>
+        <pre><code>def even_less_than_10():
+    n = 2
+    while n &lt; 10:
+        yield n
+        n += 2
+
+f = even_less_than_10()
+print(next(f))  # 2
+print(next(f))  # 4
+print(next(f))  # 6
+print(next(f))  # 8</code></pre>
+        <p>The variable <code>n</code> is local, not global. It survives between calls because the generator is suspended at <code>yield</code>, not destroyed.</p>
+
+        <h3>What happens after 8?</h3>
+        <pre><code>print(next(f))</code></pre>
+        <p>The loop condition <code>n &lt; 10</code> is false, the function reaches its end, and Python raises <code>StopIteration</code>. That is not a printed value; it is an exception.</p>
+      </section>
+
+      <section id="iterators" class="card">
+        <h2>Iterable and Iterator Protocol</h2>
+        <p><span class="ref">Pages 2-3</span> The lecture reviews two related terms that are easy to blur together.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Term</th>
+              <th>Definition</th>
+              <th>Required methods</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Iterable</td>
+              <td>An object that can return its members one at a time.</td>
+              <td><code>__iter__()</code>, which returns an iterator.</td>
+              <td><code>[1, 2, 3]</code>, <code>"abc"</code>, <code>range(5)</code>, file objects.</td>
+            </tr>
+            <tr>
+              <td>Iterator</td>
+              <td>An object that represents a stream of data.</td>
+              <td><code>__iter__()</code> returning itself and <code>__next__()</code> returning the next item.</td>
+              <td><code>iter([1, 2, 3])</code>, generator objects.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Correct mental model</h3>
+        <div class="flow">
+          <div><b>1. Iterable</b><code>my_list = [1, 2, 3]</code></div>
+          <div><b>2. Get iterator</b><code>it = iter(my_list)</code></div>
+          <div><b>3. Ask next</b><code>next(it)</code> returns <code>1</code></div>
+          <div><b>4. Ask again</b>returns <code>2</code>, then <code>3</code></div>
+          <div><b>5. End</b>next call raises <code>StopIteration</code></div>
+        </div>
+
+        <h3>Equivalent calls</h3>
+        <pre><code>my_list = [1, 2, 3]
+my_iterator = iter(my_list)
+
+print(next(my_iterator))        # 1
+print(my_iterator.__next__())   # 2
+print(next(my_iterator))        # 3
+print(next(my_iterator))        # StopIteration</code></pre>
+
+        <div class="callout warning">
+          <h3>Important source-specific formatting trap</h3>
+          <p>Page 3 lists examples that can look like separate snippets, not one continuous program. If you run this as one program:</p>
+          <pre><code>my_list = [1, 2, 3]
+my_iterator = iter(my_list)
+
+for x in my_iterator:
+    print(x)
+
+print(next(my_iterator))</code></pre>
+          <p>The final <code>next(my_iterator)</code> raises <code>StopIteration</code> because the <code>for</code> loop already consumed the same iterator. For output questions, always ask whether a fresh iterator was created.</p>
+        </div>
+      </section>
+
+      <section id="generators" class="card">
+        <h2>Generator Functions and <code>yield</code></h2>
+        <p><span class="ref">Pages 3-5</span> A generator function is a function written with <code>def</code> that contains <code>yield</code>. Calling it does not run the function body. Calling it returns a generator object.</p>
+
+        <h3>Even numbers example</h3>
+        <pre><code>def even_numbers(n):
+    i = 0
+    while i &lt; n:
+        yield i
+        i += 2
+
+even_gen = even_numbers(10)
+for num in even_gen:
+    print(num)</code></pre>
+        <p>Output:</p>
+        <pre><code>0
+2
+4
+6
+8</code></pre>
+
+        <h3>What <code>yield</code> actually does</h3>
+        <p>When <code>next(even_gen)</code> is called, Python resumes the generator body. It runs until the next <code>yield</code>. At <code>yield i</code>, Python returns the current value of <code>i</code> to the caller and freezes the generator frame. The local variable <code>i</code>, the loop condition, and the exact next instruction are kept alive.</p>
+        <p>When <code>next(even_gen)</code> is called again, execution resumes immediately after the <code>yield</code>, so <code>i += 2</code> runs before the loop checks again.</p>
+
+        <h3>Countdown example</h3>
+        <p><span class="ref">Pages 4-5</span> The lecture's countdown generator is the best output-prediction example because it contains a <code>print</code> before the loop.</p>
+        <pre><code>def countdown(n):
+    print('Counting down from', n)
+    while n &gt; 0:
+        yield n
+        n -= 1
+
+c = countdown(10)</code></pre>
+        <p>At this point, nothing from inside <code>countdown</code> has printed yet. The function has not begun executing. Python has only created a generator object.</p>
+
+        <pre><code>print(next(c))</code></pre>
+        <p>Output:</p>
+        <pre><code>Counting down from 10
+10</code></pre>
+        <p>Reason: the first <code>next</code> starts the body, prints the message, enters the loop, yields <code>10</code>, and then <code>print</code> prints that yielded value.</p>
+
+        <pre><code>print(next(c))
+print(c.__next__())</code></pre>
+        <p>Output after the first call above has already happened:</p>
+        <pre><code>9
+8</code></pre>
+        <p><code>next(c)</code> and <code>c.__next__()</code> both advance the same iterator.</p>
+
+        <h3>Generator object identity</h3>
+        <p><span class="ref">Page 5</span> In the interpreter, evaluating <code>c</code> shows something like:</p>
+        <pre><code>&lt;generator object countdown at 0x105f73740&gt;</code></pre>
+        <p>The exact memory address changes every run. The exam should not expect the same address. It matters only that <code>c</code> is a generator object, not the first yielded number.</p>
+      </section>
+
+      <section id="stopiteration" class="card">
+        <h2><code>StopIteration</code>, Return, and Exhaustion</h2>
+        <p><span class="ref">Pages 2, 10, 13</span> An iterator signals that it is finished by raising <code>StopIteration</code>. Generator functions do this automatically when they reach the end of the function. They also do it when they execute a <code>return</code> statement.</p>
+
+        <pre><code>def g():
+    yield "A"
+    yield "B"
+
+x = g()
+print(next(x))
+print(next(x))
+print(next(x))</code></pre>
+        <p>Output and then exception:</p>
+        <pre><code>A
+B
+StopIteration</code></pre>
+
+        <div class="callout">
+          <h3>Why <code>for</code> loops do not show the exception</h3>
+          <p>A <code>for</code> loop catches <code>StopIteration</code> internally to know when to stop. Calling <code>next</code> manually does not hide it.</p>
+        </div>
+
+        <h3>Return in a generator</h3>
+        <pre><code>def h():
+    yield 1
+    return
+    yield 2
+
+for item in h():
+    print(item)</code></pre>
+        <p>Output:</p>
+        <pre><code>1</code></pre>
+        <p>The <code>return</code> ends the generator. The later <code>yield 2</code> is never reached.</p>
+      </section>
+
+      <section id="list-constructor" class="card">
+        <h2>How <code>list()</code> Consumes a Generator</h2>
+        <p><span class="ref">Pages 8-10</span> The lecture asks why the list constructor performs iteration. The answer is that <code>list(iterable)</code> constructs a list by consuming the iterable one item at a time.</p>
+
+        <pre><code>output = list(monitor)</code></pre>
+        <p>Conceptually, this does:</p>
+        <pre><code>output = []
+it = iter(monitor)
+while True:
+    try:
+        output.append(next(it))
+    except StopIteration:
+        break</code></pre>
+
+        <p>The final list is no longer lazy. The generator was lazy while producing values, but <code>list</code> stores every yielded value in memory.</p>
+
+        <div class="callout warning">
+          <h3>Memory trap</h3>
+          <p>A generator saves memory only while you stream from it. If you immediately do <code>list(generator)</code>, you ask Python to store all generated values.</p>
+        </div>
+      </section>
+
+      <section id="problems" class="card">
+        <h2>Source Problem Patterns and Model Solutions</h2>
+        <p>The PDF contains several generator-writing prompts. These are likely exam templates because they test state retention, lazy output, and correct stopping behavior.</p>
+
+        <h3>1. Next prime number generator</h3>
+        <p><span class="ref">Page 5</span> Each <code>next</code> call should return the next prime.</p>
+        <pre><code>def gen_primes():
+    candidate = 2
+    while True:
+        is_prime = True
+        divisor = 2
+        while divisor * divisor &lt;= candidate:
+            if candidate % divisor == 0:
+                is_prime = False
+                break
+            divisor += 1
+        if is_prime:
+            yield candidate
+        candidate += 1</code></pre>
+        <p>State retained between calls: <code>candidate</code>. The generator does not recompute earlier primes unless you create a new generator.</p>
+
+        <h3>2. Next leap year generator</h3>
+        <p><span class="ref">Page 6</span> Leap year rules are naturally testable even if the PDF does not spell them out: divisible by 4, except centuries must be divisible by 400.</p>
+        <pre><code>def gen_leap_years(start_year=1):
+    year = start_year
+    while True:
+        if year % 400 == 0 or (year % 4 == 0 and year % 100 != 0):
+            yield year
+        year += 1</code></pre>
+        <p>Example: <code>1900</code> is not a leap year, but <code>2000</code> is.</p>
+
+        <h3>3. Dictionary mapping <code>i</code> to the ith prime</h3>
+        <p><span class="ref">Page 6</span> The lecture gives the intended structure:</p>
+        <pre><code>def prime_dict(n):
+    prime_generator = gen_primes()
+    return {i: next(prime_generator) for i in range(1, n + 1)}</code></pre>
+        <p>For <code>prime_dict(5)</code>, the result is:</p>
+        <pre><code>{1: 2, 2: 3, 3: 5, 4: 7, 5: 11}</code></pre>
+        <p>This is a dictionary comprehension. It consumes the same generator object repeatedly, so the prime sequence advances.</p>
+
+        <h3>4. Octal number generator returning strings</h3>
+        <p><span class="ref">Page 7</span> The source states that when decimal <code>16</code> is produced, the generator returns the string <code>'20'</code>, because <code>20</code> is octal for decimal <code>16</code>.</p>
+        <pre><code>def get_oct():
+    n = 0
+    while True:
+        yield format(n, "o")
+        n += 1</code></pre>
+        <p>First values: <code>'0'</code>, <code>'1'</code>, <code>'2'</code>, ..., <code>'7'</code>, <code>'10'</code>, <code>'11'</code>. If the professor wants positive octal numbers only, start <code>n = 1</code>.</p>
+
+        <h3>5. Fibonacci generator</h3>
+        <p><span class="ref">Page 7</span> A Fibonacci generator is a classic state-retention test because it needs two previous values.</p>
+        <pre><code>def fib():
+    a = 0
+    b = 1
+    while True:
+        yield a
+        a, b = b, a + b</code></pre>
+        <p>First values: <code>0, 1, 1, 2, 3, 5, 8, 13</code>. If the class convention starts Fibonacci at <code>1, 1</code>, initialize <code>a = 1</code> and <code>b = 1</code>.</p>
+
+        <h3>6. Serial number generator</h3>
+        <p><span class="ref">Page 7</span> Serial numbers are ten-character strings. The first two characters are uppercase alphabetic from <code>AA</code> through <code>ZZ</code> in lexicographic order. The following eight characters are numeric from <code>00000000</code> through <code>99999999</code>.</p>
+        <pre><code>def serial_numbers():
+    for first in range(ord("A"), ord("Z") + 1):
+        for second in range(ord("A"), ord("Z") + 1):
+            prefix = chr(first) + chr(second)
+            for number in range(100000000):
+                yield prefix + f"{number:08d}"</code></pre>
+        <p>First values:</p>
+        <pre><code>AA00000000
+AA00000001
+AA00000002</code></pre>
+        <p>After <code>AA99999999</code>, the next value is <code>AB00000000</code>.</p>
+
+        <h3>7. Sensor monitor from a full list of states</h3>
+        <p><span class="ref">Pages 8-10</span> The input sequence is:</p>
+        <pre><code>runs = [1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1]</code></pre>
+        <p>The generator yields the number of zeros since the previous <code>1</code>, but only yields when it receives a <code>1</code>.</p>
+        <pre><code>def sensor_monitor(states):
+    gap = 0
+    for state in states:
+        if state == 1:
+            yield gap
+            gap = 0
+        else:
+            gap += 1
+
+monitor = sensor_monitor(runs)
+output = list(monitor)
+print(output)</code></pre>
+        <p>Output:</p>
+        <pre><code>[0, 0, 1, 0, 3, 0, 0, 0, 1, 2, 0]</code></pre>
+
+        <h4>Step-by-step for the sensor monitor</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>State read</th>
+              <th>Gap before action</th>
+              <th>Action</th>
+              <th>Yielded?</th>
+              <th>Gap after action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>0</td><td>yield gap, reset</td><td>0</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>yield gap, reset</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>0</td><td>increment</td><td>none</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>yield gap, reset</td><td>1</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>yield gap, reset</td><td>0</td><td>0</td></tr>
+            <tr><td>0, 0, 0</td><td>0</td><td>increment three times</td><td>none</td><td>3</td></tr>
+            <tr><td>1</td><td>3</td><td>yield gap, reset</td><td>3</td><td>0</td></tr>
+            <tr><td>1, 1, 1</td><td>0</td><td>yield each time</td><td>0, 0, 0</td><td>0</td></tr>
+            <tr><td>0</td><td>0</td><td>increment</td><td>none</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>yield gap, reset</td><td>1</td><td>0</td></tr>
+            <tr><td>0, 0</td><td>0</td><td>increment twice</td><td>none</td><td>2</td></tr>
+            <tr><td>1</td><td>2</td><td>yield gap, reset</td><td>2</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="coroutines" class="card">
+        <h2>Coroutines and <code>send</code></h2>
+        <p><span class="ref">Pages 10-12</span> The lecture then says the list-based sensor example is unrealistic because the generator gets all inputs at once. In a more realistic setup, a producer sends one state at a time and a consumer keeps the gap state alive.</p>
+
+        <pre><code>def sensor_monitor():
+    zero_count = 0
+    while True:
+        state = (yield zero_count)
+        if state == 1:
+            zero_count = 0
+        else:
+            zero_count += 1</code></pre>
+
+        <h3>Why priming is required</h3>
+        <pre><code>monitor = sensor_monitor()
+next(monitor)           # prime the generator
+gap = monitor.send(0)   # now a value can be received by yield</code></pre>
+        <p>The first <code>next(monitor)</code> runs the generator until it reaches <code>yield zero_count</code>. At that moment it yields <code>0</code> and pauses. The generator is now suspended exactly at the <code>yield</code> expression, ready for <code>send</code> to provide the value assigned to <code>state</code>.</p>
+
+        <div class="callout warning">
+          <h3>Hard output trap</h3>
+          <p>In <code>state = (yield zero_count)</code>, the value yielded to the caller is the old <code>zero_count</code>. The value sent back in by the caller becomes <code>state</code> when the generator resumes.</p>
+        </div>
+
+        <h3>Manual trace</h3>
+        <pre><code>m = sensor_monitor()
+print(next(m))
+print(m.send(0))
+print(m.send(0))
+print(m.send(1))
+print(m.send(0))</code></pre>
+        <p>Output:</p>
+        <pre><code>0
+1
+2
+0
+1</code></pre>
+        <p>Reason:</p>
+        <ol>
+          <li><code>next(m)</code> reaches <code>yield zero_count</code> and yields <code>0</code>.</li>
+          <li><code>send(0)</code> sets <code>state = 0</code>, increments <code>zero_count</code> to <code>1</code>, loops, yields <code>1</code>.</li>
+          <li><code>send(0)</code> increments to <code>2</code>, yields <code>2</code>.</li>
+          <li><code>send(1)</code> resets to <code>0</code>, yields <code>0</code>.</li>
+          <li><code>send(0)</code> increments to <code>1</code>, yields <code>1</code>.</li>
+        </ol>
+
+        <h3>Producer-consumer simulation</h3>
+        <p><span class="ref">Pages 11-12</span> The lecture uses <code>random.randint(0, 1)</code> to simulate a producer and <code>monitor.send(produced)</code> to simulate a consumer processing that value.</p>
+        <pre><code>import random
+
+def main():
+    monitor = sensor_monitor()
+    next(monitor)
+    for _ in range(20):
+        produced = random.randint(0, 1)
+        print(f"Produced: {produced}")
+        gap = monitor.send(produced)
+        print(f"Consumed: {produced}, Gap: {gap}")</code></pre>
+        <p>The exact output changes because random values change. The rule does not change: each sent <code>0</code> increases the gap; each sent <code>1</code> resets it.</p>
+
+        <h3>Security sensor warning version</h3>
+        <p><span class="ref">Page 12</span> The source asks for a modified generator: if the gap between available signals exceeds a user-defined <code>n</code>, return a warning and return.</p>
+        <pre><code>def security_monitor(limit):
+    zero_count = 0
+    while True:
+        state = (yield zero_count)
+        if state == 1:
+            zero_count = 0
+        else:
+            zero_count += 1
+            if zero_count &gt; limit:
+                yield "WARNING"
+                return</code></pre>
+        <p>Trace:</p>
+        <pre><code>m = security_monitor(2)
+print(next(m))      # 0
+print(m.send(0))    # 1
+print(m.send(0))    # 2
+print(m.send(0))    # WARNING
+print(m.send(1))    # StopIteration</code></pre>
+        <p>After <code>return</code>, the coroutine is exhausted. It cannot be reused.</p>
+      </section>
+
+      <section id="restartable" class="card">
+        <h2>One-Use Generator Objects vs Restartable Iterables</h2>
+        <p><span class="ref">Pages 13-14</span> A generator object executes once. After it is exhausted, iterating over it again produces nothing.</p>
+
+        <pre><code>c = countdown(3)
+for n in c:
+    print('T-minus', n)
+
+for n in c:
+    print('T-minus', n)</code></pre>
+        <p>Output:</p>
+        <pre><code>Counting down from 3
+T-minus 3
+T-minus 2
+T-minus 1</code></pre>
+        <p>The second loop prints nothing because <code>c</code> is already exhausted.</p>
+
+        <h3>Restartable class pattern</h3>
+        <pre><code>class countdown:
+    def __init__(self, start):
+        self.start = start
+
+    def __iter__(self):
+        n = self.start
+        while n &gt; 0:
+            yield n
+            n -= 1</code></pre>
+        <p>Now each loop calls <code>__iter__</code>, and <code>__iter__</code> creates a fresh generator.</p>
+
+        <pre><code>c = countdown(3)
+for n in c:
+    print(n)
+for n in c:
+    print(n)</code></pre>
+        <p>Output:</p>
+        <pre><code>3
+2
+1
+3
+2
+1</code></pre>
+      </section>
+
+      <section id="traps" class="card">
+        <h2>Common Traps From This Lecture</h2>
+        <div class="grid">
+          <div class="callout bad">
+            <h3>Calling a generator function runs the body</h3>
+            <p>False. <code>c = countdown(10)</code> creates a generator object. The body starts on <code>next(c)</code>, a <code>for</code> loop, <code>list(c)</code>, <code>sum(c)</code>, or another consumer.</p>
+          </div>
+          <div class="callout bad">
+            <h3>A generator expression stores all values</h3>
+            <p>False. It produces one value at a time. But <code>list(generator_expression)</code> stores them all.</p>
+          </div>
+          <div class="callout bad">
+            <h3><code>return</code> yields a value</h3>
+            <p>False for normal iteration. A <code>return</code> ends the generator and causes <code>StopIteration</code>.</p>
+          </div>
+          <div class="callout bad">
+            <h3>A generator object restarts automatically</h3>
+            <p>False. A generator object is one-use. Use a function call again or a class whose <code>__iter__</code> creates a fresh generator.</p>
+          </div>
+          <div class="callout bad">
+            <h3><code>send</code> can send a non-None value into a new generator</h3>
+            <p>False. You must prime the generator first, usually with <code>next(g)</code>. A just-created generator has not reached a <code>yield</code> expression yet.</p>
+          </div>
+          <div class="callout bad">
+            <h3>Every input to <code>sensor_monitor(states)</code> causes an output</h3>
+            <p>False. In the list-based version, only a <code>1</code> causes a yield. Zeros only increase the internal gap.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="questions" class="card">
+        <h2>Professor-Style Output and Reasoning Questions</h2>
+        <p>Use these like exam drills. Predict first, then open the answer.</p>
+
+        <h3>Question 1: Generator creation vs execution</h3>
+        <pre><code>def countdown(n):
+    print('Counting down from', n)
+    while n &gt; 0:
+        yield n
+        n -= 1
+
+c = countdown(3)
+print("A")
+print(next(c))
+print("B")</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>A
+Counting down from 3
+3
+B</code></pre>
+            <p><code>c = countdown(3)</code> does not run the body. <code>print("A")</code> runs first. Then <code>next(c)</code> starts the generator, so it prints <code>Counting down from 3</code>, yields <code>3</code>, and the outer <code>print</code> prints <code>3</code>.</p>
+          </div>
+        </details>
+
+        <h3>Question 2: Where does resume happen?</h3>
+        <pre><code>def g():
+    x = 10
+    yield x
+    x += 5
+    yield x
+    x += 5
+    yield x
+
+a = g()
+print(next(a))
+print(next(a))
+print(next(a))</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>10
+15
+20</code></pre>
+            <p>After the first <code>yield x</code>, the generator pauses before <code>x += 5</code>. The second <code>next</code> resumes after the first yield, updates <code>x</code> to <code>15</code>, and yields. The third repeats that pattern.</p>
+          </div>
+        </details>
+
+        <h3>Question 3: Exhaustion</h3>
+        <pre><code>def g():
+    yield 1
+    yield 2
+
+x = g()
+print(list(x))
+print(list(x))</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>[1, 2]
+[]</code></pre>
+            <p>The first <code>list(x)</code> consumes the generator until <code>StopIteration</code>. The same generator object is exhausted, so the second <code>list(x)</code> finds no values.</p>
+          </div>
+        </details>
+
+        <h3>Question 4: Fresh generator each time</h3>
+        <pre><code>def g():
+    yield 1
+    yield 2
+
+print(list(g()))
+print(list(g()))</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>[1, 2]
+[1, 2]</code></pre>
+            <p>Each call to <code>g()</code> creates a new generator object, so both lists get the full sequence.</p>
+          </div>
+        </details>
+
+        <h3>Question 5: Iterator consumed by a loop</h3>
+        <pre><code>nums = [1, 2, 3]
+it = iter(nums)
+for x in it:
+    print(x)
+print(next(it))</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>1
+2
+3
+StopIteration</code></pre>
+            <p>The first three lines are printed by the loop. The loop stops because the iterator is exhausted. The explicit <code>next(it)</code> then raises <code>StopIteration</code>. In a real traceback, <code>StopIteration</code> appears as an exception, not a normal printed line.</p>
+          </div>
+        </details>
+
+        <h3>Question 6: List is restartable, iterator is not</h3>
+        <pre><code>nums = [1, 2, 3]
+for x in nums:
+    print(x)
+for x in nums:
+    print(x)</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>1
+2
+3
+1
+2
+3</code></pre>
+            <p>A list is an iterable that creates a fresh iterator for each loop. This is different from reusing the same iterator object.</p>
+          </div>
+        </details>
+
+        <h3>Question 7: Sensor monitor output</h3>
+        <pre><code>def sensor_monitor(states):
+    gap = 0
+    for state in states:
+        if state == 1:
+            yield gap
+            gap = 0
+        else:
+            gap += 1
+
+print(list(sensor_monitor([0, 0, 1, 0, 1, 1, 0])))</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>[2, 1, 0]</code></pre>
+            <p>The first two zeros build gap <code>2</code>. The first <code>1</code> yields <code>2</code> and resets. Then one zero builds gap <code>1</code>, the next <code>1</code> yields <code>1</code>, and the next <code>1</code> yields <code>0</code>. The final zero does not yield because no later <code>1</code> appears.</p>
+          </div>
+        </details>
+
+        <h3>Question 8: <code>list()</code> triggers execution</h3>
+        <pre><code>def g():
+    print("start")
+    yield 1
+    print("middle")
+    yield 2
+    print("end")
+
+print("before")
+print(list(g()))
+print("after")</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>before
+start
+middle
+end
+[1, 2]
+after</code></pre>
+            <p>The outer <code>print(list(g()))</code> must finish constructing the list before it can print the list. During construction, <code>list</code> repeatedly calls <code>next</code>, so all internal prints happen first. The <code>end</code> print happens after the second yield resumes and before the generator reaches the end.</p>
+          </div>
+        </details>
+
+        <h3>Question 9: <code>sum</code> with a generator expression</h3>
+        <pre><code>def noisy(n):
+    print("make", n)
+    return n
+
+print(sum(noisy(i) for i in range(3)))</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>make 0
+make 1
+make 2
+3</code></pre>
+            <p>The generator expression calls <code>noisy(i)</code> lazily as <code>sum</code> asks for each item. The final sum is <code>0 + 1 + 2</code>.</p>
+          </div>
+        </details>
+
+        <h3>Question 10: <code>yield</code> before update</h3>
+        <pre><code>def even_numbers(n):
+    i = 0
+    while i &lt; n:
+        yield i
+        i += 2
+
+e = even_numbers(5)
+print(next(e))
+print(next(e))
+print(next(e))
+print(next(e))</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>0
+2
+4
+StopIteration</code></pre>
+            <p>The yielded values are <code>0</code>, <code>2</code>, and <code>4</code>. After yielding <code>4</code>, the next resume runs <code>i += 2</code>, making <code>i = 6</code>. The loop condition fails and the generator ends.</p>
+          </div>
+        </details>
+
+        <h3>Question 11: Coroutine priming mistake</h3>
+        <pre><code>def sensor_monitor():
+    zero_count = 0
+    while True:
+        state = (yield zero_count)
+        if state == 1:
+            zero_count = 0
+        else:
+            zero_count += 1
+
+m = sensor_monitor()
+print(m.send(0))</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>TypeError</code></pre>
+            <p>You cannot send a non-<code>None</code> value into a just-created generator. The generator has not yet reached a <code>yield</code> expression where the value can be received. Prime it first with <code>next(m)</code> or <code>m.send(None)</code>.</p>
+          </div>
+        </details>
+
+        <h3>Question 12: Coroutine send trace</h3>
+        <pre><code>m = sensor_monitor()
+print(next(m))
+print(m.send(1))
+print(m.send(0))
+print(m.send(0))
+print(m.send(1))</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>0
+0
+1
+2
+0</code></pre>
+            <p>Priming yields <code>0</code>. Sending <code>1</code> resets to <code>0</code> and yields <code>0</code>. The next two zeros increase the gap to <code>1</code> and <code>2</code>. Sending <code>1</code> resets it again.</p>
+          </div>
+        </details>
+
+        <h3>Question 13: Prime dictionary</h3>
+        <pre><code>d = prime_dict(4)
+print(d)
+print(d[3])</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>{1: 2, 2: 3, 3: 5, 4: 7}
+5</code></pre>
+            <p>The dictionary comprehension calls <code>next(prime_generator)</code> once for each key from <code>1</code> through <code>4</code>.</p>
+          </div>
+        </details>
+
+        <h3>Question 14: Octal generator</h3>
+        <pre><code>g = get_oct()
+for _ in range(10):
+    print(next(g))</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>0
+1
+2
+3
+4
+5
+6
+7
+10
+11</code></pre>
+            <p>After octal digit <code>7</code>, the next octal representation is <code>10</code>, which equals decimal <code>8</code>. The generator returns strings, not integers.</p>
+          </div>
+        </details>
+
+        <h3>Question 15: Restartable class</h3>
+        <pre><code>class countdown:
+    def __init__(self, start):
+        self.start = start
+
+    def __iter__(self):
+        n = self.start
+        while n &gt; 0:
+            yield n
+            n -= 1
+
+c = countdown(2)
+print(list(c))
+print(list(c))</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>[2, 1]
+[2, 1]</code></pre>
+            <p>Each <code>list(c)</code> calls <code>c.__iter__()</code>, and each call creates a fresh generator from the beginning.</p>
+          </div>
+        </details>
+
+        <h3>Question 16: Generator object inside <code>iter</code></h3>
+        <pre><code>g = even_numbers(4)
+print(g is iter(g))
+print(next(g))
+print(next(iter(g)))</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>True
+0
+2</code></pre>
+            <p>A generator object is its own iterator, so <code>iter(g)</code> returns <code>g</code> itself. It does not create a fresh generator.</p>
+          </div>
+        </details>
+
+        <h3>Question 17: Likely exam extension - filter and transform</h3>
+        <pre><code>print(sum(i * i for i in range(6) if i % 2 == 0))</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>20</code></pre>
+            <p>The even values from <code>range(6)</code> are <code>0</code>, <code>2</code>, and <code>4</code>. Squared, they are <code>0</code>, <code>4</code>, and <code>16</code>. The sum is <code>20</code>. This tests the page 1 point that generator expressions are flexible for transformations and conditions.</p>
+          </div>
+        </details>
+
+        <h3>Question 18: Likely exam extension - hidden memory issue</h3>
+        <pre><code>values = (i for i in range(1000000000))
+first_three = [next(values), next(values), next(values)]
+print(first_three)</code></pre>
+        <details class="answer">
+          <summary>Answer and reasoning</summary>
+          <div class="inside">
+            <pre><code>[0, 1, 2]</code></pre>
+            <p>The generator expression does not build a billion integers. It keeps enough state to know the next value from the range iterator. Only three values are requested.</p>
+          </div>
+        </details>
+      </section>
+
+      <section class="card">
+        <h2>How to Answer Written Exam Questions</h2>
+        <p>When a problem asks you to explain a generator, use this checklist:</p>
+        <ol>
+          <li>State whether the object is an iterable, an iterator, or both.</li>
+          <li>Identify when execution begins. For generator functions, it begins on first consumption, not on function call.</li>
+          <li>Identify where execution pauses. It pauses at <code>yield</code>.</li>
+          <li>Identify which local variables survive. Those are the generator's retained state.</li>
+          <li>Identify who is consuming the generator: <code>for</code>, <code>next</code>, <code>list</code>, <code>sum</code>, dictionary comprehension, or <code>send</code>.</li>
+          <li>Identify how it ends: loop finishes, function reaches the end, or <code>return</code> executes, causing <code>StopIteration</code>.</li>
+          <li>For memory questions, separate lazy generation from forced collection. <code>list(g)</code> is not memory-light after it completes.</li>
+        </ol>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

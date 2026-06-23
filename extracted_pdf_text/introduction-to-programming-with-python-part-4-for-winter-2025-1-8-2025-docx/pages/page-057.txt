@@ -1,0 +1,39 @@
+A peek under the hood …
+What happens internally when we write something like this:
+d=[1,2,3]
+del d[0]
+When you perform the operation `del d[0]` on a list `d` in Python, several internal steps are involved to
+update the list:
+1. Removal of the Element: The first element in the list (`d[0]`) is removed. This operation decreases the
+reference count of the object that `d[0]` was pointing to. If this was the only reference to that object, and
+no other references exist elsewhere in your program, the object becomes eligible for garbage collection.
+2. Shifting of Subsequent Elements: To maintain the contiguous nature of the list, all elements that
+followed the removed element (`d[1]`, `d[2]`, etc.) are shifted one position to the left. This means that the
+element that was at `d[1]` moves to `d[0]`, `d[2]` moves to `d[1]`, and so on. This shift ensures there are
+no "gaps" in the list.
+3. Size Adjustment: Internally, the list object adjusts its recorded size to reflect the removal of an
+element. The capacity of the underlying array that stores the list elements (which is typically larger than
+the number of elements to accommodate growth) might not change immediately upon the deletion of a
+single element. The Python list implementation may keep some empty space in the underlying array for
+efficient addition of new elements.
+It's worth noting that the actual memory allocation and deallocation are handled by the Python memory
+management system and can be influenced by various factors, including implementation details of the
+Python interpreter you're using (like CPython, PyPy, etc.). The Python list is implemented as a dynamic
+array, which means it can grow or shrink as elements are added or removed, but the resizing of the
+underlying array (either growing or shrinking its allocated memory) doesn't necessarily happen with every
+addition or removal operation due to considerations for efficiency and performance.
+To summarize: `del d[0]` removes the first element from the list `d`, shifts subsequent elements to fill the
+gap, adjusts the size of the list, and may eventually lead to adjustments in the allocated memory for the
+list, depending on the implementation and the state of the list.
+Problem:
+Here is an attempt to write my own version of clear(). Does my version accomplish the same thing as the
+built in one? Why or why not. (what about sub-lists …)
+def my_clear(lst):
+for i in range(len(lst) - 1, -1, -1):
+del lst[i]
+a = [1, 2]
+b = [3, 4]
+c = [a, 5, b, 6]
+# Using my_clear
+my_clear(c)
+129

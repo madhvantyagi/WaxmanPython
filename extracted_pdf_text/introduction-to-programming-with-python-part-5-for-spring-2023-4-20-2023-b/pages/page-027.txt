@@ -1,0 +1,23 @@
+Problem:
+Write a function clear(x) where x is a list of “words”. Each word is a string that might have either a ‘.’
+‘,’, or’;’ tacked on at the end. clear() will return a list with the original words stripped of the
+punctuation.
+Answer:
+def clear(x):
+cleaned_words = []
+for word in x:
+if word[-1] in ('.', ',', ';'):
+cleaned_word = word[:-1]
+else:
+cleaned_word = word
+cleaned_words.append(cleaned_word)
+return cleaned_words
+and using a list comprehension we get a shorter …
+def clear(x):
+return [word.rstrip('.,;') for word in x]
+Actually, the list comprehension using the member function is much nicer and clearer.
+Question: Do the two versions of clear behave exactly the same?
+Question: What about this version?
+def clear(x):
+return [word[:-1] if word[-1] in '.,;' else word for word in x]
+124

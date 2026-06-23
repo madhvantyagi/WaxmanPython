@@ -1,0 +1,41 @@
+Problem:
+Let’s compare the runtime of four sorting algorithms: bubble sort, insertion sort, quicksort and
+merge sort.
+Write a decorator “timer” so that when it decorates a sort function, it sorts the list passed to the
+function and returns the runtime.
+Answer:
+import time
+import functools
+import matplotlib.pyplot as plt
+import random
+# Timer decorator to measure execution time
+def timer(func):
+@functools.wraps(func)
+def wrapper_timer(*args, **kwargs):
+start_time = time.time()
+value = func(*args, **kwargs)
+end_time = time.time()
+runtime = end_time - start_time
+#print(f"Runtime of {func.__name__}: {runtime:.6f} seconds")
+return runtime, value # Return both runtime and the sorted array
+return wrapper_timer
+# Bubble Sort
+@timer
+def bubble_sort(arr):
+n = len(arr)
+for i in range(n):
+for j in range(0, n-i-1):
+if arr[j] > arr[j+1]:
+arr[j], arr[j+1] = arr[j+1], arr[j]
+return arr
+# Selection Sort
+@timer
+def selection_sort(arr):
+for i in range(len(arr)):
+min_idx = i
+for j in range(i+1, len(arr)):
+if arr[min_idx] > arr[j]:
+min_idx = j
+arr[i], arr[min_idx] = arr[min_idx], arr[i]
+return arr
+17

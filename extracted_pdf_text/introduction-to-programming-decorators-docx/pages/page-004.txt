@@ -1,0 +1,31 @@
+result = add_numbers(2, 3)
+print(result)
+In general:
+Syntactically, decorators are denoted using the special @ symbol as follows:
+@decorate
+def func(x):
+...
+The preceding code is shorthand for the following:
+def func(x):
+...
+func = decorate(func) # decorate is the name of the decorator in this example
+So the original function name is associated with the decorated function.
+In the example, a function func() is defined.
+• However, immediately after its definition, the function object itself is passed to the
+function decorate(),
+• which returns an object that replaces the original func. (i.e. the new object is assigned
+to the original name func)
+We can run this in the emulator to see exactly the control path during program execution.
+There is a problem, however. In practice, functions also contain metadata such as the
+function name, doc string, and type hints. If you put a wrapper around a function, this
+information gets hidden. When writing a decorator, it’s considered best practice to use
+the @wraps() decorator, for example:
+def my_decorator(func):
+def wrapper(*args, **kwargs):
+""" wrapper"""
+print("Before the function is called.")
+result = func(*args, **kwargs)
+print("After the function is called.")
+return result
+return wrapper
+4

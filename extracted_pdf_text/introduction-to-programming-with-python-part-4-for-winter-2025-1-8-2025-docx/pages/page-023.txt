@@ -1,0 +1,35 @@
+The takeaway: Never use a mutable value, such as a list or dictionary, as a parameter’s default value.
+You shouldn’t do so because default values are stored and reused across calls to the function. This means
+that if you modify the default value in one call, that modification will be visible in the next call.
+So, as a general practice, to avoid such surprises, only use immutable objects for default argument
+values—numbers, strings, Booleans, None, and so on.
+3.Variadic Arguments
+A function can accept a variable number of arguments if an asterisk (*) is used as a prefix on the last
+parameter name. For example:
+def product(first, *args):
+result = first
+for x in args: # note args is an iterable. Its type is <class 'tuple'>.
+result = result * x
+return result
+product(10, 20) # -> 200
+product(2, 3, 4, 5) # -> 120
+In this case, all of the extra arguments are placed into the args variable as a tuple. You can then work with
+the arguments using the standard sequence operations—iteration, slicing, unpacking, and so on.
+3.Keyword Arguments vs Positional Arguments
+When calling a function, arguments can be supplied by explicitly naming each parameter and specifying a
+value. These are known as keyword arguments. Here is an example:
+def func(w, x, y, z):
+statements
+# Keyword argument invocation
+func(x=3, y=22, w='hello', z=[1, 2])
+With keyword arguments, the order of the arguments doesn’t matter as long as each required parameter
+gets a single value.
+If you omit any of the required arguments or if the name of a keyword doesn’t match any of the parameter
+names in the function definition, a TypeError exception is raised.
+Keyword arguments are evaluated in the same order as they are specified in the function call.
+Important
+Positional arguments and keyword arguments can appear in the same function call, provided that
+• all the positional arguments appear first,
+• values are provided for all nonoptional arguments, and
+• no argument receives more than one value.
+95

@@ -1,0 +1,30 @@
+from typing import NamedTuple
+Define a named tuple to hold the parsed result
+class ParseResult(NamedTuple): # inherit from NamedTuple
+name: str # notice the optional type hint
+value: str
+Now, instead of returning a regular tuple, we can return an instance of `ParseResult`:
+def parse_value(text):
+'''
+Split text of the form name=val into a named tuple
+'''
+parts = text.split('=', 1)
+return ParseResult(parts[0].strip(), parts[1].strip())
+Here, `ParseResult(parts[0].strip(), parts[1].strip())` creates a `ParseResult` object with two
+fields: `name` and `value`. This makes the return value much clearer and more structured
+than using a basic tuple.
+Accessing Named Tuple Fields
+A named tuple works just like a normal tuple (you can still unpack it, iterate over it, etc.),
+but you can also reference its fields using meaningful names:
+r = parse_value('url=http://www.python.org')
+print(r.name, r.value)
+This prints:
+url http://www.python.org
+By using `r.name` and `r.value`, it's immediately clear what each value represents. This
+eliminates any confusion that might arise from using index-based access like `r[0]` or
+`r[1]`.
+Named tuples provide a simple, readable, and structured way to return multiple values
+from a function. They enhance code clarity by allowing you to refer to values by name
+rather than relying on index positions, making your code easier to maintain and understand.
+You can still refer to the various elements of the tuple by positional value if you like.
+104
